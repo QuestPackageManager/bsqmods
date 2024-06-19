@@ -1,0 +1,11 @@
+{
+	"name": "BeatLeader",
+	"description": "Open source custom maps leaderboard",
+	"id": "BeatLeader",
+	"version": "0.7.0",
+	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.7.0/BeatLeader.qmod",
+	"source": "https://github.com/BeatLeader/beatleader-qmod/",
+	"author": "NSGolova",
+	"cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
+	"modloader": "QuestLoader"
+}

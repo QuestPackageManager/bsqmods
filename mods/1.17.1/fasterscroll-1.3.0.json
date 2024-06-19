@@ -1,0 +1,11 @@
+{
+	"name": "Faster Scroll",
+	"description": "Find your song faster with this customizable faster scrolling mod.",
+	"id": "fasterscroll",
+	"version": "1.3.0",
+	"download": "https://github.com/Christoffyw/FasterScrollQuest/releases/download/v1.3.0/fasterscroll_v1.3.0.qmod",
+	"source": "https://github.com/Christoffyw/FasterScrollQuest/",
+	"author": "Christoffyw",
+	"cover": "https://raw.githubusercontent.com/Christoffyw/FasterScrollQuest/master/Cover.jpg",
+	"modloader": "QuestLoader"
+}

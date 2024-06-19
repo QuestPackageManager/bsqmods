@@ -1,0 +1,11 @@
+{
+	"name": "PinkCore",
+	"description": "PinkCore is a core mod that ports over the rest of SongCore's features.\nThis includes adding information to your game such as Mappers names, Mod Requirements, Custom Colours, Custom Difficulty names, Burn Marks, and more!",
+	"id": "PinkCore",
+	"version": "1.5.2",
+	"download": "https://github.com/ModdingPink/PinkCore/releases/download/v1.5.2/PinkCore.qmod",
+	"source": "https://github.com/ModdingPink/PinkCore/",
+	"author": "RedBrumbler, Pink, StackDoubleFlow, Lillie, Darknight1050",
+	"cover": "https://raw.githubusercontent.com/ModdingPink/PinkCore/master/cover.jpg",
+	"modloader": "QuestLoader"
+}

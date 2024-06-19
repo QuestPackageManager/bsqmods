@@ -1,0 +1,11 @@
+{
+	"name": "CustomMissText",
+	"description": "This Beat Saber mod allows you to change the 'MISS' text that appears when being bad at the game and missing a note, while not only allowing the user to change the text, it also gives you the ability to change the text font size (basically the text size) and the text color to customize it even more!\nPink cute",
+	"id": "CustomMissText",
+	"version": "1.0.0",
+	"download": "https://github.com/rxzz0/CustomMissText/releases/download/1.0.0/CustomMissText.qmod",
+	"source": "https://github.com/rxzz0/CustomMissText/",
+	"author": "rxzz0",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

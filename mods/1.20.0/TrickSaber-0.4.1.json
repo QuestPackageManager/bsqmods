@@ -1,0 +1,11 @@
+{
+	"name": "TrickSaber",
+	"description": "Do tricks and stuff",
+	"id": "TrickSaber",
+	"version": "0.4.1",
+	"download": "https://github.com/Fernthedev/Quest-Trick-Saber/releases/download/v0.4.1/TrickSaber.qmod",
+	"source": "https://github.com/Fernthedev/Quest-Trick-Saber/",
+	"author": "FernTheDev,  Michael Zoller, ToniMacaroni",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

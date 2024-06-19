@@ -1,0 +1,11 @@
+{
+	"name": "QBeatSaberPlus-NoteTweaker",
+	"description": "Feel good!",
+	"id": "qbeatsaberplus-notetweaker",
+	"version": "6.3.0",
+	"download": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/releases/download/v6.3.0/QBeatSaberPlus-NoteTweaker.qmod",
+	"source": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/",
+	"author": "HardCPP",
+	"cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-NoteTweaker/master/cover.png",
+	"modloader": "Scotland2"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "AntiVertigo",
+	"description": "Spawns a plane or circle under you to help you deal with vertigo issues.",
+	"id": "AntiVertigo",
+	"version": "1.0.1",
+	"download": "https://github.com/RedBrumbler/AntiVertigo/releases/latest/download/AntiVertigo.zip",
+	"source": "https://github.com/RedBrumbler/AntiVertigo/",
+	"author": "RedBrumbler",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

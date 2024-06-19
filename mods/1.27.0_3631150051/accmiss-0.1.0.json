@@ -1,0 +1,11 @@
+{
+	"name": "AccMiss",
+	"description": "Miss when you acc bad",
+	"id": "accmiss",
+	"version": "0.1.0",
+	"download": "https://github.com/Metalit/AccMiss/releases/download/v0.1.0/AccMiss.qmod",
+	"source": "https://github.com/Metalit/AccMiss/",
+	"author": "Metalit",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

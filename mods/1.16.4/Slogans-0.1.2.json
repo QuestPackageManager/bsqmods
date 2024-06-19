@@ -1,0 +1,11 @@
+{
+	"name": "Slogans",
+	"description": "Adds some funky customisable text in the sky",
+	"id": "Slogans",
+	"version": "0.1.2",
+	"download": "https://millzydev.itch.io/slogans",
+	"source": null,
+	"author": "Millzy",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

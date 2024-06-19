@@ -1,0 +1,11 @@
+{
+	"name": "Transitions",
+	"description": "Speed up or remove boring transitions in the game",
+	"id": "transitions",
+	"version": "1.2.0",
+	"download": "https://github.com/FrozenAlex/Transitions/releases/download/v1.2.0/Transitions.qmod",
+	"source": "https://github.com/FrozenAlex/Transitions/",
+	"author": "Metalit",
+	"cover": "https://raw.githubusercontent.com/FrozenAlex/Transitions/master/cover.png",
+	"modloader": "Scotland2"
+}

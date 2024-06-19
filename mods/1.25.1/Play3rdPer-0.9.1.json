@@ -1,0 +1,11 @@
+{
+	"name": "Third Person mod",
+	"description": "Features:\n- Play in third person\n- Fix your camera to your saber\n- Fix your camera\n- Fly through the enviorment",
+	"id": "Play3rdPer",
+	"version": "0.9.1",
+	"download": "https://github.com/ComputerElite/play3rdper/releases/download/0.9.1/Play3rdPer.qmod",
+	"source": "https://github.com/ComputerElite/play3rdper/",
+	"author": "ComputerElite",
+	"cover": "https://raw.githubusercontent.com/ComputerElite/play3rdper/master/cover.png",
+	"modloader": "QuestLoader"
+}

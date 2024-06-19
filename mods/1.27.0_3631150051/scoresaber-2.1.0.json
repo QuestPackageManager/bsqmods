@@ -1,0 +1,11 @@
+{
+	"name": "ScoreSaber",
+	"description": "Allows you to upload scores to an online leaderboard at https://scoresaber.com. Earn PP from ranked maps and compare scores with others.",
+	"id": "scoresaber",
+	"version": "2.1.0",
+	"download": "https://scoresaber.com/quest",
+	"source": "https://github.com/ScoreSaber/ScoreSaber-Quest",
+	"author": "Umbranox, Optimus, RedBrumbler, Qwasyx",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

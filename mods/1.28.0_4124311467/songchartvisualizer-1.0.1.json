@@ -1,0 +1,11 @@
+{
+	"name": "SongChartVisualizer",
+	"description": "",
+	"id": "songchartvisualizer",
+	"version": "1.0.1",
+	"download": "https://github.com/kodenamekrak/SongChartVisualizer/releases/download/1.0.1/SongChartVisualizer.qmod",
+	"source": "https://github.com/kodenamekrak/SongChartVisualizer/",
+	"author": "Eris, KodenameKRAK",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

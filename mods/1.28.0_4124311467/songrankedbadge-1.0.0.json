@@ -1,0 +1,11 @@
+{
+	"name": "SongRankedBadge",
+	"description": "",
+	"id": "songrankedbadge",
+	"version": "1.0.0",
+	"download": "https://github.com/kodenamekrak/SongRankedBadge/releases/download/1.0.0/SongRankedBadge.qmod",
+	"source": "https://github.com/kodenamekrak/SongRankedBadge/",
+	"author": "KodenameKRAK, qe201020335",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

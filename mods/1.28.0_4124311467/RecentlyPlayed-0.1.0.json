@@ -1,0 +1,11 @@
+{
+	"name": "RecentlyPlayed",
+	"description": "Adds a history tab that displays the most recently played maps",
+	"id": "RecentlyPlayed",
+	"version": "0.1.0",
+	"download": "https://github.com/Tatenshi/RecentlyPlayed/releases/download/v0.1.0/RecentlyPlayed_1_28_0.qmod",
+	"source": "https://github.com/Tatenshi/RecentlyPlayed/",
+	"author": "Tatenshi",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

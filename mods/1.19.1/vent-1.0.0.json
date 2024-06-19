@@ -1,0 +1,11 @@
+{
+	"name": "Vent",
+	"description": "Failed so hard you wanted to vent out of the game? Then here it is. (Launches amongus vr if installed)",
+	"id": "vent",
+	"version": "1.0.0",
+	"download": "https://github.com/IMB11/Vent/releases/download/1.0.0/Vent-1.0.0%2B1191.qmod",
+	"source": "https://github.com/IMB11/Vent/",
+	"author": "IMB11 (IMB11)",
+	"cover": "https://raw.githubusercontent.com/IMB11/Vent/master/cover.png",
+	"modloader": "QuestLoader"
+}

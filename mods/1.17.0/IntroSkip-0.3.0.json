@@ -1,0 +1,11 @@
+{
+	"name": "Intro Skip",
+	"description": "Skip the intro and outro of maps",
+	"id": "IntroSkip",
+	"version": "0.3.0",
+	"download": "https://henwill8.itch.io/intro-skip",
+	"source": null,
+	"author": "Polly51104",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

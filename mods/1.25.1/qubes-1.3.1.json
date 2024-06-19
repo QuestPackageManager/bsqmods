@@ -1,0 +1,11 @@
+{
+	"name": "Qubes",
+	"description": "Highly customizable Qubes(tm) that you can play with. Currently updated by speecil",
+	"id": "qubes",
+	"version": "1.3.1",
+	"download": "https://github.com/speecil/Qubes/releases/download/v1.3.1/Qubes.qmod",
+	"source": "https://github.com/speecil/Qubes/",
+	"author": "Metalit,  speecil",
+	"cover": "https://raw.githubusercontent.com/speecil/Qubes/master/cover.png",
+	"modloader": "QuestLoader"
+}

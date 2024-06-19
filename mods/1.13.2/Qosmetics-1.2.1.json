@@ -1,0 +1,11 @@
+{
+	"name": "Qosmetics",
+	"description": "Quest Cosmetics on a whole new level!",
+	"id": "Qosmetics",
+	"version": "1.2.1",
+	"download": "https://github.com/RedBrumbler/Qosmetics/releases/download/1.2.1/Qosmetics.zip",
+	"source": "https://github.com/RedBrumbler/Qosmetics/",
+	"author": "RedBrumbler",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

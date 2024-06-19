@@ -1,0 +1,11 @@
+{
+	"name": "MRCPlus",
+	"description": "Unlock additional options for Oculus Mixed Reality Capture. Requires a PC running the MRC OBS plugin.",
+	"id": "MRCPlus",
+	"version": "1.0.1",
+	"download": "https://github.com/Raemien/MRCPlus/releases/download/v1.0.1/MRCPlus.qmod",
+	"source": "https://github.com/Raemien/MRCPlus/",
+	"author": "Raemien",
+	"cover": "https://raw.githubusercontent.com/Raemien/MRCPlus/master/cover.png",
+	"modloader": "QuestLoader"
+}

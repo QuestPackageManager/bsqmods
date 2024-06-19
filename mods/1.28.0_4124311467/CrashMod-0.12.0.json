@@ -1,0 +1,11 @@
+{
+	"name": "Crash Mod",
+	"description": "Crash your game if you are bad and good\nFeatures:\n- Crash your mod via various triggers. e. g. Crash on Play, Miss, Good cut, Turn and way more",
+	"id": "CrashMod",
+	"version": "0.12.0",
+	"download": "https://github.com/ComputerElite/CrashMod/releases/download/0.12.0/CrashMod.qmod",
+	"source": "https://github.com/ComputerElite/CrashMod/",
+	"author": "ComputerElite",
+	"cover": "https://raw.githubusercontent.com/ComputerElite/CrashMod/master/cover.png",
+	"modloader": "QuestLoader"
+}

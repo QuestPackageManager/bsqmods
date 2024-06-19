@@ -1,0 +1,11 @@
+{
+	"name": "Adblock",
+	"description": "???",
+	"id": "adblock",
+	"version": "0.1.0",
+	"download": "https://github.com/WaffleTheCool/Adblock/releases/download/1.25.1/Adblock.qmod",
+	"source": "https://github.com/WaffleTheCool/Adblock/",
+	"author": "nesiLLL",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

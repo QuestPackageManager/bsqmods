@@ -1,0 +1,11 @@
+{
+	"name": "Server Browser",
+	"description": "Lets you browse and join Multiplayer Servers right from within the headset",
+	"id": "ServerBrowserQuest",
+	"version": "0.1.0-Lite",
+	"download": "https://github.com/EnderdracheLP/BeatSaberServerBrowserQuest/releases/download/v0.1.0-Lite/ServerBrowser-Lite.qmod",
+	"source": "https://github.com/EnderdracheLP/BeatSaberServerBrowserQuest/",
+	"author": "EnderdracheLP#2305, LookAtHippo#1213",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "PitchBlaq",
+	"description": " ",
+	"id": "PitchBlaq",
+	"version": "0.1.0",
+	"download": "https://github.com/NotHiiragi/PitchBlaq/releases/download/v0.1.0/PitchBlaq.qmod",
+	"source": "https://github.com/NotHiiragi/PitchBlaq/",
+	"author": "Loloppe | Anony",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

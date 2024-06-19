@@ -1,0 +1,11 @@
+{
+	"name": "CrashReporter",
+	"description": "Automatically upload crashes.",
+	"id": "crashreporter",
+	"version": "0.1.4",
+	"download": "https://github.com/darknight1050/CrashReporter/releases/download/v0.1.4/CrashReporter.qmod",
+	"source": "https://github.com/darknight1050/CrashReporter/",
+	"author": "darknight1050",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

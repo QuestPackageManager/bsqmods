@@ -1,0 +1,11 @@
+{
+	"name": "More By Core",
+	"description": "More By Core, for 1.24.0! Lets you customize BeatSaber with added stuff!",
+	"id": "morebycore",
+	"version": "1.3.0",
+	"download": "https://github.com/Core-Quest/MoreByCore/releases/download/v1.4.0/MoreByCore.qmod",
+	"source": "https://github.com/Core-Quest/MoreByCore/",
+	"author": "Core",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

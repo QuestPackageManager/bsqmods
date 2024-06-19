@@ -1,0 +1,11 @@
+{
+	"name": "Bomb Qolorer",
+	"description": "Allows you to override the default bomb color",
+	"id": "bomb-qolorer",
+	"version": "0.1.0",
+	"download": "https://github.com/TheZipCreator/bomb-qolorer/releases/download/v0.1.0/Bomb.Qolorer.qmod",
+	"source": "https://github.com/TheZipCreator/bomb-qolorer/",
+	"author": "TheZipCreator",
+	"cover": "https://raw.githubusercontent.com/TheZipCreator/bomb-qolorer/master/cover.png",
+	"modloader": "QuestLoader"
+}

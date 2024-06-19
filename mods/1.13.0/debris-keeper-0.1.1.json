@@ -1,0 +1,11 @@
+{
+	"name": "DebrisKeeper",
+	"description": "Prevents any debris within eight meters of the platform from disappearing.\r\nThis is a feature pulled from another project I'm working on called DebrisTweaker, which will Soon TM allow for full configuration of debris lifetime and velocity.",
+	"id": "debris-keeper",
+	"version": "0.1.1",
+	"download": "https://cdn.discordapp.com/attachments/776551464117075978/780981587021791232/DebrisKeeper_v0.1.1.zip",
+	"source": null,
+	"author": "Raemien",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

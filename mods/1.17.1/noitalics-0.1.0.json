@@ -1,0 +1,11 @@
+{
+	"name": "NoItalics",
+	"description": "Port from PC mod I made it mainly to practice porting",
+	"id": "noitalics",
+	"version": "0.1.0",
+	"download": "https://github.com/Core-Quest/NoItalics-Port-to-Quest/releases/download/v0.1.0/noitalics_v0.1.0.qmod",
+	"source": "https://github.com/Core-Quest/NoItalics-Port-to-Quest/",
+	"author": "core",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

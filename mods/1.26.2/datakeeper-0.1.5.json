@@ -1,0 +1,11 @@
+{
+	"name": "PlayerDataKeeper",
+	"description": "Preserves your player data (scores, controller offset, etc) between updates or any other time it might be lost",
+	"id": "datakeeper",
+	"version": "0.1.5",
+	"download": "https://github.com/Metalit/PlayerDataKeeper/releases/download/v0.1.5/PlayerDataKeeper.qmod",
+	"source": "https://github.com/Metalit/PlayerDataKeeper/",
+	"author": "Metalit",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

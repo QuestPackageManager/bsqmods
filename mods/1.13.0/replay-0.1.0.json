@@ -1,0 +1,11 @@
+{
+	"name": "Recorder",
+	"description": "A temporary pre-replay update mod that makes replay files.",
+	"id": "replay",
+	"version": "0.1.0",
+	"download": "https://github.com/henwill8/ReplayDownload/releases/download/0.1.0/recorder_v0.1.0.zip",
+	"source": "https://github.com/henwill8/ReplayDownload/",
+	"author": "Henwill8",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

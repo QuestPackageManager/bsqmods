@@ -1,0 +1,11 @@
+{
+	"name": "VRM Qavatars",
+	"description": "A VRM based Custom Avatar mod for Beat Saber",
+	"id": "vrm-qavatars",
+	"version": "1.0.0",
+	"download": "https://github.com/BSQ-VRM/VRM-Qavatars/releases/download/1.0.0/VRM.Qavatars.qmod",
+	"source": "https://github.com/BSQ-VRM/VRM-Qavatars/",
+	"author": "FutureMapper",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

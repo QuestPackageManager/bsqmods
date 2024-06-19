@@ -1,0 +1,11 @@
+{
+	"name": "Practice Skipper",
+	"description": "Adds the ability to seek and change song speed while in practice mode. Double tap left or right with your left controller's analog stick to skip through the song, and double tap up or down to adjust the song speed. Options are available to change which controller to use, how long to skip, and how much to change speed.",
+	"id": "practice_skipper",
+	"version": "1.0.0",
+	"download": "https://github.com/danrouse/bsq-practice-skipper/releases/download/1.0.0/practice_skipper_v1.0.0.zip",
+	"source": "https://github.com/danrouse/bsq-practice-skipper/",
+	"author": "danrouse",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

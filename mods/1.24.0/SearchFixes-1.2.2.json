@@ -1,0 +1,11 @@
+{
+	"name": "SearchFixes",
+	"description": "An improved search algorithm for Beat Saber",
+	"id": "SearchFixes",
+	"version": "1.2.2",
+	"download": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/releases/download/v1.2.2/SearchFixes.qmod",
+	"source": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/",
+	"author": "rui2015",
+	"cover": "https://raw.githubusercontent.com/FranciscoRibeiro03/SearchFixesQuest/master/cover.png",
+	"modloader": "QuestLoader"
+}

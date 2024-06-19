@@ -1,0 +1,11 @@
+{
+	"name": "Inverted Arrows",
+	"description": "Customize all arrow directions on a beatmap",
+	"id": "InvertedArrows",
+	"version": "1.0.2",
+	"download": "https://github.com/RedBrumbler/InvertedArrows/releases/download/1.0.2/InvertedArrows.zip",
+	"source": "https://github.com/RedBrumbler/InvertedArrows/",
+	"author": "RedBrumbler",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

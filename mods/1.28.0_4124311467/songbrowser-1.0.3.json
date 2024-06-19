@@ -1,0 +1,11 @@
+{
+	"name": "SongBrowser",
+	"description": "Browsing your songs has never been easier!",
+	"id": "songbrowser",
+	"version": "1.0.3",
+	"download": "https://github.com/esheltone/SongBrowser/releases/download/v1.0.3/SongBrowser.qmod",
+	"source": "https://github.com/esheltone/SongBrowser/",
+	"author": "RedBrumbler",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

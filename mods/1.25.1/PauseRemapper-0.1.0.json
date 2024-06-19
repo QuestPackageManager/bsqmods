@@ -1,0 +1,11 @@
+{
+	"name": "Pause Remapper",
+	"description": "Allows the user to change which button pauses a map",
+	"id": "PauseRemapper",
+	"version": "0.1.0",
+	"download": "https://github.com/speecil/PauseRemapper/releases/download/v0.2.0/Pause.Remapper.qmod",
+	"source": "https://github.com/speecil/PauseRemapper/",
+	"author": "speecil",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

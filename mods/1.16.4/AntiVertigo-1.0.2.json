@@ -1,0 +1,11 @@
+{
+	"name": "Anti Vertigo",
+	"description": "Spawn a bigger base platform for people with vertigo so they can play comfortably",
+	"id": "AntiVertigo",
+	"version": "1.0.2",
+	"download": "https://github.com/RedBrumbler/AntiVertigo/releases/download/v1.0.2/AntiVertigo.qmod",
+	"source": "https://github.com/RedBrumbler/AntiVertigo/",
+	"author": "RedBrumbler",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

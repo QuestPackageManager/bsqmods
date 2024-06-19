@@ -1,0 +1,11 @@
+{
+	"name": "TooManyTweaks",
+	"description": "Adds many togglable tweaks and options to tailor the game to your desire.",
+	"id": "toomanytweaks",
+	"version": "0.3.0",
+	"download": "https://github.com/IMB11/TooManyTweaks/releases/download/0.3.0/toomanytweaks-0.3.0+1251.qmod",
+	"source": "https://github.com/IMB11/TooManyTweaks/",
+	"author": "IMB11",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

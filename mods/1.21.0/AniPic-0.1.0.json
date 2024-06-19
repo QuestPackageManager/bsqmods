@@ -1,0 +1,11 @@
+{
+	"name": "AniPic",
+	"description": "Ever get anger that you cant beat a map? Then look at animal pictures until you feel calm :)",
+	"id": "AniPic",
+	"version": "0.1.0",
+	"download": "https://github.com/NotHiiragi/Anipic/releases/download/v0_1_0/AniPic_v0_1_0.qmod",
+	"source": "https://github.com/NotHiiragi/Anipic/",
+	"author": "WaffleTheCool#8942",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

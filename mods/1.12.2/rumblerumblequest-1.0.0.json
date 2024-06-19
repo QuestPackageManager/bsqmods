@@ -1,0 +1,11 @@
+{
+	"name": "RumbleRumbleQuest",
+	"description": "RumbleRumbleQuest allows you to adjust controller haptics \"rumbles\" in-game. RumbleRumbleQuest is a Quest port of the popular RumbleMod.",
+	"id": "rumblerumblequest",
+	"version": "1.0.0",
+	"download": "https://github.com/SuperMarcus/RumbleRumbleQuest/releases/download/1.0.0/RumbleRumbleQuest.zip",
+	"source": "https://github.com/SuperMarcus/RumbleRumbleQuest/",
+	"author": "marcuszhou",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

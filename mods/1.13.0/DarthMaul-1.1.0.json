@@ -1,0 +1,11 @@
+{
+	"name": "Darth Maul",
+	"description": "A long awated rewrite of the original Darth Maul mod by Henwill8, which was originally created by riku1227!\r\nThis also contains many config options and is initially toggleable via the in-game modifiers.",
+	"id": "DarthMaul",
+	"version": "1.1.0",
+	"download": "https://github.com/BSMGPink/QuestDarthMaul/releases/download/1.0.0/DarthMaul.zip",
+	"source": "https://github.com/BSMGPink/QuestDarthMaul/",
+	"author": "Pink, Henwill8, riku1227",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

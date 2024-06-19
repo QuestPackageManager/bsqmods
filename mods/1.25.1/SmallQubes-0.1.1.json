@@ -1,0 +1,11 @@
+{
+	"name": "SmallQubes",
+	"description": "undefined",
+	"id": "SmallQubes",
+	"version": "0.1.1",
+	"download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.1.1/SmallQubes.qmod",
+	"source": "https://github.com/NSGolova/SmallQubes/",
+	"author": "NSGolova",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

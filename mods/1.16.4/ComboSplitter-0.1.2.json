@@ -1,0 +1,11 @@
+{
+	"name": "Combo Splitter",
+	"description": "Features:\r\nSplits the combo into two different counters--one for each hand.\r\nFollows the selected saber color scheme (can be disabled)",
+	"id": "ComboSplitter",
+	"version": "0.1.2",
+	"download": "https://github.com/Futuremappermydud/ComboSplitter-Quest/releases/download/0.1.2/ComboSplitter_v0.1.2.qmod",
+	"source": "https://github.com/Futuremappermydud/ComboSplitter-Quest/",
+	"author": "FutureMapper,  originally by Exomanz",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

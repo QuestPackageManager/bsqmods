@@ -1,0 +1,11 @@
+{
+	"name": "DlcSorter",
+	"description": "Sorts the DLC packs alphabetically.",
+	"id": "DlcSorter",
+	"version": "0.1.1",
+	"download": "https://github.com/DanTheMan827/bs-dlc-sorter/releases/download/v0.1.1/DlcSorter.qmod",
+	"source": "https://github.com/DanTheMan827/bs-dlc-sorter/",
+	"author": "DanTheMan827",
+	"cover": "",
+	"modloader": "Scotland2"
+}

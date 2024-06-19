@@ -1,0 +1,11 @@
+{
+	"name": "PressJToPlay",
+	"description": "PressJToPlay is a small mod that allows the user to customize the Play and Practice button text to whatever they like (except for emojis)",
+	"id": "PressJToPlay",
+	"version": "1.2.3",
+	"download": "https://github.com/rxzz0/PressJToPlayQuest/releases/download/1.2.3/PressJToPlay.qmod",
+	"source": "https://github.com/rxzz0/PressJToPlayQuest/",
+	"author": "rxzz0#6982",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

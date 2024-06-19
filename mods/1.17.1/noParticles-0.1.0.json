@@ -1,0 +1,11 @@
+{
+	"name": "No Particles",
+	"description": "A simple Beat Saber mod for 1.17.1 that disables various particle effects",
+	"id": "noParticles",
+	"version": "0.1.0",
+	"download": "https://github.com/AllyPallyUK/NoParticles/releases/download/v0.1.1/noParticles_v0.1.1.qmod",
+	"source": "https://github.com/AllyPallyUK/NoParticles/",
+	"author": "AllyPallyUK",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

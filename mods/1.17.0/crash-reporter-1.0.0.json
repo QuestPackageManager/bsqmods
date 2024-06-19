@@ -1,0 +1,11 @@
+{
+	"name": "Crash Reporter",
+	"description": "Automatically reports crash logs",
+	"id": "crash-reporter",
+	"version": "1.0.0",
+	"download": "https://github.com/danrouse/bsq-crash-reporter/releases/download/v1.0.0/crash-reporter_v1.0.0.qmod",
+	"source": "https://github.com/danrouse/bsq-crash-reporter/",
+	"author": "danrouse#0214",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

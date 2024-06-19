@@ -1,0 +1,11 @@
+{
+	"name": "Simple Beatmap Play Count",
+	"description": "Keep track of how many times you've played a song",
+	"id": "BeatmapPlayCount",
+	"version": "0.1.1",
+	"download": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest/releases/download/v0.1.1/BeatmapPlayCount.v0.1.1.qmod",
+	"source": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest/",
+	"author": "Netux",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

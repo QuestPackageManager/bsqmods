@@ -1,0 +1,11 @@
+{
+	"name": "Custom Pillows",
+	"description": "Custom Pillow mod for Quest\nOriginal by Toni Macaroni for PC",
+	"id": "custom-pillows",
+	"version": "1.1.0",
+	"download": "https://github.com/RedBrumbler/CustomPillowsQuest/releases/download/v1.1.0/CustomPillows.qmod",
+	"source": "https://github.com/RedBrumbler/CustomPillowsQuest/",
+	"author": "RedBrumbler",
+	"cover": "https://raw.githubusercontent.com/RedBrumbler/CustomPillowsQuest/master/cover.png",
+	"modloader": "QuestLoader"
+}

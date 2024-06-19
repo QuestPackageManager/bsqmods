@@ -1,0 +1,11 @@
+{
+	"name": "No Boom",
+	"description": "Gets rid of the boom particle affect",
+	"id": "noboom",
+	"version": "0.1.0",
+	"download": "https://github.com/Core-Quest/No-Boom/releases/download/Quest/noboom_v0.1.0.qmod",
+	"source": "https://github.com/Core-Quest/No-Boom/",
+	"author": "core",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

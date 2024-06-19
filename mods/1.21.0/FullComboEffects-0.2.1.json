@@ -1,0 +1,11 @@
+{
+	"name": "Full Combo Effects",
+	"description": "Modify the result view when getting full combo.",
+	"id": "FullComboEffects",
+	"version": "0.2.1",
+	"download": "https://github.com/jk4837/FullComboEffects/releases/download/v0.2.1/FullComboEffects_v0.2.1.qmod",
+	"source": "https://github.com/jk4837/FullComboEffects/",
+	"author": "Wonda",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "Third Person mod",
+	"description": null,
+	"id": "Play3rdPer",
+	"version": "0.2.2",
+	"download": "https://github.com/ComputerElite/play3rdper/releases/download/0.2.2/Play3rdPer.qmod",
+	"source": "https://github.com/ComputerElite/play3rdper/",
+	"author": "ComputerElite",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

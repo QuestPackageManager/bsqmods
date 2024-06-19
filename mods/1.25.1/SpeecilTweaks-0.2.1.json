@@ -1,0 +1,11 @@
+{
+	"name": "Speecil Tweaks",
+	"description": "Cool little tweaks i think are pretty cool such as: Results menu tweaks, Play button tweaks, and more",
+	"id": "SpeecilTweaks",
+	"version": "0.2.1",
+	"download": "https://github.com/speecil/SpeecilTweaks/releases/download/v0.2.1/SpeecilTweaks.qmod",
+	"source": "https://github.com/speecil/SpeecilTweaks/",
+	"author": "speecil",
+	"cover": "https://raw.githubusercontent.com/speecil/SpeecilTweaks/master/cover.png",
+	"modloader": "QuestLoader"
+}

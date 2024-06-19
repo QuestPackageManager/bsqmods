@@ -1,0 +1,11 @@
+{
+	"name": "Technicolour",
+	"description": "Yes, it's colour with a U\r\n\r\nUltra-customisable rainbow lights/sabers/walls/blocks/bombs mod, originally made by Aeroluna for PC.\r\nSettings are accessible in the gameplay setup tab.\r\n\r\nPorted for the questmas trivia event.",
+	"id": "technicolour",
+	"version": "1.0.0",
+	"download": "https://github.com/Lauriethefish/Technicolour/releases/download/1.0.0/Technicolour.qmod",
+	"source": "https://github.com/Lauriethefish/Technicolour/",
+	"author": "Lauriethefish, Aeroluna",
+	"cover": "https://raw.githubusercontent.com/Lauriethefish/Technicolour/master/cover.jpg",
+	"modloader": "QuestLoader"
+}

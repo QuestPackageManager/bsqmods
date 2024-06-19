@@ -1,0 +1,11 @@
+{
+	"name": "FlailSaber",
+	"description": "Supposedly sabers are like flails",
+	"id": "FlailSaber001",
+	"version": "0.1.2",
+	"download": "https://github.com/im-henri/FlailSaber/raw/master/FlailSaber001_v0.1.2.qmod",
+	"source": "",
+	"author": "Henri",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

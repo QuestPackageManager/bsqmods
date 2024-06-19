@@ -1,0 +1,11 @@
+{
+	"name": "Smoothed Controller",
+	"description": "Smoothes your Controller position while in menus to make it less shaky, making the UI easier to use, etc.",
+	"id": "smoothedcontroller",
+	"version": "1.3.0",
+	"download": "https://github.com/kaitlyndotmoe/SmoothedController/releases/download/v1.3.0/smoothedcontroller_v1.3.0.qmod",
+	"source": "https://github.com/kaitlyndotmoe/SmoothedController/",
+	"author": "Kinsi55, Kaitlyn",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

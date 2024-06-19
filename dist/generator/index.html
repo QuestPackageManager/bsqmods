@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Daniel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="wrapper" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+  <div style="flex: 1; flex-grow: 0; text-align: center;">
+    <div style=" padding: 10px;">
+      <div style="font-size: 24px;">Mods Json Generator</div>
+    </div>
+    <div style="display: flex;justify-content: space-evenly;flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; min-width: 500px; margin-top: 50px;">
+        <label>Mod Name
+          <input id="name" type="text"/>
+        </label>
+        <label>Mod Description
+          <textarea id="description" style="resize: none;" rows="10"></textarea>
+        </label>
+        <label>Mod ID
+          <input id="id" type="text"/>
+        </label>
+        <input id="qmodButton" type="button" value="Load QMOD"/>
+      </div>
+      <div style="display: flex; flex-direction: column; min-width: 500px; margin-top: 50px;">
+        <label>Cover link
+          <input id="cover" placeholder="a link to a cover .jpg" type="text"/>
+        </label>
+        <label>Download link
+          <input id="link" placeholder="paste a dl link or drag it here from github" type="text"/>
+        </label>
+        <label>Source code
+          <input id="source" type="text"/>
+        </label>
+        <label>Mod Creator/-s
+          <input id="creators" type="text"/>
+        </label>
+        <label>Mod Version
+          <input id="version" type="text"/>
+        </label>
+        <label>Made for Game Version
+          <input id="games" type="text"/>
+        </label>
+        <label>Modloader
+          <input id="modloader" type="text"/>
+        </label>
+        <label>
+          <input id="redirect" type="checkbox"/>                        Redirect to Website
+        </label>
+        <input id="generate" type="button" value="Create JSON"/>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

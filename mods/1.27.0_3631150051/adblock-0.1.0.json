@@ -1,0 +1,11 @@
+{
+	"name": "Adblock",
+	"description": "???",
+	"id": "adblock",
+	"version": "0.1.0",
+	"download": "https://github.com/NotHiiragi/Adblock/releases/download/1.27.0_3631150051/Adblock.qmod",
+	"source": "https://github.com/NotHiiragi/Adblock/",
+	"author": "Waffle",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

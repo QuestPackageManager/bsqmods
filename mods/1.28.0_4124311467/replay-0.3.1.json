@@ -1,0 +1,11 @@
+{
+	"name": "Replay",
+	"description": "Watch back your best scores!",
+	"id": "replay",
+	"version": "0.3.1",
+	"download": "https://github.com/Metalit/Replay/releases/download/v0.3.1/Replay.qmod",
+	"source": "https://github.com/Metalit/Replay/",
+	"author": "Metalit",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "Slice Details",
+	"description": "View extra information about your swings",
+	"id": "slicedetails",
+	"version": "1.1.0",
+	"download": "https://github.com/Royston1999/SliceDetails-Quest/releases/download/v1.1.0/slicedetails_v1.1.0.qmod",
+	"source": "https://github.com/Royston1999/SliceDetails-Quest/",
+	"author": "Polly51104",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

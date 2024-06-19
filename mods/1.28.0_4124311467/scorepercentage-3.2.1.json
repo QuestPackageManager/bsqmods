@@ -1,0 +1,11 @@
+{
+	"name": "Score Percentage",
+	"description": "shows extra information after completing a level",
+	"id": "scorepercentage",
+	"version": "3.2.1",
+	"download": "https://github.com/Royston1999/ScorePercentage-Quest/releases/download/v3.2.1/ScorePercentage_v3.2.1.qmod",
+	"source": "https://github.com/Royston1999/ScorePercentage-Quest/",
+	"author": "Polly51104",
+	"cover": "https://raw.githubusercontent.com/Royston1999/ScorePercentage-Quest/master/Cover.jpg",
+	"modloader": "QuestLoader"
+}

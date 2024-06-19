@@ -1,0 +1,11 @@
+{
+	"name": "Hit Score Visualizer",
+	"description": "Changes the scores that pop up when you hit notes.",
+	"id": "hitscore",
+	"version": "1.5.0",
+	"download": "https://github.com/Christoffyw/HitScoreVisualizer/releases/download/1.5.0/HitScoreVisualizer_v1.5.0.qmod",
+	"source": "https://github.com/Christoffyw/HitScoreVisualizer/",
+	"author": "Christoffyw and Metalit",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

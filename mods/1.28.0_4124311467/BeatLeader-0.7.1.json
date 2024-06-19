@@ -1,0 +1,11 @@
+{
+	"name": "BeatLeader",
+	"description": "beatleader.xyz | In-game leaderboards for custom and OST maps | Score replays | Clans, events, playlists and much more",
+	"id": "BeatLeader",
+	"version": "0.7.1",
+	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.7.1/BeatLeader.qmod",
+	"source": "https://github.com/BeatLeader/beatleader-qmod/",
+	"author": "NSGolova",
+	"cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
+	"modloader": "QuestLoader"
+}

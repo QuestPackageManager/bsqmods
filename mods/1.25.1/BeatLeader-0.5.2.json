@@ -1,0 +1,11 @@
+{
+	"name": "BeatLeader",
+	"description": "Posts scores to https://beatleader.xyz/ and shows in-game leaderboards.",
+	"id": "BeatLeader",
+	"version": "0.5.2",
+	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.2/BeatLeader_1_25_1.qmod",
+	"source": "https://github.com/BeatLeader/beatleader-qmod/",
+	"author": "NSGolova",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "ThinSabers",
+	"description": "Change saber thickness without qosmetics",
+	"id": "thinsabers",
+	"version": "0.1.0",
+	"download": "https://cdn.discordapp.com/attachments/889894037304274995/953068246389637140/ThinSabers.qmod",
+	"source": null,
+	"author": "Christoffyw",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

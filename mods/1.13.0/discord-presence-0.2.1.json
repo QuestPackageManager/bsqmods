@@ -1,0 +1,11 @@
+{
+	"name": "Discord Presence",
+	"description": "Allows discord rich presence to see which song you're playing, the current time, and much more.\r\n\r\nMod Installation: https://github.com/Lauriethefish/Quest-Discord-Presence-Client/blob/main/README.md\r\nYou must follow this to set up the client on your PC and the mod on your Quest.\r\nIf you get a virus warning during installation, ignore it, this isn't a virus - Windows is oversensitive.\r\n\r\nAlternatively, follow this guide to use MadMagic's app for general presence of any Quest app: https://github.com/madmagic007/Oculus-Quest-Presence\r\n\r\nIf it's not working, try these:\r\n- Make sure your Quest IP hasn't changed, if so, update it in the app, see installation.\r\n- Make sure you've opened the app.\r\n- Make sure Beat Saber is open and your headset is on your head.\r\n- You have discord on your PC not in the browser.\r\n- Try restarting discord.",
+	"id": "discord-presence",
+	"version": "0.2.1",
+	"download": "https://github.com/Lauriethefish/Quest-Discord-Presence/releases/download/0.2.1/discord-presence_v0.2.1.zip",
+	"source": "https://github.com/Lauriethefish/Quest-Discord-Presence/",
+	"author": "Lauriethefish#6700",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

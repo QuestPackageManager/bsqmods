@@ -1,0 +1,11 @@
+{
+	"name": "PeripheralHUD",
+	"description": "Move your in-game HUD into your peripheral vision, allowing for easy at-a-glance viewing of your combo, score, etc!",
+	"id": "peripheralhud",
+	"version": "1.0.0",
+	"download": "https://github.com/ItsKaitlyn03/PeripheralHUD/releases/download/v1.0.0/peripheralhud_v1.0.0.qmod",
+	"source": "https://github.com/ItsKaitlyn03/PeripheralHUD/",
+	"author": "Kaitlyn",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

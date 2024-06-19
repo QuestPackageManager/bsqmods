@@ -1,0 +1,11 @@
+{
+	"name": "Scribble",
+	"description": "Let the Bob Ross in you take over!",
+	"id": "scribble",
+	"version": "1.0.0",
+	"download": "https://redbrumbler.itch.io/scribble-quest",
+	"source": null,
+	"author": "RedBrumbler",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "PlaylistDownloader",
+	"description": "Adds a in-game playlist downloader, similar to MorePlaylists on PC. Supports AccSaber, BeatSaver, BeatLeader, and Hitbloq.",
+	"id": "playlistdownloader",
+	"version": "0.1.0",
+	"download": "https://github.com/Metalit/PlaylistDownloader/releases/download/v0.1.0/PlaylistDownloader.qmod",
+	"source": "https://github.com/Metalit/PlaylistDownloader",
+	"author": "Metalit",
+	"cover": "",
+	"modloader": "Scotland2"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "No Play Beat Saber",
+	"description": "Literally does not allow you to play beat saber. Why do you even want this?",
+	"id": "noplaybeatsaber",
+	"version": "1.16.0",
+	"download": "https://github.com/Kaylerr/No-Play-Beat-Saber/releases/download/v10/noplaybeatsaberV1.qmod",
+	"source": "https://github.com/Kaylerr/No-Play-Beat-Saber/",
+	"author": "Kaylerr",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

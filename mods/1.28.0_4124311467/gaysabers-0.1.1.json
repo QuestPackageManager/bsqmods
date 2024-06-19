@@ -1,0 +1,11 @@
+{
+	"name": "GaySabers",
+	"description": "Makes your sabers gay (i mean glow in rainbow colors)",
+	"id": "gaysabers",
+	"version": "0.1.1",
+	"download": "https://github.com/hdgamer1404Jonas/GaySabers/releases/download/0.1.1/GaySabers.qmod",
+	"source": "https://github.com/hdgamer1404Jonas/GaySabers/",
+	"author": "hdgamer1404Jonas",
+	"cover": "https://raw.githubusercontent.com/hdgamer1404Jonas/GaySabers/master/logo.gif",
+	"modloader": "QuestLoader"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "SongDownloader",
+	"description": "Download Custom Songs at Runtime",
+	"id": "songdownloader",
+	"version": "0.7.4",
+	"download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.7.4/SongDownloader.qmod",
+	"source": "https://github.com/darknight1050/SongDownloader/",
+	"author": "darknight1050, EnderdracheLP, Metalit",
+	"cover": "https://raw.githubusercontent.com/darknight1050/SongDownloader/master/cover.png",
+	"modloader": "Scotland2"
+}

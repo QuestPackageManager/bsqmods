@@ -1,0 +1,11 @@
+{
+	"name": "Darth Maul",
+	"description": "Double saber thing",
+	"id": "darthmaul",
+	"version": "0.1.0",
+	"download": "https://github.com/Core-Quest/DarthMaul/releases/download/v0.1/DarthMaul.qmod",
+	"source": "https://github.com/Core-Quest/DarthMaul/",
+	"author": "Core",
+	"cover": "",
+	"modloader": "QuestLoader"
+}

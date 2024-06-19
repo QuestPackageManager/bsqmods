@@ -1,0 +1,11 @@
+{
+	"name": "Slice Visualizer",
+	"description": "See your slices right in front of you",
+	"id": "slicevisualizer",
+	"version": "4.2.0",
+	"download": "https://henwill8.itch.io/slice-visualizer",
+	"source": null,
+	"author": "Henwill8,  Metalit",
+	"cover": null,
+	"modloader": "QuestLoader"
+}

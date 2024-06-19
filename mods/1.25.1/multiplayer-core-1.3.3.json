@@ -1,0 +1,11 @@
+{
+	"name": "MultiplayerCore",
+	"description": "Port of MultiplayerCore, the PC mod that adds features to BeatTogether Multiplayer.",
+	"id": "multiplayer-core",
+	"version": "1.3.3",
+	"download": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/releases/download/1.3.3/MultiplayerCore_1.3.3.qmod",
+	"source": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/",
+	"author": "EnderdracheLP, cubic,Goobie",
+	"cover": "https://raw.githubusercontent.com/EnderdracheLP/MultiplayerCore.Quest/master/Cover.png",
+	"modloader": "QuestLoader"
+}
