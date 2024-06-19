@@ -94,6 +94,41 @@
     fetch(`../mods.json?${Math.floor(Date.now() / 1000)}`).then(response => response.json()).then(modsJson => json = modsJson);
 
     /**
+     * Checks if a mod with the given id and version already exists for the specified game version.
+     *
+     * @param {string} id - The ID of the mod.
+     * @param {string} version - The version of the mod.
+     * @param {string} gameVersion - The version of the game.
+     * @returns {boolean} - Returns true if the mod with the given id and version exists for the specified game version, false otherwise.
+     */
+    function checkMod(id, version, gameVersion) {
+        /**
+         * Array of mods for the specified game version.
+         * @type {Mod[]|null}
+         */
+        const versionMods = json[gameVersion];
+
+        if (versionMods == null) {
+            return false;
+        }
+
+        // Loop through all mods for the specified game version
+        for (var i = 0; i < versionMods.length; i++) {
+            /**
+             * @type {Mod}
+             */
+            const mod = versionMods[i];
+
+            // Check if mod id and version match the given id and version
+            if (mod.id == id && mod.version == version) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Function to handle loading of QMOD files.
      * @param {ProgressEvent<FileReader>} ev - The event object.
      */
@@ -215,12 +250,12 @@
         };
 
         const modFilename = `mods/${games.value}/${id.value}-${version.value}.json`;
-    
+
         if (checkMod(mod.id, mod.version, games.value)) {
-          alert("This mod version already exists in the json");
-          window.open(`https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`);
+            alert("This mod version already exists in the json");
+            window.open(`https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`);
         } else {
-          window.open(`https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "\t"))}`);
+            window.open(`https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "\t"))}`);
         }
     });
 
