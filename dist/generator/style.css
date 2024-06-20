@@ -1,16 +1,23 @@
+* {
+    box-sizing: border-box !important;
+}
+
 body {
     color: #EEEEEE;
 }
 
 html {
-    height: auto;
-    min-height: 100%;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fd/LGBTQ%2B_rainbow_flag_Quasar_%22Progress%22_variant.svg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-blend-mode: darken;
     background-size: cover;
     background-color: #111111DD;
+}
+
+html, body {
+    min-height: 100%;
+    min-width: 100%;
 }
 
 body,
