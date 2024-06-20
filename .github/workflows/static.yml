@@ -48,22 +48,22 @@ jobs:
         run: |
           echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
 
-      - name: Use cache
+      - name: Restore cache
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
-            .cache-restored
-            dist/covers/*
-            dist/sha1sums.json
-          key: ${{ runner.os }}-cache
+            dist/cache.tgz
+          key: ${{ runner.os }}-tgz-cache
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Download cache if needed
-        continue-on-error: true
-        run: '[ ! -f .cache-restored ] && (wget "$PAGES_URL/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
+      - name: Download cache
+        run: '[ ! -f dist/cache.tgz ] && wget "$PAGES_URL/cache.tgz?`date +%s`" -O dist/cache.tgz'
+
+      - name: Extract cache
+        run: 'tar -xzvf dist/cache.tgz'
 
       - name: Clear cache
         if: ${{ github.event.inputs.skipCache == 'yes' }}
@@ -93,3 +93,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Save cache
+        id: cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            dist/cache.tgz
+          key: ${{ runner.os }}-tgz-cache
