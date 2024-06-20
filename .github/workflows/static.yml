@@ -70,8 +70,8 @@ jobs:
       - name: Touch .cache-restored
         run: 'touch .cache-restored'
 
-      - name: Combine json
-        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL"'
+      - name: Process the json
+        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL" 2>&1 | tee dist/deploy-log.txt'
 
       - name: "Archive cache"
         run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
