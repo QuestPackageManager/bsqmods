@@ -13,6 +13,9 @@ on:
         description: "Type yes to clear cache"
         default: "no"
 
+  schedule:
+    - cron: '0 0 * * *'
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -70,7 +73,12 @@ jobs:
       - name: Touch .cache-restored
         run: 'touch .cache-restored'
 
-      - name: Process the json
+      - name: Process the json (schedule)
+        if: ${{ github.event_name == 'schedule' }}
+        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee dist/deploy-log.txt'
+
+      - name: Process the json (normal)
+        if: ${{ github.event_name != 'schedule' }}
         run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL" 2>&1 | tee dist/deploy-log.txt'
 
       - name: "Archive cache"

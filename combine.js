@@ -165,10 +165,8 @@
             return output;
         }
 
-
-
         let qmodHash = hashes[mod.download];
-        if (qmodHash != null && !(await checkUrl(mod.download))) {
+        if (process.argv.indexOf("--recheckUrls") != -1 && qmodHash != null && !(await checkUrl(mod.download))) {
             qmodHash = null;
             delete hashes[mod.download];
         }
