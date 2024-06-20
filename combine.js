@@ -7,13 +7,21 @@
     const crypto = require("crypto");
     const fetch = (await import("node-fetch")).default;
 
-    const baseHref = "https://dantheman827.github.io/bsqmods";
+    let baseHref = ".";
     const modsPath = path.join(__dirname, "mods");
     const coversPath = path.join(__dirname, "dist", "covers");
     const hashesPath = path.join(__dirname, "dist", "sha1sums.json");
     const combinedJsonPath = path.join(__dirname, "dist", "mods.json");
     const qmodsPath = path.join(__dirname, "qmods");
     const modLoaders = ["QuestLoader", "Scotland2"]
+
+    for (let argIndex = 0; argIndex < process.argv.length; argIndex++) {
+        const arg = process.argv[argIndex];
+        const baseHrefArg = "--baseHref=";
+        if (arg.startsWith(baseHrefArg)) {
+            baseHref = arg.substring(baseHrefArg.length);
+        }
+    }
 
     /**
      * @typedef {Object} Mod

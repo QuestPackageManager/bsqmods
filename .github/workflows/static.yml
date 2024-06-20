@@ -51,7 +51,7 @@ jobs:
 
       - name: Download cache if needed
         continue-on-error: true
-        run: '[ ! -f .cache-restored ] && (wget "https://dantheman827.github.io/bsqmods/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
+        run: '[ ! -f .cache-restored ] && (wget "${{ steps.deployment.outputs.page_url }}/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
 
       - name: Clear cache
         if: ${{ github.event.inputs.skipCache == 'yes' }}
@@ -62,7 +62,7 @@ jobs:
         run: 'touch .cache-restored'
 
       - name: Combine json
-        run: 'npm install && node ./combine.js'
+        run: 'npm install && node ./combine.js "--baseHref=${{ steps.deployment.outputs.page_url }}"'
 
       - name: "Archive cache"
         run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
