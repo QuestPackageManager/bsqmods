@@ -8,6 +8,10 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      skipCache:
+        description: "Type yes to clear cache"
+        default: "no"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -38,6 +42,7 @@ jobs:
         with:
           path: |
             .cache-restored
+            qmods
             dist/covers
             dist/sha1sums.json
           key: ${{ runner.os }}-primes
@@ -47,7 +52,12 @@ jobs:
 
       - name: Download cache if needed
         continue-on-error: true
-        run: '[ ! -f .cache-restored ] && (wget https://dantheman827.github.io/bsqmods/cache.tgz | tar -xzvf -)'
+        run: '[ ! -f .cache-restored ] && (wget "https://dantheman827.github.io/bsqmods/cache.tgz?`date +%s`" | tar -xzvf -)'
+
+      - name: Clear cache
+        if: ${{ github.event.inputs.skipCache == 'yes' }}
+        continue-on-error: true
+        run: 'rm -rf .cache-restored qmods dist/covers dist/sha1sums.json'
 
       - name: Touch .cache-restored
         run: 'touch .cache-restored'
@@ -56,7 +66,7 @@ jobs:
         run: 'npm install && node ./combine.js'
 
       - name: "Archive cache"
-        run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
+        run: 'tar -czvf dist/cache.tgz .cache-restored qmods dist/covers dist/sha1sums.json'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

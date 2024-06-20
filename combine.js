@@ -12,7 +12,7 @@
     const coversPath = path.join(__dirname, "dist", "covers");
     const hashesPath = path.join(__dirname, "dist", "sha1sums.json");
     const combinedJsonPath = path.join(__dirname, "dist", "mods.json");
-    const tempPath = path.join(__dirname, "tmp");
+    const qmodsPath = path.join(__dirname, "qmods");
     const modLoaders = ["QuestLoader", "Scotland2"]
 
     /**
@@ -142,10 +142,10 @@
             return output;
         }
 
-        const qmodPath = getFilename(mod.id, mod.version, gameVersion, tempPath, "qmod");
+        const qmodPath = getFilename(mod.id, mod.version, gameVersion, qmodsPath, "qmod");
         fs.mkdirSync(path.dirname(qmodPath), { recursive: true });
 
-        const qmodHash = output.hash = (hashes[mod.download] || await downloadFile(mod.download, qmodPath));
+        const qmodHash = await downloadFile(mod.download, qmodPath);
 
         if (qmodHash == null) {
             // File not found.
@@ -153,6 +153,9 @@
             return output;
             //process.exit(1);
         }
+
+        hashes[mod.download] = qmodHash;
+        output.hash = qmodHash;
 
         if (!fs.existsSync(qmodPath)) {
             output.errors.push("Local file not found");
@@ -178,7 +181,7 @@
                     const coverImageFilename = json.coverImageFilename;
 
                     if (!isNullOrWhitespace(coverImageFilename) && coverImageFilename != "undefined" && (coverFile = await zip.file(coverImageFilename)) == null) {
-                        output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(tempPath.length), coverImageFilename)}`);
+                        output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(qmodsPath.length), coverImageFilename)}`);
                     }
                 } catch (error) {
                     output.errors.push("Error processing bmbfmod.json");
@@ -190,7 +193,7 @@
                     coverImageFilename = json.coverImage;
 
                     if (!isNullOrWhitespace(coverImageFilename) && coverImageFilename != "undefined" && (coverFile = await zip.file(coverImageFilename)) == null) {
-                        output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(tempPath.length), coverImageFilename)}`);
+                        output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(qmodsPath.length), coverImageFilename)}`);
                     }
                 } catch (error) {
                     output.errors.push("Error processing mod.json");
@@ -202,6 +205,7 @@
             }
         } catch (error) {
             output.errors.push("Error reading archive");
+            fs.unlinkSync(qmodPath);
             return output;
         }
 
@@ -232,7 +236,6 @@
             }
         }
 
-        fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "\t"));
         //fs.unlinkSync(qmodPath);
 
         return output;
@@ -313,6 +316,8 @@
 
                 console.log("");
             }
+
+            fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "\t"));
         }
     }
 
