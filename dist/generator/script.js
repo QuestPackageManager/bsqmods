@@ -7,7 +7,6 @@
  * @property {string} download - The download link of the mod.
  * @property {string} source - The source link of the mod.
  * @property {string} author - The author(s) of the mod.
- * @property {string} cover - The cover image link of the mod.
  * @property {string} modloader - The modloader used by the mod.
  */
 
@@ -63,11 +62,6 @@
      * @type {HTMLInputElement}
      */
     const modloader = document.getElementById("modloader");
-
-    /**
-     * @type {HTMLInputElement}
-     */
-    const cover = document.getElementById("cover");
 
     /**
      * @type {HTMLElement}
@@ -247,9 +241,6 @@
         input.onchange();
     }
 
-    // Event listener for dropping URLs on cover element
-    cover.addEventListener("drop", urlDrop);
-
     // Event listener for dropping URLs on link element
     link.addEventListener("drop", urlDrop);
 
@@ -270,7 +261,6 @@
             download: link.value,
             source: source.value,
             author: creators.value,
-            cover: cover.value,
             modloader: modloader.value
         };
 

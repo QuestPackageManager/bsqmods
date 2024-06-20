@@ -338,8 +338,7 @@
                 "download",
                 "source",
                 "author",
-                "modloader",
-                "hash"
+                "modloader"
             ]);
 
             const qmodResult = await processQmod(mod, version);
