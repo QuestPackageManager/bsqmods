@@ -51,7 +51,7 @@ jobs:
         with:
           path: |
             .cache-restored
-            dist/covers
+            dist/covers/*
             dist/sha1sums.json
           key: ${{ runner.os }}-cache
 
