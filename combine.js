@@ -136,6 +136,10 @@
             hash: null
         };
 
+        if (process.argv.indexOf("--skipHashes") != -1) {
+            return output;
+        }
+
         let qmodHash = hashes[mod.download];
         let coverFilename = path.join(coversPath, `${qmodHash}.png`);
 
