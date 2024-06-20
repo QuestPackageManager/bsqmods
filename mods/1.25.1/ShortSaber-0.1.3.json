@@ -6,6 +6,5 @@
 	"download": "https://github.com/oli-ctrl/ShortSaber/releases/download/v0.1.3/ShortSaber.qmod",
 	"source": "https://github.com/oli-ctrl/ShortSaber/",
 	"author": "Oli",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

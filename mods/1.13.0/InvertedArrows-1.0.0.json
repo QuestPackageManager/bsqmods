@@ -3,9 +3,8 @@
 	"description": "Customize all arrow directions on a beatmap",
 	"id": "InvertedArrows",
 	"version": "1.0.0",
-	"download": "https://github.com/RedBrumbler/InvertedArrows/releases/download/1.0.0/InvertedArrows.zip",
+	"download": "https://github.com/RedBrumbler/InvertedArrows/releases/latest/download/InvertedArrows.zip",
 	"source": "https://github.com/RedBrumbler/InvertedArrows/",
 	"author": "RedBrumbler",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

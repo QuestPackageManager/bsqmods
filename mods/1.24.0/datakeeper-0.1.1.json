@@ -6,6 +6,5 @@
 	"download": "https://github.com/Metalit/PlayerDataKeeper/releases/download/v0.1.1/PlayerDataKeeper_1.24.qmod",
 	"source": "https://github.com/Metalit/PlayerDataKeeper/",
 	"author": "Metalit",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

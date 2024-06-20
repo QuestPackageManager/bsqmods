@@ -42,8 +42,13 @@ Object.keys(allMods).forEach(gameVersion => {
             "download",
             "source",
             "author",
+            "cover",
             "modloader"
         ]);
+
+        if (mod.cover == null || mod.cover.trim() == "") {
+            delete mod.cover;
+        }
 
         let modJson = getFilename(mod.id, mod.version, gameVersion);
         fs.mkdirSync(path.dirname(modJson), { recursive: true });

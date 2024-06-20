@@ -6,6 +6,5 @@
 	"download": "https://github.com/oli-ctrl/SessionQombo/releases/download/v0.1.1/SessionQombo.qmod",
 	"source": "https://github.com/oli-ctrl/SessionQombo/",
 	"author": "Original by Headaassbtw, ported by Oli",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

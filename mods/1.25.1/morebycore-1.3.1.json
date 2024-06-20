@@ -6,6 +6,5 @@
 	"download": "https://github.com/Core-Quest/MoreByCore/releases/download/v1.3.1/MoreByCore.qmod",
 	"source": "https://github.com/Core-Quest/MoreByCore/",
 	"author": "Core",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

@@ -6,6 +6,5 @@
 	"download": "https://github.com/OptimusChen/ImageFactory-Quest/releases/download/v1.0.0/ImageFactory.qmod",
 	"source": "https://github.com/OptimusChen/ImageFactory-Quest/",
 	"author": "Optimus",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

@@ -6,6 +6,5 @@
 	"download": "https://github.com/oli-ctrl/acculight/releases/download/v0.1.2/Acculight.qmod",
 	"source": "https://github.com/oli-ctrl/acculight/",
 	"author": "Oli",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

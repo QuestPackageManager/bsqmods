@@ -6,6 +6,5 @@
 	"download": "https://github.com/sc2ad/QuestHitScoreVisualizer/releases/download/v4.2.0/QuestHitscoreVisualizer_v4.2.0.zip",
 	"source": "https://github.com/sc2ad/QuestHitScoreVisualizer/",
 	"author": "Sc2ad",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

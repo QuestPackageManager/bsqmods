@@ -6,6 +6,5 @@
 	"download": "https://github.com/Metalit/AccMiss/releases/download/v0.1.0/AccMiss.qmod",
 	"source": "https://github.com/Metalit/AccMiss/",
 	"author": "Metalit",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

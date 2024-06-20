@@ -6,6 +6,5 @@
 	"download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.10/ModList.qmod",
 	"source": "https://github.com/Lauriethefish/ModList/",
 	"author": "Lauriethefish",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

@@ -6,6 +6,5 @@
 	"download": "https://github.com/Metalit/Qubes/releases/download/v1.1.0/Qubes.qmod",
 	"source": "https://github.com/Metalit/Qubes/",
 	"author": "Metalit,  speecil",
-	"cover": "",
 	"modloader": "QuestLoader"
 }

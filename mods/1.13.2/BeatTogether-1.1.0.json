@@ -6,6 +6,5 @@
 	"download": "https://github.com/pythonology/BeatTogether.Quest/releases/download/v1.1.0/BeatTogether_v1.1.0.zip",
 	"source": "https://github.com/pythonology/BeatTogether.Quest/",
 	"author": "BeatTogether Team",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

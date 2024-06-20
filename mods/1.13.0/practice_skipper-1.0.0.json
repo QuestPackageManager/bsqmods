@@ -6,6 +6,5 @@
 	"download": "https://github.com/danrouse/bsq-practice-skipper/releases/download/1.0.0/practice_skipper_v1.0.0.zip",
 	"source": "https://github.com/danrouse/bsq-practice-skipper/",
 	"author": "danrouse",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

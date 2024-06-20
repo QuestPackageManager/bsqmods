@@ -6,6 +6,5 @@
 	"download": "https://github.com/speecil/PauseRemapper/releases/download/v1.1.0/Pause.Remapper.qmod",
 	"source": "https://github.com/speecil/PauseRemapper/",
 	"author": "Speecil",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

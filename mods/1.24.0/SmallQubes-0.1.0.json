@@ -6,6 +6,5 @@
 	"download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.1.0/SmallQubes.qmod",
 	"source": "https://github.com/NSGolova/SmallQubes/",
 	"author": "NSGolova",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

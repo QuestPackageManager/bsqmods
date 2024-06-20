@@ -6,6 +6,5 @@
 	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.5.0/RedBar.qmod",
 	"source": "https://github.com/ComputerElite/RedBar/",
 	"author": "ComputerElite",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

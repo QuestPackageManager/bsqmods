@@ -6,6 +6,5 @@
 	"download": "https://github.com/RedBrumbler/SongBrowser/releases/download/v1.0.1/SongBrowser.qmod",
 	"source": "https://github.com/RedBrumbler/SongBrowser/",
 	"author": "RedBrumbler",
-	"cover": "",
 	"modloader": "QuestLoader"
 }

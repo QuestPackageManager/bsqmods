@@ -6,6 +6,5 @@
 	"download": "https://github.com/bsq-ports/Chroma/releases/download/v2.6.5/chroma.qmod",
 	"source": "https://github.com/bsq-ports/Chroma/",
 	"author": "FernTheDev,  nyamimi~, Aeroluna",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

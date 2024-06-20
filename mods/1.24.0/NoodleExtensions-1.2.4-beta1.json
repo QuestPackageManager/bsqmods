@@ -6,6 +6,5 @@
 	"download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.2.4/noodle_extensions.qmod",
 	"source": "https://github.com/StackDoubleFlow/NoodleExtensions/",
 	"author": "StackDoubleFlow",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

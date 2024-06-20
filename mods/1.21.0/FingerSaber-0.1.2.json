@@ -6,6 +6,5 @@
 	"download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.2/fingersaber_0.1.2.qmod",
 	"source": "https://github.com/im-henri/FingerSaber/",
 	"author": "Henri",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

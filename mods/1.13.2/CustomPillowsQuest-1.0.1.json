@@ -3,9 +3,8 @@
 	"description": "This mod is a spiritual port of the mod for PC of the same name by Toni Macaroni!\r\nThese pillows can be anything you want them to be, as long as you can put it on a flat texture. This mod was Commissioned by @TKC \r\n\r\n - Pillows Take their texture from a pool of active textures, enabled in the mod settings and listed from sdcard/ModData/com.beatgames.beatsaber/Mods/CustomPillowsQuest/images\r\n - Pillows spawn using a constellation, configured in the mod settings and located at sdcard/ModData/com.beatgames.beatsaber/Mods/CustomPillowsQuest/constellations\r\n - The mod can be disabled in the menu\r\n - Features a shuffle button in the menu for shuffling the current iteration of textures\r\n\r\nExtra Pillow Textures:\r\nhttps://github.com/RedBrumbler/CustomPillowsQuest/releases/latest/download/ExtraPillows.zip",
 	"id": "CustomPillowsQuest",
 	"version": "1.0.1",
-	"download": "https://github.com/RedBrumbler/CustomPillowsQuest/releases/download/1.0.1/CustomPillowsQuest.zip",
+	"download": "https://github.com/RedBrumbler/CustomPillowsQuest/releases/latest/download/CustomPillowsQuest.zip",
 	"source": "https://github.com/RedBrumbler/CustomPillowsQuest/",
 	"author": "RedBrumbler",
-	"cover": null,
 	"modloader": "QuestLoader"
 }

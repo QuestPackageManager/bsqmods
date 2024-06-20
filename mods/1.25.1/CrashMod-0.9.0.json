@@ -6,6 +6,5 @@
 	"download": "https://github.com/ComputerElite/CrashMod/releases/download/0.9.0/CrashMod.qmod",
 	"source": "https://github.com/ComputerElite/CrashMod/",
 	"author": "ComputerElite",
-	"cover": null,
 	"modloader": "QuestLoader"
 }
