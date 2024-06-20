@@ -36,6 +36,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Get username and repository
+        run: |
+          echo "REPO_USERNAME=${GITHUB_REPOSITORY%%/*}" >> $GITHUB_ENV
+          echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+
+      - name: Set pages url
+        run: |
+          echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
+
       - name: Use cache
         id: cache
         uses: actions/cache@v4
@@ -51,7 +60,7 @@ jobs:
 
       - name: Download cache if needed
         continue-on-error: true
-        run: '[ ! -f .cache-restored ] && (wget "${{ env.url }}/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
+        run: '[ ! -f .cache-restored ] && (wget "$PAGES_URL/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
 
       - name: Clear cache
         if: ${{ github.event.inputs.skipCache == 'yes' }}
@@ -62,7 +71,7 @@ jobs:
         run: 'touch .cache-restored'
 
       - name: Combine json
-        run: 'npm install && node ./combine.js "--baseHref=${{ env.url }}"'
+        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL"'
 
       - name: "Archive cache"
         run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
