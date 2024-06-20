@@ -3,7 +3,7 @@
 	"description": "Features:\r\n- Toggle Clock off in maps.\r\n- Change Clock between 24/12 Hour format.\r\n- Toggle Seconds on/off\r\n- Added HoverText explanations to the config menu.\r\n\r\nMissing Features:\r\n- Change size\r\n- Change color\r\n\r\nNote:\r\nSince the original source code only had the code to show the clock, I had to rewrite things like changing the format to 12 from 24 hours and toggling seconds on and off.\r\nWhich means any previous config values will not load. You will have to set the settings again.",
 	"id": "clockmod",
 	"version": "0.1.2",
-	"download": "https://github.com/EnderdracheLP/ClockMod/releases/latest/download/Clockmod.zip",
+	"download": "https://github.com/EnderdracheLP/ClockMod/releases/download/0.1.2/Clockmod.zip",
 	"source": "https://github.com/EnderdracheLP/ClockMod/",
 	"author": "EnderdracheLP, BoopetyDoopety",
 	"cover": null,
