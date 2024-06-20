@@ -136,16 +136,27 @@
             hash: null
         };
 
+        let qmodHash = hashes[mod.download];
+        let coverFilename = path.join(coversPath, `${qmodHash}.png`);
+
         // We've already processed this, don't do it again.
-        if (Object.keys(hashes).indexOf(mod.download) != -1) {
-            output.hash = hashes[mod.download];
+        if (qmodHash != null) {
+            output.hash = qmodHash;
+
+            if (fs.existsSync(coverFilename)) {
+                mod.cover = `${baseHref}/covers/${path.basename(coverFilename)}`
+            }
             return output;
         }
 
         const qmodPath = getFilename(mod.id, mod.version, gameVersion, qmodsPath, "qmod");
         fs.mkdirSync(path.dirname(qmodPath), { recursive: true });
 
-        const qmodHash = await downloadFile(mod.download, qmodPath);
+        if (fs.existsSync(qmodPath)) {
+            qmodHash = hashBuffer(fs.readFileSync(qmodPath));
+        } else {
+            qmodHash = await downloadFile(mod.download, qmodPath);
+        }
 
         if (qmodHash == null) {
             // File not found.
@@ -210,11 +221,12 @@
         }
 
         if (coverFile) {
+            coverFilename = path.join(coversPath, `${qmodHash}.png`);
+
             try {
                 const coverBuffer = await coverFile.async("nodebuffer");
-                const outputFilename = path.join(coversPath, `${hashBuffer(coverBuffer)}.png`);
 
-                if (!fs.existsSync(outputFilename)) {
+                if (!fs.existsSync(coverFilename)) {
                     fs.mkdirSync(coversPath, { recursive: true });
 
                     await sharp(coverBuffer)
@@ -225,10 +237,10 @@
                         .png({
 
                         })
-                        .toFile(outputFilename);
+                        .toFile(coverFilename);
                 }
 
-                mod.cover = `${baseHref}/covers/${path.basename(outputFilename)}`;
+                mod.cover = `${baseHref}/covers/${path.basename(coverFilename)}`;
 
             } catch (error) {
                 output.warnings.push("Error processing cover file");
@@ -301,6 +313,8 @@
             if (qmodResult.errors.length == 0) {
                 mod.hash = hashes[mod.download];
                 mods.push(mod);
+            } else {
+                delete hashes[mod.download];
             }
 
             if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
