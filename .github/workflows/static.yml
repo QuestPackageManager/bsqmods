@@ -32,11 +32,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Use cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .cache-restored
+            dist/covers
+            dist/sha1sums.json
+          key: ${{ runner.os }}-primes
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Download cache if needed
+        continue-on-error: true
+        run: '[ ! -f .cache-restored ] && (wget https://dantheman827.github.io/bsqmods/cache.tgz | tar -xzvf -)'
+
+      - name: Touch .cache-restored
+        run: 'touch .cache-restored'
+
       - name: Combine json
-        run: 'node ./combine.js'
+        run: 'npm install && node ./combine.js'
+
+      - name: "Archive cache"
+        run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
