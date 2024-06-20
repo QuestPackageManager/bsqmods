@@ -49,7 +49,7 @@ jobs:
           echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
 
       - name: Restore cache
-        id: cache
+        id: cache-restore
         uses: actions/cache/restore@v4
         with:
           path: |
@@ -95,7 +95,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Save cache
-        id: cache
+        id: cache-save
         uses: actions/cache/save@v4
         with:
           path: |
