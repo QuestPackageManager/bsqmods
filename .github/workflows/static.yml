@@ -59,11 +59,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Download cache
+      - name: Download cache if needed
+        continue-on-error: true
         run: '[ ! -f dist/cache.tgz ] && wget "$PAGES_URL/cache.tgz?`date +%s`" -O dist/cache.tgz'
 
       - name: Extract cache
-        run: 'tar -xzvf dist/cache.tgz'
+        continue-on-error: true
+        run: '[ -f dist/cache.tgz ] && tar -xzvf dist/cache.tgz'
 
       - name: Clear cache
         if: ${{ github.event.inputs.skipCache == 'yes' }}
