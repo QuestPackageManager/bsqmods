@@ -15,7 +15,8 @@ html {
     background-color: #111111DD;
 }
 
-html, body {
+html,
+body {
     min-height: 100%;
     min-width: 100%;
 }
