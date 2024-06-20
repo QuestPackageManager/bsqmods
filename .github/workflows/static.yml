@@ -42,17 +42,16 @@ jobs:
         with:
           path: |
             .cache-restored
-            qmods
             dist/covers
             dist/sha1sums.json
-          key: ${{ runner.os }}-primes
+          key: ${{ runner.os }}-cache
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Download cache if needed
         continue-on-error: true
-        run: '[ ! -f .cache-restored ] && (wget "https://dantheman827.github.io/bsqmods/cache.tgz?`date +%s`" | tar -xzvf -)'
+        run: '[ ! -f .cache-restored ] && (wget "https://dantheman827.github.io/bsqmods/cache.tgz?`date +%s`" -O - | tar -xzvf -)'
 
       - name: Clear cache
         if: ${{ github.event.inputs.skipCache == 'yes' }}
@@ -66,7 +65,7 @@ jobs:
         run: 'npm install && node ./combine.js'
 
       - name: "Archive cache"
-        run: 'tar -czvf dist/cache.tgz .cache-restored qmods dist/covers dist/sha1sums.json'
+        run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
