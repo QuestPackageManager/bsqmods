@@ -74,6 +74,23 @@
         return defaultValue;
     }
 
+    async function checkUrl(url) {
+        try {
+            const res = await fetch(url, { method: "HEAD" });
+
+            if (!res.ok) {
+                // If the response status is not OK, return null
+                return false;
+            }
+
+            return true;
+        } catch (error) {
+            // Handle fetch error
+            //console.error('Error downloading the file:', error);
+            return false;
+        }
+    }
+
     async function downloadFile(url, dest) {
         try {
             const res = await fetch(url);
@@ -148,7 +165,14 @@
             return output;
         }
 
+
+
         let qmodHash = hashes[mod.download];
+        if (qmodHash != null && !(await checkUrl(mod.download))) {
+            qmodHash = null;
+            delete hashes[mod.download];
+        }
+
         let coverFilename = path.join(coversPath, `${qmodHash}.png`);
 
         // We've already processed this, don't do it again.
