@@ -94,6 +94,31 @@
     fetch(`../mods.json?${Math.floor(Date.now() / 1000)}`).then(response => response.json()).then(modsJson => json = modsJson);
 
     /**
+     * Sanitizes the given filename
+     * @param {string} input The filename to sanitize.
+     * @returns The sanitized filename.
+     */
+    function sanitizeFilename(input) {
+        // Define a regex pattern for invalid filename characters
+        // This pattern includes characters not allowed in Windows filenames
+        const invalidChars = /[<>:"\/\\|?*\x00-\x1F]/g;
+
+        // Replace invalid characters with underscore
+        return input.replace(invalidChars, '_');
+    }
+
+    /**
+     * Gets the intended filename for the given mod values.
+     * @param {*} id The mod ID.
+     * @param {*} version The mod version.
+     * @param {*} gameVersion The game version.
+     * @returns
+     */
+    function getFilename(id, version, gameVersion) {
+        return `mods/${sanitizeFilename(gameVersion.trim())}/${sanitizeFilename(`${id.trim()}-${version.trim()}.json`)}`;
+    }
+
+    /**
      * Checks if a mod with the given id and version already exists for the specified game version.
      *
      * @param {string} id - The ID of the mod.
@@ -249,7 +274,7 @@
             modloader: modloader.value
         };
 
-        const modFilename = `mods/${games.value}/${id.value}-${version.value}.json`;
+        const modFilename = getFilename(mod.id, mod.version, games.value);
 
         if (checkMod(mod.id, mod.version, games.value)) {
             alert("This mod version already exists in the json");
