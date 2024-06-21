@@ -3,9 +3,11 @@
 	"description": "Various tweaks for Beat Saber.",
 	"id": "aikatweaks",
 	"version": "3.0.0",
+	"author": "Aika, xyonico",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/irlbunny/AnyTweaks/releases/download/v3.0.0/aikatweaks_v3.0.0.qmod",
 	"source": "https://github.com/irlbunny/AnyTweaks/",
-	"author": "Aika, xyonico",
 	"cover": "https://raw.githubusercontent.com/irlbunny/AnyTweaks/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

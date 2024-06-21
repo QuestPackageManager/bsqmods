@@ -3,8 +3,11 @@
 	"description": "Adds a button, that picks a random song out of the current list",
 	"id": "RandomSongPicker",
 	"version": "0.2.0",
+	"author": "Tatenshi",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Tatenshi/RandomSongPicker/releases/download/v0.2.0/RandomSongPicker_1_21_0.qmod",
 	"source": "https://github.com/Tatenshi/RandomSongPicker/",
-	"author": "Tatenshi",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

@@ -3,9 +3,11 @@
 	"description": "Change the color of your health bar according to your health",
 	"id": "RedBar",
 	"version": "1.12.0",
+	"author": "ComputerElite",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.13.0/RedBar.qmod",
 	"source": "https://github.com/ComputerElite/RedBar/",
-	"author": "ComputerElite",
 	"cover": "https://raw.githubusercontent.com/ComputerElite/RedBar/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

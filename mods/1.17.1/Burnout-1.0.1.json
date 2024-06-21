@@ -3,9 +3,11 @@
 	"description": "Allows for full customization of saber burn marks.",
 	"id": "Burnout",
 	"version": "1.0.1",
+	"author": "Raemien",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Raemien/BurnoutQuest/releases/download/v1.0.1/Burnout.qmod",
 	"source": "https://github.com/Raemien/BurnoutQuest/",
-	"author": "Raemien",
 	"cover": "https://raw.githubusercontent.com/Raemien/BurnoutQuest/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

@@ -3,9 +3,11 @@
 	"description": "Download Custom Songs at Runtime",
 	"id": "songdownloader",
 	"version": "0.5.1",
+	"author": "darknight1050, EnderdracheLP, Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/releases/download/1.3.3/SongDownloader.qmod",
 	"source": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/",
-	"author": "darknight1050, EnderdracheLP, Metalit",
 	"cover": "https://raw.githubusercontent.com/EnderdracheLP/MultiplayerCore.Quest/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

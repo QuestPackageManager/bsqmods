@@ -3,8 +3,11 @@
 	"description": "InstaFailAccuracy allows you to set a certain accuracy threshold that if you go below, you will fail the level! All of these can be changed through a simple in-game GUI too!\r\n\r\nKnown bugs:\r\n- Your game will crash if you watch a replay that includes you dying to going below your accuracy threshold.",
 	"id": "instafailaccuracy",
 	"version": "1.0.0",
+	"author": "gabriella",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/IsGabriellaCurious/instafailaccuracy/releases/download/v1.0.0/instafailaccuracy_v1.0.0.zip",
 	"source": "https://github.com/IsGabriellaCurious/instafailaccuracy/",
-	"author": "gabriella",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

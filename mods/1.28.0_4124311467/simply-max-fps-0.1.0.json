@@ -3,9 +3,11 @@
 	"description": "Bump up FPS. No fuss, just maximum framage.",
 	"id": "simply-max-fps",
 	"version": "0.1.0",
+	"author": "pikipirs",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/pikipirs/simply-max-fps/releases/download/v0.1.0/SimplyMaxFPS.qmod",
 	"source": "https://github.com/pikipirs/simply-max-fps/",
-	"author": "pikipirs",
 	"cover": "https://raw.githubusercontent.com/pikipirs/simply-max-fps/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "Customisable controller feedback",
 	"id": "RumbleMod",
 	"version": "2.0.0",
+	"author": "Millzy, SuperMarcus, nalulululuna",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/MillzyDev/bsq-RumbleMod/releases/download/2.0.0/RumbleMod-2.0.0.qmod",
 	"source": "https://github.com/MillzyDev/bsq-RumbleMod/",
-	"author": "Millzy, SuperMarcus, nalulululuna",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

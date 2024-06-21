@@ -3,9 +3,11 @@
 	"description": "Lets you tweak individual particle settings! And has rainbow particles!",
 	"id": "particletuner",
 	"version": "0.3.0",
+	"author": "KodenameKRAK",
+	"modloader": "Scotland2",
 	"download": "https://github.com/kodenamekrak/ParticleTuner/releases/download/v0.3.0/ParticleTuner.qmod",
 	"source": "https://github.com/kodenamekrak/ParticleTuner/",
-	"author": "KodenameKRAK",
 	"cover": "https://raw.githubusercontent.com/kodenamekrak/ParticleTuner/master/cover.gif",
-	"modloader": "Scotland2"
+	"funding": null,
+	"website": null
 }

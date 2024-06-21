@@ -3,9 +3,11 @@
 	"description": "Changes the scores that pop up when you hit notes",
 	"id": "HitScoreVisualizer",
 	"version": "2.6.0",
+	"author": "Christoffyw,  Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Christoffyw/HitScoreVisualizer/releases/download/2.6.0/HitScoreVisualizer.qmod",
 	"source": "https://github.com/Christoffyw/HitScoreVisualizer/",
-	"author": "Christoffyw,  Metalit",
 	"cover": "https://raw.githubusercontent.com/Christoffyw/HitScoreVisualizer/master/Cover.jpg",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "Browsing your songs has never been easier!",
 	"id": "songbrowser",
 	"version": "1.0.3",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/esheltone/SongBrowser/releases/download/v1.0.3/SongBrowser.qmod",
 	"source": "https://github.com/esheltone/SongBrowser/",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

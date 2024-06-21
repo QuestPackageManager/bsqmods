@@ -3,9 +3,11 @@
 	"description": "changes the lighting on the result screen depending on the accuracy gained in the song",
 	"id": "acculight",
 	"version": "0.1.3",
+	"author": "Oli",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/oli-ctrl/acculight/releases/download/v0.1.3/Acculight.qmod",
 	"source": "https://github.com/oli-ctrl/acculight/",
-	"author": "Oli",
 	"cover": "https://raw.githubusercontent.com/oli-ctrl/acculight/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

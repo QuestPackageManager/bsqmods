@@ -3,8 +3,11 @@
 	"description": "Shows backtraces for recent crashes ingame if crash reporter uploads crashes. Mainly intended for those who dont know how to read logs.",
 	"id": "crashinfo",
 	"version": "0.1.0",
+	"author": "KodenameKRAK",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/kodenamekrak/CrashInfo/releases/download/0.1.0/CrashInfo-1.25.1.qmod",
 	"source": "https://github.com/kodenamekrak/CrashInfo/",
-	"author": "KodenameKRAK",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

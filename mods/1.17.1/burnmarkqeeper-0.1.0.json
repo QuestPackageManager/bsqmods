@@ -3,8 +3,11 @@
 	"description": "Welp you can kinda guess by the name it keeps your BurnMarks",
 	"id": "burnmarkqeeper",
 	"version": "0.1.0",
+	"author": "core",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Core-Quest/Burn-Mark-Qeeper/releases/download/BurnMarkQeeper/burnmarkqeeper_v0.1.0.qmod",
 	"source": "https://github.com/Core-Quest/Burn-Mark-Qeeper/",
-	"author": "core",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

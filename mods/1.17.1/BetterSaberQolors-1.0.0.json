@@ -3,9 +3,11 @@
 	"description": "Allows for a better experience when choosing your saber colors",
 	"id": "BetterSaberQolors",
 	"version": "1.0.0",
+	"author": "Bobby Shmurner",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/BobbyShmurner/BetterSaberQolors/releases/download/V1.0.0/BetterSaberQolors_v1.0.0.qmod",
 	"source": "https://github.com/BobbyShmurner/BetterSaberQolors/",
-	"author": "Bobby Shmurner",
 	"cover": "https://raw.githubusercontent.com/BobbyShmurner/BetterSaberQolors/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

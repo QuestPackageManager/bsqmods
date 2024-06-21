@@ -3,9 +3,11 @@
 	"description": "Store brand version of Counters+ for the Quest version of Beat Saber. Adds a variety of configurable Qounters to display statistics in-game.",
 	"id": "qounters-minus",
 	"version": "1.1.2",
+	"author": "Metalit,  danrouse",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/danrouse/bsq-qounters-minus/releases/download/v1.1.2/qounters-minus_v1.1.2.qmod",
 	"source": "https://github.com/danrouse/bsq-qounters-minus/",
-	"author": "Metalit,  danrouse",
 	"cover": "https://raw.githubusercontent.com/danrouse/bsq-qounters-minus/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

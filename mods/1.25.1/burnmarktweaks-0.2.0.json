@@ -3,8 +3,11 @@
 	"description": "Burn mark Tweaker",
 	"id": "burnmarktweaks",
 	"version": "0.2.0",
+	"author": "Core",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Core-Quest/BurnMarktweaks/releases/download/v0.2.0/BurnMarkTweaks.qmod",
 	"source": "https://github.com/Core-Quest/BurnMarktweaks/",
-	"author": "Core",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

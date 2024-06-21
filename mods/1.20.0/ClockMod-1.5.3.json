@@ -3,9 +3,11 @@
 	"description": "Displays the time in game. Alternatively also the Battery Percentage",
 	"id": "ClockMod",
 	"version": "1.5.3",
+	"author": "BoopetyDoopety,  EnderdracheLP",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/EnderdracheLP/ClockMod/releases/download/1.5.3/ClockMod.qmod",
 	"source": "https://github.com/EnderdracheLP/ClockMod/",
-	"author": "BoopetyDoopety,  EnderdracheLP",
 	"cover": "https://raw.githubusercontent.com/EnderdracheLP/ClockMod/master/Cover.jpg",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

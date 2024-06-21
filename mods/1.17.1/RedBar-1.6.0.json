@@ -3,8 +3,11 @@
 	"description": null,
 	"id": "RedBar",
 	"version": "1.6.0",
+	"author": "ComputerElite",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.6.0/RedBar.qmod",
 	"source": "https://github.com/ComputerElite/RedBar/",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

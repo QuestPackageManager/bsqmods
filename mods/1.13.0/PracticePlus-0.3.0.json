@@ -3,8 +3,11 @@
 	"description": "A mod that adds a few features to the practice mode menu\r\n\r\n - Set the NJS and note offset for the song\r\n - Expands the speed slider from 50%-200% to 25%-300% (because why not)\r\n\r\nThis is an updated/refactored version of the mod originally made by L_, and should hopefully be easy to update in the future.\r\n\r\nNOTE: The in-game menu for setting njs/offset is gone for now, until I can figure out why new buttons in the pause menu aren't clickable",
 	"id": "PracticePlus",
 	"version": "0.3.0",
+	"author": "krx",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/krx/PracticePlus/releases/download/0.3.0/PracticePlus_v0.3.0.zip",
 	"source": "https://github.com/krx/PracticePlus/",
-	"author": "krx",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

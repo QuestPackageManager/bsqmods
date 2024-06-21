@@ -3,9 +3,11 @@
 	"description": "Mod that lets you throw and spin your sabers every which way you want!",
 	"id": "trick-saber",
 	"version": "0.0.1",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/NuggoDEV/TrickSaber-1.28.0/releases/download/0.0.1/Tricksaber.qmod",
 	"source": "https://github.com/NuggoDEV/TrickSaber-1.28.0/",
-	"author": "RedBrumbler",
 	"cover": "https://raw.githubusercontent.com/NuggoDEV/TrickSaber-1.28.0/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": null,
 	"id": "qubes",
 	"version": "1.0.0",
+	"author": "Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/Qubes/releases/download/v1.0.0/Qubes.qmod",
 	"source": "https://github.com/Metalit/Qubes/",
-	"author": "Metalit",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

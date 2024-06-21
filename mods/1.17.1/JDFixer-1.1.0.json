@@ -1,10 +1,13 @@
 {
 	"name": "JDFixer",
-	"description": "This mod allows you to change the spawn offset of any map at will to a desired jump distance. Features also include setting the jump distance to the map's default or to a configurable reaction time.\r\n\r\nThis is a port of the PC mod with the same name, created by Zephyr: https://discord.com/channels/441805394323439646/889894313763422218/895936512938623056\r\nIf you find any bugs, please let me know.\r\n",
+	"description": "This mod allows you to change the spawn offset of any map at will to a desired jump distance. Features also include setting the jump distance to the map's default or to a configurable reaction time.\r\n\r\nThis is a port of the PC mod with the same name, created by Zephyr: https://discord.com/channels/441805394323439646/889894313763422218/895936512938623056\r\nIf you find any bugs, please let me know.",
 	"id": "JDFixer",
 	"version": "1.1.0",
+	"author": "Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/QuestJDFixer/releases/download/v1.1.0/JDFixer.qmod",
 	"source": "https://github.com/Metalit/QuestJDFixer/",
-	"author": "Metalit",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

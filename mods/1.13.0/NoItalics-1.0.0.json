@@ -3,8 +3,11 @@
 	"description": "Unslants everything in the menu! WARNING, THIS LOOKS VERY WEIRD. THE GAME WAS NOT DESIGNED FOR THIS.",
 	"id": "NoItalics",
 	"version": "1.0.0",
+	"author": "Pink",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/BSMGPink/QuestNoItalics/releases/download/1.0.0/NoItalicsQuestDownload.zip",
 	"source": "https://github.com/BSMGPink/QuestNoItalics/",
-	"author": "Pink",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

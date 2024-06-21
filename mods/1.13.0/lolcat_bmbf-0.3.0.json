@@ -3,8 +3,11 @@
 	"description": "A mod that translates most text into LOLCAT (Kingdom of Cats)",
 	"id": "lolcat_bmbf",
 	"version": "0.3.0",
+	"author": "MillzyG",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/MillzyG/LOLCAT_BMBF/releases/download/BSABER_1.13.0/lolcat_bmbf_v0.3.0.zip",
 	"source": "https://github.com/MillzyG/LOLCAT_BMBF/",
-	"author": "MillzyG",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "Customize the text on the main menu of Beat Saber",
 	"id": "CustomMainMenu",
 	"version": "0.1.0",
+	"author": "Temmie#7854 | WaffleTheCool#8942",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/77Z/CustomMainMenu/releases/download/v0.1.0/CustomMainMenu.qmod",
 	"source": "https://github.com/77Z/CustomMainMenu/",
-	"author": "Temmie#7854 | WaffleTheCool#8942",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

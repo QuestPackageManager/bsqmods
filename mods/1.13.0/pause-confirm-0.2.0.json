@@ -3,8 +3,11 @@
 	"description": "Makes you confirm before going back to the menu, restarting or pressing continue when in the pause menu. This is to avoid you accidentally doing it when you're about to set a really good play, which I'm sure you've all done many times.\r\n\r\nTo choose which buttons require confirmation go to the Settings Icon in the main menu -> Mod Settings -> PauseConfirm. The default is that all three buttons require confirmation, but some might not want that.",
 	"id": "pause-confirm",
 	"version": "0.2.0",
+	"author": "Laurie",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Lauriethefish/PauseConfirm/releases/download/0.2.0/pause-confirm_v0.2.0.zip",
 	"source": "https://github.com/Lauriethefish/PauseConfirm/",
-	"author": "Laurie",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

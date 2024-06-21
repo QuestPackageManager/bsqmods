@@ -3,9 +3,11 @@
 	"description": "This mod disables the play button on toggle",
 	"id": "noplay",
 	"version": "0.1.0",
+	"author": "speecil",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/speecil/No-Play/releases/download/v0.1.0/No.Play.qmod",
 	"source": "https://github.com/speecil/No-Play/",
-	"author": "speecil",
 	"cover": "https://raw.githubusercontent.com/speecil/No-Play/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

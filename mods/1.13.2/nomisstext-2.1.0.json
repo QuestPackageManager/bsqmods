@@ -3,8 +3,11 @@
 	"description": "Made with permission from Pink. Original mod by Pink and CyanSnow.\r\n\r\nRemoves the miss and bad cut text along with the combo break animation! You can also hide how bad you are :thonkerguns:",
 	"id": "nomisstext",
 	"version": "2.1.0",
+	"author": "gabriella",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/IsGabriellaCurious/NoMissText/releases/download/v2.1.0/nomisstext_v2.1.0.zip",
 	"source": "https://github.com/IsGabriellaCurious/NoMissText/",
-	"author": "gabriella",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

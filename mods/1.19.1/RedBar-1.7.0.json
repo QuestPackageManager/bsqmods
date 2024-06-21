@@ -3,8 +3,11 @@
 	"description": "Change the color of your health bar according to your health\n\nFeatures:\n- Custom color for your energy bar which changes according to your health\n- Rainbow mode",
 	"id": "RedBar",
 	"version": "1.7.0",
+	"author": "ComputerElite",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.7.0/RedBar.qmod",
 	"source": "https://github.com/ComputerElite/RedBar/",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

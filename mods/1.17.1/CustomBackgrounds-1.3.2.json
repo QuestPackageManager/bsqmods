@@ -3,9 +3,11 @@
 	"description": "Import your own 360 images as custom skyboxes!\nScans the 'CustomBackgrounds' ModData folder for imported images.",
 	"id": "CustomBackgrounds",
 	"version": "1.3.2",
+	"author": "Raemien",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Raemien/CustomBackgroundsQuest/releases/download/v1.3.2/CustomBackgrounds.qmod",
 	"source": "https://github.com/Raemien/CustomBackgroundsQuest/",
-	"author": "Raemien",
 	"cover": "https://raw.githubusercontent.com/Raemien/CustomBackgroundsQuest/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

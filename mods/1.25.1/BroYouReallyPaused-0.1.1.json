@@ -3,8 +3,11 @@
 	"description": "Damn you really paused? cringe. This Mod creates a customiseable text underneath the pause menu! Can be used for: Bullying yourself for pausing, Funny stuff and reminders to do the dishes.",
 	"id": "BroYouReallyPaused",
 	"version": "0.1.1",
+	"author": "speecil",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/speecil/BroYouReallyPaused/releases/download/v0.1.1/Bro.You.Really.Paused.qmod",
 	"source": "https://github.com/speecil/BroYouReallyPaused/",
-	"author": "speecil",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

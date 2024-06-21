@@ -3,9 +3,11 @@
 	"description": "Feel good!",
 	"id": "qbeatsaberplus-gametweaker",
 	"version": "6.3.1",
+	"author": "HardCPP",
+	"modloader": "Scotland2",
 	"download": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/releases/download/v6.3.1/QBeatSaberPlus-GameTweaker.qmod",
 	"source": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/",
-	"author": "HardCPP",
 	"cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-GameTweaker/master/cover.png",
-	"modloader": "Scotland2"
+	"funding": null,
+	"website": null
 }

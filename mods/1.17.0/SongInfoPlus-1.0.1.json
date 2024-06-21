@@ -3,8 +3,11 @@
 	"description": "View extra song info by clicking the cover art",
 	"id": "SongInfoPlus",
 	"version": "1.0.1",
+	"author": "OptimusChen",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/OptimusChen/QuestSongInfoPlus/releases/download/v1.0.1/SongInfoPlus_v1.0.1.qmod",
 	"source": "https://github.com/OptimusChen/QuestSongInfoPlus/",
-	"author": "OptimusChen",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "Use all the special characters you could possibly want, now accessible through the keyboard's number pad!",
 	"id": "morebuttons",
 	"version": "1.0.0",
+	"author": "Metalit",
+	"modloader": "Scotland2",
 	"download": "https://github.com/Metalit/MoreButtons/releases/download/v1.0.0/MoreButtons.qmod",
 	"source": "https://github.com/Metalit/MoreButtons",
-	"author": "Metalit",
-	"modloader": "Scotland2"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

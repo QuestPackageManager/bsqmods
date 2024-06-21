@@ -3,8 +3,11 @@
 	"description": "mhm",
 	"id": "Spaghetti",
 	"version": "0.1.0",
+	"author": "Phaze#6193",
+	"modloader": "QuestLoader",
 	"download": "https://git.phazed.xyz/attachments/49b21762-de0d-4d0e-9194-de569acd0eed",
 	"source": null,
-	"author": "Phaze#6193",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

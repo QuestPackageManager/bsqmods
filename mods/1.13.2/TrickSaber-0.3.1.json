@@ -3,8 +3,11 @@
 	"description": "Do tricks and stuff",
 	"id": "TrickSaber",
 	"version": "0.3.1",
+	"author": "FernTheDev,  Michael Zoller, ToniMacaroni",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Fernthedev/Quest-Trick-Saber/releases/download/0.3.1/TrickSaber_v0.3.1.zip",
 	"source": "https://github.com/Fernthedev/Quest-Trick-Saber/",
-	"author": "FernTheDev,  Michael Zoller, ToniMacaroni",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

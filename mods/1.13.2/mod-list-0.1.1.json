@@ -3,8 +3,11 @@
 	"description": "Allows you to see which mods have loaded correctly ingame, and tells you why a mod failed to load. Useful for support and troubleshooting.\r\n\r\nTo view loaded mods, go to the settings icon in the main menu, then select mod settings and go to mod list.",
 	"id": "mod-list",
 	"version": "0.1.1",
+	"author": "Laurie",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Lauriethefish/ModList/releases/download/0.1.1/mod-list_v0.1.1.zip",
 	"source": "https://github.com/Lauriethefish/ModList/",
-	"author": "Laurie",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

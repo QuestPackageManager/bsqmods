@@ -3,8 +3,11 @@
 	"description": "Adds additional modifiers to your game",
 	"id": "AddedModifiers",
 	"version": "2.0.7",
+	"author": "Core and Inferno._.",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/releases/download/2.0.7/AddedModifiers_v2.0.7.qmod",
 	"source": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/",
-	"author": "Core and Inferno._.",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

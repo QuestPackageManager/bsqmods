@@ -3,8 +3,11 @@
 	"description": "Menu saber colors reflect in game saber colors.",
 	"id": "qonsistentsabercolors",
 	"version": "0.2.0",
+	"author": "KodenameKRAK, Henri",
+	"modloader": "Scotland2",
 	"download": "https://github.com/kodenamekrak/QonsistentSaberColors/releases/download/0.2.0/QonsistentSaberColors.qmod",
 	"source": "https://github.com/kodenamekrak/QonsistentSaberColors/",
-	"author": "KodenameKRAK, Henri",
-	"modloader": "Scotland2"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

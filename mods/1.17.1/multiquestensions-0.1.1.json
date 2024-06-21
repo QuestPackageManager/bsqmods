@@ -3,8 +3,11 @@
 	"description": "Lightweight port of MultiplayerExtensions, the PC mod that adds features to official Multiplayer.\r\n\r\nFeatures:\r\n- Lets you play Multiplayer with Custom Songs between PC and Quest.\r\n- Automatically downloads songs when missing.\r\n- Shows a loading indicator that shows how many players have the song downloaded and are ready\r\n- Shows a downloading indicator when downloading songs you're missing\r\n- Shows a platform icon for each player\r\n- Has a download history in the GameplaySetupMenu (GameplaySetupMenu is sometimes a bit buggy)\r\n- Auto-Delete Toggle to automatically delete songs that were downloaded in Multiplayer after playing them.\r\n- Lag Reducer Toggle that hides notes/bombs and walls from other players. (Specifically useful when playing ME maps)\r\n- Lets you select a custom color for your platform and name tag for everyone to see.\r\n- Increases the Max Players amount for Lobby creation to 10.\r\n- Disabled Avatar Pose Restrictions, you can freely walk over to others if you so desire.\r\n\r\nWarning: This mod is still not fully stable and you may experience issues such as crashes when playing with others. \r\n\r\nOther incompatible mods:\r\nChroma versions below v2.5.7\r\nDiscord Presence v0.3.5 and below\r\n\r\nRequires: Beat Together Mod post in this channel https://discord.com/channels/441805394323439646/885555565760237598/909500373465698355",
 	"id": "multiquestensions",
 	"version": "0.1.1",
+	"author": "EnderdracheLP and Goobie",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Goobwabber/MultiQuestensions/releases/download/v0.1.1/MultiQuestensions.qmod",
 	"source": "https://github.com/Goobwabber/MultiQuestensions/",
-	"author": "EnderdracheLP and Goobie",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

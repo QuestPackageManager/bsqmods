@@ -3,8 +3,11 @@
 	"description": "Speeds up the fail animation!",
 	"id": "fastfail",
 	"version": "1.0.0",
+	"author": "gabriella",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/IsGabriellaCurious/FastFail/releases/download/v1.0.0/fastfail_v1.0.0.zip",
 	"source": "https://github.com/IsGabriellaCurious/FastFail/",
-	"author": "gabriella",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

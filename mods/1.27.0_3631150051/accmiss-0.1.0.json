@@ -3,8 +3,11 @@
 	"description": "Miss when you acc bad",
 	"id": "accmiss",
 	"version": "0.1.0",
+	"author": "Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/AccMiss/releases/download/v0.1.0/AccMiss.qmod",
 	"source": "https://github.com/Metalit/AccMiss/",
-	"author": "Metalit",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

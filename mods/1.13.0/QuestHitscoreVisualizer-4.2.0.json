@@ -3,8 +3,11 @@
 	"description": "Displays your scores for each note with customizable colors, text, images, and even sound!",
 	"id": "QuestHitscoreVisualizer",
 	"version": "4.2.0",
+	"author": "Sc2ad",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/sc2ad/QuestHitScoreVisualizer/releases/download/v4.2.0/QuestHitscoreVisualizer_v4.2.0.zip",
 	"source": "https://github.com/sc2ad/QuestHitScoreVisualizer/",
-	"author": "Sc2ad",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

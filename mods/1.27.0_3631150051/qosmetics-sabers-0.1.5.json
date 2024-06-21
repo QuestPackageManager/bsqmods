@@ -3,8 +3,11 @@
 	"description": "Qosmetics module that adds Whacker capabilities",
 	"id": "qosmetics-sabers",
 	"version": "0.1.5",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.5/QosmeticsWhackers.qmod",
 	"source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

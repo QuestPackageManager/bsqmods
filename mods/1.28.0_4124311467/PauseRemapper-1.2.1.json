@@ -3,9 +3,11 @@
 	"description": "Allows the user to change which buttons pause the game!",
 	"id": "PauseRemapper",
 	"version": "1.2.1",
+	"author": "Speecil",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/speecil/PauseRemapper/releases/download/v0.2.1_1/Pause.Remapper.qmod",
 	"source": "https://github.com/speecil/PauseRemapper/",
-	"author": "Speecil",
 	"cover": "https://raw.githubusercontent.com/speecil/PauseRemapper/master/PauseRemapper.gif",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

@@ -3,9 +3,11 @@
 	"description": "Qosmetics module that adds Box capabilities",
 	"id": "qosmetics-walls",
 	"version": "0.1.3",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Qosmetics/Qosmetics-Walls/releases/download/v0.1.3/QosmeticsBoxes.qmod",
 	"source": "https://github.com/Qosmetics/Qosmetics-Walls/",
-	"author": "RedBrumbler",
 	"cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Walls/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

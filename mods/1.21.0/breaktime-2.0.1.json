@@ -3,8 +3,11 @@
 	"description": "Shows how long of a break you have in a song",
 	"id": "breaktime",
 	"version": "2.0.1",
+	"author": "Optimus",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/OptimusChen/Breaktime/releases/download/v2.0.1/Breaktime.qmod",
 	"source": "https://github.com/OptimusChen/Breaktime/",
-	"author": "Optimus",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

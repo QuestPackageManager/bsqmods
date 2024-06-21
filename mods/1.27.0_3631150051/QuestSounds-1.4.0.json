@@ -3,8 +3,11 @@
 	"description": "Allows users to change their sfx sounds and in-game music easily!\n\n  Avoid using any files that use MPEG format like MP3 or MP2 unless you don't mind brief freezing upon loading\n\nSounds you can change and their default folder Path:\n-  HitSounds:                       sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/HitSounds/\n-  BadHitSounds:        sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/BadHitSounds/\n-  NoteMissedSounds:    sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/NoteMissedSounds/\n-  MenuMusic:                sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/MenuMusic/\n-  MenuClicks:                sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/MenuClicks/\n-  Firework:                          sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/Fireworks/\n-  LevelCleared:                sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/LevelCleared/\n-  LevelFailed:                sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/LevelFailed/\n-  LobbyMusic:                sdcard/ModData/com.beatgames.beatsaber/Mods/QuestSounds/LobbyMusic/",
 	"id": "QuestSounds",
 	"version": "1.4.0",
+	"author": "Rugtveit, EnderdracheLP",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/EnderdracheLP/QuestSounds/releases/download/1.4.0/QuestSounds.qmod",
 	"source": "https://github.com/EnderdracheLP/QuestSounds/",
-	"author": "Rugtveit, EnderdracheLP",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "Shows your Twitch Chat Ingame",
 	"id": "chatui",
 	"version": "0.2.1",
+	"author": "darknight1050",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/darknight1050/ChatUI/releases/download/v0.2.1/chatui.qmod",
 	"source": "https://github.com/darknight1050/ChatUI/",
-	"author": "darknight1050",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

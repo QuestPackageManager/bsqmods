@@ -3,9 +3,11 @@
 	"description": "Make simple but powerful changes to your saber trail",
 	"id": "sabertrailer",
 	"version": "0.1.0",
+	"author": "Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/SaberTrailer/releases/download/v0.1.0/SaberTrailer.qmod",
 	"source": "https://github.com/Metalit/SaberTrailer/",
-	"author": "Metalit",
 	"cover": "https://raw.githubusercontent.com/Metalit/SaberTrailer/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

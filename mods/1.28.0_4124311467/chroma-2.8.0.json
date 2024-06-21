@@ -3,9 +3,11 @@
 	"description": "Colors!",
 	"id": "chroma",
 	"version": "2.8.0",
+	"author": "Aeroluna, FernTheDev, nyamimi~",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/bsq-ports/Chroma/releases/download/v2.8.0/chroma.qmod",
 	"source": "https://github.com/bsq-ports/Chroma/",
-	"author": "Aeroluna, FernTheDev, nyamimi~",
 	"cover": "https://raw.githubusercontent.com/bsq-ports/Chroma/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

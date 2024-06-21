@@ -3,8 +3,11 @@
 	"description": "Reverts haptics to pre-1.35 behavior",
 	"id": "haptic-revert",
 	"version": "0.1.0",
+	"author": "FutureMapper",
+	"modloader": "Scotland2",
 	"download": "https://github.com/Futuremappermydud/HapticRevert/releases/download/0.1.0/Haptic.Revert.qmod",
 	"source": "https://github.com/Futuremappermydud/HapticRevert/",
-	"author": "FutureMapper",
-	"modloader": "Scotland2"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

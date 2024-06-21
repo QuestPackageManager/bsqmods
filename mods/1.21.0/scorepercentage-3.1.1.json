@@ -3,8 +3,11 @@
 	"description": "shows extra information after completing a level",
 	"id": "scorepercentage",
 	"version": "3.1.1",
+	"author": "Polly51104",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Royston1999/ScorePercentage-Quest/releases/download/3.1.1/scorepercentage_v3.1.1.qmod",
 	"source": "https://github.com/Royston1999/ScorePercentage-Quest/",
-	"author": "Polly51104",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

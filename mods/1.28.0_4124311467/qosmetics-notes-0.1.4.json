@@ -3,9 +3,11 @@
 	"description": "Qosmetics module that adds Cyoob capabilities",
 	"id": "qosmetics-notes",
 	"version": "0.1.4",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.1.4/QosmeticsCyoobs.qmod",
 	"source": "https://github.com/Qosmetics/Qosmetics-Notes/",
-	"author": "RedBrumbler",
 	"cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Notes/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

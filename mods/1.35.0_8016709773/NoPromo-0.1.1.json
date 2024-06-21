@@ -3,8 +3,11 @@
 	"description": "Hides the promo banner on the main screen.",
 	"id": "NoPromo",
 	"version": "0.1.1",
+	"author": "DanTheMan827",
+	"modloader": "Scotland2",
 	"download": "https://github.com/DanTheMan827/bs-no-promo/releases/download/v0.1.1/NoPromo.qmod",
 	"source": "https://github.com/DanTheMan827/bs-no-promo/",
-	"author": "DanTheMan827",
-	"modloader": "Scotland2"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

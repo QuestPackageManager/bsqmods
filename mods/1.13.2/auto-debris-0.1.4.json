@@ -3,8 +3,11 @@
 	"description": "Automatically enables or disables debris based on the NPS of the song, or playlist that a song is in.",
 	"id": "auto-debris",
 	"version": "0.1.4",
+	"author": "Laurie",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Lauriethefish/AutoDebris/releases/download/0.1.4/auto-debris_v0.1.4.zip",
 	"source": "https://github.com/Lauriethefish/AutoDebris/",
-	"author": "Laurie",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

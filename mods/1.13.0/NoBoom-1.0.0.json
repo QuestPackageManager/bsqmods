@@ -3,8 +3,11 @@
 	"description": "A Port of Spookys NoBoom mod. Disables the bomb particle effects, mainly used for recording.",
 	"id": "NoBoom",
 	"version": "1.0.0",
+	"author": "Pink, Spooky323",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/BSMGPink/QuestNoBoom/releases/download/1.0.0/NoBoom.zip",
 	"source": "https://github.com/BSMGPink/QuestNoBoom/",
-	"author": "Pink, Spooky323",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

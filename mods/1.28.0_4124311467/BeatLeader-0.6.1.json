@@ -3,9 +3,11 @@
 	"description": null,
 	"id": "BeatLeader",
 	"version": "0.6.1",
+	"author": "NSGolova",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.6.1/BeatLeader.qmod",
 	"source": "https://github.com/BeatLeader/beatleader-qmod/",
-	"author": "NSGolova",
 	"cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

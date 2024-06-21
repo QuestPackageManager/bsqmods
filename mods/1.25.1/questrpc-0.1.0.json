@@ -3,8 +3,11 @@
 	"description": "Quest Discord RPC to show that your playing discord.",
 	"id": "questrpc",
 	"version": "0.1.0",
+	"author": "Core",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Core-Quest/Quest-RPC/releases/download/v0.1.0/QuestDiscordRPC.qmod",
 	"source": "https://github.com/Core-Quest/Quest-RPC/",
-	"author": "Core",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

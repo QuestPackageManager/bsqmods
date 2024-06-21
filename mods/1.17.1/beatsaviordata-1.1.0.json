@@ -3,8 +3,11 @@
 	"description": "Gives a detailed overview of your performance when finishing a level!",
 	"id": "beatsaviordata",
 	"version": "1.1.0",
+	"author": "Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/QuestBeatSaviourData/releases/download/v.1.1.0/BeatSaviorJustData.qmod",
 	"source": "https://github.com/Metalit/QuestBeatSaviourData/",
-	"author": "Metalit",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

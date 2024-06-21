@@ -3,8 +3,11 @@
 	"description": "Allows discord rich presence to see which song you're playing, the current time, and much more.",
 	"id": "discord-presence",
 	"version": "0.4.0",
+	"author": "Lauriethefish#6700, lxtend",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/lixiangwuxian/Quest-Discord-Presence/releases/download/0.4.0/discord-presence.qmod",
 	"source": "https://github.com/lixiangwuxian/Quest-Discord-Presence/",
-	"author": "Lauriethefish#6700, lxtend",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

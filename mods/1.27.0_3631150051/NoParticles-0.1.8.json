@@ -3,9 +3,11 @@
 	"description": "Allows you to disable various particles throughout the game",
 	"id": "NoParticles",
 	"version": "0.1.8",
+	"author": "AllyPallyUK, KodenameKRAK",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/kodenamekrak/NoParticles/releases/download/0.1.8/NoParticles-1.27.0.qmod",
 	"source": "https://github.com/kodenamekrak/NoParticles/",
-	"author": "AllyPallyUK, KodenameKRAK",
 	"cover": "https://raw.githubusercontent.com/kodenamekrak/NoParticles/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

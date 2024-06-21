@@ -3,8 +3,11 @@
 	"description": "Skip the intro and outro of maps",
 	"id": "IntroSkip",
 	"version": "1.0.1",
+	"author": "Polly51104",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Royston1999/IntroSkip-Quest/releases/download/1.0.1/IntroSkip.qmod",
 	"source": "https://github.com/Royston1999/IntroSkip-Quest/",
-	"author": "Polly51104",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

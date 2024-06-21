@@ -3,8 +3,11 @@
 	"description": "See your slices right in front of you",
 	"id": "slicevisualizer",
 	"version": "5.0.1",
+	"author": "Henwill8,  Metalit",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Metalit/SliceVisualizer/releases/download/v5.0.1/Slice.Visualizer.qmod",
 	"source": "https://github.com/Metalit/SliceVisualizer/",
-	"author": "Henwill8,  Metalit",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

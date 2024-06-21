@@ -1,10 +1,13 @@
 {
 	"name": "SessionQombo",
-	"description": "A mod for beat saber that makes the combo counter persist across level load, like in the game `In The Groove` ",
+	"description": "A mod for beat saber that makes the combo counter persist across level load, like in the game `In The Groove`",
 	"id": "SessionQombo",
 	"version": "0.1.0",
+	"author": "Original by Headaassbtw,  ported by Oli",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/oli-ctrl/SessionQombo/releases/download/v0.1.0/SessionQombo.qmod",
 	"source": "https://github.com/oli-ctrl/SessionQombo/",
-	"author": "Original by Headaassbtw,  ported by Oli",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

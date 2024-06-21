@@ -3,9 +3,11 @@
 	"description": "Posts scores to https://beatleader.xyz/ and shows in-game leaderboards.",
 	"id": "BeatLeader",
 	"version": "0.5.3",
+	"author": "NSGolova",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.3/BeatLeader_1_27_0.qmod",
 	"source": "https://github.com/BeatLeader/beatleader-qmod/",
-	"author": "NSGolova",
 	"cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

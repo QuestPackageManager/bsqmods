@@ -1,10 +1,13 @@
 {
 	"name": "Simple Beatmap Play Count",
-	"description": "",
+	"description": null,
 	"id": "BeatmapPlayCount",
 	"version": "0.2.1",
+	"author": "Netux",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest/releases/download/v0.2.1/BeatmapPlayCount.v0.2.1.qmod",
 	"source": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest",
-	"author": "Netux",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

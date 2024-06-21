@@ -3,9 +3,11 @@
 	"description": "Receive and display heart rate data. Need patch the game with bluetooth permission or install an external apk.",
 	"id": "HeartBeatLanReceiver",
 	"version": "0.2.2",
+	"author": "frto027",
+	"modloader": "Scotland2",
 	"download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.2.2/HeartBeatQuest.qmod",
 	"source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
-	"author": "frto027",
 	"cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
-	"modloader": "Scotland2"
+	"funding": null,
+	"website": null
 }

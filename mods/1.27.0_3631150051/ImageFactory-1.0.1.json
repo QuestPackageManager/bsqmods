@@ -3,8 +3,11 @@
 	"description": "Place and customize images throughout your game.",
 	"id": "ImageFactory",
 	"version": "1.0.1",
+	"author": "Optimus",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/OptimusChen/ImageFactory-Quest/releases/download/v1.0.1/ImageFactory.qmod",
 	"source": "https://github.com/OptimusChen/ImageFactory-Quest/",
-	"author": "Optimus",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

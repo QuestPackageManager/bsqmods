@@ -1,10 +1,13 @@
 {
 	"name": "Song Difficulty Chart",
-	"description": "",
+	"description": null,
 	"id": "SongDifficultyChart",
 	"version": "0.6.9",
+	"author": "Henwill8",
+	"modloader": "QuestLoader",
 	"download": "https://henwill8.itch.io/song-difficulty-chart",
 	"source": null,
-	"author": "Henwill8",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

@@ -3,8 +3,11 @@
 	"description": "A general quality-of-life mod with many small improvements, e.g. automatically changing settings based on the level, and various pause tweaks.",
 	"id": "fish-utils",
 	"version": "0.1.3",
+	"author": "Lauriethefish#6700",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Lauriethefish/FishUtils/releases/download/v0.1.3/fish-utils_v0.1.3.qmod",
 	"source": "https://github.com/Lauriethefish/FishUtils/",
-	"author": "Lauriethefish#6700",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

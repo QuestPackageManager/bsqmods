@@ -3,8 +3,11 @@
 	"description": "Adds additional modifiers to your game",
 	"id": "AddedModifiers",
 	"version": "2.0.9",
+	"author": "Core and Inferno._.",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Core-Quest/AddedModifiers/releases/download/v2.0.9/AddedModifiers_v2.0.9.qmod",
 	"source": "https://github.com/Core-Quest/AddedModifiers/",
-	"author": "Core and Inferno._.",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

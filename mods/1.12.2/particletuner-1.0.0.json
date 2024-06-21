@@ -3,8 +3,11 @@
 	"description": "Partially ported ParticleOverdrive to the Quest. Particles (a.k.a. ParticleTuner) allows you to adjust the particles spawned after slicing a note, remove saber clashing effects, and reduce environmental dust. There's also a built-in rainbow mode for particles :)",
 	"id": "particletuner",
 	"version": "1.0.0",
+	"author": "marcuszhou",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/SuperMarcus/QuestParticleTuner/releases/download/1.0.0/ParticleTuner_1.0.0.zip",
 	"source": "https://github.com/SuperMarcus/QuestParticleTuner/",
-	"author": "marcuszhou",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

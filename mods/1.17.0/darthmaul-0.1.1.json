@@ -3,8 +3,11 @@
 	"description": "i got bored (again)",
 	"id": "darthmaul",
 	"version": "0.1.1",
+	"author": "Phaze#6193",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/phaze-the-dumb/darthmaul-mod/releases/download/v1.0.1/darthmaul_new.qmod",
 	"source": "https://github.com/phaze-the-dumb/darthmaul-mod/",
-	"author": "Phaze#6193",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

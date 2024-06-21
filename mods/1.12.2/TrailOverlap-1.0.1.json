@@ -3,8 +3,11 @@
 	"description": "Makes the saber trails overlap instead of cut into eachother",
 	"id": "TrailOverlap",
 	"version": "1.0.1",
+	"author": "RedBrumbler",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/RedBrumbler/QuestTrailOverlap/releases/latest/download/QuestTrailOverlap.zip",
 	"source": "https://github.com/RedBrumbler/QuestTrailOverlap/",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader"
+	"cover": null,
+	"funding": null,
+	"website": null
 }

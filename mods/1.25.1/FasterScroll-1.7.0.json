@@ -3,9 +3,11 @@
 	"description": "Find your songs faster using this mod.",
 	"id": "FasterScroll",
 	"version": "1.7.0",
+	"author": "Christoffyw",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Christoffyw/FasterScrollQuest/releases/download/v1.7.0/FasterScroll.qmod",
 	"source": "https://github.com/Christoffyw/FasterScrollQuest/",
-	"author": "Christoffyw",
 	"cover": "https://raw.githubusercontent.com/Christoffyw/FasterScrollQuest/master/Cover.jpg",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

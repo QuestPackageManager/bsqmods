@@ -3,9 +3,11 @@
 	"description": "Feel good!",
 	"id": "qbeatsaberplus-menumusic",
 	"version": "6.2.0",
+	"author": "HardCPP",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/releases/download/v6.2.0/QBeatSaberPlus-MenuMusic.qmod",
 	"source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
-	"author": "HardCPP",
 	"cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }

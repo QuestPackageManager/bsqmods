@@ -3,9 +3,11 @@
 	"description": "Allows you to customise the text that you see when you fail a level.",
 	"id": "custom-fail-text",
 	"version": "0.1.11",
+	"author": "Lauriethefish",
+	"modloader": "QuestLoader",
 	"download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.11/custom-fail-text_v0.1.11.qmod",
 	"source": "https://github.com/Lauriethefish/CustomFailText/",
-	"author": "Lauriethefish",
 	"cover": "https://raw.githubusercontent.com/Lauriethefish/CustomFailText/master/cover.png",
-	"modloader": "QuestLoader"
+	"funding": null,
+	"website": null
 }
