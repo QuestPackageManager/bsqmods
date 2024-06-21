@@ -1,13 +1,13 @@
 {
-	"name": "Mapping Extensions",
-	"description": "This adds a host of new things you can do with your maps as a mapper, and allows you to play said maps as a player. An update of the port of the PC original mod by Kyle 1413. Previously maintained by zoller27osu.",
-	"id": "MappingExtensions",
-	"version": "0.18.0",
-	"author": "StackDoubleFlow,  rxzz0,  rcelyte",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/StackDoubleFlow/QuestMods/releases/download/0.18.0/MappingExtensions_v0.18.0.zip",
-	"source": "https://github.com/StackDoubleFlow/QuestMods/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Mapping Extensions",
+  "description": "This adds a host of new things you can do with your maps as a mapper, and allows you to play said maps as a player. An update of the port of the PC original mod by Kyle 1413. Previously maintained by zoller27osu.",
+  "id": "MappingExtensions",
+  "version": "0.18.0",
+  "author": "StackDoubleFlow,  rxzz0,  rcelyte",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/StackDoubleFlow/QuestMods/releases/download/0.18.0/MappingExtensions_v0.18.0.zip",
+  "source": "https://github.com/StackDoubleFlow/QuestMods/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

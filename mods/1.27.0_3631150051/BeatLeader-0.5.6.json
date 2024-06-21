@@ -1,13 +1,13 @@
 {
-	"name": "BeatLeader",
-	"description": "Posts scores to https://beatleader.xyz/ and shows in-game leaderboards.",
-	"id": "BeatLeader",
-	"version": "0.5.6",
-	"author": "NSGolova",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.6/BeatLeader_1_27_0.qmod",
-	"source": "https://github.com/BeatLeader/beatleader-qmod/",
-	"cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "BeatLeader",
+  "description": "Posts scores to https://beatleader.xyz/ and shows in-game leaderboards.",
+  "id": "BeatLeader",
+  "version": "0.5.6",
+  "author": "NSGolova",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.6/BeatLeader_1_27_0.qmod",
+  "source": "https://github.com/BeatLeader/beatleader-qmod/",
+  "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Qosmetics Cyoobs",
-	"description": "Qosmetics module that adds Cyoob capabilities",
-	"id": "qosmetics-notes",
-	"version": "0.2.0",
-	"author": "RedBrumbler",
-	"modloader": "Scotland2",
-	"download": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.2.0/QosmeticsCyoobs.qmod",
-	"source": "https://github.com/Qosmetics/Qosmetics-Notes/",
-	"cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Notes/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Qosmetics Cyoobs",
+  "description": "Qosmetics module that adds Cyoob capabilities",
+  "id": "qosmetics-notes",
+  "version": "0.2.0",
+  "author": "RedBrumbler",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.2.0/QosmeticsCyoobs.qmod",
+  "source": "https://github.com/Qosmetics/Qosmetics-Notes/",
+  "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Notes/master/cover.png",
+  "funding": null,
+  "website": null
 }

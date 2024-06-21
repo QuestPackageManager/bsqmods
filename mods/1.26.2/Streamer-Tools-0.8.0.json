@@ -1,13 +1,13 @@
 {
-	"name": "Streamer Tools",
-	"description": "Allows applications to get information from the game like, currently played song.",
-	"id": "Streamer-Tools",
-	"version": "0.8.0",
-	"author": "EnderdracheLP, ComputerElite, Lauriethefish, Phaze",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.8.0/StreamerTools.qmod",
-	"source": "https://github.com/EnderdracheLP/streamer-tools/",
-	"cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Streamer Tools",
+  "description": "Allows applications to get information from the game like, currently played song.",
+  "id": "Streamer-Tools",
+  "version": "0.8.0",
+  "author": "EnderdracheLP, ComputerElite, Lauriethefish, Phaze",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.8.0/StreamerTools.qmod",
+  "source": "https://github.com/EnderdracheLP/streamer-tools/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
+  "funding": null,
+  "website": null
 }

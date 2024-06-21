@@ -1,13 +1,13 @@
 {
-	"name": "Particles",
-	"description": "Quest Particles allows you to boost/reduce/remove note slash particles, saber clash particles, remove environmental dust, and make particle rainbow.\r\n\r\nThis mod does nothing out of the box. You will need to use the in-game mod config UI (Settings -> Mod Settings -> ParticleTuner) to change the particle behaviors.\r\n\r\nKnown Issues:\r\n* Particles having white tints in rainbow mode (colorOverLifetime?)\r\n* Sometimes the preset buttons may fail to work (please lmk if you can reproduce this issue consistently)",
-	"id": "particletuner",
-	"version": "1.1.2",
-	"author": "Marcus Zhou",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/SuperMarcus/QuestParticleTuner/releases/download/1.1.2/ParticleTuner_1.1.2.zip",
-	"source": "https://github.com/SuperMarcus/QuestParticleTuner/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Particles",
+  "description": "Quest Particles allows you to boost/reduce/remove note slash particles, saber clash particles, remove environmental dust, and make particle rainbow.\r\n\r\nThis mod does nothing out of the box. You will need to use the in-game mod config UI (Settings -> Mod Settings -> ParticleTuner) to change the particle behaviors.\r\n\r\nKnown Issues:\r\n* Particles having white tints in rainbow mode (colorOverLifetime?)\r\n* Sometimes the preset buttons may fail to work (please lmk if you can reproduce this issue consistently)",
+  "id": "particletuner",
+  "version": "1.1.2",
+  "author": "Marcus Zhou",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/SuperMarcus/QuestParticleTuner/releases/download/1.1.2/ParticleTuner_1.1.2.zip",
+  "source": "https://github.com/SuperMarcus/QuestParticleTuner/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

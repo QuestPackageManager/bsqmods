@@ -1,13 +1,13 @@
 {
-	"name": "FishUtils",
-	"description": "A general quality-of-life mod with many small improvements, e.g. automatically changing settings based on the level, and various pause tweaks.",
-	"id": "fish-utils",
-	"version": "0.1.1",
-	"author": "Lauriethefish#6700",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Lauriethefish/FishUtils/releases/download/v0.1.1/fish-utils_v0.1.1.qmod",
-	"source": "https://github.com/Lauriethefish/FishUtils/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "FishUtils",
+  "description": "A general quality-of-life mod with many small improvements, e.g. automatically changing settings based on the level, and various pause tweaks.",
+  "id": "fish-utils",
+  "version": "0.1.1",
+  "author": "Lauriethefish#6700",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Lauriethefish/FishUtils/releases/download/v0.1.1/fish-utils_v0.1.1.qmod",
+  "source": "https://github.com/Lauriethefish/FishUtils/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

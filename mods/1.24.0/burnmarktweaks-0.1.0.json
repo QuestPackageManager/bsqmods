@@ -1,13 +1,13 @@
 {
-	"name": "Burn Mark Tweaks",
-	"description": "#{description}",
-	"id": "burnmarktweaks",
-	"version": "0.1.0",
-	"author": "Core",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Core-Quest/BurnMarktweaks/releases/download/v0.1.0/BurnMarkTweaks.qmod",
-	"source": "https://github.com/Core-Quest/BurnMarktweaks/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Burn Mark Tweaks",
+  "description": "#{description}",
+  "id": "burnmarktweaks",
+  "version": "0.1.0",
+  "author": "Core",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Core-Quest/BurnMarktweaks/releases/download/v0.1.0/BurnMarkTweaks.qmod",
+  "source": "https://github.com/Core-Quest/BurnMarktweaks/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

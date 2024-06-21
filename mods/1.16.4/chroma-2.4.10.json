@@ -1,13 +1,13 @@
 {
-	"name": "Chroma",
-	"description": "Colors!",
-	"id": "chroma",
-	"version": "2.4.10",
-	"author": "FernTheDev,  nyamimi~, Aeroluna",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/bsq-ports/Chroma/releases/download/2.4.10q3/chroma_v2.4.10q3.qmod",
-	"source": "https://github.com/bsq-ports/Chroma/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Chroma",
+  "description": "Colors!",
+  "id": "chroma",
+  "version": "2.4.10",
+  "author": "FernTheDev,  nyamimi~, Aeroluna",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/bsq-ports/Chroma/releases/download/2.4.10q3/chroma_v2.4.10q3.qmod",
+  "source": "https://github.com/bsq-ports/Chroma/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

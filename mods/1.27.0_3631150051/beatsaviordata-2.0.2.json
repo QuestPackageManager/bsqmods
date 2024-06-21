@@ -1,13 +1,13 @@
 {
-	"name": "BeatSaviorData",
-	"description": "Gives a detailed overview of your performance when finishing a level!",
-	"id": "beatsaviordata",
-	"version": "2.0.2",
-	"author": "Metalit",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Metalit/QuestBeatSaviourData/releases/download/v2.0.2/BeatSaviorData.qmod",
-	"source": "https://github.com/Metalit/QuestBeatSaviourData/",
-	"cover": "https://raw.githubusercontent.com/Metalit/QuestBeatSaviourData/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "BeatSaviorData",
+  "description": "Gives a detailed overview of your performance when finishing a level!",
+  "id": "beatsaviordata",
+  "version": "2.0.2",
+  "author": "Metalit",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/QuestBeatSaviourData/releases/download/v2.0.2/BeatSaviorData.qmod",
+  "source": "https://github.com/Metalit/QuestBeatSaviourData/",
+  "cover": "https://raw.githubusercontent.com/Metalit/QuestBeatSaviourData/master/cover.png",
+  "funding": null,
+  "website": null
 }

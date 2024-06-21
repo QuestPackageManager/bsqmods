@@ -1,13 +1,13 @@
 {
-	"name": "Slice Visualizer",
-	"description": "See your slices right in front of you",
-	"id": "slicevisualizer",
-	"version": "0.1.0",
-	"author": "Henwill8,  Metalit",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/henwill8/SliceVisualizer/releases/download/0.1.0/slicevisualizer_v0.1.0.zip",
-	"source": "https://github.com/henwill8/SliceVisualizer/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Slice Visualizer",
+  "description": "See your slices right in front of you",
+  "id": "slicevisualizer",
+  "version": "0.1.0",
+  "author": "Henwill8,  Metalit",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/henwill8/SliceVisualizer/releases/download/0.1.0/slicevisualizer_v0.1.0.zip",
+  "source": "https://github.com/henwill8/SliceVisualizer/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

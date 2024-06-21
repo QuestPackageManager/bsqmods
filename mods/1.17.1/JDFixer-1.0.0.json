@@ -1,13 +1,13 @@
 {
-	"name": "JDFixer",
-	"description": null,
-	"id": "JDFixer",
-	"version": "1.0.0",
-	"author": "Metalit",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Metalit/QuestJDFixer/releases/download/v1.0.0/JDFixer.qmod",
-	"source": "https://github.com/Metalit/QuestJDFixer/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "JDFixer",
+  "description": null,
+  "id": "JDFixer",
+  "version": "1.0.0",
+  "author": "Metalit",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/QuestJDFixer/releases/download/v1.0.0/JDFixer.qmod",
+  "source": "https://github.com/Metalit/QuestJDFixer/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

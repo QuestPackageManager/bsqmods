@@ -1,13 +1,13 @@
 {
-	"name": "No Play Beat Saber",
-	"description": "This literally does not allow you to play beat saber. Why do you even want this?",
-	"id": "noplaybeatsaber",
-	"version": "11.0.0",
-	"author": "Kaylerr",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/skyewontmiss/No-Play-Beat-Saber/releases/download/v11/npbs11.qmod",
-	"source": "https://github.com/skyewontmiss/No-Play-Beat-Saber/",
-	"cover": "https://raw.githubusercontent.com/skyewontmiss/No-Play-Beat-Saber/master/npbs.png",
-	"funding": null,
-	"website": null
+  "name": "No Play Beat Saber",
+  "description": "This literally does not allow you to play beat saber. Why do you even want this?",
+  "id": "noplaybeatsaber",
+  "version": "11.0.0",
+  "author": "Kaylerr",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/skyewontmiss/No-Play-Beat-Saber/releases/download/v11/npbs11.qmod",
+  "source": "https://github.com/skyewontmiss/No-Play-Beat-Saber/",
+  "cover": "https://raw.githubusercontent.com/skyewontmiss/No-Play-Beat-Saber/master/npbs.png",
+  "funding": null,
+  "website": null
 }

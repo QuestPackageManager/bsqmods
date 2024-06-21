@@ -1,13 +1,13 @@
 {
-	"name": "SongCore",
-	"description": "Adds songloading, map requirement handling and related utilities to the game.",
-	"id": "songcore",
-	"version": "1.1.10",
-	"author": "Raine & RedBrumbler",
-	"modloader": "Scotland2",
-	"download": "https://github.com/raineio/Quest-SongCore/releases/download/v1.1.10/SongCore.qmod",
-	"source": "https://github.com/raineio/Quest-SongCore/",
-	"cover": "https://raw.githubusercontent.com/raineio/Quest-SongCore/master/cover.jpg",
-	"funding": null,
-	"website": null
+  "name": "SongCore",
+  "description": "Adds songloading, map requirement handling and related utilities to the game.",
+  "id": "songcore",
+  "version": "1.1.10",
+  "author": "Raine & RedBrumbler",
+  "modloader": "Scotland2",
+  "download": "https://github.com/raineio/Quest-SongCore/releases/download/v1.1.10/SongCore.qmod",
+  "source": "https://github.com/raineio/Quest-SongCore/",
+  "cover": "https://raw.githubusercontent.com/raineio/Quest-SongCore/master/cover.jpg",
+  "funding": null,
+  "website": null
 }

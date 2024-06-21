@@ -1,13 +1,13 @@
 {
-	"name": "Promotion Yeeter",
-	"description": "Yeets the Music Pack Promotion Button/Banner from the main menu",
-	"id": "PromotionYeeter",
-	"version": "0.1.0",
-	"author": "WaffleTheCool#8942",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotHiiragi/PromotionYeeter/releases/download/0.1.0/Promotion.Yeeter.qmod",
-	"source": "https://github.com/NotHiiragi/PromotionYeeter/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Promotion Yeeter",
+  "description": "Yeets the Music Pack Promotion Button/Banner from the main menu",
+  "id": "PromotionYeeter",
+  "version": "0.1.0",
+  "author": "WaffleTheCool#8942",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotHiiragi/PromotionYeeter/releases/download/0.1.0/Promotion.Yeeter.qmod",
+  "source": "https://github.com/NotHiiragi/PromotionYeeter/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

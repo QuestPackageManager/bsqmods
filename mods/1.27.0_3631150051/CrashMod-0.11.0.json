@@ -1,13 +1,13 @@
 {
-	"name": "CrashMod",
-	"description": "Crash your game if you are bad and good",
-	"id": "CrashMod",
-	"version": "0.11.0",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/CrashMod/releases/download/0.11.0/CrashMod.qmod",
-	"source": "https://github.com/ComputerElite/CrashMod/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "CrashMod",
+  "description": "Crash your game if you are bad and good",
+  "id": "CrashMod",
+  "version": "0.11.0",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/CrashMod/releases/download/0.11.0/CrashMod.qmod",
+  "source": "https://github.com/ComputerElite/CrashMod/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

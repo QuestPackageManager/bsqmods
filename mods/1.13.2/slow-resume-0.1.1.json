@@ -1,13 +1,13 @@
 {
-	"name": "SlowResume",
-	"description": "Allows you to change how long the countdown takes to resume when paused. Disables score submission if the amount of time is increased, since this makes pausing an easier method to get back your stamina.\r\n\r\nTo change the amount of time, go to the Settings Icon in the main menu -> Mod Settings -> SlowResume.\r\n\r\nThis mod was commissioned",
-	"id": "slow-resume",
-	"version": "0.1.1",
-	"author": "Laurie",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Lauriethefish/SlowResume/releases/download/0.1.1/slow-resume_v0.1.1.zip",
-	"source": "https://github.com/Lauriethefish/SlowResume/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "SlowResume",
+  "description": "Allows you to change how long the countdown takes to resume when paused. Disables score submission if the amount of time is increased, since this makes pausing an easier method to get back your stamina.\r\n\r\nTo change the amount of time, go to the Settings Icon in the main menu -> Mod Settings -> SlowResume.\r\n\r\nThis mod was commissioned",
+  "id": "slow-resume",
+  "version": "0.1.1",
+  "author": "Laurie",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Lauriethefish/SlowResume/releases/download/0.1.1/slow-resume_v0.1.1.zip",
+  "source": "https://github.com/Lauriethefish/SlowResume/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

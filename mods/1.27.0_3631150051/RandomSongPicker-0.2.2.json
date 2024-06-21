@@ -1,13 +1,13 @@
 {
-	"name": "RandomSongPicker",
-	"description": "Adds a button, that picks a random song out of the current list",
-	"id": "RandomSongPicker",
-	"version": "0.2.2",
-	"author": "Tatenshi",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Tatenshi/RandomSongPicker/releases/download/v0.2.2/RandomSongPicker_1_27_0.qmod",
-	"source": "https://github.com/Tatenshi/RandomSongPicker/",
-	"cover": "https://raw.githubusercontent.com/Tatenshi/RandomSongPicker/master/cover.jpg",
-	"funding": null,
-	"website": null
+  "name": "RandomSongPicker",
+  "description": "Adds a button, that picks a random song out of the current list",
+  "id": "RandomSongPicker",
+  "version": "0.2.2",
+  "author": "Tatenshi",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Tatenshi/RandomSongPicker/releases/download/v0.2.2/RandomSongPicker_1_27_0.qmod",
+  "source": "https://github.com/Tatenshi/RandomSongPicker/",
+  "cover": "https://raw.githubusercontent.com/Tatenshi/RandomSongPicker/master/cover.jpg",
+  "funding": null,
+  "website": null
 }

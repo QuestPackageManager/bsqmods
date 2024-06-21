@@ -1,13 +1,13 @@
 {
-	"name": "ThinSaberUI",
-	"description": "A frontend for the mod, ThinSaberCore",
-	"id": "thinsaberui",
-	"version": "0.1.0",
-	"author": "ThinSaberCore - Millzy, ThinSaberUI - Nuggo",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NuggoDev/ThinSaberUI/releases/download/v0.1.0/ThinSaberUI.qmod",
-	"source": "https://github.com/NuggoDev/ThinSaberUI/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "ThinSaberUI",
+  "description": "A frontend for the mod, ThinSaberCore",
+  "id": "thinsaberui",
+  "version": "0.1.0",
+  "author": "ThinSaberCore - Millzy, ThinSaberUI - Nuggo",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NuggoDev/ThinSaberUI/releases/download/v0.1.0/ThinSaberUI.qmod",
+  "source": "https://github.com/NuggoDev/ThinSaberUI/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

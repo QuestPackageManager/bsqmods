@@ -1,13 +1,13 @@
 {
-	"name": "Hot-Swappable Mods",
-	"description": "Allows you to easily reload mods from in game",
-	"id": "HotSwappableMods",
-	"version": "2.0.0",
-	"author": "Bobby Shmurner",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/BobbyShmurner/HotSwappableMods/releases/download/v2.0.0/Hot-Swappable_Mods-v2.0.0.qmod",
-	"source": "https://github.com/BobbyShmurner/HotSwappableMods/",
-	"cover": "https://raw.githubusercontent.com/BobbyShmurner/HotSwappableMods/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Hot-Swappable Mods",
+  "description": "Allows you to easily reload mods from in game",
+  "id": "HotSwappableMods",
+  "version": "2.0.0",
+  "author": "Bobby Shmurner",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BobbyShmurner/HotSwappableMods/releases/download/v2.0.0/Hot-Swappable_Mods-v2.0.0.qmod",
+  "source": "https://github.com/BobbyShmurner/HotSwappableMods/",
+  "cover": "https://raw.githubusercontent.com/BobbyShmurner/HotSwappableMods/master/cover.png",
+  "funding": null,
+  "website": null
 }

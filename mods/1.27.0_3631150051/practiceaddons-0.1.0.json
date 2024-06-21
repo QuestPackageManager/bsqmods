@@ -1,13 +1,13 @@
 {
-	"name": "Practice Addons",
-	"description": "#{description}",
-	"id": "practiceaddons",
-	"version": "0.1.0",
-	"author": "KodenameKRAK",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/kodenamekrak/PracticeAddons/releases/download/0.1.0/PracticeAddons.qmod",
-	"source": "https://github.com/kodenamekrak/PracticeAddons/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Practice Addons",
+  "description": "#{description}",
+  "id": "practiceaddons",
+  "version": "0.1.0",
+  "author": "KodenameKRAK",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/kodenamekrak/PracticeAddons/releases/download/0.1.0/PracticeAddons.qmod",
+  "source": "https://github.com/kodenamekrak/PracticeAddons/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

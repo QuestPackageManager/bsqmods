@@ -1,13 +1,13 @@
 {
-	"name": "GaySabers",
-	"description": "Makes your sabers gay (i mean glow in rainbow colors)",
-	"id": "gaysabers",
-	"version": "1.0.3",
-	"author": "hdgamer1404Jonas",
-	"modloader": "Scotland2",
-	"download": "https://github.com/jxnxsdev/GaySabers/releases/download/1.0.3/GaySabers.qmod",
-	"source": "https://github.com/jxnxsdev/GaySabers/",
-	"cover": "https://raw.githubusercontent.com/jxnxsdev/GaySabers/master/logo.gif",
-	"funding": null,
-	"website": null
+  "name": "GaySabers",
+  "description": "Makes your sabers gay (i mean glow in rainbow colors)",
+  "id": "gaysabers",
+  "version": "1.0.3",
+  "author": "hdgamer1404Jonas",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/GaySabers/releases/download/1.0.3/GaySabers.qmod",
+  "source": "https://github.com/jxnxsdev/GaySabers/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/GaySabers/master/logo.gif",
+  "funding": null,
+  "website": null
 }

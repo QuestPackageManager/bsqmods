@@ -1,13 +1,13 @@
 {
-	"name": "No Names",
-	"description": "Removes the ArtistName Text from BeatMap \"Descriptions\" and Level Bars\r\n\r\nFeatures:\r\n    - Pause Menu Level Bar Elimination",
-	"id": "quest_noname",
-	"version": "1.0.0",
-	"author": "MillzyG",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/MillzyG/QuestNoName/releases/download/1.13.2/quest_nonames_v1.0.0.zip",
-	"source": "https://github.com/MillzyG/QuestNoName/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "No Names",
+  "description": "Removes the ArtistName Text from BeatMap \"Descriptions\" and Level Bars\r\n\r\nFeatures:\r\n    - Pause Menu Level Bar Elimination",
+  "id": "quest_noname",
+  "version": "1.0.0",
+  "author": "MillzyG",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/MillzyG/QuestNoName/releases/download/1.13.2/quest_nonames_v1.0.0.zip",
+  "source": "https://github.com/MillzyG/QuestNoName/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

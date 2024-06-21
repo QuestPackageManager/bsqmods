@@ -1,13 +1,13 @@
 {
-	"name": "ParticleTuner",
-	"description": "A partial port of the Particle Overdrive mod from PC with colorful sparckles and custom parameters including ambiend dust.",
-	"id": "ParticleTuner",
-	"version": "1.17.1-211118",
-	"author": "Marcus Zhou,  Mioki",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/SuperMarcus/QuestParticleTuner/releases/download/v1.17.1/ParticleTuner-v1.17.1-211118.qmod",
-	"source": "https://github.com/SuperMarcus/QuestParticleTuner/",
-	"cover": "https://raw.githubusercontent.com/SuperMarcus/QuestParticleTuner/master/cover.gif",
-	"funding": null,
-	"website": null
+  "name": "ParticleTuner",
+  "description": "A partial port of the Particle Overdrive mod from PC with colorful sparckles and custom parameters including ambiend dust.",
+  "id": "ParticleTuner",
+  "version": "1.17.1-211118",
+  "author": "Marcus Zhou,  Mioki",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/SuperMarcus/QuestParticleTuner/releases/download/v1.17.1/ParticleTuner-v1.17.1-211118.qmod",
+  "source": "https://github.com/SuperMarcus/QuestParticleTuner/",
+  "cover": "https://raw.githubusercontent.com/SuperMarcus/QuestParticleTuner/master/cover.gif",
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "CustomFailText",
-	"description": "Allows you to customise the text that you see when you fail a level.",
-	"id": "custom-fail-text",
-	"version": "0.1.10",
-	"author": "Lauriethefish",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.10/custom-fail-text_v0.1.10.qmod",
-	"source": "https://github.com/Lauriethefish/CustomFailText/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "CustomFailText",
+  "description": "Allows you to customise the text that you see when you fail a level.",
+  "id": "custom-fail-text",
+  "version": "0.1.10",
+  "author": "Lauriethefish",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.10/custom-fail-text_v0.1.10.qmod",
+  "source": "https://github.com/Lauriethefish/CustomFailText/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

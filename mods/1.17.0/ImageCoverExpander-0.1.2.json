@@ -1,13 +1,13 @@
 {
-	"name": "ImageCoverExpander",
-	"description": "Expands the Cover Image to the full right side of the song select menu!",
-	"id": "ImageCoverExpander",
-	"version": "0.1.2",
-	"author": "Millzy and Raine",
-	"modloader": "QuestLoader",
-	"download": "https://millzydev.itch.io/imgcoverexp-quest",
-	"source": null,
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "ImageCoverExpander",
+  "description": "Expands the Cover Image to the full right side of the song select menu!",
+  "id": "ImageCoverExpander",
+  "version": "0.1.2",
+  "author": "Millzy and Raine",
+  "modloader": "QuestLoader",
+  "download": "https://millzydev.itch.io/imgcoverexp-quest",
+  "source": null,
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Smoothed Controller",
-	"description": "Smoothes your Controller position while in menus to make it less shaky, making the UI easier to use, etc.",
-	"id": "smoothedcontroller",
-	"version": "1.6.3",
-	"author": "Kaitlyn,Kinsi55",
-	"modloader": "Scotland2",
-	"download": "https://github.com/FrozenAlex/SmoothedController/releases/download/v1.6.3/SmoothedController.qmod",
-	"source": "https://github.com/FrozenAlex/SmoothedController/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Smoothed Controller",
+  "description": "Smoothes your Controller position while in menus to make it less shaky, making the UI easier to use, etc.",
+  "id": "smoothedcontroller",
+  "version": "1.6.3",
+  "author": "Kaitlyn,Kinsi55",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/SmoothedController/releases/download/v1.6.3/SmoothedController.qmod",
+  "source": "https://github.com/FrozenAlex/SmoothedController/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Playlist Editor",
-	"description": "Modify the playlist in game.",
-	"id": "playlisteditor",
-	"version": "0.2.2",
-	"author": "Wonda",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/jk4837/PlaylistEditor/releases/download/v0.2.2/playlisteditor_0.2.2_BS1171.qmod",
-	"source": "https://github.com/jk4837/PlaylistEditor/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Playlist Editor",
+  "description": "Modify the playlist in game.",
+  "id": "playlisteditor",
+  "version": "0.2.2",
+  "author": "Wonda",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/jk4837/PlaylistEditor/releases/download/v0.2.2/playlisteditor_0.2.2_BS1171.qmod",
+  "source": "https://github.com/jk4837/PlaylistEditor/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

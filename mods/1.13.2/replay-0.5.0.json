@@ -1,13 +1,13 @@
 {
-	"name": "Replay",
-	"description": "Watch back your best scores!",
-	"id": "replay",
-	"version": "0.5.0",
-	"author": "Henwill8",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/henwill8/ReplayDownload/releases/download/0.5.0/replay_v0.5.0.zip",
-	"source": "https://github.com/henwill8/ReplayDownload/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Replay",
+  "description": "Watch back your best scores!",
+  "id": "replay",
+  "version": "0.5.0",
+  "author": "Henwill8",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/henwill8/ReplayDownload/releases/download/0.5.0/replay_v0.5.0.zip",
+  "source": "https://github.com/henwill8/ReplayDownload/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

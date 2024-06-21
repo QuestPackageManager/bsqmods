@@ -1,13 +1,13 @@
 {
-	"name": "BeatLeader",
-	"description": null,
-	"id": "BeatLeader",
-	"version": "0.5.6",
-	"author": "NSGolova",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.6/BeatLeader_1_24_0.qmod",
-	"source": "https://github.com/BeatLeader/beatleader-qmod/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "BeatLeader",
+  "description": null,
+  "id": "BeatLeader",
+  "version": "0.5.6",
+  "author": "NSGolova",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.6/BeatLeader_1_24_0.qmod",
+  "source": "https://github.com/BeatLeader/beatleader-qmod/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

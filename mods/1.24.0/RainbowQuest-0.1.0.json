@@ -1,13 +1,13 @@
 {
-	"name": "Rainbow Quest",
-	"description": "Makes blocks and obstacles rainbow :D. By: Unifox",
-	"id": "RainbowQuest",
-	"version": "0.1.0",
-	"author": "Unifox",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/releases/download/v0.1.0/RainbowQuest.qmod",
-	"source": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/",
-	"cover": "https://raw.githubusercontent.com/Unifox-BeatSaberThings/RainbowQuest/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Rainbow Quest",
+  "description": "Makes blocks and obstacles rainbow :D. By: Unifox",
+  "id": "RainbowQuest",
+  "version": "0.1.0",
+  "author": "Unifox",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/releases/download/v0.1.0/RainbowQuest.qmod",
+  "source": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/",
+  "cover": "https://raw.githubusercontent.com/Unifox-BeatSaberThings/RainbowQuest/master/cover.png",
+  "funding": null,
+  "website": null
 }

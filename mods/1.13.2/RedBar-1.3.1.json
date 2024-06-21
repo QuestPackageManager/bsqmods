@@ -1,13 +1,13 @@
 {
-	"name": "RedBar",
-	"description": "Change the color of your health bar according to your health\n\nFeatures:\n- Custom color for your energy bar which changes according to your health\n- Rainbow mode",
-	"id": "RedBar",
-	"version": "1.3.1",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.3.1/RedBar_v1.3.1.zip",
-	"source": "https://github.com/ComputerElite/RedBar/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "RedBar",
+  "description": "Change the color of your health bar according to your health\n\nFeatures:\n- Custom color for your energy bar which changes according to your health\n- Rainbow mode",
+  "id": "RedBar",
+  "version": "1.3.1",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/RedBar/releases/download/1.3.1/RedBar_v1.3.1.zip",
+  "source": "https://github.com/ComputerElite/RedBar/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

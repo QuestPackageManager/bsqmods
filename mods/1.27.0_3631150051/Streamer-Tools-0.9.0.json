@@ -1,13 +1,13 @@
 {
-	"name": "Streamer Tools",
-	"description": "Allows applications to get information from the game like, currently played song.\n\nMod Features:\n- Provide information about your game via wifi (more info: https://github.com/EnderdracheLP/streamer-tools/wiki)\n- Provide your watchers with information about your song\nby @EnderdracheLP and @ComputerElite\n\nClient features:\n- Various Overlays to add to OBS (including a overlay builder)\n- Fetching of information from your Quest\nby @ComputerElite\n\nClient Download (needed on PC): https://github.com/ComputerElite/streamer-tools-client/releases\nMod Setup video: https://www.youtube.com/watch?v=1OMHjjSi-5s",
-	"id": "Streamer-Tools",
-	"version": "0.9.0",
-	"author": "EnderdracheLP, ComputerElite, Lauriethefish, Phaze",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.9.0/Streamer-Tools.qmod",
-	"source": "https://github.com/EnderdracheLP/streamer-tools/",
-	"cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Streamer Tools",
+  "description": "Allows applications to get information from the game like, currently played song.\n\nMod Features:\n- Provide information about your game via wifi (more info: https://github.com/EnderdracheLP/streamer-tools/wiki)\n- Provide your watchers with information about your song\nby @EnderdracheLP and @ComputerElite\n\nClient features:\n- Various Overlays to add to OBS (including a overlay builder)\n- Fetching of information from your Quest\nby @ComputerElite\n\nClient Download (needed on PC): https://github.com/ComputerElite/streamer-tools-client/releases\nMod Setup video: https://www.youtube.com/watch?v=1OMHjjSi-5s",
+  "id": "Streamer-Tools",
+  "version": "0.9.0",
+  "author": "EnderdracheLP, ComputerElite, Lauriethefish, Phaze",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.9.0/Streamer-Tools.qmod",
+  "source": "https://github.com/EnderdracheLP/streamer-tools/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
+  "funding": null,
+  "website": null
 }

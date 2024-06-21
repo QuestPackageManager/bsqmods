@@ -1,13 +1,13 @@
 {
-	"name": "Third Person mod",
-	"description": "A mod which lets you play in third person\r\n\r\nFeatures:\r\n- Play with a fixed camera position\r\n- Fly anywhere\r\n- Fix the camera to your saber\r\n- And more options to keep you away from motion sickness",
-	"id": "play3rdper",
-	"version": "0.1.3",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/play3rdper/releases/download/0.1.3/Play3rdPer_v0.1.3.zip",
-	"source": "https://github.com/ComputerElite/play3rdper/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Third Person mod",
+  "description": "A mod which lets you play in third person\r\n\r\nFeatures:\r\n- Play with a fixed camera position\r\n- Fly anywhere\r\n- Fix the camera to your saber\r\n- And more options to keep you away from motion sickness",
+  "id": "play3rdper",
+  "version": "0.1.3",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/play3rdper/releases/download/0.1.3/Play3rdPer_v0.1.3.zip",
+  "source": "https://github.com/ComputerElite/play3rdper/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

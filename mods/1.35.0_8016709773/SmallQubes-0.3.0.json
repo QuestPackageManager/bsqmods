@@ -1,13 +1,13 @@
 {
-	"name": "SmallQubes",
-	"description": "Adds a slider to change default cubes size",
-	"id": "SmallQubes",
-	"version": "0.3.0",
-	"author": "NSGolova",
-	"modloader": "Scotland2",
-	"download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.3.0/SmallQubes.qmod",
-	"source": "https://github.com/NSGolova/SmallQubes/",
-	"cover": "https://raw.githubusercontent.com/NSGolova/SmallQubes/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "SmallQubes",
+  "description": "Adds a slider to change default cubes size",
+  "id": "SmallQubes",
+  "version": "0.3.0",
+  "author": "NSGolova",
+  "modloader": "Scotland2",
+  "download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.3.0/SmallQubes.qmod",
+  "source": "https://github.com/NSGolova/SmallQubes/",
+  "cover": "https://raw.githubusercontent.com/NSGolova/SmallQubes/master/cover.png",
+  "funding": null,
+  "website": null
 }

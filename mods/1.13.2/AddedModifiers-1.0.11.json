@@ -1,13 +1,13 @@
 {
-	"name": "Added Modifiers",
-	"description": "Adds additional modifiers to your game",
-	"id": "AddedModifiers",
-	"version": "1.0.11",
-	"author": "Core and Inferno._.",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/releases/download/1.0.11/AddedModifiers_v1.0.11.zip",
-	"source": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Added Modifiers",
+  "description": "Adds additional modifiers to your game",
+  "id": "AddedModifiers",
+  "version": "1.0.11",
+  "author": "Core and Inferno._.",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/releases/download/1.0.11/AddedModifiers_v1.0.11.zip",
+  "source": "https://github.com/Inferno-idk-what-to-do/AddedModifiers/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

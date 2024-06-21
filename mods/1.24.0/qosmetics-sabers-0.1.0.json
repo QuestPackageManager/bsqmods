@@ -1,13 +1,13 @@
 {
-	"name": "Qosmetics Whackers",
-	"description": "Qosmetics module that adds Whacker capabilities",
-	"id": "qosmetics-sabers",
-	"version": "0.1.0",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/QosmeticsWhackers.qmod",
-	"source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Qosmetics Whackers",
+  "description": "Qosmetics module that adds Whacker capabilities",
+  "id": "qosmetics-sabers",
+  "version": "0.1.0",
+  "author": "RedBrumbler",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/QosmeticsWhackers.qmod",
+  "source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

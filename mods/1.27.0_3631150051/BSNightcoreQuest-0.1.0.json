@@ -1,13 +1,13 @@
 {
-	"name": "BSNightcoreQuest",
-	"description": "Removes pitch compensation to make songs go nightcore on different speed",
-	"id": "BSNightcoreQuest",
-	"version": "0.1.0",
-	"author": "Tatenshi",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.1.0/BSNightcoreQuest_1_27_0.qmod",
-	"source": "https://github.com/Tatenshi/BSNightcoreQuest/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "BSNightcoreQuest",
+  "description": "Removes pitch compensation to make songs go nightcore on different speed",
+  "id": "BSNightcoreQuest",
+  "version": "0.1.0",
+  "author": "Tatenshi",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.1.0/BSNightcoreQuest_1_27_0.qmod",
+  "source": "https://github.com/Tatenshi/BSNightcoreQuest/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

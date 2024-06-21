@@ -1,13 +1,13 @@
 {
-	"name": "More By Core",
-	"description": "More By Core, for 1.24.0! Lets you customize BeatSaber with added stuff!",
-	"id": "morebycore",
-	"version": "1.3.0",
-	"author": "Core",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Core-Quest/MoreByCore/releases/download/v1.4.0/MoreByCore.qmod",
-	"source": "https://github.com/Core-Quest/MoreByCore/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "More By Core",
+  "description": "More By Core, for 1.24.0! Lets you customize BeatSaber with added stuff!",
+  "id": "morebycore",
+  "version": "1.3.0",
+  "author": "Core",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Core-Quest/MoreByCore/releases/download/v1.4.0/MoreByCore.qmod",
+  "source": "https://github.com/Core-Quest/MoreByCore/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

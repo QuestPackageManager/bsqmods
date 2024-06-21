@@ -1,13 +1,13 @@
 {
-	"name": "QBeatSaberPlus-MenuMusic",
-	"description": "Feel good!",
-	"id": "qbeatsaberplus-menumusic",
-	"version": "6.3.1",
-	"author": "HardCPP",
-	"modloader": "Scotland2",
-	"download": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/releases/download/v6.3.1/QBeatSaberPlus-MenuMusic.qmod",
-	"source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
-	"cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "QBeatSaberPlus-MenuMusic",
+  "description": "Feel good!",
+  "id": "qbeatsaberplus-menumusic",
+  "version": "6.3.1",
+  "author": "HardCPP",
+  "modloader": "Scotland2",
+  "download": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/releases/download/v6.3.1/QBeatSaberPlus-MenuMusic.qmod",
+  "source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
+  "funding": null,
+  "website": null
 }

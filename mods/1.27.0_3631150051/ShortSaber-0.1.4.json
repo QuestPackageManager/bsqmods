@@ -1,13 +1,13 @@
 {
-	"name": "ShortSaber",
-	"description": "Change the length of the saber",
-	"id": "ShortSaber",
-	"version": "0.1.4",
-	"author": "Oli",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/oli-ctrl/ShortSaber/releases/download/v0.1.4/ShortSaber.qmod",
-	"source": "https://github.com/oli-ctrl/ShortSaber/",
-	"cover": "https://raw.githubusercontent.com/oli-ctrl/ShortSaber/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "ShortSaber",
+  "description": "Change the length of the saber",
+  "id": "ShortSaber",
+  "version": "0.1.4",
+  "author": "Oli",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/oli-ctrl/ShortSaber/releases/download/v0.1.4/ShortSaber.qmod",
+  "source": "https://github.com/oli-ctrl/ShortSaber/",
+  "cover": "https://raw.githubusercontent.com/oli-ctrl/ShortSaber/master/cover.png",
+  "funding": null,
+  "website": null
 }

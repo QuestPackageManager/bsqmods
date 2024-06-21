@@ -1,13 +1,13 @@
 {
-	"name": "BetterSongSearch",
-	"description": "Search and download songs with a lot of filtering and sorting options and without frustration!",
-	"id": "BetterSongSearch",
-	"version": "1.0.5",
-	"author": "FrozenAlex, FernTheDev, FutureMapper, and Christoffyw",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/bsq-ports/BetterSongSearchQuest/releases/download/v1.0.5-bs-1.27.0/BetterSongSearch.qmod",
-	"source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
-	"cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "BetterSongSearch",
+  "description": "Search and download songs with a lot of filtering and sorting options and without frustration!",
+  "id": "BetterSongSearch",
+  "version": "1.0.5",
+  "author": "FrozenAlex, FernTheDev, FutureMapper, and Christoffyw",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/bsq-ports/BetterSongSearchQuest/releases/download/v1.0.5-bs-1.27.0/BetterSongSearch.qmod",
+  "source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/master/cover.png",
+  "funding": null,
+  "website": null
 }

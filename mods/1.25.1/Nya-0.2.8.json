@@ -1,13 +1,13 @@
 {
-	"name": "Nya",
-	"description": "Beat Saber mod for displaying nya-tastic images from various anime themed web APIs!",
-	"id": "Nya",
-	"version": "0.2.8",
-	"author": "FrozenAlex",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/FrozenAlex/Nya-quest/releases/download/v0.2.8-bs-1.25.1/Nya.qmod",
-	"source": "https://github.com/FrozenAlex/Nya-quest/",
-	"cover": "https://raw.githubusercontent.com/FrozenAlex/Nya-quest/master/cover.jpg",
-	"funding": null,
-	"website": null
+  "name": "Nya",
+  "description": "Beat Saber mod for displaying nya-tastic images from various anime themed web APIs!",
+  "id": "Nya",
+  "version": "0.2.8",
+  "author": "FrozenAlex",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/FrozenAlex/Nya-quest/releases/download/v0.2.8-bs-1.25.1/Nya.qmod",
+  "source": "https://github.com/FrozenAlex/Nya-quest/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/Nya-quest/master/cover.jpg",
+  "funding": null,
+  "website": null
 }

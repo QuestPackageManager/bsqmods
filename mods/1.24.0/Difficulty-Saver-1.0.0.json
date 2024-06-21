@@ -1,13 +1,13 @@
 {
-	"name": "Difficulty Saver",
-	"description": "Once upon a time someone thought of a great mod idea. That happened to be male (not me). I, the great KRAK, went on the quest to fetch all the knowledge needed to create a mind blowing mod which saves your difficulty after changing it in the blink of an eye.",
-	"id": "Difficulty-Saver",
-	"version": "1.0.0",
-	"author": "KodenameKRAK",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/kodenamekrak/DifficultySaver/releases/download/1.0.0/DifficultySaver.qmod",
-	"source": "https://github.com/kodenamekrak/DifficultySaver/",
-	"cover": "https://raw.githubusercontent.com/kodenamekrak/DifficultySaver/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Difficulty Saver",
+  "description": "Once upon a time someone thought of a great mod idea. That happened to be male (not me). I, the great KRAK, went on the quest to fetch all the knowledge needed to create a mind blowing mod which saves your difficulty after changing it in the blink of an eye.",
+  "id": "Difficulty-Saver",
+  "version": "1.0.0",
+  "author": "KodenameKRAK",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/kodenamekrak/DifficultySaver/releases/download/1.0.0/DifficultySaver.qmod",
+  "source": "https://github.com/kodenamekrak/DifficultySaver/",
+  "cover": "https://raw.githubusercontent.com/kodenamekrak/DifficultySaver/master/cover.png",
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "AikaTweaks",
-	"description": "Various tweaks for Beat Saber.",
-	"id": "AikaTweaks",
-	"version": "2.0.1",
-	"author": "Aika,  xyonico",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotAika/AikaTweaks/releases/download/v2.0.1/AikaTweaks_v2.0.1.qmod",
-	"source": "https://github.com/NotAika/AikaTweaks/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "AikaTweaks",
+  "description": "Various tweaks for Beat Saber.",
+  "id": "AikaTweaks",
+  "version": "2.0.1",
+  "author": "Aika,  xyonico",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotAika/AikaTweaks/releases/download/v2.0.1/AikaTweaks_v2.0.1.qmod",
+  "source": "https://github.com/NotAika/AikaTweaks/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

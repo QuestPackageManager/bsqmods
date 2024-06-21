@@ -1,13 +1,13 @@
 {
-	"name": "RedBar",
-	"description": null,
-	"id": "RedBar",
-	"version": "1.9.0",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/RedBar/releases/download/1.9.0/RedBar.qmod",
-	"source": "https://github.com/ComputerElite/RedBar/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "RedBar",
+  "description": null,
+  "id": "RedBar",
+  "version": "1.9.0",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/RedBar/releases/download/1.9.0/RedBar.qmod",
+  "source": "https://github.com/ComputerElite/RedBar/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Scribble",
-	"description": "Let the Bob Ross in you take over!",
-	"id": "scribble",
-	"version": "1.0.0",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader",
-	"download": "https://redbrumbler.itch.io/scribble-quest",
-	"source": null,
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Scribble",
+  "description": "Let the Bob Ross in you take over!",
+  "id": "scribble",
+  "version": "1.0.0",
+  "author": "RedBrumbler",
+  "modloader": "QuestLoader",
+  "download": "https://redbrumbler.itch.io/scribble-quest",
+  "source": null,
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Weeb Saber",
-	"description": "Weeb-ifies your Beat Saber",
-	"id": "weebsaber",
-	"version": "0.1.2",
-	"author": "jonas",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/jxnxsdev/WeebSaber/releases/download/0.1.2/Weeb.Saber.qmod",
-	"source": "https://github.com/jxnxsdev/WeebSaber/",
-	"cover": "https://raw.githubusercontent.com/jxnxsdev/WeebSaber/master/logo.png",
-	"funding": null,
-	"website": null
+  "name": "Weeb Saber",
+  "description": "Weeb-ifies your Beat Saber",
+  "id": "weebsaber",
+  "version": "0.1.2",
+  "author": "jonas",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/jxnxsdev/WeebSaber/releases/download/0.1.2/Weeb.Saber.qmod",
+  "source": "https://github.com/jxnxsdev/WeebSaber/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/WeebSaber/master/logo.png",
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "FuckMaps",
-	"description": "This mod crashes your game if you play a song below or above a configurable BPM.",
-	"id": "fuckmaps",
-	"version": "1.0.0",
-	"author": "rui2015",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/FranciscoRibeiro03/FuckMaps/releases/download/v1.0.0/FuckMaps.qmod",
-	"source": "https://github.com/FranciscoRibeiro03/FuckMaps/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "FuckMaps",
+  "description": "This mod crashes your game if you play a song below or above a configurable BPM.",
+  "id": "fuckmaps",
+  "version": "1.0.0",
+  "author": "rui2015",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/FranciscoRibeiro03/FuckMaps/releases/download/v1.0.0/FuckMaps.qmod",
+  "source": "https://github.com/FranciscoRibeiro03/FuckMaps/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

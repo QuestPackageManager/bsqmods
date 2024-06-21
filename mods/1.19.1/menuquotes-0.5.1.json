@@ -1,13 +1,13 @@
 {
-	"name": "Menu Quotes",
-	"description": "Like minecraft but for beat saber!",
-	"id": "menuquotes",
-	"version": "0.5.1",
-	"author": "JD The Fusky",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/JD-The-65th/launchQuotes/releases/download/v0.5.1/menuquotes.qmod",
-	"source": "https://github.com/JD-The-65th/launchQuotes/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Menu Quotes",
+  "description": "Like minecraft but for beat saber!",
+  "id": "menuquotes",
+  "version": "0.5.1",
+  "author": "JD The Fusky",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/JD-The-65th/launchQuotes/releases/download/v0.5.1/menuquotes.qmod",
+  "source": "https://github.com/JD-The-65th/launchQuotes/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

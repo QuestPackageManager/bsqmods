@@ -1,13 +1,13 @@
 {
-	"name": "Cheater's anxeity",
-	"description": "Russian Roulette with CRASHES!",
-	"id": "nopause",
-	"version": "0.1.0",
-	"author": "Jd The Fusky",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Jd-Gamer65/bsq-dont-pause/releases/download/v1.2/nopause.qmod",
-	"source": "https://github.com/Jd-Gamer65/bsq-dont-pause/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Cheater's anxeity",
+  "description": "Russian Roulette with CRASHES!",
+  "id": "nopause",
+  "version": "0.1.0",
+  "author": "Jd The Fusky",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Jd-Gamer65/bsq-dont-pause/releases/download/v1.2/nopause.qmod",
+  "source": "https://github.com/Jd-Gamer65/bsq-dont-pause/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

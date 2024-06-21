@@ -1,13 +1,13 @@
 {
-	"name": "Fail Button",
-	"description": "Adds a button that forces a fail",
-	"id": "FailButton",
-	"version": "0.1.0",
-	"author": "speecil",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/speecil/FailButton-Quest/releases/download/v0.1.0/FailButton.qmod",
-	"source": "https://github.com/speecil/FailButton-Quest/",
-	"cover": "https://raw.githubusercontent.com/speecil/FailButton-Quest/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Fail Button",
+  "description": "Adds a button that forces a fail",
+  "id": "FailButton",
+  "version": "0.1.0",
+  "author": "speecil",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/speecil/FailButton-Quest/releases/download/v0.1.0/FailButton.qmod",
+  "source": "https://github.com/speecil/FailButton-Quest/",
+  "cover": "https://raw.githubusercontent.com/speecil/FailButton-Quest/master/cover.png",
+  "funding": null,
+  "website": null
 }

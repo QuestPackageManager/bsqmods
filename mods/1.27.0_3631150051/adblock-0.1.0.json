@@ -1,13 +1,13 @@
 {
-	"name": "Adblock",
-	"description": "???",
-	"id": "adblock",
-	"version": "0.1.0",
-	"author": "Waffle",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotHiiragi/Adblock/releases/download/1.27.0_3631150051/Adblock.qmod",
-	"source": "https://github.com/NotHiiragi/Adblock/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Adblock",
+  "description": "???",
+  "id": "adblock",
+  "version": "0.1.0",
+  "author": "Waffle",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotHiiragi/Adblock/releases/download/1.27.0_3631150051/Adblock.qmod",
+  "source": "https://github.com/NotHiiragi/Adblock/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

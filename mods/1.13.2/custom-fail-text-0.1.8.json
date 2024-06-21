@@ -1,13 +1,13 @@
 {
-	"name": "Custom Fail Text",
-	"description": "Allows you to customise the text that appears when you fail a level.\r\nThe text can be changed in the mod settings menu.",
-	"id": "custom-fail-text",
-	"version": "0.1.8",
-	"author": "Laurie",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.8/custom-fail-text_v0.1.8.zip",
-	"source": "https://github.com/Lauriethefish/CustomFailText/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Custom Fail Text",
+  "description": "Allows you to customise the text that appears when you fail a level.\r\nThe text can be changed in the mod settings menu.",
+  "id": "custom-fail-text",
+  "version": "0.1.8",
+  "author": "Laurie",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.8/custom-fail-text_v0.1.8.zip",
+  "source": "https://github.com/Lauriethefish/CustomFailText/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Slogans",
-	"description": "Adds some funky customisable text in the sky",
-	"id": "Slogans",
-	"version": "0.1.2",
-	"author": "Millzy",
-	"modloader": "QuestLoader",
-	"download": "https://millzydev.itch.io/slogans",
-	"source": null,
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Slogans",
+  "description": "Adds some funky customisable text in the sky",
+  "id": "Slogans",
+  "version": "0.1.2",
+  "author": "Millzy",
+  "modloader": "QuestLoader",
+  "download": "https://millzydev.itch.io/slogans",
+  "source": null,
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "Drink Water",
-	"description": "Tells you to drink water",
-	"id": "DrinkWater",
-	"version": "0.1.0",
-	"author": "Idk, Vilmer#8942",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotHiiragi/DrinkWater/releases/download/0.1.0/DrinkWater.qmod",
-	"source": "https://github.com/NotHiiragi/DrinkWater/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Drink Water",
+  "description": "Tells you to drink water",
+  "id": "DrinkWater",
+  "version": "0.1.0",
+  "author": "Idk, Vilmer#8942",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotHiiragi/DrinkWater/releases/download/0.1.0/DrinkWater.qmod",
+  "source": "https://github.com/NotHiiragi/DrinkWater/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

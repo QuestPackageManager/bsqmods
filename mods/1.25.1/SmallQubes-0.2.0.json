@@ -1,13 +1,13 @@
 {
-	"name": "SmallQubes",
-	"description": "Your lovely default cubes, but smoll. Modifiers compatible!",
-	"id": "SmallQubes",
-	"version": "0.2.0",
-	"author": "NSGolova",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.2.0/SmallQubes.qmod",
-	"source": "https://github.com/NSGolova/SmallQubes/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "SmallQubes",
+  "description": "Your lovely default cubes, but smoll. Modifiers compatible!",
+  "id": "SmallQubes",
+  "version": "0.2.0",
+  "author": "NSGolova",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.2.0/SmallQubes.qmod",
+  "source": "https://github.com/NSGolova/SmallQubes/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "ScoreSaber",
-	"description": "Allows you to upload scores to an online leaderboard at https://scoresaber.com. Earn PP from ranked maps, and compare scores with others. Support us on Patreon at https://patreon.com/scoresaber",
-	"id": "ScoreSaber",
-	"version": "0.2.4",
-	"author": "Umbranox",
-	"modloader": "QuestLoader",
-	"download": "https://new.scoresaber.com/quest/",
-	"source": null,
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "ScoreSaber",
+  "description": "Allows you to upload scores to an online leaderboard at https://scoresaber.com. Earn PP from ranked maps, and compare scores with others. Support us on Patreon at https://patreon.com/scoresaber",
+  "id": "ScoreSaber",
+  "version": "0.2.4",
+  "author": "Umbranox",
+  "modloader": "QuestLoader",
+  "download": "https://new.scoresaber.com/quest/",
+  "source": null,
+  "cover": null,
+  "funding": null,
+  "website": null
 }

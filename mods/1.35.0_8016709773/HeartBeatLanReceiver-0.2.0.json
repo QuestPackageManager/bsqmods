@@ -1,13 +1,13 @@
 {
-	"name": "HeartBeatLanReceiver",
-	"description": "Receive and display heart rate data from an external apk. The apk can be installed in quest headset itself or an android device via local network.",
-	"id": "HeartBeatLanReceiver",
-	"version": "0.2.0",
-	"author": "frto027",
-	"modloader": "Scotland2",
-	"download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.2.0/HeartBeatLanReceiver.qmod",
-	"source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
-	"cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "HeartBeatLanReceiver",
+  "description": "Receive and display heart rate data from an external apk. The apk can be installed in quest headset itself or an android device via local network.",
+  "id": "HeartBeatLanReceiver",
+  "version": "0.2.0",
+  "author": "frto027",
+  "modloader": "Scotland2",
+  "download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.2.0/HeartBeatLanReceiver.qmod",
+  "source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
+  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
+  "funding": null,
+  "website": null
 }

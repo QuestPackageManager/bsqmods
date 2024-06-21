@@ -1,13 +1,13 @@
 {
-	"name": "PitchBlaq",
-	"description": "Simple plugin that can completely disable lights (events) and spectrogram (if the environment has one). Config menu include light and spectrogram.",
-	"id": "PitchBlaq",
-	"version": "0.1.2",
-	"author": "Loloppe | Waffle",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotHiiragi/PitchBlaq/releases/download/v0.1.2/PitchBlaq.qmod",
-	"source": "https://github.com/NotHiiragi/PitchBlaq/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "PitchBlaq",
+  "description": "Simple plugin that can completely disable lights (events) and spectrogram (if the environment has one). Config menu include light and spectrogram.",
+  "id": "PitchBlaq",
+  "version": "0.1.2",
+  "author": "Loloppe | Waffle",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotHiiragi/PitchBlaq/releases/download/v0.1.2/PitchBlaq.qmod",
+  "source": "https://github.com/NotHiiragi/PitchBlaq/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

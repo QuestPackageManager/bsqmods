@@ -1,13 +1,13 @@
 {
-	"name": "feetsaber",
-	"description": "i got bored",
-	"id": "feetsaber",
-	"version": "0.1.2",
-	"author": "Phaze#6193 | Publisher: nesiLLL",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NotHiiragi/feetsaber/releases/download/v0.1.2/feetsaber.qmod",
-	"source": "https://github.com/NotHiiragi/feetsaber/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "feetsaber",
+  "description": "i got bored",
+  "id": "feetsaber",
+  "version": "0.1.2",
+  "author": "Phaze#6193 | Publisher: nesiLLL",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NotHiiragi/feetsaber/releases/download/v0.1.2/feetsaber.qmod",
+  "source": "https://github.com/NotHiiragi/feetsaber/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

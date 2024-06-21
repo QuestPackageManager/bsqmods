@@ -1,13 +1,13 @@
 {
-	"name": "Acculight",
-	"description": "changes the lighting on the result screen depending on the accuracy gained in the song",
-	"id": "acculight",
-	"version": "0.1.1",
-	"author": "Oli",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/oli-ctrl/acculight/releases/download/v0.1.1/Acculight.qmod",
-	"source": "https://github.com/oli-ctrl/acculight/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Acculight",
+  "description": "changes the lighting on the result screen depending on the accuracy gained in the song",
+  "id": "acculight",
+  "version": "0.1.1",
+  "author": "Oli",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/oli-ctrl/acculight/releases/download/v0.1.1/Acculight.qmod",
+  "source": "https://github.com/oli-ctrl/acculight/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "FingerSaber",
-	"description": "Beat Saber At Your Finger Tips. @drumtool#4435",
-	"id": "FingerSaber",
-	"version": "0.1.2",
-	"author": "Henri",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.2/fingersaber_0.1.2.qmod",
-	"source": "https://github.com/im-henri/FingerSaber/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "FingerSaber",
+  "description": "Beat Saber At Your Finger Tips. @drumtool#4435",
+  "id": "FingerSaber",
+  "version": "0.1.2",
+  "author": "Henri",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.2/fingersaber_0.1.2.qmod",
+  "source": "https://github.com/im-henri/FingerSaber/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

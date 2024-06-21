@@ -1,13 +1,13 @@
 {
-	"name": "Third Person mod",
-	"description": "Features:\n- Play in third person\n- Fix your camera to your saber\n- Fix your camera\n- Fly through the enviorment",
-	"id": "Play3rdPer",
-	"version": "0.9.1",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/play3rdper/releases/download/0.9.1/Play3rdPer.qmod",
-	"source": "https://github.com/ComputerElite/play3rdper/",
-	"cover": "https://raw.githubusercontent.com/ComputerElite/play3rdper/master/cover.png",
-	"funding": null,
-	"website": null
+  "name": "Third Person mod",
+  "description": "Features:\n- Play in third person\n- Fix your camera to your saber\n- Fix your camera\n- Fly through the enviorment",
+  "id": "Play3rdPer",
+  "version": "0.9.1",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/play3rdper/releases/download/0.9.1/Play3rdPer.qmod",
+  "source": "https://github.com/ComputerElite/play3rdper/",
+  "cover": "https://raw.githubusercontent.com/ComputerElite/play3rdper/master/cover.png",
+  "funding": null,
+  "website": null
 }

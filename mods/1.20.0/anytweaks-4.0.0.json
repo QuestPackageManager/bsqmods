@@ -1,13 +1,13 @@
 {
-	"name": "AnyTweaks",
-	"description": "Level up your Beat Saber experience on Quest! AnyTweaks provides various tweaks to help boost your experience on Quest, such as Bloom, FPS Counter and more.",
-	"id": "anytweaks",
-	"version": "4.0.0",
-	"author": "Kaitlyn,  xyonico",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ItsKaitlyn03/AnyTweaks/releases/download/v4.0.0/anytweaks_v4.0.0.qmod",
-	"source": "https://github.com/ItsKaitlyn03/AnyTweaks/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "AnyTweaks",
+  "description": "Level up your Beat Saber experience on Quest! AnyTweaks provides various tweaks to help boost your experience on Quest, such as Bloom, FPS Counter and more.",
+  "id": "anytweaks",
+  "version": "4.0.0",
+  "author": "Kaitlyn,  xyonico",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ItsKaitlyn03/AnyTweaks/releases/download/v4.0.0/anytweaks_v4.0.0.qmod",
+  "source": "https://github.com/ItsKaitlyn03/AnyTweaks/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

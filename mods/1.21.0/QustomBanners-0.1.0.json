@@ -1,13 +1,13 @@
 {
-	"name": "Qustom Banners",
-	"description": "adds banners to your game!",
-	"id": "QustomBanners",
-	"version": "0.1.0",
-	"author": "77Z, Phaze",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/77Z/QustomBanners/releases/download/release/QustomBanners.qmod",
-	"source": "https://github.com/77Z/QustomBanners/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Qustom Banners",
+  "description": "adds banners to your game!",
+  "id": "QustomBanners",
+  "version": "0.1.0",
+  "author": "77Z, Phaze",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/77Z/QustomBanners/releases/download/release/QustomBanners.qmod",
+  "source": "https://github.com/77Z/QustomBanners/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

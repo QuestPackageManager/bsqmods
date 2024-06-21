@@ -1,13 +1,13 @@
 {
-	"name": "DebrisTweaks",
-	"description": "Adds various debris tweaks!",
-	"id": "DebrisTweaks",
-	"version": "1.0.1",
-	"author": "Nuggo",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NuggoDev/DebrisTweaks/releases/download/v1.0.1/DebrisTweaks.qmod",
-	"source": "https://github.com/NuggoDev/DebrisTweaks/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "DebrisTweaks",
+  "description": "Adds various debris tweaks!",
+  "id": "DebrisTweaks",
+  "version": "1.0.1",
+  "author": "Nuggo",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NuggoDev/DebrisTweaks/releases/download/v1.0.1/DebrisTweaks.qmod",
+  "source": "https://github.com/NuggoDev/DebrisTweaks/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

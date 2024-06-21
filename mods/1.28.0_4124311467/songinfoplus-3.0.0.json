@@ -1,13 +1,13 @@
 {
-	"name": "SongInfoPlus",
-	"description": "View extra details about a map in Beat Saber!",
-	"id": "songinfoplus",
-	"version": "3.0.0",
-	"author": "Optimus",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/OptimusChen/SongInfoPlus/releases/download/v3.0.0/SongInfoPlus.qmod",
-	"source": "https://github.com/OptimusChen/SongInfoPlus/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "SongInfoPlus",
+  "description": "View extra details about a map in Beat Saber!",
+  "id": "songinfoplus",
+  "version": "3.0.0",
+  "author": "Optimus",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/OptimusChen/SongInfoPlus/releases/download/v3.0.0/SongInfoPlus.qmod",
+  "source": "https://github.com/OptimusChen/SongInfoPlus/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

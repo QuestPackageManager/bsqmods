@@ -1,13 +1,13 @@
 {
-	"name": "NoParticles",
-	"description": "Allows you to disable various particles throughout the game",
-	"id": "NoParticles",
-	"version": "0.1.5",
-	"author": "AllyPallyUK, updated by KodenameKRAK",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/kodenamekrak/NoParticles/releases/download/0.1.5/NoParticles-1.25.1-2.qmod",
-	"source": "https://github.com/kodenamekrak/NoParticles/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "NoParticles",
+  "description": "Allows you to disable various particles throughout the game",
+  "id": "NoParticles",
+  "version": "0.1.5",
+  "author": "AllyPallyUK, updated by KodenameKRAK",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/kodenamekrak/NoParticles/releases/download/0.1.5/NoParticles-1.25.1-2.qmod",
+  "source": "https://github.com/kodenamekrak/NoParticles/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

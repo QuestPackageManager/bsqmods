@@ -1,13 +1,13 @@
 {
-	"name": "AntiVertigo",
-	"description": "Spawns a plane or circle under you to help you deal with vertigo issues.",
-	"id": "AntiVertigo",
-	"version": "1.0.0",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/RedBrumbler/AntiVertigo/releases/download/1.0.0/AntiVertigo.zip",
-	"source": "https://github.com/RedBrumbler/AntiVertigo/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "AntiVertigo",
+  "description": "Spawns a plane or circle under you to help you deal with vertigo issues.",
+  "id": "AntiVertigo",
+  "version": "1.0.0",
+  "author": "RedBrumbler",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/RedBrumbler/AntiVertigo/releases/download/1.0.0/AntiVertigo.zip",
+  "source": "https://github.com/RedBrumbler/AntiVertigo/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

@@ -1,13 +1,13 @@
 {
-	"name": "DebrisTweaks",
-	"description": "Allows for full customization of various note debris parameters, including scale, lifetime and velocity.",
-	"id": "DebrisTweaks",
-	"version": "1.1.0",
-	"author": "Raemien",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Raemien/DebrisTweaksQuest/releases/download/v1.1.0/DebrisTweaks.qmod",
-	"source": "https://github.com/Raemien/DebrisTweaksQuest/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "DebrisTweaks",
+  "description": "Allows for full customization of various note debris parameters, including scale, lifetime and velocity.",
+  "id": "DebrisTweaks",
+  "version": "1.1.0",
+  "author": "Raemien",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Raemien/DebrisTweaksQuest/releases/download/v1.1.0/DebrisTweaks.qmod",
+  "source": "https://github.com/Raemien/DebrisTweaksQuest/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

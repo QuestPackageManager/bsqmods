@@ -1,13 +1,13 @@
 {
-	"name": "BeatTogether",
-	"description": "A multiplayer private server for the modding community. Supports crossplay between PC and Quest.",
-	"id": "BeatTogether",
-	"version": "1.4.0",
-	"author": "BeatTogether Team",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v1.4.0/BeatTogether_v1.4.0.qmod",
-	"source": "https://github.com/BeatTogether/BeatTogether.Quest/",
-	"cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
-	"funding": null,
-	"website": null
+  "name": "BeatTogether",
+  "description": "A multiplayer private server for the modding community. Supports crossplay between PC and Quest.",
+  "id": "BeatTogether",
+  "version": "1.4.0",
+  "author": "BeatTogether Team",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v1.4.0/BeatTogether_v1.4.0.qmod",
+  "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
+  "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
+  "funding": null,
+  "website": null
 }

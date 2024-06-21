@@ -1,13 +1,13 @@
 {
-	"name": "Slice Visualizer",
-	"description": "See your slices right in front of you",
-	"id": "slicevisualizer",
-	"version": "4.2.0",
-	"author": "Henwill8,  Metalit",
-	"modloader": "QuestLoader",
-	"download": "https://henwill8.itch.io/slice-visualizer",
-	"source": null,
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Slice Visualizer",
+  "description": "See your slices right in front of you",
+  "id": "slicevisualizer",
+  "version": "4.2.0",
+  "author": "Henwill8,  Metalit",
+  "modloader": "QuestLoader",
+  "download": "https://henwill8.itch.io/slice-visualizer",
+  "source": null,
+  "cover": null,
+  "funding": null,
+  "website": null
 }

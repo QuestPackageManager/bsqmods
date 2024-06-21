@@ -1,13 +1,13 @@
 {
-	"name": "QonsistentSaberColors",
-	"description": "Menu saber colors reflect in game saber colors. @drumtool#4435",
-	"id": "QonsistentSaberColors",
-	"version": "1.1.0",
-	"author": "Henri",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/im-henri/QonsistentSaberColors/releases/download/release1.1.0/QonsistentSaberColors_v1.1.0.qmod",
-	"source": "https://github.com/im-henri/QonsistentSaberColors/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "QonsistentSaberColors",
+  "description": "Menu saber colors reflect in game saber colors. @drumtool#4435",
+  "id": "QonsistentSaberColors",
+  "version": "1.1.0",
+  "author": "Henri",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/im-henri/QonsistentSaberColors/releases/download/release1.1.0/QonsistentSaberColors_v1.1.0.qmod",
+  "source": "https://github.com/im-henri/QonsistentSaberColors/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

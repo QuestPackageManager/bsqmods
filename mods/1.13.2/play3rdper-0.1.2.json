@@ -1,13 +1,13 @@
 {
-	"name": "Third Person Mod",
-	"description": "View yourself in 3rd person while playing. Features include a spinning camera, flying through the whole beat saber environment and way more",
-	"id": "play3rdper",
-	"version": "0.1.2",
-	"author": "ComputerElite",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/ComputerElite/play3rdper/releases/download/0.1.2/Play3rdPer_v0.1.2.zip",
-	"source": "https://github.com/ComputerElite/play3rdper/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Third Person Mod",
+  "description": "View yourself in 3rd person while playing. Features include a spinning camera, flying through the whole beat saber environment and way more",
+  "id": "play3rdper",
+  "version": "0.1.2",
+  "author": "ComputerElite",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/ComputerElite/play3rdper/releases/download/0.1.2/Play3rdPer_v0.1.2.zip",
+  "source": "https://github.com/ComputerElite/play3rdper/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

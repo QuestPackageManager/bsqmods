@@ -1,13 +1,13 @@
 {
-	"name": "SmallQubes",
-	"description": null,
-	"id": "SmallQubes",
-	"version": "0.1.1",
-	"author": "NSGolova",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.1.1/SmallQubes.qmod",
-	"source": "https://github.com/NSGolova/SmallQubes/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "SmallQubes",
+  "description": null,
+  "id": "SmallQubes",
+  "version": "0.1.1",
+  "author": "NSGolova",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.1.1/SmallQubes.qmod",
+  "source": "https://github.com/NSGolova/SmallQubes/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

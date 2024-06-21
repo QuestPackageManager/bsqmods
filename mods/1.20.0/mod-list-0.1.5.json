@@ -1,13 +1,13 @@
 {
-	"name": "ModList",
-	"description": "Displays your installed mods inside the game and gives you a warning prompt upon starting the game to tell you if a mod failed to load.",
-	"id": "mod-list",
-	"version": "0.1.5",
-	"author": "Lauriethefish",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.5/ModList.qmod",
-	"source": "https://github.com/Lauriethefish/ModList/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "ModList",
+  "description": "Displays your installed mods inside the game and gives you a warning prompt upon starting the game to tell you if a mod failed to load.",
+  "id": "mod-list",
+  "version": "0.1.5",
+  "author": "Lauriethefish",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.5/ModList.qmod",
+  "source": "https://github.com/Lauriethefish/ModList/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }

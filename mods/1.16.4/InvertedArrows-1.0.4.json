@@ -1,13 +1,13 @@
 {
-	"name": "Inverted Arrows",
-	"description": "Customize all arrow directions on a beatmap",
-	"id": "InvertedArrows",
-	"version": "1.0.4",
-	"author": "RedBrumbler",
-	"modloader": "QuestLoader",
-	"download": "https://github.com/RedBrumbler/InvertedArrows/releases/download/v1.0.4/InvertedArrows.qmod",
-	"source": "https://github.com/RedBrumbler/InvertedArrows/",
-	"cover": null,
-	"funding": null,
-	"website": null
+  "name": "Inverted Arrows",
+  "description": "Customize all arrow directions on a beatmap",
+  "id": "InvertedArrows",
+  "version": "1.0.4",
+  "author": "RedBrumbler",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/RedBrumbler/InvertedArrows/releases/download/v1.0.4/InvertedArrows.qmod",
+  "source": "https://github.com/RedBrumbler/InvertedArrows/",
+  "cover": null,
+  "funding": null,
+  "website": null
 }
