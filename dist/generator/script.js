@@ -340,11 +340,10 @@
   // Event listener for onchange event of link input
   modDownloadLinkElement.addEventListener("change", modDownloadLinkChangeHandler);
 
-  // Event listener for dropping URLs on link element
-  modDownloadLinkElement.addEventListener("drop", urlDropHandler);
-
-  // Event listener for dropping URLs on cover element
-  modCoverElement.addEventListener("drop", urlDropHandler);
+  // Add url drop handlers to the following
+  for (const element of [modDownloadLinkElement, modSourceLinkElement, modWebsiteLinkElement, modFundingLinkElement, modCoverElement]) {
+    element.addEventListener("drop", urlDropHandler);
+  }
 
   // Event listener for generate button click event
   generateButtonElement.addEventListener("click", generateJson);

@@ -3,26 +3,41 @@
   <head>
     <meta charset="UTF-8">
     <title>Mod Json Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body id="qmodDropZone">
     <div id="wrapper">
-      <div id="title">
+      <header id="title">
         <h1>Mod Json Generator</h1>
-      </div>
+      </header>
       <div id="flexWrapper">
         <div>
           <label>Mod Name
             <input id="modName" placeholder="The name of the mod" type="text" />
           </label>
-          <label>Mod Description
-            <textarea id="modDescription" placeholder="A description of what the mod does" style="resize: none;" rows="10"></textarea>
-          </label>
           <label>Mod ID
             <input id="modId" placeholder="The ID of the mod" type="text" />
           </label>
-          <button id="loadQmod" type="button">Load QMOD</button>
+          <label>Mod Creator(s)
+            <input id="modCreators" placeholder="Who made this mod?" type="text" />
+          </label>
+          <label>Mod Version
+            <input id="modVersion" placeholder="The mod version" type="text" />
+          </label>
+          <label>Mod Description
+            <textarea id="modDescription" placeholder="A description of what the mod does" style="resize: none;" rows="10"></textarea>
+          </label>
+          <label>Game Version
+            <input id="targetGameVersion" placeholder="The version of the game the mod is made for" type="text" />
+          </label>
+          <label>Mod Loader
+            <input id="modLoader" placeholder="The mod loader used by the mod" type="text" />
+          </label>
+          <div class="dropZone" id="loadQmod">
+            <p>Drag/drop .qmod file here, or click to select file.</p>
+          </div>
         </div>
         <div>
           <label>Download Link
@@ -40,23 +55,12 @@
           <label>Cover link
             <input id="modCover" placeholder="A direct link to a cover image." type="text" />
           </label>
-          <label>Mod Creator(s)
-            <input id="modCreators" placeholder="Who made this mod?" type="text" />
-          </label>
-          <label>Mod Version
-            <input id="modVersion" placeholder="The mod version" type="text" />
-          </label>
-          <label>Game Version
-            <input id="targetGameVersion" placeholder="The version of the game the mod is made for" type="text" />
-          </label>
-          <label>Mod Loader
-            <input id="modLoader" placeholder="The mod loader used by the mod" type="text" />
-          </label>
           <button id="generateJson" type="button">Create JSON on GitHub</button>
         </div>
       </div>
     </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'></script>
+    <footer>Beat Saber render by Pixelguy </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
