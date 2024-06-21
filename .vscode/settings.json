@@ -1,6 +1,25 @@
 {
-    "editor.formatOnSave": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "html.format.wrapLineLength": 0,
+  "html.autoClosingTags": true,
+  "html.format.extraLiners": "",
+  "html.format.indentInnerHtml": true,
+  "html.format.maxPreserveNewLines": 1,
+  "css.format.maxPreserveNewLines": 1,
+  "css.format.braceStyle": "collapse",
+  "css.format.newlineBetweenRules": true,
+  "css.format.newlineBetweenSelectors": true,
+  "css.format.preserveNewLines": true,
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

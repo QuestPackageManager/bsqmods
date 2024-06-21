@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Mod Json Generator</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-
-<body>
-  <!-- partial:index.partial.html -->
-  <div id="wrapper" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
-    <div style="flex: 1; flex-grow: 0; text-align: center;">
-      <div style=" padding: 10px;">
-        <div style="font-size: 24px;">Mod Json Generator</div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mod Json Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body id="qmodDropZone">
+    <div id="wrapper">
+      <div id="title">
+        <h1>Mod Json Generator</h1>
       </div>
-      <div style="display: flex;justify-content: space-evenly;flex-wrap: wrap;">
-        <div style="display: flex; flex-direction: column; min-width: 500px; margin-top: 50px;">
+      <div id="flexWrapper">
+        <div>
           <label>Mod Name
-            <input id="name" type="text" />
+            <input id="modName" placeholder="The name of the mod" type="text" />
           </label>
           <label>Mod Description
-            <textarea id="description" style="resize: none;" rows="10"></textarea>
+            <textarea id="modDescription" placeholder="A description of what the mod does" style="resize: none;" rows="10"></textarea>
           </label>
           <label>Mod ID
-            <input id="id" type="text" />
+            <input id="modId" placeholder="The ID of the mod" type="text" />
           </label>
-          <input id="qmodButton" type="button" value="Load QMOD" />
+          <button id="loadQmod" type="button">Load QMOD</button>
         </div>
-        <div style="display: flex; flex-direction: column; min-width: 500px; margin-top: 50px;">
-          <label>Download link
-            <input id="link" placeholder="paste a dl link or drag it here from github" type="text" />
+        <div>
+          <label>Download Link
+            <input id="modDownloadLink" placeholder="A direct link to the .qmod file" type="text" />
           </label>
-          <label>Source code
-            <input id="source" type="text" />
+          <label>Source Code
+            <input id="modSourceLink" placeholder="A link to the source code for the mod" type="text" />
+          </label>
+          <label>Website
+            <input id="modWebsiteLink" placeholder="A link to a website for the mod." type="text" />
+          </label>
+          <label>Funding
+            <input id="modFundingLink" placeholder="A link to a page where people can donate some money." type="text" />
           </label>
           <label>Cover link
-            <input id="cover" placeholder="a link to a cover .png" type="text" />
+            <input id="modCover" placeholder="A direct link to a cover image." type="text" />
           </label>
           <label>Mod Creator(s)
-            <input id="creators" type="text" />
+            <input id="modCreators" placeholder="Who made this mod?" type="text" />
           </label>
           <label>Mod Version
-            <input id="version" type="text" />
+            <input id="modVersion" placeholder="The mod version" type="text" />
           </label>
-          <label>Made for Game Version
-            <input id="games" type="text" />
+          <label>Game Version
+            <input id="targetGameVersion" placeholder="The version of the game the mod is made for" type="text" />
           </label>
-          <label>Modloader
-            <input id="modloader" type="text" />
+          <label>Mod Loader
+            <input id="modLoader" placeholder="The mod loader used by the mod" type="text" />
           </label>
-          <input id="generate" type="button" value="Create JSON" />
+          <button id="generateJson" type="button">Create JSON on GitHub</button>
         </div>
       </div>
     </div>
-  </div>
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'></script>
-  <script src="./script.js"></script>
-
-</body>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'></script>
+    <script src="./script.js"></script>
+  </body>
 </html>

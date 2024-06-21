@@ -37,22 +37,6 @@ a:visited {
     color: #30A2EC;
 }
 
-input[type=file] {
-    background-color: #00000023;
-    padding-right: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    width: 100%;
-}
-
-input[type=checkbox] {
-    padding: 5px;
-    border: none;
-    color: #EEEEEE;
-    background-color: #202225;
-}
-
 textarea {
     padding: 5px;
     width: 100%;
@@ -69,6 +53,17 @@ input[type=text] {
     background-color: #202225;
 }
 
+label {
+    text-align: center;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    margin: .5rem 0;
+    font-weight: normal;
+}
+
 code {
     padding: 5px;
     border-radius: 3px;
@@ -81,4 +76,30 @@ code {
     color: #888;
     margin-bottom: 10px;
     padding-left: 20px;
+}
+
+#wrapper {
+    padding: 1rem;
+}
+
+#flexWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#flexWrapper>div {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    margin: 1rem .5rem 0 .5rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+#title {
+    text-align: center;
 }

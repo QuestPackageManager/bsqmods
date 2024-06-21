@@ -1,14 +1,18 @@
 /**
  * @typedef {Object} Mod
- * @property {string} name - The name of the mod.
- * @property {string} description - The description of the mod.
- * @property {string} id - The ID of the mod.
- * @property {string} version - The version of the mod.
- * @property {string} download - The download link of the mod.
- * @property {string} source - The source link of the mod.
- * @property {string} author - The author(s) of the mod.
- * @property {string} cover - The cover image link of the mod.
- * @property {string} modloader - The modloader used by the mod.
+ * @property {string?} name - The name of the mod.
+ * @property {string?} description - A description of what the mod does.
+ * @property {string?} id - The ID of the mod.
+ * @property {string?} version - The version of the mod.
+ * @property {string?} download - A direct link to the .qmod file.
+ * @property {string?} source - A link to the source code for the mod.
+ * @property {string?} website - A link to a website for the mod.
+ * @property {string?} funding - A link to a page where people can donate some money.
+ * @property {string?} porter - The porter(s) of the mod.
+ * @property {string?} author - The author(s) of the mod.
+ * @property {string?} cover - A direct link to a cover image.
+ * @property {string?} modloader - The mod loader used by the mod.
+ * @property {string?} packageVersion - The version of the game the mod is made for.
  */
 
 "use strict";
@@ -20,88 +24,106 @@
     const ghRegex = /^https:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)/;
 
     /**
-     * @type {HTMLInputElement}
+    * @type {HTMLInputElement}
+    */
+    const modNameElement = document.getElementById("modName");
+
+    /**
+     * @type {HTMLTextAreaElement}
      */
-    const link = document.getElementById("link");
+    const modDescriptionElement = document.getElementById("modDescription");
 
     /**
      * @type {HTMLInputElement}
      */
-    const games = document.getElementById("games");
+    const modIdElement = document.getElementById("modId");
+
+    /**
+     * @type {HTMLButtonElement}
+     */
+    const loadQmodElement = document.getElementById("loadQmod");
 
     /**
      * @type {HTMLInputElement}
      */
-    const version = document.getElementById("version");
+    const modDownloadLinkElement = document.getElementById("modDownloadLink");
 
     /**
      * @type {HTMLInputElement}
      */
-    const creators = document.getElementById("creators");
+    const modSourceLinkElement = document.getElementById("modSourceLink");
 
     /**
      * @type {HTMLInputElement}
      */
-    const id = document.getElementById("id");
+    const modWebsiteLinkElement = document.getElementById("modWebsiteLink");
 
     /**
      * @type {HTMLInputElement}
      */
-    const description = document.getElementById("description");
+    const modFundingLinkElement = document.getElementById("modFundingLink");
 
     /**
      * @type {HTMLInputElement}
      */
-    const name = document.getElementById("name");
+    const modCoverElement = document.getElementById("modCover");
 
     /**
      * @type {HTMLInputElement}
      */
-    const source = document.getElementById("source");
+    const modCreatorsElement = document.getElementById("modCreators");
 
     /**
      * @type {HTMLInputElement}
      */
-    const modloader = document.getElementById("modloader");
+    const modVersionElement = document.getElementById("modVersion");
 
     /**
      * @type {HTMLInputElement}
      */
-    const cover = document.getElementById("cover");
+    const targetGameVersionElement = document.getElementById("targetGameVersion");
+
+    /**
+     * @type {HTMLInputElement}
+     */
+    const modLoaderElement = document.getElementById("modLoader");
 
     /**
      * @type {HTMLElement}
      */
-    const qmodDropZone = document.body;
+    const qmodDropZoneElement = document.getElementById("qmodDropZone");
 
     /**
      * @type {HTMLButtonElement}
      */
-    const generateButton = document.getElementById("generate");
+    const generateButtonElement = document.getElementById("generateJson");
 
     /**
-     * @type {HTMLButtonElement}
+     * JSON object containing mod data. The key is the target game version, and the value is an array of mods for that game version.
+     * @type {Object.<string, Mod[]>}
      */
-    const qmodButton = document.getElementById("qmodButton");
+    let modJson = {};
+
+    // Load the mod.json file
+    (async function loadModJson() {
+        try {
+            const response = await fetch(`../mods.json?${Math.floor(Date.now() / 1000)}`);
+
+            if (response.ok) {
+                modJson = await response.json();
+            }
+        } catch (error) { }
+    })();
 
     /**
-     * JSON object containing mod data.
-     * @type {Mod}
-     */
-    var json = {};
-
-    // Fetch mods JSON file
-    fetch(`../mods.json?${Math.floor(Date.now() / 1000)}`).then(response => response.json()).then(modsJson => json = modsJson);
-
-    /**
-     * Sanitizes the given filename
+     * Sanitizes the given filename by removing invalid filename characters.
      * @param {string} input The filename to sanitize.
      * @returns The sanitized filename.
      */
     function sanitizeFilename(input) {
         // Define a regex pattern for invalid filename characters
         // This pattern includes characters not allowed in Windows filenames
-        const invalidChars = /[<>:"\/\\|?*\x00-\x1F]/g;
+        const invalidChars = /[<>:"\/\\|?*\x00-\x1F]+/g;
 
         // Replace invalid characters with underscore
         return input.replace(invalidChars, '_');
@@ -109,9 +131,9 @@
 
     /**
      * Gets the intended filename for the given mod values.
-     * @param {*} id The mod ID.
-     * @param {*} version The mod version.
-     * @param {*} gameVersion The game version.
+     * @param {string} id The mod ID.
+     * @param {string} version The mod version.
+     * @param {string} gameVersion The game version.
      * @returns
      */
     function getFilename(id, version, gameVersion) {
@@ -131,19 +153,14 @@
          * Array of mods for the specified game version.
          * @type {Mod[]|null}
          */
-        const versionMods = json[gameVersion];
+        const versionMods = modJson[gameVersion];
 
         if (versionMods == null) {
             return false;
         }
 
         // Loop through all mods for the specified game version
-        for (var i = 0; i < versionMods.length; i++) {
-            /**
-             * @type {Mod}
-             */
-            const mod = versionMods[i];
-
+        for (const mod of versionMods) {
             // Check if mod id and version match the given id and version
             if (mod.id == id && mod.version == version) {
                 return true;
@@ -153,150 +170,186 @@
         return false;
     }
 
-    /**
-     * Function to handle loading of QMOD files.
-     * @param {ProgressEvent<FileReader>} ev - The event object.
-     */
-    function onQmodLoad(ev) {
-        let reader = this;
-        var zip = new JSZip();
-        zip.loadAsync(reader.result).then((zip) => {
-            zip
-                .file("mod.json")
-                .async("string")
-                .then((res) => {
-                    var _a;
-                    var m = JSON.parse(res);
-                    name.value = m.name;
-                    description.value = m.description;
-                    creators.value = (!m.porter ? "" : m.porter + ",") + m.author;
-                    version.value = m.version;
-                    games.value = m.packageVersion;
-                    id.value = m.id;
-                    modloader.value = (_a = m.modloader) !== null && _a !== void 0 ? _a : "QuestLoader";
-                    console.log(m);
-                });
-        });
+    function readQmodFile(file) {
+        const reader = new FileReader();
+
+        console.log(`… ${file.name}`);
+
+        reader.onloadend = qmodLoadHandler;
+        reader.readAsArrayBuffer(file);
     }
 
-    // Event listener for dropping files into the qmodDropZone
-    qmodDropZone.addEventListener("drop", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        if (event.dataTransfer.items) {
-            // Use DataTransferItemList interface to access the file(s)
-            [...event.dataTransfer.items].forEach((item, i) => {
-                // If dropped items aren't files, reject them
-                if (item.kind === "file") {
-                    const file = item.getAsFile();
-                    console.log(`… file[${i}].name = ${file.name}`);
-                    var reader = new FileReader();
-                    var fileName = file.name;
-                    reader.onloadend = onQmodLoad;
-                    reader.readAsArrayBuffer(file);
-                }
-            });
-        }
-        else {
-            // Use DataTransfer interface to access the file(s)
-            [...event.dataTransfer.files].forEach((file, i) => {
-                console.log(`… file[${i}].name = ${file.name}`);
-                var reader = new FileReader();
-                var fileName = file.name;
-                reader.onloadend = onQmodLoad;
-                reader.readAsArrayBuffer(file);
-            });
-        }
-    });
-
-    // Prevent default behavior for dragover and drop events
-    qmodDropZone.addEventListener("dragover", function (e) {
-        e = e || event;
-        e.preventDefault();
-    }, false);
-
-    // Prevent default behavior for drop event
-    qmodDropZone.addEventListener("drop", function (e) {
-        e = e || event;
-        e.preventDefault();
-    }, false);
-
-    // Event listener for onchange event of link input
-    link.onchange = () => {
-        var githubLink = "";
-        if (link.value.includes("github.com")) {
-            githubLink = link.value.substring(0, link.value.indexOf("releases"));
-        }
-        if (githubLink)
-            source.value = githubLink;
-    };
-
     /**
-     * Function to handle dropping of URLs.
-     * @param {DragEvent} e - The event object.
+     * Creates a temporary file input element and clicks it to select a .qmod file and load its information.
+     * @this {HTMLElement}
+     * @param {MouseEvent} e
      */
-    function urlDrop(e) {
+    function loadQmod(e) {
         /**
          * @type {HTMLInputElement}
          */
-        let input = e.currentTarget;
-        e.preventDefault();
-        e.stopPropagation();
-        let url = e.dataTransfer.getData("URL");
-        input.value = url;
-        input.onchange();
+        const input = document.createElement("input");
+
+        input.setAttribute("type", "file");
+        input.onchange = function (e) {
+            if (!this.files[0]) {
+                return;
+            }
+
+            readQmodFile(this.files[0]);
+        };
+        input.click();
     }
 
-    // Event listener for dropping URLs on cover element
-    cover.addEventListener("drop", urlDrop);
-
-    // Event listener for dropping URLs on link element
-    link.addEventListener("drop", urlDrop);
-
-    // Event listener for generate button click event
-    generateButton.addEventListener("click", function GenerateJSON(e) {
-        console.log("generating");
-        if (!json[games.value])
-            json[games.value] = [];
+    /**
+     * Generates JSON for the mod, and opens a GitHub page with a new file pre-populated with it, or the existing file if it already exists.
+     */
+    function generateJson() {
+        if (!modJson[targetGameVersionElement.value]) {
+            modJson[targetGameVersionElement.value] = [];
+        }
 
         /**
-         * @type Mod
+         * @type {Mod}
          */
-        var mod = {
-            name: name.value,
-            description: description.value,
-            id: id.value,
-            version: version.value,
-            download: link.value,
-            source: source.value,
-            author: creators.value,
-            cover: cover.value,
-            modloader: modloader.value
+        let mod = {
+            name: modNameElement.value.trim(),
+            description: modDescriptionElement.value.trim(),
+            id: modIdElement.value.trim(),
+            version: modVersionElement.value.trim(),
+            author: modCreatorsElement.value.trim(),
+            modloader: modLoaderElement.value.trim(),
+            download: modDownloadLinkElement.value.trim(),
+            source: modSourceLinkElement.value.trim(),
+            cover: modCoverElement.value.trim(),
+            funding: modFundingLinkElement.value.trim(),
+            website: modWebsiteLinkElement.value.trim()
         };
 
-        const modFilename = getFilename(mod.id, mod.version, games.value);
+        for (const key in mod) {
+            if (mod[key] == "") {
+                mod[key] = null;
+            }
+        }
 
-        if (checkMod(mod.id, mod.version, games.value)) {
+        const modFilename = getFilename(mod.id || "", mod.version || "", targetGameVersionElement.value);
+
+        if (checkMod(mod.id, mod.version, targetGameVersionElement.value)) {
             alert("This mod version already exists in the json");
             window.open(`https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`);
         } else {
             window.open(`https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "\t"))}`);
         }
-    });
+    }
+
+    /**
+     * Function to handle dropping of URLs on a text input.
+     * @this {HTMLInputElement}
+     * @param {DragEvent} e - The event object.
+     */
+    function urlDropHandler(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        /**
+         * @type {HTMLInputElement}
+         */
+        const input = e.currentTarget;
+        const url = e.dataTransfer.getData("URL");
+
+        input.value = url;
+        input.dispatchEvent(new Event("change"));
+    }
+
+    /**
+     * Function to handle loading of QMOD files.
+     * @this {FileReader}
+     * @param {ProgressEvent<FileReader>} ev - The event object.
+     */
+    async function qmodLoadHandler(ev) {
+        const reader = this;
+
+        try {
+            const zip = await JSZip.loadAsync(reader.result);
+
+            /**
+             * @type {Mod}
+             */
+            const modInfo = JSON.parse(await zip.file("mod.json").async("string"));
+
+            modNameElement.value = modInfo.name || "";
+            modDescriptionElement.value = modInfo.description || "";
+            modIdElement.value = modInfo.id || "";
+            modVersionElement.value = modInfo.version || "";
+            modCreatorsElement.value = (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
+            targetGameVersionElement.value = modInfo.packageVersion || "";
+            modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
+            modFundingLinkElement.value = modInfo.funding || "";
+            modWebsiteLinkElement.value = modInfo.website || "";
+
+            console.log(modInfo);
+        } catch (error) {
+            console.error('Error loading QMOD file:', error);
+        }
+    }
+
+    /**
+     * Function to handle drag/drop of qmod files on the drop zone.
+     * @this {HTMLElement}
+     * @param {DragEvent} e
+     */
+    function qmodDropHandler(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const files = e.dataTransfer.items
+            ? [...e.dataTransfer.items].filter(item => item.kind === "file").map(item => item.getAsFile())
+            : [...e.dataTransfer.files];
+
+        for (const file of files) {
+            readQmodFile(file);
+        }
+    }
+
+    /**
+     * Fills in the source code text input if the link is from GitHub.
+     * @this {HTMLInputElement}
+     * @param {Event} e
+     */
+    function modDownloadLinkChangeHandler(e) {
+        const match = ghRegex.exec(modDownloadLinkElement.value.trim());
+
+        if (match && modSourceLinkElement.value.trim().length == 0) {
+            modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+        }
+
+        if (match && modWebsiteLinkElement.value.trim().length == 0) {
+            modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+        }
+    }
+
+    // Prevent default behavior for dragover event
+    qmodDropZoneElement.addEventListener("dragover", e => e.preventDefault(), false);
+
+    // Event listener for dropping files into the qmodDropZone
+    qmodDropZoneElement.addEventListener("drop", qmodDropHandler);
 
     // Event listener for clicking the QMOD button
-    qmodButton.addEventListener("click", function LoadQMOD() {
-        var input = document.createElement("input");
-        input.setAttribute("type", "file");
-        input.onchange = (e) => {
-            if (!this.files[0]) {
-                return;
-            }
-            var reader = new FileReader();
-            var fileName = this.files[0].name;
-            reader.onloadend = onQmodLoad;
-            reader.readAsArrayBuffer(this.files[0]);
-        };
-        input.click();
-    });
-})();
+    loadQmodElement.addEventListener("click", loadQmod);
+
+    // Event listener for onchange event of link input
+    modDownloadLinkElement.addEventListener("change", modDownloadLinkChangeHandler);
+
+    // Event listener for dropping URLs on link element
+    modDownloadLinkElement.addEventListener("drop", urlDropHandler);
+
+    // Event listener for dropping URLs on cover element
+    modCoverElement.addEventListener("drop", urlDropHandler);
+
+    // Event listener for generate button click event
+    generateButtonElement.addEventListener("click", generateJson);
+})().catch(error => {
+    console.error(error);
+
+    alert("An error has occurred during initialization, please see the console for more information.");
+});

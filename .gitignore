@@ -1,7 +1,7 @@
-dist/covers/*
+dist/covers
 dist/mods.json
 dist/sha1sums.json
-node_modules/*
-qmods/*
+node_modules
+qmods
 .cache-restored
 dist/deploy-log.txt
