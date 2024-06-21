@@ -17,11 +17,10 @@
 const fs = require("fs");
 const path = require("path");
 const modsPath = path.join(__dirname, "mods");
-
-[
+const modKeys = [
     "name", "description", "id", "version", "author", "modloader",
     "download", "source", "cover", "funding", "website"
-]
+];
 
 /**
  * @type {Object.<string, Mod[]>}
