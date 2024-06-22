@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "jszip": "^3.10.1",
     "node-fetch": "^3.3.2",
     "sharp": "^0.33.4"

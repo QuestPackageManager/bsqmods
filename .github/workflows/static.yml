@@ -77,7 +77,7 @@ jobs:
         run: "tar -czvf website/public/cache.tgz .cache-restored website/public/covers website/public/sha1sums.json"
 
       - name: Build website
-        run: "cd website && npm i && npx next build"
+        run: 'cd website && npm i && npx next build && (find out -name "*.html" | grep -v /generator/ | while read file; do node ../scripts/unreact.js "$file"; done)'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
