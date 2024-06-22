@@ -25,10 +25,11 @@
   const sharp = require("sharp");
 
   // Paths
-  const modsPath = path.join(__dirname, "mods");
-  const coversPath = path.join(__dirname, "dist", "covers");
-  const hashesPath = path.join(__dirname, "dist", "sha1sums.json");
-  const combinedJsonPath = path.join(__dirname, "dist", "mods.json");
+  const repoDir = path.join(__dirname, "..");
+  const modsPath = path.join(__dirname, "..", "mods");
+  const coversPath = path.join(__dirname, "..", "website", "public", "covers");
+  const hashesPath = path.join(__dirname, "..", "website", "public", "sha1sums.json");
+  const combinedJsonPath = path.join(__dirname, "..", "website", "public", "mods.json");
   const qmodsPath = path.join(__dirname, "qmods");
 
   /**
@@ -369,7 +370,7 @@
 
       for (const modFilename of modFilenames) {
         const modPath = path.join(versionPath, modFilename);
-        const shortModPath = modPath.substring(__dirname.length + 1);
+        const shortModPath = modPath.substring(repoDir.length + 1);
         const mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
         const requiredFilename = getFilename(mod.id, mod.version, version);
         const modKeys = [
@@ -377,8 +378,8 @@
           "download", "source", "cover", "funding", "website"
         ];
 
-        if (shortModPath != requiredFilename.substring(__dirname.length + 1)) {
-          exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(__dirname.length + 1)}`);
+        if (shortModPath != requiredFilename.substring(repoDir.length + 1)) {
+          exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
         }
 
         for (const field of ["name", "id", "version", "download"]) {

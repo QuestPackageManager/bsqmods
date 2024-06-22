@@ -14,7 +14,7 @@ on:
         default: "no"
 
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -43,6 +43,7 @@ jobs:
         run: |
           echo "REPO_USERNAME=${GITHUB_REPOSITORY%%/*}" >> $GITHUB_ENV
           echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+          echo "NEXT_BASEPATH=/${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
       - name: Set pages url
         run: |
@@ -54,32 +55,35 @@ jobs:
       - name: Download cache
         if: ${{ github.event.inputs.skipCache != 'yes' }}
         continue-on-error: true
-        run: 'wget "$PAGES_URL/cache.tgz?`date +%s`" -O dist/cache.tgz'
+        run: 'wget "$PAGES_URL/cache.tgz?`date +%s`" -O website/public/cache.tgz'
 
       - name: Extract cache
         if: ${{ github.event.inputs.skipCache != 'yes' }}
         continue-on-error: true
-        run: 'tar -xzvf dist/cache.tgz'
+        run: "tar -xzvf website/public/cache.tgz"
 
       - name: Touch .cache-restored
-        run: 'touch .cache-restored'
+        run: "touch .cache-restored"
 
       - name: Process the json (schedule)
         if: ${{ github.event_name == 'schedule' }}
-        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee dist/deploy-log.txt'
+        run: 'cd scripts && npm install && node ./combine.js "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt'
 
       - name: Process the json (normal)
         if: ${{ github.event_name != 'schedule' }}
-        run: 'npm install && node ./combine.js "--baseHref=$PAGES_URL" 2>&1 | tee dist/deploy-log.txt'
+        run: 'cd scripts && npm install && node ./combine.js "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt'
 
       - name: "Archive cache"
-        run: 'tar -czvf dist/cache.tgz .cache-restored dist/covers dist/sha1sums.json'
+        run: "tar -czvf website/public/cache.tgz .cache-restored website/public/covers website/public/sha1sums.json"
+
+      - name: Build website
+        run: "cd website && npm i && npx next build"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist'
+          path: "./website/out"
 
       - name: Deploy to GitHub Pages
         id: deployment

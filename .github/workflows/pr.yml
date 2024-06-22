@@ -18,9 +18,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Combine json
-        run: 'npm install && node ./combine.js --skipHashes'
+        run: "cd scripts && npm install && node ./combine.js --skipHashes"
 
       - uses: actions/upload-artifact@v4.3.3
         with:
           # A file, directory or wildcard pattern that describes what to upload
-          path: './dist/mods.json'
+          path: "./dist/mods.json"

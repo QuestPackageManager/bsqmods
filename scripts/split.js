@@ -25,7 +25,7 @@ const modKeys = [
 /**
  * @type {Object.<string, Mod[]>}
  */
-const allMods = require(path.join(__dirname, "dist", "mods.json"));
+const allMods = require(path.join(__dirname, "..", "website", "public", "mods.json"));
 
 /**
  * Replaces invalid filename or directory characters with an underscore.
