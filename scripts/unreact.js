@@ -1,10 +1,9 @@
 var cheerio = require('cheerio');
 const fs = require('fs');
-const argv = process.argv.slice(2);
+const firstArg = process.argv.length > 1 ? process.argv[2] : null
 
-if (argv.length > 0 && fs.existsSync(argv[0])) {
-  console.log(argv);
-  const $ = cheerio.load(fs.readFileSync(argv[0]));
+if (firstArg && fs.existsSync(firstArg)) {
+  const $ = cheerio.load(fs.readFileSync(firstArg));
 
   // Remove script tags
   $("script").remove();
@@ -12,11 +11,6 @@ if (argv.length > 0 && fs.existsSync(argv[0])) {
   // Remove links as script
   $("link[as='script']").remove();
 
-  // Remove comments
-  $("*").filter(function (index, node) {
-    return node.type == "comment";
-  }).remove();
-
   // Write out the modified html
-  fs.writeFileSync(argv[0], $.html())
+  fs.writeFileSync(firstArg, $.html())
 }
