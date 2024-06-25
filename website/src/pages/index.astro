@@ -8,14 +8,14 @@ import mods from "../../public/mods.json";
     <div
       class="max-w-screen-md mx-auto flex flex-col items-center justify-center"
     >
-      <h1 class="text-4xl font-bold">Select a Beat Saber Version</h1>
+    <div class="text-center text-xl pt-2 block">Select a game version</div>
       <div class="my-4 flex flex-col gap-2">
         {
           Object.keys(mods)
             .filter((version) => version != "undefined")
             .reverse()
             .map((version) => (
-              <a class="link prose text-lg" href={`${version}/`}>
+              <a class="link text-center text-white-alpha-90 font-semibold" href={`${version}/`}>
                 {version}
               </a>
             ))

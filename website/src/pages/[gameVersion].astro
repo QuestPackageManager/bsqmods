@@ -1,59 +1,93 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
-import mods from "../../public/mods.json";
+import ModList from "../components/ModList.astro";
+import modJson from "../../public/mods.json";
+import { Mod } from "../../../shared/types/Mod";
+import { getCoreMods } from "../../CoreMods";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 export const getStaticPaths = (() => {
-  return Object.keys(mods).map((key) => ({
+  return Object.keys(modJson).map((key) => ({
     params: {
       gameVersion: key,
     },
   }));
 }) satisfies GetStaticPaths;
 
-interface Props {
+interface Params {
   gameVersion: string;
 }
 
-const { gameVersion } = Astro.params;
-console.log(gameVersion);
+/**
+ * Groups an array of objects by a specified key.
+ *
+ * @param array - The array of objects to group.
+ * @param key - The key by which to group the objects.
+ * @returns - An object where keys are unique values of the grouping key,
+ *            and values are arrays of objects grouped by that key.
+ */
+function groupBy<T extends Record<string, any>>(
+  array: T[],
+  key: string,
+): Record<string, T[]> {
+  return array.reduce((result: Record<string, T[]>, currentValue: T) => {
+    const groupKey = currentValue[key];
+
+    if (!result[groupKey]) {
+      result[groupKey] = [];
+    }
+
+    result[groupKey].push(currentValue);
+
+    return result;
+  }, {});
+}
+
+const { gameVersion } = Astro.params as Params;
+const modGroups = groupBy(modJson[gameVersion], "id");
+
+function sortByKeyDescending(array: Mod[], key: string): Mod[] {
+  return array.sort((a, b) => {
+    if (a[key] > b[key]) return -1;
+    if (a[key] < b[key]) return 1;
+    return 0;
+  });
+}
+
+function sortByKeyAscending(array: Mod[], key: string): Mod[] {
+  return array.sort((a, b) => {
+    if (a[key] > b[key]) return 1;
+    if (a[key] < b[key]) return -1;
+    return 0;
+  });
+}
+
+for (const modList of Object.values(modGroups)) {
+  sortByKeyDescending(modList as Mod[], "version");
+}
+
+const modList = Object.values(modGroups) as Mod[][];
+
+modList.sort((a, b) => {
+  if (a[0].name || "" > b[0].name || "") {
+    return 1;
+  }
+
+  if (a[0].name || "" < b[0].name || "") {
+    return 1;
+  }
+
+  return 0;
+});
+
+const coreMods = (await getCoreMods())[gameVersion].mods;
+console.log(coreMods);
 ---
 
 <Layout title={`Quest Beat Saber Mods for ${gameVersion}`}>
-  <div
-    class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4 max-w-screen-xl mx-auto"
-  >
-    {
-      mods[gameVersion].map((mod, index) => (
-        <a
-          href={mod.download}
-          class="bg-white-alpha-10p
-            rounded-lg
-            overflow-hidden
-            text-center
-            p-0 relative
-            after:content-['']
-            hover:after:bg-white-alpha-10p
-            after:absolute
-            after:inset-0 after:transition-all"
-        >
-          <div
-            class="block bg-black w-full relative"
-            style="padding-bottom: calc(100% / 178 * 100);"
-          >
-            {mod.cover != null ? (
-              <div class="absolute inset-0 flex justify-center items-center w-full h-full">
-                <img
-                  class="inline-block max-w-full max-h-full h-screen"
-                  alt={`${mod.name} v${mod.version}`}
-                  src={mod.cover}
-                />
-              </div>
-            ) : null}
-          </div>
-          <span class="block p-4">{`${mod.name} v${mod.version}`}</span>
-        </a>
-      ))
-    }
-  </div>
+  <div class="text-center text-xl pt-2 block">Core Mods</div>
+  <ModList mods={modList} core={true} coreMods={coreMods} />
+  <div class="text-center text-xl pt-2 block">Other Mods</div>
+  <ModList mods={modList} core={false} coreMods={coreMods} />
 </Layout>

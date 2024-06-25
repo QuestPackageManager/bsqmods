@@ -1,0 +1,237 @@
+---
+import { Mod } from "../../../shared/types/Mod";
+import { CoreMod } from "../../CoreMods";
+
+interface Props {
+  mods: Mod[][];
+  core: boolean;
+  coreMods: CoreMod[];
+}
+const { mods, core, coreMods } = Astro.props as Props;
+const coreModList = coreMods.map((mod) => mod.id);
+console.log(coreModList);
+---
+
+<div
+  class="flex
+    flex-wrap
+    p-2
+    max-w-screen-xl
+    mx-auto
+    text-black
+    justify-center"
+>
+  {
+    mods.map((mods: Mod[], index) => {
+      const mod = mods[0];
+
+      if (
+        (core && !coreModList.includes(mod.id || "")) ||
+        (!core && coreModList.includes(mod.id || ""))
+      ) {
+        return null;
+      }
+
+      const buttonHighlightStyles = `
+        after:content-['']
+        after:absolute
+        after:inset-0
+        after:hover:bg-white-alpha-10`;
+      const buttonStyles = `
+        inline-block
+        relative
+        mx-2
+        bg-primary
+        rounded
+        text-white
+        font-semibold
+        text-sm`;
+
+      return (
+        <div
+          class="
+            sm:w-1/2
+            md:w-1/3
+            lg:w-1/4
+            p-2 flex
+            flex-col
+            p-0"
+        >
+          <div
+            class="
+              block
+              bg-black-alpha-50
+              w-full
+              relative
+              rounded-t-lg
+              overflow-hidden"
+            style="padding-bottom: calc(100% / 178 * 100);"
+          >
+            {mod.cover != null ? (
+              <div class="absolute inset-0 flex justify-center items-center w-full h-full">
+                <img
+                  class="inline-block max-w-full max-h-full h-screen"
+                  alt={`${mod.name} v${mod.version}`}
+                  src={mod.cover}
+                />
+              </div>
+            ) : null}
+          </div>
+          <div
+            class="
+              relative
+              flex-grow
+              bg-white-alpha-70
+              rounded-b-lg"
+          >
+            <div
+              class="
+                block
+                p-4"
+            >
+              <div
+                class="
+                  font-semibold"
+              >
+                {mod.name} <span class="text-[.6em]">v{mod.version}</span>
+              </div>
+              {mod.description ? (
+                <span
+                  class="
+                    text-sm"
+                >
+                  {mod.description}
+                </span>
+              ) : null}
+            </div>
+            {(() => {
+              const buttons = [];
+              if (mod.download) {
+                buttons.push(
+                  <div class={buttonStyles}>
+                    <a
+                      href={mod.download}
+                      class={`
+                        block
+                        p-2.5
+                        ${buttonHighlightStyles}
+                        ${
+                          mods.length > 1
+                            ? `
+                            after:right-3.5
+                            mr-3.5`
+                            : ""
+                        }`}
+                    >
+                      Download
+                    </a>
+                    {mods.length > 1 ? (
+                      <div
+                        class={`
+                          group
+                          flex
+                          justify-center
+                          items-center
+                          absolute
+                          top-0
+                          right-0
+                          bottom-0
+                          w-3.5
+                          cursor-pointer
+                          border-l
+                          border-white-alpha-30
+                          ${buttonHighlightStyles}`}
+                      >
+                        <i
+                          class="
+                            fa-solid
+                            fa-caret-down
+                            text-[0.7em]"
+                        />
+                        <div
+                          class="
+                            absolute
+                            shadow-md
+                            z-10
+                            top-[100%]
+                            mt-[-.4em]
+                            origin-top-left
+                            bg-white divide-y
+                            divide-gray-100
+                            rounded-md shadow-lg
+                            opacity-0
+                            group-hover:opacity-100
+                            invisible
+                            group-hover:visible
+                            transition"
+                        >
+                          <div
+                            class="
+                              py-1"
+                          >
+                            {mods.map((mod) => (
+                              <a
+                                href={mod.download}
+                                class="
+                                  block
+                                  text-black
+                                  px-4
+                                  py-2
+                                  text-sm
+                                  text-gray-700
+                                  hover:bg-gray-100"
+                              >
+                                {mod.version}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>,
+                );
+              }
+
+              if (mod.source) {
+                buttons.push(
+                  <a
+                    href={mod.source}
+                    class={`
+                      ${buttonStyles}
+                      p-2.5
+                      ${buttonHighlightStyles}`}
+                  >
+                    Source Code
+                  </a>,
+                );
+              }
+
+              return (
+                <div
+                  class="
+                    mx-2 pb-4"
+                >
+                  <div
+                    class={`
+                      ${buttonStyles}
+                      p-2.5
+                      invisible`}
+                  >
+                    &nbsp;
+                  </div>
+                  <div
+                    class="
+                      absolute
+                      bottom-4"
+                  >
+                    {buttons}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
