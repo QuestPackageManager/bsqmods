@@ -15,7 +15,7 @@ import mods from "../../public/mods.json";
             .filter((version) => version != "undefined")
             .reverse()
             .map((version) => (
-              <a class="link prose text-lg" href={`/${version}/`}>
+              <a class="link prose text-lg" href={`${version}/`}>
                 {version}
               </a>
             ))
