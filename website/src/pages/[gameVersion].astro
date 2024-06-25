@@ -21,79 +21,39 @@ console.log(gameVersion);
 
 <Layout title={`Quest Beat Saber Mods for ${gameVersion}`}>
   <div
-    id="mods"
-    class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4"
+    class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4 max-w-screen-xl mx-auto"
   >
     {
       mods[gameVersion].map((mod, index) => (
-        <a href={mod.download}>
-          <div class="img">
+        <a
+          href={mod.download}
+          class="bg-white-alpha-10p
+            rounded-lg
+            overflow-hidden
+            text-center
+            p-0 relative
+            after:content-['']
+            hover:after:bg-white-alpha-10p
+            after:absolute
+            after:inset-0 after:transition-all"
+        >
+          <div
+            class="block bg-black w-full relative"
+            style="padding-bottom: calc(100% / 178 * 100);"
+          >
             {mod.cover != null ? (
-              <div>
-                <img alt={`${mod.name} v${mod.version}`} src={mod.cover} />
+              <div class="absolute inset-0 flex justify-center items-center w-full h-full">
+                <img
+                  class="inline-block max-w-full max-h-full h-screen"
+                  alt={`${mod.name} v${mod.version}`}
+                  src={mod.cover}
+                />
               </div>
             ) : null}
           </div>
-          <span>{`${mod.name} v${mod.version}`}</span>
+          <span class="block p-4">{`${mod.name} v${mod.version}`}</span>
         </a>
       ))
     }
   </div>
 </Layout>
-<style lang="scss">
-  #mods {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-
-    & > a {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
-      overflow: hidden;
-      text-align: center;
-      position: relative;
-      & > span {
-        padding: 1rem;
-        display: block;
-      }
-      &:after {
-        transition: 200ms all;
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-
-      &:hover:after {
-        background: rgba(255, 255, 255, 0.1);
-      }
-    }
-
-    .img {
-      background: #000;
-      width: 100%;
-      position: relative;
-      padding-bottom: calc(100% / 178 * 100);
-      & > div {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        img {
-          display: inline-block;
-          max-width: 100%;
-          max-height: 100%;
-          height: 9999vmax;
-        }
-      }
-    }
-  }
-</style>

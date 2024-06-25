@@ -7,6 +7,10 @@ const config: Config = {
   purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    colors: {
+      "white-alpha-10p": "rgba(255, 255, 255, 0.1)",
+      "black": "#000"
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
