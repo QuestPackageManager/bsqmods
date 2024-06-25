@@ -141,6 +141,22 @@
   }
 
   /**
+   * Fetches a resource from the given URL and returns it as a buffer.
+   *
+   * @param {string} url - The URL of the resource to fetch.
+   * @returns {Promise<Buffer>} A promise that resolves to a buffer containing the fetched resource.
+   * @throws {Error} Throws an error if the HTTP response status is not ok.
+   */
+  async function fetchAsBuffer(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const buffer = await response.buffer();
+    return buffer;
+  }
+
+  /**
    * Downloads a file from a URL and saves it to a specified destination, returning the SHA-1 hash of the file.
    *
    * @param {string} url - The URL to download the file from.
@@ -327,19 +343,30 @@
       return output;
     }
 
-    if (coverFile) {
-      coverFilename = path.join(coversPath, `${qmodHash}.png`);
+    let coverBuffer;
 
+    try {
+      if (coverFile) {
+        coverFilename = path.join(coversPath, `${qmodHash}.png`);
+        coverBuffer = await coverFile.async("nodebuffer");
+      } else if (mod.cover) {
+        coverBuffer = fetchAsBuffer(mod.cover)
+      }
+    }
+    catch (error) {
+
+    }
+
+    if (coverBuffer) {
       try {
-        const coverBuffer = await coverFile.async("nodebuffer");
-
         if (!fs.existsSync(coverFilename)) {
           fs.mkdirSync(coversPath, { recursive: true });
 
           await sharp(coverBuffer)
             .rotate()
-            .resize(178, 100, {
-              fit: "contain"
+            .resize(512, 512, {
+              fit: "inside",
+              withoutEnlargement: true
             })
             .png({
 

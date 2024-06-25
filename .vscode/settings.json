@@ -23,5 +23,6 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.tabSize": 2,
-  "editor.detectIndentation": true
+  "editor.detectIndentation": true,
+  "editor.wordWrap": "off"
 }

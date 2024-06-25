@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import mods from "../../public/mods.json";
+---
+
+<Layout title="Quest Beat Saber Mods">
+  <div class="px-4 py-8 mx-auto bg-dark-200">
+    <div
+      class="max-w-screen-md mx-auto flex flex-col items-center justify-center"
+    >
+      <h1 class="text-4xl font-bold">Select a Beat Saber Version</h1>
+      <div class="my-4 flex flex-col gap-2">
+        {
+          Object.keys(mods)
+            .filter((version) => version != "undefined")
+            .reverse()
+            .map((version) => (
+              <a class="link prose text-lg" href={`/${version}/`}>
+                {version}
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,99 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../layouts/Layout.astro";
+import mods from "../../public/mods.json";
+
+export const getStaticPaths = (() => {
+  return Object.keys(mods).map((key) => ({
+    params: {
+      gameVersion: key,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  gameVersion: string;
+}
+
+const { gameVersion } = Astro.params;
+console.log(gameVersion);
+---
+
+<Layout title={`Quest Beat Saber Mods for ${gameVersion}`}>
+  <div
+    id="mods"
+    class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4"
+  >
+    {
+      mods[gameVersion].map((mod, index) => (
+        <a href={mod.download}>
+          <div class="img">
+            {mod.cover != null ? (
+              <div>
+                <img alt={`${mod.name} v${mod.version}`} src={mod.cover} />
+              </div>
+            ) : null}
+          </div>
+          <span>{`${mod.name} v${mod.version}`}</span>
+        </a>
+      ))
+    }
+  </div>
+</Layout>
+<style lang="scss">
+  #mods {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    & > a {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      & > span {
+        padding: 1rem;
+        display: block;
+      }
+      &:after {
+        transition: 200ms all;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &:hover:after {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .img {
+      background: #000;
+      width: 100%;
+      position: relative;
+      padding-bottom: calc(100% / 178 * 100);
+      & > div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        img {
+          display: inline-block;
+          max-width: 100%;
+          max-height: 100%;
+          height: 9999vmax;
+        }
+      }
+    }
+  }
+</style>

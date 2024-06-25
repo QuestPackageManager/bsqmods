@@ -1,0 +1,616 @@
+---
+import "reset-css/reset.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mod Json Generator</title>
+  </head>
+  <body id="qmodDropZone">
+    <div id="wrapper">
+      <header id="title">
+        <h1>Mod Json Generator</h1>
+      </header>
+      <div id="flexWrapper">
+        <div>
+          <label
+            >Mod Name
+            <input id="modName" placeholder="The name of the mod" type="text" />
+          </label>
+          <label
+            >Mod ID
+            <input id="modId" placeholder="The ID of the mod" type="text" />
+          </label>
+          <label
+            >Mod Creator(s)
+            <input
+              id="modCreators"
+              placeholder="Who made this mod?"
+              type="text"
+            />
+          </label>
+          <label
+            >Mod Version
+            <input id="modVersion" placeholder="The mod version" type="text" />
+          </label>
+          <label
+            >Mod Description
+            <textarea
+              id="modDescription"
+              placeholder="A description of what the mod does"
+              style="resize: none;"
+              rows="10"></textarea>
+          </label>
+          <label
+            >Game Version
+            <input
+              id="targetGameVersion"
+              placeholder="The version of the game the mod is made for"
+              type="text"
+            />
+          </label>
+          <label
+            >Mod Loader
+            <input
+              id="modLoader"
+              placeholder="The mod loader used by the mod"
+              type="text"
+            />
+          </label>
+          <div class="dropZone" id="loadQmod">
+            <p>Drag/drop .qmod file here, or click to select file.</p>
+          </div>
+        </div>
+        <div>
+          <label
+            >Download Link
+            <input
+              id="modDownloadLink"
+              placeholder="A direct link to the .qmod file"
+              type="text"
+            />
+          </label>
+          <label
+            >Source Code
+            <input
+              id="modSourceLink"
+              placeholder="A link to the source code for the mod"
+              type="text"
+            />
+          </label>
+          <label
+            >Website
+            <input
+              id="modWebsiteLink"
+              placeholder="A link to a website for the mod."
+              type="text"
+            />
+          </label>
+          <label
+            >Funding
+            <input
+              id="modFundingLink"
+              placeholder="A link to a page where people can donate some money."
+              type="text"
+            />
+          </label>
+          <label
+            >Cover link
+            <input
+              id="modCover"
+              placeholder="A direct link to a cover image."
+              type="text"
+            />
+          </label>
+          <button id="generateJson" type="button">Create JSON on GitHub</button>
+        </div>
+      </div>
+    </div>
+    <footer>Beat Saber render by Pixelguy</footer>
+  </body>
+</html>
+<style is:global>
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic");
+
+  * {
+    box-sizing: border-box !important;
+    transition: background-color 100ms !important;
+  }
+
+  body {
+    color: #eeeeee;
+  }
+
+  html {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("/images/pixelguy.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #111111dd;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+  body,
+  table,
+  input {
+    font-size: 14px;
+    font-family: "Open Sans";
+  }
+
+  a {
+    text-decoration: none;
+    color: #30a2ec;
+  }
+
+  a:visited {
+    color: #30a2ec;
+  }
+
+  label {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  input,
+  textarea {
+    margin: 0.5rem 0;
+    font-weight: normal;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+    background-color: rgba(64, 64, 64, 0.8);
+
+    &::placeholder {
+      color: rgb(182, 182, 182);
+      font-style: italic;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: rgba(78, 78, 78, 0.8);
+    }
+  }
+
+  code {
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #202225;
+    border: 1px solid black;
+  }
+
+  .headerDescription {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+
+  #wrapper {
+    padding: 1rem;
+  }
+
+  #flexWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  #flexWrapper > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    margin: 1rem 0.5rem 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  #title {
+    text-align: center;
+  }
+
+  .dropZone {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(64, 64, 64, 0.8);
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+  }
+
+  button {
+    all: unset;
+    text-align: center;
+    padding: 0.7rem;
+    background: rgba(64, 64, 64, 0.8);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .dropZone,
+  button {
+    margin-top: 0.5rem;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      background-color: rgba(78, 78, 78, 0.8);
+    }
+  }
+
+  footer {
+    display: block;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+<script>
+  import JSZip from "jszip";
+  import type { Mod, ModsCollection, QmodInfo } from "../Types";
+  ("use strict");
+  (async () => {
+    function getElementById(id) {
+      return document.getElementById(id);
+    }
+    /**
+     * Regular expression for matching GitHub repository URLs.
+     */
+    const ghRegex = /^https:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)/,
+      modNameElement = getElementById("modName") as HTMLInputElement,
+      modDescriptionElement = getElementById(
+        "modDescription"
+      ) as HTMLTextAreaElement,
+      modIdElement = getElementById("modId") as HTMLInputElement,
+      loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
+      modDownloadLinkElement = getElementById(
+        "modDownloadLink"
+      ) as HTMLInputElement,
+      modSourceLinkElement = getElementById(
+        "modSourceLink"
+      ) as HTMLInputElement,
+      modWebsiteLinkElement = getElementById(
+        "modWebsiteLink"
+      ) as HTMLInputElement,
+      modFundingLinkElement = getElementById(
+        "modFundingLink"
+      ) as HTMLInputElement,
+      modCoverElement = getElementById("modCover") as HTMLInputElement,
+      modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
+      modVersionElement = getElementById("modVersion") as HTMLInputElement,
+      targetGameVersionElement = getElementById(
+        "targetGameVersion"
+      ) as HTMLInputElement,
+      modLoaderElement = getElementById("modLoader") as HTMLInputElement,
+      qmodDropZoneElement = document.body,
+      generateButtonElement = getElementById("generateJson");
+
+    if (
+      !modNameElement ||
+      !modDescriptionElement ||
+      !modIdElement ||
+      !loadQmodElement ||
+      !modDownloadLinkElement ||
+      !modSourceLinkElement ||
+      !modWebsiteLinkElement ||
+      !modFundingLinkElement ||
+      !modCoverElement ||
+      !modCreatorsElement ||
+      !modVersionElement ||
+      !targetGameVersionElement ||
+      !modLoaderElement ||
+      !qmodDropZoneElement ||
+      !generateButtonElement
+    ) {
+      throw new Error();
+    }
+
+    let modJson: ModsCollection = {};
+
+    // Load the mod.json file
+    (async function loadModJson() {
+      try {
+        const response = await fetch(
+          `../mods.json?${Math.floor(Date.now() / 1000)}`
+        );
+
+        if (response.ok) {
+          modJson = await response.json();
+        }
+      } catch (error) {}
+    })();
+
+    /**
+     * Sanitizes the given filename by removing invalid filename characters.
+     * @param input The filename to sanitize.
+     * @returns The sanitized filename.
+     */
+    function sanitizeFilename(input: string) {
+      // Define a regex pattern for invalid filename characters
+      // This pattern includes characters not allowed in Windows filenames
+      const invalidChars = /[<>:"\/\\|?*\x00-\x1F]+/g;
+
+      // Replace invalid characters with underscore
+      return input.replace(invalidChars, "_");
+    }
+
+    /**
+     * Gets the intended filename for the given mod values.
+     * @param id The mod ID.
+     * @param version The mod version.
+     * @param gameVersion The game version.
+     * @returns
+     */
+    function getFilename(id: string, version: string, gameVersion: string) {
+      return `mods/${sanitizeFilename(gameVersion.trim())}/${sanitizeFilename(`${id.trim()}-${version.trim()}.json`)}`;
+    }
+
+    /**
+     * Checks if a mod with the given id and version already exists for the specified game version.
+     *
+     * @param id The ID of the mod.
+     * @param version The version of the mod.
+     * @param gameVersion The version of the game.
+     * @returns Returns true if the mod with the given id and version exists for the specified game version, false otherwise.
+     */
+    function checkMod(
+      id: string,
+      version: string,
+      gameVersion: string
+    ): boolean {
+      /**
+       * Array of mods for the specified game version.
+       * @type {Mod[]|null}
+       */
+      const versionMods = modJson[gameVersion];
+
+      if (versionMods == null) {
+        return false;
+      }
+
+      // Loop through all mods for the specified game version
+      for (const mod of versionMods) {
+        // Check if mod id and version match the given id and version
+        if (mod.id == id && mod.version == version) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function readQmodFile(file) {
+      const reader = new FileReader();
+
+      console.log(`… ${file.name}`);
+
+      reader.onloadend = qmodLoadHandler;
+      reader.readAsArrayBuffer(file);
+    }
+
+    /**
+     * Creates a temporary file input element and clicks it to select a .qmod file and load its information.
+     * @param e
+     */
+    function loadQmod(e: MouseEvent) {
+      /**
+       * @type {HTMLInputElement}
+       */
+      const input = document.createElement("input") as HTMLInputElement;
+
+      input.setAttribute("type", "file");
+      input.addEventListener("change", function (e) {
+        if (!this.files) {
+          return;
+        }
+
+        if (!this.files[0]) {
+          return;
+        }
+
+        readQmodFile(this.files[0]);
+      });
+      input.click();
+    }
+
+    /**
+     * Generates JSON for the mod, and opens a GitHub page with a new file pre-populated with it, or the existing file if it already exists.
+     */
+    function generateJson() {
+      if (!modJson[targetGameVersionElement.value]) {
+        modJson[targetGameVersionElement.value] = [];
+      }
+
+      let mod: Mod = {
+        name: modNameElement.value.trim(),
+        description: modDescriptionElement.value.trim(),
+        id: modIdElement.value.trim(),
+        version: modVersionElement.value.trim(),
+        author: modCreatorsElement.value.trim(),
+        modloader: modLoaderElement.value.trim(),
+        download: modDownloadLinkElement.value.trim(),
+        source: modSourceLinkElement.value.trim(),
+        cover: modCoverElement.value.trim(),
+        funding: modFundingLinkElement.value.trim(),
+        website: modWebsiteLinkElement.value.trim(),
+      };
+
+      for (const key in mod) {
+        if (mod[key] == "") {
+          mod[key] = null;
+        }
+      }
+
+      const modFilename = getFilename(
+        mod.id || "",
+        mod.version || "",
+        targetGameVersionElement.value
+      );
+
+      if (checkMod(mod.id, mod.version, targetGameVersionElement.value)) {
+        alert("This mod version already exists in the json");
+        window.open(
+          `https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`
+        );
+      } else {
+        window.open(
+          `https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
+        );
+      }
+    }
+
+    /**
+     * Function to handle dropping of URLs on a text input.
+     * @param e - The event object.
+     */
+    function urlDropHandler(this: HTMLInputElement, e: DragEvent): void {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!e.dataTransfer || !e.currentTarget) {
+        return;
+      }
+
+      /**
+       * @type {HTMLInputElement}
+       */
+      const input = e.currentTarget as HTMLInputElement;
+      const url = e.dataTransfer.getData("URL");
+
+      input.value = url;
+      input.dispatchEvent(new Event("change"));
+    }
+
+    /**
+     * Function to handle loading of QMOD files.
+     * @param ev - The event object.
+     */
+    async function qmodLoadHandler(
+      this: FileReader,
+      ev: ProgressEvent<FileReader>
+    ) {
+      const reader = this;
+
+      try {
+        const zip = await JSZip.loadAsync(reader.result);
+        const modFile = zip.file("mod.json");
+
+        if (!modFile) {
+          console.error("No mod.json");
+          return;
+        }
+
+        const modInfo: QmodInfo = JSON.parse(await modFile.async("string"));
+
+        modNameElement.value = modInfo.name || "";
+        modDescriptionElement.value = modInfo.description || "";
+        modIdElement.value = modInfo.id || "";
+        modVersionElement.value = modInfo.version || "";
+        modCreatorsElement.value =
+          (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
+        targetGameVersionElement.value = modInfo.packageVersion || "";
+        modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
+        modFundingLinkElement.value = modInfo.funding || "";
+        modWebsiteLinkElement.value = modInfo.website || "";
+
+        console.log(modInfo);
+      } catch (error) {
+        console.error("Error loading QMOD file:", error);
+      }
+    }
+
+    /**
+     * Function to handle drag/drop of qmod files on the drop zone.
+     * @param e
+     */
+    function qmodDropHandler(this: HTMLElement, e: DragEvent) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!e.dataTransfer) {
+        return;
+      }
+
+      const files = e.dataTransfer.items
+        ? [...e.dataTransfer.items]
+            .filter((item) => item.kind === "file")
+            .map((item) => item.getAsFile())
+        : [...e.dataTransfer.files];
+
+      for (const file of files) {
+        readQmodFile(file);
+      }
+    }
+
+    /**
+     * Fills in the source code text input if the link is from GitHub.
+     * @param e
+     */
+    function modDownloadLinkChangeHandler(this: HTMLInputElement, e: Event) {
+      const match = ghRegex.exec(modDownloadLinkElement.value.trim());
+
+      if (match && modSourceLinkElement.value.trim().length == 0) {
+        modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+      }
+
+      if (match && modWebsiteLinkElement.value.trim().length == 0) {
+        modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+      }
+    }
+
+    // Prevent default behavior for dragover event
+    qmodDropZoneElement.addEventListener(
+      "dragover",
+      (e) => e.preventDefault(),
+      false
+    );
+
+    // Event listener for dropping files into the qmodDropZone
+    qmodDropZoneElement.addEventListener("drop", qmodDropHandler);
+
+    // Event listener for clicking the QMOD button
+    loadQmodElement.addEventListener("click", loadQmod);
+
+    // Event listener for onchange event of link input
+    modDownloadLinkElement.addEventListener(
+      "change",
+      modDownloadLinkChangeHandler
+    );
+
+    // Add url drop handlers to the following
+    for (const element of [
+      modDownloadLinkElement,
+      modSourceLinkElement,
+      modWebsiteLinkElement,
+      modFundingLinkElement,
+      modCoverElement,
+    ]) {
+      element.addEventListener("drop", urlDropHandler);
+    }
+
+    // Event listener for generate button click event
+    generateButtonElement.addEventListener("click", generateJson);
+  })().catch((error) => {
+    console.error(error);
+
+    alert(
+      "An error has occurred during initialization, please see the console for more information."
+    );
+  });
+</script>
