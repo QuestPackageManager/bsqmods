@@ -8,10 +8,16 @@ import fetch from "node-fetch";
  * @throws - Throws an error if the HTTP response status is not ok.
  */
 export async function fetchAsBuffer(url: string): Promise<Buffer> {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  try {
+    const res = await fetch(url);
+
+    if (!res.ok || !res.body) {
+      // If the response status is not OK or the body isn't present, return null
+      return null;
+    }
+
+    return Buffer.from(await res.arrayBuffer());
+  } catch (error) {
+    return null;
   }
-  const buffer = await response.buffer();
-  return buffer;
 }
