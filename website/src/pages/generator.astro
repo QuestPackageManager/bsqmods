@@ -1,5 +1,5 @@
 ---
-import "reset-css/reset.css";
+
 ---
 
 <!doctype html>
@@ -263,7 +263,10 @@ import "reset-css/reset.css";
 </style>
 <script>
   import JSZip from "jszip";
-  import type { Mod, ModsCollection, QmodInfo } from "../Types";
+  import { sanitizeFilename } from "../../../shared/sanitizeFilename";
+  import type { Mod } from "../../../shared/types/Mod";
+  import type { ModsCollection } from "../../../shared/types/ModsCollection";
+  import type { QmodInfo } from "../../../shared/types/QmodInfo";
   ("use strict");
   (async () => {
     function getElementById(id) {
@@ -275,27 +278,27 @@ import "reset-css/reset.css";
     const ghRegex = /^https:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)/,
       modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
-        "modDescription"
+        "modDescription",
       ) as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
       modDownloadLinkElement = getElementById(
-        "modDownloadLink"
+        "modDownloadLink",
       ) as HTMLInputElement,
       modSourceLinkElement = getElementById(
-        "modSourceLink"
+        "modSourceLink",
       ) as HTMLInputElement,
       modWebsiteLinkElement = getElementById(
-        "modWebsiteLink"
+        "modWebsiteLink",
       ) as HTMLInputElement,
       modFundingLinkElement = getElementById(
-        "modFundingLink"
+        "modFundingLink",
       ) as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById(
-        "targetGameVersion"
+        "targetGameVersion",
       ) as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLInputElement,
       qmodDropZoneElement = document.body,
@@ -327,7 +330,7 @@ import "reset-css/reset.css";
     (async function loadModJson() {
       try {
         const response = await fetch(
-          `../mods.json?${Math.floor(Date.now() / 1000)}`
+          `../mods.json?${Math.floor(Date.now() / 1000)}`,
         );
 
         if (response.ok) {
@@ -335,20 +338,6 @@ import "reset-css/reset.css";
         }
       } catch (error) {}
     })();
-
-    /**
-     * Sanitizes the given filename by removing invalid filename characters.
-     * @param input The filename to sanitize.
-     * @returns The sanitized filename.
-     */
-    function sanitizeFilename(input: string) {
-      // Define a regex pattern for invalid filename characters
-      // This pattern includes characters not allowed in Windows filenames
-      const invalidChars = /[<>:"\/\\|?*\x00-\x1F]+/g;
-
-      // Replace invalid characters with underscore
-      return input.replace(invalidChars, "_");
-    }
 
     /**
      * Gets the intended filename for the given mod values.
@@ -372,7 +361,7 @@ import "reset-css/reset.css";
     function checkMod(
       id: string,
       version: string,
-      gameVersion: string
+      gameVersion: string,
     ): boolean {
       /**
        * Array of mods for the specified game version.
@@ -460,17 +449,23 @@ import "reset-css/reset.css";
       const modFilename = getFilename(
         mod.id || "",
         mod.version || "",
-        targetGameVersionElement.value
+        targetGameVersionElement.value,
       );
 
-      if (checkMod(mod.id, mod.version, targetGameVersionElement.value)) {
+      if (
+        checkMod(
+          mod.id || "",
+          mod.version || "",
+          targetGameVersionElement.value,
+        )
+      ) {
         alert("This mod version already exists in the json");
         window.open(
-          `https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`
+          `https://github.com/DanTheMan827/bsqmods/edit/main/${modFilename}`,
         );
       } else {
         window.open(
-          `https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
+          `https://github.com/DanTheMan827/bsqmods/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
         );
       }
     }
@@ -503,7 +498,7 @@ import "reset-css/reset.css";
      */
     async function qmodLoadHandler(
       this: FileReader,
-      ev: ProgressEvent<FileReader>
+      ev: ProgressEvent<FileReader>,
     ) {
       const reader = this;
 
@@ -578,7 +573,7 @@ import "reset-css/reset.css";
     qmodDropZoneElement.addEventListener(
       "dragover",
       (e) => e.preventDefault(),
-      false
+      false,
     );
 
     // Event listener for dropping files into the qmodDropZone
@@ -590,7 +585,7 @@ import "reset-css/reset.css";
     // Event listener for onchange event of link input
     modDownloadLinkElement.addEventListener(
       "change",
-      modDownloadLinkChangeHandler
+      modDownloadLinkChangeHandler,
     );
 
     // Add url drop handlers to the following
@@ -610,7 +605,7 @@ import "reset-css/reset.css";
     console.error(error);
 
     alert(
-      "An error has occurred during initialization, please see the console for more information."
+      "An error has occurred during initialization, please see the console for more information.",
     );
   });
 </script>

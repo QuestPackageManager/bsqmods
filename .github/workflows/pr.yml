@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Combine json
-        run: "cd scripts && npm install && node ./combine.js --skipHashes"
+        run: "cd scripts && npm install && npx tsx ./combine.ts --skipHashes"
 
       - uses: actions/upload-artifact@v4.3.3
         with:

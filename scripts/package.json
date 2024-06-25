@@ -12,6 +12,10 @@
     "cheerio": "^1.0.0-rc.12",
     "jszip": "^3.10.1",
     "node-fetch": "^3.3.2",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "tsx": "^4.15.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8"
   }
 }
