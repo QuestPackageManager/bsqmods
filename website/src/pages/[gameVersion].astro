@@ -81,13 +81,21 @@ modList.sort((a, b) => {
   return 0;
 });
 
-const coreMods = (await getCoreMods())[gameVersion].mods;
+const coreMods = (await getCoreMods())[gameVersion];
 console.log(coreMods);
 ---
 
 <Layout title={`Quest Beat Saber Mods for ${gameVersion}`}>
   <div class="text-center text-xl pt-2 block">Core Mods</div>
-  <ModList mods={modList} core={true} coreMods={coreMods} />
+  <ModList
+    mods={modList}
+    core={true}
+    coreMods={coreMods ? coreMods.mods : []}
+  />
   <div class="text-center text-xl pt-2 block">Other Mods</div>
-  <ModList mods={modList} core={false} coreMods={coreMods} />
+  <ModList
+    mods={modList}
+    core={false}
+    coreMods={coreMods ? coreMods.mods : []}
+  />
 </Layout>
