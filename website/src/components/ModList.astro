@@ -9,8 +9,6 @@ interface Props {
 }
 const { mods, core, coreMods } = Astro.props as Props;
 const coreModList = coreMods.map((mod) => mod.id);
-const baseHref = Astro.site || "/";
-console.log(Astro);
 ---
 
 <div
