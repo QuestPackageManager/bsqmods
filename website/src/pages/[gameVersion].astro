@@ -5,7 +5,7 @@ import ModList from "../components/ModList.astro";
 import modJson from "../../public/mods.json";
 import { Mod } from "../../../shared/types/Mod";
 import { getCoreMods } from "../../CoreMods";
-import "@fortawesome/fontawesome-free/css/all.css";
+import VersionSelector from "../components/VersionSelector.astro";
 
 export const getStaticPaths = (() => {
   return Object.keys(modJson).map((key) => ({
@@ -29,7 +29,7 @@ interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string,
+  key: string
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
@@ -85,7 +85,13 @@ const coreMods = (await getCoreMods())[gameVersion];
 console.log(coreMods);
 ---
 
-<Layout title={`Quest Beat Saber Mods for ${gameVersion}`}>
+<Layout
+  title={`Quest Beat Saber Mods for ${gameVersion}`}
+  headerTitle="Quest Beat Saber Mods"
+>
+  <div slot="header-post-title" class="text-center block pb-4">
+    <VersionSelector currentVersion={gameVersion} />
+  </div>
   <div class="text-center text-xl pt-2 block">Core Mods</div>
   <ModList
     mods={modList}

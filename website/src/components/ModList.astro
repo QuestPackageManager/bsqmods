@@ -9,14 +9,15 @@ interface Props {
 }
 const { mods, core, coreMods } = Astro.props as Props;
 const coreModList = coreMods.map((mod) => mod.id);
-console.log(coreModList);
+const baseHref = Astro.site || "/";
+console.log(Astro);
 ---
 
 <div
   class="flex
     flex-wrap
     p-2
-    max-w-screen-xl
+    max-w-screen-xxxl
     mx-auto
     text-black
     justify-center"
@@ -54,6 +55,9 @@ console.log(coreModList);
             sm:w-1/2
             md:w-1/3
             lg:w-1/4
+            xl:w-1/5
+            xxl:w-1/6
+            xxxl:w-[12.5%]
             p-2 flex
             flex-col
             p-0"
@@ -68,15 +72,15 @@ console.log(coreModList);
               overflow-hidden"
             style="padding-bottom: calc(100% / 178 * 100);"
           >
-            {mod.cover != null ? (
-              <div class="absolute inset-0 flex justify-center items-center w-full h-full">
-                <img
-                  class="inline-block max-w-full max-h-full h-screen"
-                  alt={`${mod.name} v${mod.version}`}
-                  src={mod.cover}
-                />
-              </div>
-            ) : null}
+            <div class="absolute inset-0 flex justify-center items-center w-full h-full">
+              <img
+                class="inline-block max-w-full max-h-full h-screen"
+                alt={`${mod.name} v${mod.version}`}
+                src={
+                  mod.cover != null ? mod.cover : `/images/image-missing.svg`
+                }
+              />
+            </div>
           </div>
           <div
             class="
@@ -113,14 +117,14 @@ console.log(coreModList);
                     <a
                       href={mod.download}
                       class={`
+                        relative
                         block
                         p-2.5
                         ${buttonHighlightStyles}
                         ${
                           mods.length > 1
                             ? `
-                            after:right-3.5
-                            mr-3.5`
+                            mr-9`
                             : ""
                         }`}
                     >
@@ -129,39 +133,52 @@ console.log(coreModList);
                     {mods.length > 1 ? (
                       <div
                         class={`
+                          absolute
                           group
-                          flex
-                          justify-center
-                          items-center
                           absolute
                           top-0
                           right-0
                           bottom-0
-                          w-3.5
-                          cursor-pointer
+                          w-9
                           border-l
                           border-white-alpha-30
                           ${buttonHighlightStyles}`}
                       >
-                        <i
+                        <a
+                          href="#"
+                          onclick="return false"
                           class="
-                            fa-solid
-                            fa-caret-down
-                            text-[0.7em]"
-                        />
+                          flex
+                          absolute
+                          inset-0
+                          justify-center
+                          items-center
+                          z-10"
+                        >
+                          <i
+                            class="
+                              fa-solid
+                              fa-caret-down
+                              text-[0.7em]"
+                          />
+                        </a>
                         <div
                           class="
                             absolute
                             shadow-md
                             z-10
                             top-[100%]
-                            mt-[-.4em]
+                            left-1/2
+                            transform
+                            -translate-x-1/2
                             origin-top-left
                             bg-white divide-y
                             divide-gray-100
                             rounded-md shadow-lg
+                            hidden
                             opacity-0
                             group-hover:opacity-100
+                            group-hover:block
                             invisible
                             group-hover:visible
                             transition"
@@ -180,7 +197,7 @@ console.log(coreModList);
                                   py-2
                                   text-sm
                                   text-gray-700
-                                  hover:bg-gray-100"
+                                  hover:bg-black-alpha-10"
                               >
                                 {mod.version}
                               </a>
@@ -189,7 +206,7 @@ console.log(coreModList);
                         </div>
                       </div>
                     ) : null}
-                  </div>,
+                  </div>
                 );
               }
 
@@ -203,7 +220,7 @@ console.log(coreModList);
                       ${buttonHighlightStyles}`}
                   >
                     Source Code
-                  </a>,
+                  </a>
                 );
               }
 
@@ -223,7 +240,8 @@ console.log(coreModList);
                   <div
                     class="
                       absolute
-                      bottom-4"
+                      bottom-4
+                      pr-2"
                   >
                     {buttons}
                   </div>

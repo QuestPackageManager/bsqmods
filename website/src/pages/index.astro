@@ -1,26 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import mods from "../../public/mods.json";
+import VersionSelector from "../components/VersionSelector.astro";
+import { ModsCollection } from "../../../shared/types/ModsCollection";
 ---
 
 <Layout title="Quest Beat Saber Mods">
-  <div class="px-4 py-8 mx-auto">
-    <div
-      class="max-w-screen-md mx-auto flex flex-col items-center justify-center"
-    >
-    <div class="text-center text-xl pt-2 block">Select a game version</div>
-      <div class="my-4 flex flex-col gap-2">
-        {
-          Object.keys(mods)
-            .filter((version) => version != "undefined")
-            .reverse()
-            .map((version) => (
-              <a class="link text-center text-white-alpha-90 font-semibold" href={`${version}/`}>
-                {version}
-              </a>
-            ))
-        }
-      </div>
-    </div>
+  <div slot="header-post-title" class="text-center block pb-4">
+    <VersionSelector />
   </div>
 </Layout>

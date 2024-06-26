@@ -9,9 +9,11 @@ const config: Config = {
   theme: {
     screens: {
       'sm': '640px',
-      'md': '800px',
-      'lg': '1024px',
-      'xl': '1280px',
+      'md': '870px',
+      'lg': '1140px',
+      'xl': '1460px',
+      'xxl': '1750px',
+      'xxxl': '2320px',
     },
     colors: {
       "white-alpha-10": "rgba(255, 255, 255, 0.1)",

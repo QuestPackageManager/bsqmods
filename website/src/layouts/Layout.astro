@@ -1,35 +1,45 @@
 ---
-import "../styles/global.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+
 interface Props {
   title: string;
+  headerTitle?: string;
 }
 
-const { title } = Astro.props;
+const { title, headerTitle } = Astro.props;
+let baseUrl = (import.meta.env.BASE_URL as string) || "";
+
+if (!baseUrl.endsWith("/")) {
+  baseUrl = baseUrl + "/";
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <base href={baseUrl} />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{headerTitle}</title>
   </head>
   <body>
     <header class="relative
-        bg-black-alpha-60
-        text-center">
-      <div
-        class="text-center
-        text-xl
-        p-4
-        block
-        font-bold"
-      >
-        {title}
-      </div>
+        bg-black-alpha-60">
+      <slot name="header">
+        <div
+          class="text-center
+            text-xl
+            p-4
+            block
+            font-bold"
+        >
+          {headerTitle || title}
+        </div>
+        <slot name="header-post-title" />
+      </slot>
     </header>
     <div class="bg-black-alpha-20
       content" f-client-nav="true">
@@ -44,13 +54,23 @@ const { title } = Astro.props;
   </body>
 </html>
 <style>
-  html {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("/images/pixelguy.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: #111111dd;
+  body {
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: -1;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("/images/pixelguy.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-color: #111111dd;
+    }
   }
 </style>

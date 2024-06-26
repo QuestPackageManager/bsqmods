@@ -1,0 +1,66 @@
+---
+import mods from "../../public/mods.json";
+
+interface Props {
+  currentVersion?: string;
+}
+
+const { currentVersion } = Astro.props as Props;
+---
+
+<span class="relative group inline-block text-center text-sm font-semibold">
+  <a
+    href={currentVersion ? `/${currentVersion}/` : "#"}
+    onclick="return false"
+    class="inline-block relative p-2 pr-5 bg-white-alpha-70 text-black rounded-md box-border"
+  >
+    {currentVersion ? `${currentVersion}` : "Select A Version"}
+    <span
+      class="flex justify-center items-center absolute right-0 top-0 bottom-0 w-3 pr-2"
+    >
+      <i class="fa-solid
+        fa-caret-down
+        text-[0.7em]"></i>
+    </span>
+  </a>
+  <div
+    class="absolute
+      shadow-md
+      z-50
+      m-0
+      left-1/2
+      transform
+      -translate-x-1/2
+      top-[100%]
+      origin-top-left
+      bg-white
+      divide-y
+      divide-gray-100
+      rounded-md shadow-lg
+      opacity-0
+      group-hover:opacity-100
+      hidden
+      invisible
+      group-hover:visible
+      group-hover:inline-block
+      transition
+      whitespace-nowrap
+      mb-6"
+  >
+    <div class="py-1">
+      {
+        Object.keys(mods)
+          .filter((version) => version != "undefined")
+          .reverse()
+          .map((version) => (
+            <a
+              href={`/${version}/`}
+              class="block px-4 py-2 text-sm text-black hover:bg-black-alpha-10"
+            >
+              {version}
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</span>
