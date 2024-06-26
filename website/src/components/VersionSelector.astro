@@ -54,7 +54,7 @@ const { currentVersion } = Astro.props as Props;
           .reverse()
           .map((version) => (
             <a
-              href={`/${version}/`}
+              href={`${version}/`}
               class="block px-4 py-2 text-sm text-black hover:bg-black-alpha-10"
             >
               {version}
