@@ -110,6 +110,8 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     qmodHash = await downloadFile(mod.download, qmodPath);
   }
 
+  coverFilename = path.join(coversPath, `${qmodHash}.png`);
+
   if (qmodHash == null) {
     // File not found.
     output.errors.push("Not found");
@@ -162,7 +164,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
   try {
     if (coverFile) {
-      coverFilename = path.join(coversPath, `${qmodHash}.png`);
+      
       coverBuffer = await coverFile.async("nodebuffer");
     } else if (mod.cover) {
       coverBuffer = await fetchAsBuffer(mod.cover);
