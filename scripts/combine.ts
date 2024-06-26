@@ -1,6 +1,5 @@
 import { HashCollection } from "../shared/types/HashCollection";
 import { ModsCollection } from "../shared/types/ModsCollection";
-import { QmodInfo } from "../shared/types/QmodInfo";
 import { Mod, modKeys } from "../shared/types/Mod";
 import JSZip from "jszip";
 import fs from "fs"
@@ -183,7 +182,10 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
             fit: "inside",
             withoutEnlargement: true
           })
-          .png()
+          .png({
+            compressionLevel: 9.0,
+            palette: true
+          })
           .toFile(coverFilename);
       }
 
