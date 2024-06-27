@@ -1,6 +1,7 @@
 ---
 import { Mod } from "../../../shared/types/Mod";
 import BottomAnchor from "./BottomAnchor.astro";
+import { encode } from "html-entities";
 
 export interface Props {
   /**
@@ -135,10 +136,12 @@ const { mods } = Astro.props as Props;
               <span
                 class={`
                   text-sm
+                  whitespace-pre-line
                 `}
-              >
-                {mod.description}
-              </span>
+                set:html={encode(mod.description)
+                  .replace(/\n/g, "&#10;")
+                  .replace(/\r/g, "")}
+              />
             ) : null}
           </div>
           {(() => {
