@@ -1,5 +1,6 @@
 ---
 import "@fortawesome/fontawesome-free/css/all.css";
+import BottomAnchor from "../components/BottomAnchor.astro";
 
 export interface Props {
   title: string;
@@ -37,6 +38,7 @@ if (!baseUrl.endsWith("/")) {
         before:inset-0
         before:z-[-1]
         bg-black-alpha-60
+        dark:bg-dark-header-footer
         relative
       `}
     >
@@ -70,50 +72,32 @@ if (!baseUrl.endsWith("/")) {
     >
       <slot />
     </div>
-    {
-      (() => {
-        const content = (
-          <>
-            <p>Beat Saber render by Pixelguy</p>
-            <p>
-              <a href="generator/">Mod JSON Generator</a>
-            </p>
-          </>
-        );
-
-        return (
-          <>
-            <footer
-              class={`
-                invisible
-                p-4
-              `}
-            >
-              {content}
-            </footer>
-            <footer
-              class={`
-                absolute
-                before:absolute
-                before:backdrop-blur
-                before:content['']
-                before:inset-0
-                before:z-[-1]
-                bg-black-alpha-60
-                bottom-0
-                left-0
-                p-4
-                right-0
-                t-center
-                text-center
-              `}
-            >
-              {content}
-            </footer>
-          </>
-        );
-      })()
-    }
+    <BottomAnchor>
+      <footer
+        class={`
+          relative
+          before:absolute
+          before:backdrop-blur
+          before:content['']
+          before:inset-0
+          before:z-[-1]
+          bg-black-alpha-60
+          bottom-0
+          dark:bg-dark-header-footer
+          left-0
+          p-4
+          right-0
+          t-center
+          text-center
+          w-[100vw]
+        `}
+      >
+        <p>Beat Saber render by Pixelguy</p>
+        <p>
+          <a href="generator/">Mod JSON Generator</a>
+        </p>
+      </footer>
+    </BottomAnchor>
   </body>
 </html>
 <style is:global>

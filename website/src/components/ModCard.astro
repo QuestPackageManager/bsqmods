@@ -61,6 +61,7 @@ const { mods } = Astro.props as Props;
           class={`
             bg-black-alpha-50
             block
+            dark:bg-dark-header-footer
             overflow-hidden
             relative
             rounded-t-lg
@@ -94,6 +95,8 @@ const { mods } = Astro.props as Props;
         <div
           class={`
             bg-white-alpha-70
+            dark:bg-dark-card
+            dark:text-white
             flex-grow
             relative
             rounded-b-lg
@@ -176,18 +179,17 @@ const { mods } = Astro.props as Props;
                       <details class="absolute inset-0 dropdown">
                         <summary
                           class={`
-
-                            bg-transparent
-                            hover:bg-white-alpha-10
-                            border-none
-                            shadow-none
                             absolute
+                            bg-transparent
+                            border-none
+                            cursor-pointer
                             flex
+                            hover:bg-white-alpha-10
                             inset-0
                             items-center
                             justify-center
+                            shadow-none
                             z-10
-                            cursor-pointer
                           `}
                         >
                           <i
@@ -203,6 +205,8 @@ const { mods } = Astro.props as Props;
                             -translate-x-1/2
                             backdrop-blur
                             bg-white-alpha-70
+                            dark:bg-dark-header-footer
+                            dark:text-white
                             dropdown-content
                             left-1/2
                             mt-1
@@ -218,6 +222,7 @@ const { mods } = Astro.props as Props;
                           {mods.map((mod) => (
                             <li
                               class={`
+                                dark:hover:bg-white-alpha-10
                                 hover:bg-black-alpha-10
                                 rounded-sm
                               `}

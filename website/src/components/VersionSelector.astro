@@ -11,12 +11,13 @@ const { currentVersion } = Astro.props as Props;
 <details class="dropdown">
   <summary
     class={`
-      bg-white-alpha-70
+      bg-primary
       btn
+      dark:hover:bg-[#33608D]
       hover:bg-white-alpha-80
       m-1
       rounded-md
-      text-black
+      text-white
     `}
   >
     {currentVersion ? `${currentVersion}` : "Select A Version"}
@@ -31,6 +32,8 @@ const { currentVersion } = Astro.props as Props;
       -translate-x-1/2
       backdrop-blur
       bg-white-alpha-70
+      dark:bg-dark-header-footer
+      dark:text-white
       dropdown-content
       font-semibold
       left-1/2
@@ -49,6 +52,7 @@ const { currentVersion } = Astro.props as Props;
         versions.map((version) => (
           <li
             class={`
+              dark:hover:bg-white-alpha-10
               hover:bg-black-alpha-10
               rounded-sm
             `}

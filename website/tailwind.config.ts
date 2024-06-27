@@ -16,6 +16,8 @@ const config: Config = {
       'xxxl': '2320px',
     },
     colors: {
+      "dark-header-footer": "rgba(3, 8, 33, 0.698)",
+      "dark-card": "rgba(4, 11, 47, 0.698)",
       "transparent": "rgba(0,0,0,0)",
       "white-alpha-10": "rgba(255, 255, 255, 0.1)",
       "white-alpha-20": "rgba(255, 255, 255, 0.2)",
