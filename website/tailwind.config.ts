@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     screens: {
       'sm': '640px',
-      'md': '870px',
-      'lg': '1140px',
-      'xl': '1460px',
-      'xxl': '1750px',
-      'xxxl': '2320px',
+      'md': '885px',
+      'lg': '1150px',
+      'xl': '1470px',
+      'xxl': '1760px',
+      'xxxl': '2330px',
     },
     colors: {
       "dark-header-footer": "rgba(3, 8, 33, 0.698)",
