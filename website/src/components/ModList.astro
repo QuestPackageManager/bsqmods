@@ -1,252 +1,40 @@
 ---
 import { Mod } from "../../../shared/types/Mod";
 import { CoreMod } from "../../CoreMods";
+import ModCard from "./ModCard.astro";
 
-interface Props {
+export interface Props {
   mods: Mod[][];
   core: boolean;
   coreMods: CoreMod[];
 }
+
 const { mods, core, coreMods } = Astro.props as Props;
 const coreModList = coreMods.map((mod) => mod.id);
 ---
 
 <div
-  class="flex
+  class={`
+    relative
+    flex
     flex-wrap
     p-2
     max-w-screen-xxxl
     mx-auto
     text-black
-    justify-center"
+    justify-center
+  `}
 >
   {
     mods.map((mods: Mod[], index) => {
-      const mod = mods[0];
-
       if (
-        (core && !coreModList.includes(mod.id || "")) ||
-        (!core && coreModList.includes(mod.id || ""))
+        (core && !coreModList.includes(mods[0].id || "")) ||
+        (!core && coreModList.includes(mods[0].id || ""))
       ) {
         return null;
       }
 
-      const buttonHighlightStyles = `
-        after:content-['']
-        after:absolute
-        after:inset-0
-        after:hover:bg-white-alpha-10`;
-      const buttonStyles = `
-        inline-block
-        relative
-        mx-2
-        bg-primary
-        rounded
-        text-white
-        font-semibold
-        text-sm`;
-
-      return (
-        <div
-          class="
-            w-full
-            sm:w-1/2
-            md:w-1/3
-            lg:w-1/4
-            xl:w-1/5
-            xxl:w-1/6
-            xxxl:w-[12.5%]
-            p-2 flex
-            flex-col
-            p-0"
-        >
-          <div
-            class="
-              block
-              bg-black-alpha-50
-              w-full
-              relative
-              rounded-t-lg
-              overflow-hidden"
-            style="padding-bottom: calc(100% / 178 * 100);"
-          >
-            <div class="absolute inset-0 flex justify-center items-center w-full h-full">
-              <img
-                class="inline-block max-w-full max-h-full h-screen"
-                alt={`${mod.name} v${mod.version}`}
-                src={mod.cover != null ? mod.cover : `images/image-missing.svg`}
-              />
-            </div>
-          </div>
-          <div
-            class="
-              relative
-              flex-grow
-              bg-white-alpha-70
-              rounded-b-lg"
-          >
-            <div
-              class="
-                block
-                p-4"
-            >
-              <div
-                class="
-                  font-semibold"
-              >
-                {mod.name} <span class="text-[.6em]">v{mod.version}</span>
-              </div>
-              {mod.description ? (
-                <span
-                  class="
-                    text-sm"
-                >
-                  {mod.description}
-                </span>
-              ) : null}
-            </div>
-            {(() => {
-              const buttons = [];
-              if (mod.download) {
-                buttons.push(
-                  <div class={buttonStyles}>
-                    <a
-                      href={mod.download}
-                      class={`
-                        relative
-                        block
-                        p-2.5
-                        ${buttonHighlightStyles}
-                        ${
-                          mods.length > 1
-                            ? `
-                            mr-9`
-                            : ""
-                        }`}
-                    >
-                      Download
-                    </a>
-                    {mods.length > 1 ? (
-                      <div
-                        class={`
-                          absolute
-                          group
-                          absolute
-                          top-0
-                          right-0
-                          bottom-0
-                          w-9
-                          border-l
-                          border-white-alpha-30
-                          ${buttonHighlightStyles}`}
-                      >
-                        <a
-                          href="#"
-                          onclick="return false"
-                          class="
-                          flex
-                          absolute
-                          inset-0
-                          justify-center
-                          items-center
-                          z-10"
-                        >
-                          <i
-                            class="
-                              fa-solid
-                              fa-caret-down
-                              text-[0.7em]"
-                          />
-                        </a>
-                        <div
-                          class="
-                            absolute
-                            shadow-md
-                            z-10
-                            top-[100%]
-                            left-1/2
-                            transform
-                            -translate-x-1/2
-                            origin-top-left
-                            bg-white divide-y
-                            divide-gray-100
-                            rounded-md shadow-lg
-                            hidden
-                            opacity-0
-                            group-hover:opacity-100
-                            group-hover:block
-                            invisible
-                            group-hover:visible
-                            transition"
-                        >
-                          <div
-                            class="
-                              py-1"
-                          >
-                            {mods.map((mod) => (
-                              <a
-                                href={mod.download}
-                                class="
-                                  block
-                                  text-black
-                                  px-4
-                                  py-2
-                                  text-sm
-                                  text-gray-700
-                                  hover:bg-black-alpha-10"
-                              >
-                                {mod.version}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
-                );
-              }
-
-              if (mod.source) {
-                buttons.push(
-                  <a
-                    href={mod.source}
-                    class={`
-                      ${buttonStyles}
-                      p-2.5
-                      ${buttonHighlightStyles}`}
-                  >
-                    Source Code
-                  </a>
-                );
-              }
-
-              return (
-                <div
-                  class="
-                    mx-2 pb-4"
-                >
-                  <div
-                    class={`
-                      ${buttonStyles}
-                      p-2.5
-                      invisible`}
-                  >
-                    &nbsp;
-                  </div>
-                  <div
-                    class="
-                      absolute
-                      bottom-4
-                      pr-2"
-                  >
-                    {buttons}
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        </div>
-      );
+      return <ModCard mods={mods} />;
     })
   }
 </div>

@@ -1,0 +1,283 @@
+---
+import { Mod } from "../../../shared/types/Mod";
+import BottomAnchor from "./BottomAnchor.astro";
+
+export interface Props {
+  /**
+   * All the versions of the mod for this game version.
+   */
+  mods: Mod[];
+}
+
+const { mods } = Astro.props as Props;
+---
+
+{
+  (() => {
+    const mod = mods[0];
+    const buttonHighlightStyles = `
+      after:absolute
+      after:content-['']
+      after:hover:bg-white-alpha-10
+      after:inset-0
+    `;
+
+    const buttonStyles = `
+      bg-primary
+      font-semibold
+      inline-block
+      mx-2
+      relative
+      rounded
+      text-sm
+      text-white
+    `;
+
+    return (
+      <div
+        class={`
+          before:absolute
+          before:backdrop-blur
+          before:content['']
+          before:inset-0
+          before:overflow-hidden
+          before:rounded-lg
+          before:z-[-1]
+          flex
+          flex-col
+          m-2
+          p-0
+          relative
+          w-full
+          sm:w-1/2
+          md:w-1/3
+          lg:w-1/4
+          xl:w-1/5
+          xxl:w-1/6
+          xxxl:w-[12.5%]
+        `}
+      >
+        <div
+          class={`
+            bg-black-alpha-50
+            block
+            overflow-hidden
+            relative
+            rounded-t-lg
+            w-full
+          `}
+          style="padding-bottom: calc(100% / 178 * 100);"
+        >
+          <div
+            class={`
+              absolute
+              flex
+              h-full
+              inset-0
+              items-center
+              justify-center
+              w-full
+            `}
+          >
+            <img
+              class={`
+                h-screen
+                inline-block
+                max-h-full
+                max-w-full
+              `}
+              alt={`${mod.name} v${mod.version}`}
+              src={mod.cover != null ? mod.cover : `images/image-missing.svg`}
+            />
+          </div>
+        </div>
+        <div
+          class={`
+            bg-white-alpha-70
+            flex-grow
+            relative
+            rounded-b-lg
+          `}
+        >
+          <div
+            class={`
+              block
+              p-4
+            `}
+          >
+            <div
+              class={`
+                font-semibold
+              `}
+            >
+              {mod.name}
+              <span
+                class={`
+                  pl-1
+                  text-[.6em]
+                `}
+              >
+                v{mod.version}
+              </span>
+            </div>
+            <div
+              class={`
+                italic
+                text-[.7em]
+              `}
+            >
+              {mod.author}
+            </div>
+            {mod.description ? (
+              <span
+                class={`
+                  text-sm
+                `}
+              >
+                {mod.description}
+              </span>
+            ) : null}
+          </div>
+          {(() => {
+            const buttons = [];
+            if (mod.download) {
+              buttons.push(
+                <div class={buttonStyles}>
+                  <a
+                    href={mod.download}
+                    class={`
+                      ${buttonHighlightStyles}
+                      ${
+                        mods.length > 1
+                          ? `
+                          mr-9`
+                          : ""
+                      }
+                      block
+                      p-2.5
+                      relative
+                    `}
+                  >
+                    Download
+                  </a>
+                  {mods.length > 1 ? (
+                    <div
+                      class={`
+                        absolute
+                        border-l
+                        border-white-alpha-30
+                        bottom-0
+                        group
+                        right-0
+                        top-0
+                        w-9
+                      `}
+                    >
+                      <details class="absolute inset-0 dropdown">
+                        <summary
+                          class={`
+
+                            bg-transparent
+                            hover:bg-white-alpha-10
+                            border-none
+                            shadow-none
+                            absolute
+                            flex
+                            inset-0
+                            items-center
+                            justify-center
+                            z-10
+                            cursor-pointer
+                          `}
+                        >
+                          <i
+                            class={`
+                              fa-solid
+                              fa-caret-down
+                              text-[0.7em]
+                            `}
+                          />
+                        </summary>
+                        <ul
+                          class={`
+                            -translate-x-1/2
+                            backdrop-blur
+                            bg-white-alpha-70
+                            dropdown-content
+                            left-1/2
+                            mt-1
+                            p-2
+                            rounded-box
+                            shadow
+                            text-black
+                            top-[100%]
+                            w-52
+                            z-[1]
+                          `}
+                        >
+                          {mods.map((mod) => (
+                            <li
+                              class={`
+                                hover:bg-black-alpha-10
+                                rounded-sm
+                              `}
+                            >
+                              <a
+                                class={`
+                                  block
+                                  px-4
+                                  py-2
+                                `}
+                                href={mod.download}
+                              >
+                                {mod.version}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    </div>
+                  ) : null}
+                </div>,
+              );
+            }
+
+            if (mod.source) {
+              buttons.push(
+                <a
+                  href={mod.source}
+                  class={`
+                    p-2.5
+                    ${buttonStyles}
+                    ${buttonHighlightStyles}
+                  `}
+                >
+                  Source Code
+                </a>,
+              );
+            }
+
+            return (
+              <BottomAnchor>
+                <div
+                  class={`
+                    mx-2
+                    pb-4
+                  `}
+                >
+                  <div
+                    class={`
+                      pr-2
+                    `}
+                  >
+                    {buttons}
+                  </div>
+                </div>
+              </BottomAnchor>
+            );
+          })()}
+        </div>
+      </div>
+    );
+  })()
+}

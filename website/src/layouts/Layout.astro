@@ -1,12 +1,13 @@
 ---
 import "@fortawesome/fontawesome-free/css/all.css";
 
-interface Props {
+export interface Props {
   title: string;
   headerTitle?: string;
+  linkHome?: boolean;
 }
 
-const { title, headerTitle } = Astro.props;
+const { title, headerTitle, linkHome } = Astro.props;
 let baseUrl = (import.meta.env.BASE_URL as string) || "";
 
 if (!baseUrl.endsWith("/")) {
@@ -25,39 +26,109 @@ if (!baseUrl.endsWith("/")) {
     <meta name="generator" content={Astro.generator} />
     <title>{headerTitle}</title>
   </head>
-  <body>
-    <header class="relative
-        bg-black-alpha-60">
+  <body
+    class={`
+      relative
+    `}
+  >
+    <header
+      class={`
+        before:absolute
+        before:backdrop-blur
+        before:content['']
+        before:inset-0
+        before:z-[-1]
+        bg-black-alpha-60
+        relative
+      `}
+    >
       <slot name="header">
         <div
-          class="text-center
-            text-xl
-            p-4
+          class={`
             block
-            font-bold"
+            font-bold
+            p-4
+            text-[1.6rem]
+            text-center
+          `}
         >
-          {headerTitle || title}
+          {
+            linkHome ? (
+              <a href={baseUrl}>{headerTitle || title}</a>
+            ) : (
+              headerTitle || title
+            )
+          }
         </div>
         <slot name="header-post-title" />
       </slot>
     </header>
-    <div class="bg-black-alpha-20
-      content" f-client-nav="true">
+    <div
+      class={`
+        content
+        relative
+      `}
+      f-client-nav="true"
+    >
       <slot />
     </div>
-    <footer class="t-center
-      p-4
-      bg-black-alpha-60
-      text-center">
-      <p>Beat Saber render by Pixelguy</p>
-      <p><a href="generator/">Mod JSON Generator</a></p>
-    </footer>
+    {
+      (() => {
+        const content = (
+          <>
+            <p>Beat Saber render by Pixelguy</p>
+            <p>
+              <a href="generator/">Mod JSON Generator</a>
+            </p>
+          </>
+        );
+
+        return (
+          <>
+            <footer
+              class={`
+                invisible
+                p-4
+              `}
+            >
+              {content}
+            </footer>
+            <footer
+              class={`
+                absolute
+                before:absolute
+                before:backdrop-blur
+                before:content['']
+                before:inset-0
+                before:z-[-1]
+                bg-black-alpha-60
+                bottom-0
+                left-0
+                p-4
+                right-0
+                t-center
+                text-center
+              `}
+            >
+              {content}
+            </footer>
+          </>
+        );
+      })()
+    }
   </body>
 </html>
-<style>
+<style is:global>
+  html,
+  body {
+    display: block;
+    min-height: 100vh;
+  }
   body {
     position: relative;
-    &:before {
+
+    &:before,
+    &:after {
       content: "";
       display: block;
       position: fixed;
@@ -65,13 +136,19 @@ if (!baseUrl.endsWith("/")) {
       left: 0;
       height: 100vh;
       width: 100vw;
-      z-index: -1;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("/images/pixelguy.jpg");
+      z-index: -100;
+    }
+
+    &:before {
+      background-color: #000;
+    }
+
+    &:after {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      background-color: #111111dd;
+      background-image: url("/images/pixelguy.jpg");
+      opacity: 0.7;
     }
   }
 </style>

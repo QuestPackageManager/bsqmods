@@ -1,0 +1,21 @@
+---
+import mods from "../../public/mods.json";
+import { getCoreMods } from "../../CoreMods";
+
+export async function getVersions() {
+  const coreMods = await getCoreMods();
+
+  return Object.keys(mods)
+    .filter((version) => version != "undefined")
+    .filter((version) => Object.keys(coreMods).includes(version))
+    .reverse();
+}
+---
+
+{
+  (await getVersions()).map((version) => (
+    <a href={`${version}/`} class={Astro.props.class}>
+      {version}
+    </a>
+  ))
+}

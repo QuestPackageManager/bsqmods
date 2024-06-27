@@ -16,6 +16,7 @@ const config: Config = {
       'xxxl': '2320px',
     },
     colors: {
+      "transparent": "rgba(0,0,0,0)",
       "white-alpha-10": "rgba(255, 255, 255, 0.1)",
       "white-alpha-20": "rgba(255, 255, 255, 0.2)",
       "white-alpha-30": "rgba(255, 255, 255, 0.3)",

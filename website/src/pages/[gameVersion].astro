@@ -15,7 +15,7 @@ export const getStaticPaths = (() => {
   }));
 }) satisfies GetStaticPaths;
 
-interface Params {
+export interface Params {
   gameVersion: string;
 }
 
@@ -29,7 +29,7 @@ interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string
+  key: string,
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
@@ -70,12 +70,16 @@ for (const modList of Object.values(modGroups)) {
 const modList = Object.values(modGroups) as Mod[][];
 
 modList.sort((a, b) => {
-  if (a[0].name || "" > b[0].name || "") {
+  if (b == null || b[0] == null || b[0].name == null) {
+    return 1;
+  }
+
+  if (a[0].name || "" > (b && b[0].name) || "") {
     return 1;
   }
 
   if (a[0].name || "" < b[0].name || "") {
-    return 1;
+    return -1;
   }
 
   return 0;
@@ -87,17 +91,35 @@ const coreMods = (await getCoreMods())[gameVersion];
 <Layout
   title={`Quest Beat Saber Mods for ${gameVersion}`}
   headerTitle="Quest Beat Saber Mods"
+  linkHome={true}
 >
   <div slot="header-post-title" class="text-center block pb-4">
     <VersionSelector currentVersion={gameVersion} />
   </div>
-  <div class="text-center text-xl pt-2 block">Core Mods</div>
+  <div
+    class={`
+      pt-2 block
+      text-center
+      text-xl
+    `}
+  >
+    Core Mods
+  </div>
   <ModList
     mods={modList}
     core={true}
     coreMods={coreMods ? coreMods.mods : []}
   />
-  <div class="text-center text-xl pt-2 block">Other Mods</div>
+  <div
+    class={`
+      block
+      pt-2
+      text-center
+      text-xl
+    `}
+  >
+    Other Mods
+  </div>
   <ModList
     mods={modList}
     core={false}
