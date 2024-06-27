@@ -1,0 +1,13 @@
+{
+  "name": "QuestUI",
+  "description": null,
+  "id": "questui",
+  "version": "0.11.1",
+  "author": "darknight1050, RedBrumbler",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/questui/releases/download/v0.11.1/questui.qmod",
+  "source": "https://github.com/darknight1050/questui/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

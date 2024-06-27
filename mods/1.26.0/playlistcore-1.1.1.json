@@ -1,0 +1,13 @@
+{
+  "name": "PlaylistCore",
+  "description": "Loads playlists and provides lots of functionality to other mods.",
+  "id": "playlistcore",
+  "version": "1.1.1",
+  "author": "Metalit, darknight1050",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/PlaylistCore/releases/download/v1.1.1/PlaylistCore.qmod",
+  "source": "https://github.com/Metalit/PlaylistCore/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

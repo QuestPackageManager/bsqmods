@@ -1,0 +1,13 @@
+{
+  "name": "Codegen",
+  "description": null,
+  "id": "codegen",
+  "version": "0.14.0",
+  "author": "Sc2ad",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.14.0/codegen_0_14_0.qmod",
+  "source": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

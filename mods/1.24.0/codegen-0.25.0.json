@@ -1,0 +1,13 @@
+{
+  "name": "codegen",
+  "description": "A core library used by almost every mod. DO NOT ATTEMPT TO UNINSTALL IT!",
+  "id": "codegen",
+  "version": "0.25.0",
+  "author": "Sc2ad",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.25.0/Codegen.qmod",
+  "source": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

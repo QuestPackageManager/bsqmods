@@ -1,0 +1,13 @@
+{
+  "name": "PlaylistManager",
+  "description": "Create and manage playlists ingame!",
+  "id": "playlistmanager",
+  "version": "1.2.0",
+  "author": "Metalit",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/PlaylistManager/releases/download/v1.2.0/PlaylistManager.qmod",
+  "source": "https://github.com/Metalit/PlaylistManager/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

@@ -1,0 +1,13 @@
+{
+  "name": "SongDownloader",
+  "description": null,
+  "id": "songdownloader",
+  "version": "0.2.0",
+  "author": "darknight1050, EnderdracheLP",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.2.0/songdownloader.qmod",
+  "source": "https://github.com/darknight1050/SongDownloader/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

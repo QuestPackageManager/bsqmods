@@ -1,0 +1,13 @@
+{
+  "name": "Lapiz",
+  "description": "Lapiz makes modders' lives easier by exposing utilities to them cleanly. This mod does nothing on its own.",
+  "id": "lapiz",
+  "version": "0.2.6",
+  "author": "Raine",
+  "modloader": "Scotland2",
+  "download": "https://github.com/raineio/Lapiz/releases/download/v0.2.6/Lapiz.qmod",
+  "source": "https://github.com/raineio/Lapiz/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}
