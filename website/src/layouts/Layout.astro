@@ -37,9 +37,11 @@ if (!baseUrl.endsWith("/")) {
         before:content['']
         before:inset-0
         before:z-[-1]
-        bg-black-alpha-60
+        bg-white-alpha-70
         dark:bg-dark-header-footer
+        dark:text-white
         relative
+        text-black
       `}
     >
       <slot name="header">
@@ -50,7 +52,6 @@ if (!baseUrl.endsWith("/")) {
             p-4
             text-[1.6rem]
             text-center
-            text-white
           `}
         >
           {
@@ -76,21 +77,22 @@ if (!baseUrl.endsWith("/")) {
     <BottomAnchor>
       <footer
         class={`
-          relative
           before:absolute
           before:backdrop-blur
           before:content['']
           before:inset-0
           before:z-[-1]
-          bg-black-alpha-60
+          bg-white-alpha-70
           bottom-0
           dark:bg-dark-header-footer
+          dark:text-white
           left-0
           p-4
+          relative
           right-0
           t-center
+          text-black
           text-center
-          text-white
           w-[100vw]
         `}
       >
