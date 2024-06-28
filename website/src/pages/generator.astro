@@ -267,6 +267,8 @@
   import type { Mod } from "../../../shared/types/Mod";
   import type { ModsCollection } from "../../../shared/types/ModsCollection";
   import type { QmodInfo } from "../../../shared/types/QmodInfo";
+  import { ghRegex } from "../../../shared/ghRegex";
+
   ("use strict");
   (async () => {
     function getElementById(id) {
@@ -275,8 +277,7 @@
     /**
      * Regular expression for matching GitHub repository URLs.
      */
-    const ghRegex = /^https:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)/,
-      modNameElement = getElementById("modName") as HTMLInputElement,
+    const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
         "modDescription",
       ) as HTMLTextAreaElement,
@@ -561,11 +562,11 @@
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
       if (match && modSourceLinkElement.value.trim().length == 0) {
-        modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+        modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
       }
 
       if (match && modWebsiteLinkElement.value.trim().length == 0) {
-        modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}`;
+        modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
       }
     }
 

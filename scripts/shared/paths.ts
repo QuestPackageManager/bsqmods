@@ -7,3 +7,4 @@ export const hashesPath = path.join(__dirname, "..", "..", "website", "public", 
 export const combinedJsonPath = path.join(__dirname, "..", "..", "website", "public", "mods.json");
 export const qmodsPath = path.join(__dirname, "..", "qmods");
 export const allModsPath = path.join(__dirname, "..", "..", "website", "public", "mods.json");
+export const importedCoreModsInfo = path.join(modsPath, "imported.json")
