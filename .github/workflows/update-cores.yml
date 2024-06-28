@@ -17,18 +17,22 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  deploy:
+  update-core-mods:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Update the core mods
-        if: ${{ github.event_name == 'schedule' }}
-        run: "cd scripts && npm install && npx tsx ./import.ts 2>&1"
+        run: |
+          cd scripts
+          npm install
+          npx tsx ./import.ts 2>&1
 
       - name: Commit the updated files
         run: |
+          git config --global user.email "790119+DanTheMan827@users.noreply.github.com"
+          git config --global user.name "DanTheMan827 (Automated)"
           git add -A mods
-          git commit -m "Update core mods"
+          git commit -m "Update core mods (Automated)"
           git push
