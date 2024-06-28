@@ -29,10 +29,31 @@ jobs:
           npm install
           npx tsx ./import.ts 2>&1
 
-      - name: Commit the updated files
+      - name: Configure git user
         run: |
           git config --global user.email "790119+DanTheMan827@users.noreply.github.com"
           git config --global user.name "DanTheMan827 (Automated)"
+
+      - name: Commit the updated files
+        run: |
           git add -A mods
-          git commit -m "Update core mods (Automated)" || true
+          (
+            git commit -m "Update core mods (Automated)" && 
+            (
+              echo "MODS_UPDATED=yes" >> $GITHUB_ENV
+            )
+          ) || true
+
+      - name: Push the updated files
+        if: env.MODS_UPDATED == 'yes'
+        run: |
           git push
+
+      - name: Trigger deploy
+        if: env.MODS_UPDATED == 'yes'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"trigger_deploy"}'
