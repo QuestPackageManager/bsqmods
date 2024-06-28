@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import ModList from "../components/ModList.astro";
 import modJson from "../../public/mods.json";
 import { Mod } from "../../../shared/types/Mod";
-import { getCoreMods } from "../../CoreMods";
+import { getCoreMods } from "../../../shared/CoreMods";
 import VersionSelector from "../components/VersionSelector.astro";
 
 export const getStaticPaths = (() => {
@@ -29,7 +29,7 @@ export interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string,
+  key: string
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];

@@ -14,7 +14,7 @@ on:
         default: "no"
 
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -66,11 +66,11 @@ jobs:
 
       - name: Process the json (schedule)
         if: ${{ github.event_name == 'schedule' }}
-        run: 'cd scripts && npm install && npx tsx ./combine.js "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt'
+        run: 'cd scripts && npm install && npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt'
 
       - name: Process the json (normal)
         if: ${{ github.event_name != 'schedule' }}
-        run: 'cd scripts && npm install && npx tsx ./combine.js "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt'
+        run: 'cd scripts && npm install && npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt'
 
       - name: "Archive cache"
         run: "tar -czvf website/public/cache.tgz .cache-restored website/public/covers website/public/sha1sums.json"
