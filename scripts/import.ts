@@ -96,9 +96,9 @@ import { dirname } from "path";
           console.error("  Invalid archive");
           continue;
         }
-      }
 
-      importCache.push(cacheString)
+        importCache.push(cacheString)
+      }
     }
   }
 
