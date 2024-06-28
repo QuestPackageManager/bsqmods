@@ -7,7 +7,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.8.0/SongDownloader.qmod",
   "source": "https://github.com/darknight1050/SongDownloader/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/darknight1050/SongDownloader/master/cover.png",
   "funding": null,
   "website": null
 }
