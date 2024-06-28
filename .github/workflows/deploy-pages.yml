@@ -9,9 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      skipCache:
-        description: "Type yes to clear cache"
-        default: "no"
+      purgeCache:
+        description: "A list of URLs to purge from the cache, separated by \"|\".\n\nTo clear the entire cache, use \"--all\"."
+        default: ""
 
   schedule:
     - cron: "0 0 * * *"
@@ -55,31 +55,48 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Download cache
-        if: ${{ github.event.inputs.skipCache != 'yes' }}
         continue-on-error: true
-        run: 'wget "$PAGES_URL/cache.tgz?`date +%s`" -O website/public/cache.tgz'
+        run: |
+          wget "$PAGES_URL/cache.tgz?`date +%s`" -O website/public/cache.tgz
 
       - name: Extract cache
-        if: ${{ github.event.inputs.skipCache != 'yes' }}
         continue-on-error: true
-        run: "tar -xzvf website/public/cache.tgz"
+        run: |
+          tar -xzvf website/public/cache.tgz
 
-      - name: Touch .cache-restored
-        run: "touch .cache-restored"
+      - name: Install npm modules
+        run: |
+          cd scripts
+          npm install
+          cd ../website
+          npm install
+
+      - name: Purge specified items from cache
+        if: ${{ github.event.inputs.purgeCache != '' }}
+        run: |
+          cd scripts
+          npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
 
       - name: Process the json (schedule)
         if: ${{ github.event_name == 'schedule' }}
-        run: 'cd scripts && npm install && npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt'
+        run: |
+          cd scripts
+          npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: Process the json (normal)
         if: ${{ github.event_name != 'schedule' }}
-        run: 'cd scripts && npm install && npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt'
+        run: |
+          cd scripts
+          npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: "Archive cache"
-        run: "tar -czvf website/public/cache.tgz .cache-restored website/public/covers website/public/sha1sums.json"
+        run: |
+          tar -czvf website/public/cache.tgz website/public/covers website/public/sha1sums.json website/public/mods.json
 
       - name: Build website
-        run: 'cd website && npm i && npx astro build --base "/$REPO_NAME"'
+        run: |
+          cd website
+          npx astro build --base "/$REPO_NAME"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
