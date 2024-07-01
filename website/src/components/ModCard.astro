@@ -199,8 +199,10 @@ const { mods } = Astro.props as Props;
                             <a
                               class={`
                                   block
+                                  font-semibold
                                   px-4
                                   py-2
+                                  text-sm
                                 `}
                               href={mod.download}
                             >
@@ -211,7 +213,7 @@ const { mods } = Astro.props as Props;
                       </ul>
                     </details>
                   ) : null}
-                </div>,
+                </div>
               );
             }
 
@@ -228,7 +230,7 @@ const { mods } = Astro.props as Props;
                   `}
                 >
                   Source Code
-                </a>,
+                </a>
               );
             }
 
