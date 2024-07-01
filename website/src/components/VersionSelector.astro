@@ -11,12 +11,13 @@ const { currentVersion } = Astro.props as Props;
 <details class="dropdown">
   <summary
     class={`
-      bg-primary
-      border-none
+      border
+      border-transparent
       btn
-      hover:bg-[#33608D]
+      btn-primary
+      btn-sm
       m-1
-      rounded-md
+      rounded-lg
       text-white
     `}
   >
@@ -38,7 +39,7 @@ const { currentVersion } = Astro.props as Props;
       font-semibold
       left-1/2
       p-2
-      rounded-box
+      rounded-lg
       shadow
       text-black
       text-sm
@@ -54,7 +55,7 @@ const { currentVersion } = Astro.props as Props;
             class={`
               dark:hover:bg-white-alpha-10
               hover:bg-black-alpha-10
-              rounded-sm
+              rounded-md
             `}
           >
             <a

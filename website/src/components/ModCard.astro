@@ -16,23 +16,6 @@ const { mods } = Astro.props as Props;
 {
   (() => {
     const mod = mods[0];
-    const buttonHighlightStyles = `
-      after:absolute
-      after:content-['']
-      after:hover:bg-white-alpha-10
-      after:inset-0
-    `;
-
-    const buttonStyles = `
-      bg-primary
-      font-semibold
-      inline-block
-      mx-2
-      relative
-      rounded
-      text-sm
-      text-white
-    `;
 
     return (
       <div
@@ -148,63 +131,46 @@ const { mods } = Astro.props as Props;
             const buttons = [];
             if (mod.download) {
               buttons.push(
-                <div class={buttonStyles}>
+                <div class="join mx-2">
                   <a
                     href={mod.download}
                     class={`
-                      ${buttonHighlightStyles}
-                      ${
-                        mods.length > 1
-                          ? `
-                          mr-9`
-                          : ""
-                      }
-                      block
-                      p-2.5
-                      relative
+                      btn
+                      btn-primary
+                      btn-sm
+                      join-item
+                      rounded-lg
+                      text-white
                     `}
                   >
                     Download
                   </a>
                   {mods.length > 1 ? (
-                    <div
-                      class={`
-                        absolute
-                        border-l
-                        border-white-alpha-30
-                        bottom-0
-                        group
-                        right-0
-                        top-0
-                        w-9
-                      `}
-                    >
-                      <details class="absolute inset-0 dropdown">
-                        <summary
-                          class={`
-                            absolute
-                            bg-transparent
-                            border-none
+                    <details class="join-item dropdown">
+                      <summary
+                        class={`
+                            border-l
+                            border-l-white-alpha-20
+                            btn
+                            btn-primary
+                            btn-sm
                             cursor-pointer
-                            flex
-                            hover:bg-white-alpha-10
-                            inset-0
-                            items-center
-                            justify-center
-                            shadow-none
-                            z-10
+                            h-[100%]
+                            hover:border-l-white-alpha-20
+                            px-2.5
+                            rounded-r-lg
                           `}
-                        >
-                          <i
-                            class={`
-                              fa-solid
+                      >
+                        <i
+                          class={`
                               fa-caret-down
+                              fa-solid
                               text-[0.7em]
                             `}
-                          />
-                        </summary>
-                        <ul
-                          class={`
+                        />
+                      </summary>
+                      <ul
+                        class={`
                             -translate-x-1/2
                             backdrop-blur
                             bg-white-alpha-70
@@ -214,37 +180,36 @@ const { mods } = Astro.props as Props;
                             left-1/2
                             mt-1
                             p-2
-                            rounded-box
+                            rounded-lg
                             shadow
                             text-black
                             top-[100%]
                             w-52
                             z-[1]
                           `}
-                        >
-                          {mods.map((mod) => (
-                            <li
-                              class={`
+                      >
+                        {mods.map((mod) => (
+                          <li
+                            class={`
                                 dark:hover:bg-white-alpha-10
                                 hover:bg-black-alpha-10
-                                rounded-sm
+                                rounded-md
                               `}
-                            >
-                              <a
-                                class={`
+                          >
+                            <a
+                              class={`
                                   block
                                   px-4
                                   py-2
                                 `}
-                                href={mod.download}
-                              >
-                                {mod.version}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </details>
-                    </div>
+                              href={mod.download}
+                            >
+                              {mod.version}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
                   ) : null}
                 </div>,
               );
@@ -255,9 +220,11 @@ const { mods } = Astro.props as Props;
                 <a
                   href={mod.source}
                   class={`
-                    p-2.5
-                    ${buttonStyles}
-                    ${buttonHighlightStyles}
+                    btn
+                    btn-primary
+                    btn-sm
+                    rounded-lg
+                    text-white
                   `}
                 >
                   Source Code
