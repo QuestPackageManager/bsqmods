@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getVersions } from "../components/VersionLinks.astro";
+import VersionSelector from "../components/VersionSelector.astro";
 ---
 
 <Layout linkHome={false} title="Quest Beat Saber Mods">
+  <div slot="header-post-title" class="text-center block pb-4">
+    <VersionSelector currentVersion="Select a version" />
+  </div>
   <div
     class={`
       block
@@ -13,40 +16,6 @@ import { getVersions } from "../components/VersionLinks.astro";
       text-xl
     `}
   >
-    <p
-      class={`
-        font-semibold
-      `}
-    >
-      To continue, please select a game version from the list.
-    </p>
-    <ul
-      class={`
-        font-semibold
-      `}
-    >
-      {
-        getVersions().then((versions) =>
-          versions.map((version) => (
-            <li>
-              <a
-                class={`
-                  text-base
-                  text-white
-                `}
-                href={version}
-              >
-                {version}
-              </a>
-            </li>
-          )),
-        )
-      }
-    </ul>
+    <p>To continue, please select a game version from the list above.</p>
   </div>
 </Layout>
-<style is:global>
-  body:after {
-    opacity: 0.6;
-  }
-</style>
