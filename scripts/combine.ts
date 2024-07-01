@@ -1,4 +1,3 @@
-import { HashCollection } from "../shared/types/HashCollection";
 import { ModsCollection } from "../shared/types/ModsCollection";
 import { Mod, modKeys } from "../shared/types/Mod";
 import JSZip from "jszip";
@@ -8,7 +7,6 @@ import sharp from "sharp";
 import { validModLoaders } from "../shared/validModLoaders";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { exitWithError } from "./shared/exitWithError";
-import { readTextFile } from "./shared/readTextFile";
 import { checkUrl } from "./shared/checkUrl";
 import { fetchAsBuffer } from "./shared/fetchAsBuffer";
 import { downloadFile } from "./shared/downloadFile";
@@ -16,34 +14,26 @@ import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
 import { hashesPath, coversPath, qmodsPath, repoDir, combinedJsonPath, modsPath } from "./shared/paths";
+import { getQmodHashes } from "./shared/getQmodHashes";
 
-
+/** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
 
-/**
- * A dictionary of all hashes for given urls.
- */
-const hashes: HashCollection = JSON.parse(readTextFile(hashesPath, "{}"));
+/** A dictionary of all hashes for given urls. */
+const hashes = getQmodHashes();
 
-/**
- * Allowed mod loaders
- */
-export const modLoaders = validModLoaders
-
-/**
- * Public url base
- */
-let urlBase = ".";
-
-{
+/** Public url base */
+let urlBase = (() => {
   const baseHrefArg = "--baseHref=";
 
   for (const arg of process.argv) {
     if (arg.startsWith(baseHrefArg)) {
-      urlBase = arg.substring(baseHrefArg.length);
+      return arg.substring(baseHrefArg.length);
     }
   }
-}
+
+  return ".";
+})();
 
 /**
  * Processes a mod by downloading the file, hashing it, creating a resized cover image, and updating the cover image link.
@@ -164,7 +154,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
   try {
     if (coverFile) {
-      
+
       coverBuffer = await coverFile.async("nodebuffer");
     } else if (mod.cover) {
       coverBuffer = await fetchAsBuffer(mod.cover);
