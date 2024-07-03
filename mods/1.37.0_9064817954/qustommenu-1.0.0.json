@@ -1,0 +1,13 @@
+{
+  "name": "Qustom Menu",
+  "description": "Customise the Beat Saber menu",
+  "id": "qustommenu",
+  "version": "1.0.0",
+  "author": "jxnxsdev",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/QustomMenu/releases/download/1.0.0/Qustom.Menu.qmod",
+  "source": "https://github.com/jxnxsdev/QustomMenu/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/QustomMenu/master/cover.png",
+  "funding": null,
+  "website": null
+}
