@@ -13,7 +13,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, combinedJsonPath, modsPath } from "./shared/paths";
+import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 
 /** All of the mods after combine the individual files */
@@ -269,6 +269,6 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   }
 
   // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
-  fs.mkdirSync(path.dirname(combinedJsonPath), { recursive: true });
-  fs.writeFileSync(combinedJsonPath, JSON.stringify(allMods, null, "  "));
+  fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
+  fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));
 })();
