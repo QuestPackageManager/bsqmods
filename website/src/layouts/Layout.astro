@@ -1,5 +1,4 @@
 ---
-import "@fortawesome/fontawesome-free/css/all.css";
 import BottomAnchor from "../components/BottomAnchor.astro";
 
 export interface Props {
@@ -93,7 +92,6 @@ if (!baseUrl.endsWith("/")) {
           t-center
           text-black
           text-center
-          w-[100vw]
         `}
       >
         <p>Beat Saber render by Pixelguy</p>
@@ -104,7 +102,7 @@ if (!baseUrl.endsWith("/")) {
     </BottomAnchor>
   </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
   html,
   body {
     display: block;

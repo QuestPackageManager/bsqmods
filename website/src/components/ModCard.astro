@@ -2,6 +2,7 @@
 import { Mod } from "../../../shared/types/Mod";
 import BottomAnchor from "./BottomAnchor.astro";
 import { encode } from "html-entities";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export interface Props {
   /**
@@ -157,17 +158,11 @@ const { mods } = Astro.props as Props;
                             cursor-pointer
                             h-[100%]
                             hover:border-l-white-alpha-20
-                            px-2.5
+                            px-1.5
                             rounded-r-lg
                           `}
                       >
-                        <i
-                          class={`
-                              fa-caret-down
-                              fa-solid
-                              text-[0.7em]
-                            `}
-                        />
+                        <ChevronDownIcon className="size-4 text-white" />
                       </summary>
                       <ul
                         class={`
@@ -213,7 +208,7 @@ const { mods } = Astro.props as Props;
                       </ul>
                     </details>
                   ) : null}
-                </div>
+                </div>,
               );
             }
 
@@ -230,7 +225,7 @@ const { mods } = Astro.props as Props;
                   `}
                 >
                   Source Code
-                </a>
+                </a>,
               );
             }
 

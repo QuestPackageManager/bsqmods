@@ -1,6 +1,6 @@
 ---
 import VersionLinks, { getVersions } from "./VersionLinks.astro";
-
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
 export interface Props {
   currentVersion?: string;
 }
@@ -22,11 +22,7 @@ const { currentVersion } = Astro.props as Props;
     `}
   >
     {currentVersion ? `${currentVersion}` : "Select A Version"}
-    <i
-      class={`
-        fa-caret-down
-        fa-solid
-    `}></i>
+    <ChevronDownIcon className="size-4 text-white" />
   </summary>
   <ul
     class={`

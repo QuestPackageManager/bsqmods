@@ -5,4 +5,8 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
