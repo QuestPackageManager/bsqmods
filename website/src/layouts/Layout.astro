@@ -26,6 +26,28 @@ if (!baseUrl.endsWith("/")) {
   </head>
   <body
     class={`
+      after:bg-center
+      after:bg-cover
+      after:bg-no-repeat
+      after:bg-pixelguy
+      after:block
+      after:fixed
+      after:left-0
+      after:min-h-[100dvh]
+      after:min-w-[100dvw]
+      after:opacity-70
+      after:top-0
+      after:z-[-100]
+      before:bg-black
+      before:block
+      before:fixed
+      before:left-0
+      before:min-h-[100dvh]
+      before:min-w-[100dvw]
+      before:top-0
+      before:z-[-100]
+      block
+      min-h-[100dvh]
       relative
     `}
   >
@@ -102,37 +124,3 @@ if (!baseUrl.endsWith("/")) {
     </BottomAnchor>
   </body>
 </html>
-<style is:global lang="scss">
-  html,
-  body {
-    display: block;
-    min-height: 100vh;
-  }
-  body {
-    position: relative;
-
-    &:before,
-    &:after {
-      content: "";
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      z-index: -100;
-    }
-
-    &:before {
-      background-color: #000;
-    }
-
-    &:after {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-image: url("/images/pixelguy.jpg");
-      opacity: 0.7;
-    }
-  }
-</style>

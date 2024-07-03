@@ -28,7 +28,6 @@ const config: Config = {
       "white-alpha-70": "rgba(255, 255, 255, 0.7)",
       "white-alpha-80": "rgba(255, 255, 255, 0.8)",
       "white-alpha-90": "rgba(255, 255, 255, 0.9)",
-      "white-alpha-100": "#fff",
       "black-alpha-10": "rgba(0, 0, 0, 0.1)",
       "black-alpha-20": "rgba(0, 0, 0, 0.2)",
       "black-alpha-30": "rgba(0, 0, 0, 0.3)",
@@ -38,15 +37,14 @@ const config: Config = {
       "black-alpha-70": "rgba(0, 0, 0, 0.7)",
       "black-alpha-80": "rgba(0, 0, 0, 0.8)",
       "black-alpha-90": "rgba(0, 0, 0, 0.9)",
-      "black-alpha-100": "#000",
       "black": "#000",
       "white": "#fff"
     },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "pixelguy": "url('/images/pixelguy.jpg')"
       },
     },
   },
