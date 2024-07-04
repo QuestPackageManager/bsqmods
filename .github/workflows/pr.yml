@@ -21,9 +21,9 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-          
+
       - name: Combine json
-        run: "cd scripts && deno run ./combine.ts --skipHashes"
+        run: "cd scripts && deno run -A ./combine.ts --skipHashes"
 
       - uses: actions/upload-artifact@v4.3.3
         with:

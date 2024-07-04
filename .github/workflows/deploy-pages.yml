@@ -78,19 +78,19 @@ jobs:
         if: ${{ github.event.inputs.purgeCache != '' }}
         run: |
           cd scripts
-          deno run ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
+          deno run -A ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
 
       - name: Process the json (schedule)
         if: ${{ github.event_name == 'schedule' }}
         run: |
           cd scripts
-          deno run ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
+          deno run -A ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: Process the json (normal)
         if: ${{ github.event_name != 'schedule' }}
         run: |
           cd scripts
-          deno run ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
+          deno run -A ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: "Archive cache"
         run: |
