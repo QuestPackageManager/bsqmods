@@ -1,6 +1,6 @@
 {
   "extends": ["../tsconfig.json"],
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+    "lib": ["dom", "dom.iterable", "DOM.AsyncIterable", "deno.ns", "ES2023"]
   }
 }
