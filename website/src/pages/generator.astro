@@ -504,7 +504,7 @@
       const reader = this;
 
       try {
-        const zip = await JSZip.loadAsync(reader.result);
+        const zip = await JSZip.loadAsync(reader.result!);
         const modFile = zip.file("mod.json");
 
         if (!modFile) {

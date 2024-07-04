@@ -1,4 +1,4 @@
-import { Mod } from "./Mod";
+import { Mod } from "./Mod.ts";
 
 
 export interface QmodInfo extends Mod {

@@ -26,8 +26,7 @@ jobs:
       - name: Update the core mods
         run: |
           cd scripts
-          npm install
-          npx tsx ./import.ts 2>&1
+          deno run ./import.ts 2>&1
 
       - name: Configure git user
         run: |
@@ -38,7 +37,7 @@ jobs:
         run: |
           git add -A mods
           (
-            git commit -m "Update core mods (Automated)" && 
+            git commit -m "Update core mods (Automated)" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )

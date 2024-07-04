@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from "npm:node-fetch";
 
 /**
  * Fetches a resource from the given URL and returns it as a buffer.
@@ -7,7 +7,7 @@ import fetch from "node-fetch";
  * @returns A promise that resolves to a buffer containing the fetched resource.
  * @throws - Throws an error if the HTTP response status is not ok.
  */
-export async function fetchAsBuffer(url: string): Promise<Buffer> {
+export async function fetchAsBuffer(url: string): Promise<ArrayBuffer | null> {
   try {
     const res = await fetch(url);
 
@@ -16,7 +16,7 @@ export async function fetchAsBuffer(url: string): Promise<Buffer> {
       return null;
     }
 
-    return Buffer.from(await res.arrayBuffer());
+    return await res.arrayBuffer();
   } catch (error) {
     return null;
   }

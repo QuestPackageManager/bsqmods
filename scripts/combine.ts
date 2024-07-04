@@ -1,20 +1,27 @@
-import { ModsCollection } from "../shared/types/ModsCollection";
-import { Mod, modKeys } from "../shared/types/Mod";
-import JSZip from "jszip";
-import fs from "fs"
-import path from "path"
-import sharp from "sharp";
-import { validModLoaders } from "../shared/validModLoaders";
-import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { exitWithError } from "./shared/exitWithError";
-import { checkUrl } from "./shared/checkUrl";
-import { fetchAsBuffer } from "./shared/fetchAsBuffer";
-import { downloadFile } from "./shared/downloadFile";
-import { getFilename } from "./shared/getFilename";
-import { computeBufferSha1 } from "./shared/computeBufferSha1";
-import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath } from "./shared/paths";
-import { getQmodHashes } from "./shared/getQmodHashes";
+import { ModsCollection } from "../shared/types/ModsCollection.ts";
+import { Mod, modKeys } from "../shared/types/Mod.ts";
+import JSZip from "npm:jszip";
+import fs from "node:fs";
+import path from "node:path";
+import sharp from "npm:sharp";
+import { validModLoaders } from "../shared/validModLoaders.ts";
+import { isNullOrWhitespace } from "../shared/isNullOrWhitespace.ts";
+import { exitWithError } from "./shared/exitWithError.ts";
+import { checkUrl } from "./shared/checkUrl.ts";
+import { fetchAsBuffer } from "./shared/fetchAsBuffer.ts";
+import { downloadFile } from "./shared/downloadFile.ts";
+import { getFilename } from "./shared/getFilename.ts";
+import { computeBufferSha1 } from "./shared/computeBufferSha1.ts";
+import { QmodResult } from "./shared/QmodResult.ts";
+import {
+  hashesPath,
+  coversPath,
+  qmodsPath,
+  repoDir,
+  allModsPath,
+  modsPath,
+} from "./shared/paths.ts";
+import { getQmodHashes } from "./shared/getQmodHashes.ts";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -26,7 +33,7 @@ const hashes = getQmodHashes();
 let urlBase = (() => {
   const baseHrefArg = "--baseHref=";
 
-  for (const arg of process.argv) {
+  for (const arg of Deno.args) {
     if (arg.startsWith(baseHrefArg)) {
       return arg.substring(baseHrefArg.length);
     }
@@ -46,10 +53,10 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     messages: [],
     errors: [],
     warnings: [],
-    hash: null
+    hash: null,
   };
 
-  if (process.argv.indexOf("--skipHashes") !== -1) {
+  if (Deno.args.indexOf("--skipHashes") !== -1) {
     return output;
   }
 
@@ -57,10 +64,14 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   let coverFilename = path.join(coversPath, `${qmodHash}.png`);
 
   if (!mod.download) {
-    throw new Error("Mod download not set.")
+    throw new Error("Mod download not set.");
   }
 
-  if (process.argv.indexOf("--recheckUrls") !== -1 && qmodHash != null && !(await checkUrl(mod.download))) {
+  if (
+    Deno.args.indexOf("--recheckUrls") !== -1 &&
+    qmodHash != null &&
+    !(await checkUrl(mod.download))
+  ) {
     qmodHash = null;
     if (mod.download) {
       delete hashes[mod.download];
@@ -78,18 +89,24 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   }
 
   if (!mod.id) {
-    throw new Error("Mod ID not set")
+    throw new Error("Mod ID not set");
   }
 
   if (!mod.version) {
-    throw new Error("Mod version not set")
+    throw new Error("Mod version not set");
   }
 
   if (!mod.download) {
-    throw new Error("Mod download not set")
+    throw new Error("Mod download not set");
   }
 
-  const qmodPath = getFilename(mod.id, mod.version, gameVersion, qmodsPath, "qmod");
+  const qmodPath = getFilename(
+    mod.id,
+    mod.version,
+    gameVersion,
+    qmodsPath,
+    "qmod"
+  );
   fs.mkdirSync(path.dirname(qmodPath), { recursive: true });
 
   output.messages.push(mod.download);
@@ -129,11 +146,19 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
         const json = JSON.parse(await infoFile.async("text"));
         const coverImageFilename = json.coverImageFilename || json.coverImage;
 
-        if (!isNullOrWhitespace(coverImageFilename) && coverImageFilename !== "undefined") {
+        if (
+          !isNullOrWhitespace(coverImageFilename) &&
+          coverImageFilename !== "undefined"
+        ) {
           coverFile = zip.file(coverImageFilename);
 
           if (coverFile == null) {
-            output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(qmodsPath.length + 1), coverImageFilename)}`);
+            output.warnings.push(
+              `Cover file not found: ${path.join(
+                qmodPath.substring(qmodsPath.length + 1),
+                coverImageFilename
+              )}`
+            );
           }
         }
       } catch (error) {
@@ -150,12 +175,11 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     return output;
   }
 
-  let coverBuffer: Buffer | undefined;
+  let coverBuffer: ArrayBuffer | undefined | null;
 
   try {
     if (coverFile) {
-
-      coverBuffer = await coverFile.async("nodebuffer");
+      coverBuffer = await coverFile.async("arraybuffer");
     } else if (mod.cover) {
       coverBuffer = await fetchAsBuffer(mod.cover);
     }
@@ -172,11 +196,11 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
           .rotate()
           .resize(512, 512, {
             fit: "inside",
-            withoutEnlargement: true
+            withoutEnlargement: true,
           })
           .png({
             compressionLevel: 9.0,
-            palette: true
+            palette: true,
           })
           .toFile(coverFilename);
       }
@@ -191,84 +215,113 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   return output;
 }
 
-// Async anonymous function to be able to `await`
-(async () => {
-  // Read all game versions from the mods directory
-  const gameVersions = fs.readdirSync(modsPath)
-    .filter(versionPath => fs.statSync(path.join(modsPath, versionPath)).isDirectory());
 
-  for (const version of gameVersions) {
-    const versionPath = path.join(modsPath, version);
-    const mods = allMods[version] || (allMods[version] = []);
-    const modFilenames = fs.readdirSync(versionPath)
-      .filter(modPath => modPath.toLowerCase().endsWith(".json") && fs.statSync(path.join(versionPath, modPath)).isFile());
+// Read all game versions from the mods directory
+const gameVersions = fs
+  .readdirSync(modsPath)
+  .filter((versionPath) =>
+    fs.statSync(path.join(modsPath, versionPath)).isDirectory()
+  );
 
-    for (const modFilename of modFilenames) {
-      const modPath = path.join(versionPath, modFilename);
-      const shortModPath = modPath.substring(repoDir.length + 1);
-      const mod: Mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
-      const requiredFilename = getFilename(mod.id || "", mod.version || "", version, modsPath, "json");
+for (const version of gameVersions) {
+  const versionPath = path.join(modsPath, version);
+  const mods = allMods[version] || (allMods[version] = []);
+  const modFilenames = fs
+    .readdirSync(versionPath)
+    .filter(
+      (modPath) =>
+        modPath.toLowerCase().endsWith(".json") &&
+        fs.statSync(path.join(versionPath, modPath)).isFile()
+    );
 
-      // Verify if the mod file is named correctly
-      if (shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
-        exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
-      }
+  for (const modFilename of modFilenames) {
+    const modPath = path.join(versionPath, modFilename);
+    const shortModPath = modPath.substring(repoDir.length + 1);
+    const mod: Mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
+    const requiredFilename = getFilename(
+      mod.id || "",
+      mod.version || "",
+      version,
+      modsPath,
+      "json"
+    );
 
-      // Check for required fields in the mod object
-      for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-        if (isNullOrWhitespace(mod[field])) {
-          exitWithError(`Mod ${field} not set`);
-        }
-      }
-
-      // Validate the mod loader
-      if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
-        exitWithError("Mod loader is invalid");
-      }
-
-      // Process the mod file and generate a hash
-      const qmodResult = await processQmod(mod, version);
-      const uniformMod: Partial<Mod> = {};
-
-      // Normalize the mod object by trimming and setting empty strings to null
-      for (const key of modKeys) {
-        uniformMod[key] = (mod[key] || "").trim();
-
-        if (uniformMod[key] === "") {
-          uniformMod[key] = null;
-        }
-      }
-
-      // If there are no errors, add the mod to the list and save the hash
-      if (qmodResult.errors.length === 0) {
-        if (uniformMod.download) {
-          uniformMod.hash = hashes[uniformMod.download];
-        }
-
-        mods.push(uniformMod as Mod);
-      } else {
-        if (uniformMod.download) {
-          delete hashes[uniformMod.download];
-        }
-      }
-
-      // Log any warnings or errors encountered during processing
-      if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
-        console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${shortModPath}`);
-
-        qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
-        qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
-        qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
-
-        console.log("");
-      }
-
-      // Save the updated hashes to the hashes file
-      fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "  "));
+    // Verify if the mod file is named correctly
+    if (shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
+      exitWithError(
+        `Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(
+          repoDir.length + 1
+        )}`
+      );
     }
-  }
 
-  // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
-  fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-  fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));
-})();
+    // Check for required fields in the mod object
+    for (const field of [
+      "name",
+      "id",
+      "version",
+      "download",
+    ] as (keyof Mod)[]) {
+      if (isNullOrWhitespace(mod[field])) {
+        exitWithError(`Mod ${field} not set`);
+      }
+    }
+
+    // Validate the mod loader
+    if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
+      exitWithError("Mod loader is invalid");
+    }
+
+    // Process the mod file and generate a hash
+    const qmodResult = await processQmod(mod, version);
+    const uniformMod: Partial<Mod> = {};
+
+    // Normalize the mod object by trimming and setting empty strings to null
+    for (const key of modKeys) {
+      uniformMod[key] = (mod[key] || "").trim();
+
+      if (uniformMod[key] === "") {
+        uniformMod[key] = null;
+      }
+    }
+
+    // If there are no errors, add the mod to the list and save the hash
+    if (qmodResult.errors.length === 0) {
+      if (uniformMod.download) {
+        uniformMod.hash = hashes[uniformMod.download];
+      }
+
+      mods.push(uniformMod as Mod);
+    } else {
+      if (uniformMod.download) {
+        delete hashes[uniformMod.download];
+      }
+    }
+
+    // Log any warnings or errors encountered during processing
+    if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
+      console.log(
+        `${
+          qmodResult.errors.length > 0 ? "Errors" : "Warnings"
+        } when processing ${shortModPath}`
+      );
+
+      qmodResult.messages.forEach((warning) =>
+        console.log(`  Message: ${warning}`)
+      );
+      qmodResult.warnings.forEach((warning) =>
+        console.warn(`  Warning: ${warning}`)
+      );
+      qmodResult.errors.forEach((error) => console.error(`  Error: ${error}`));
+
+      console.log("");
+    }
+
+    // Save the updated hashes to the hashes file
+    fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "  "));
+  }
+}
+
+// Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
+fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
+fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));

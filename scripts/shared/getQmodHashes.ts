@@ -1,6 +1,6 @@
-import { HashCollection } from "../../shared/types/HashCollection";
-import { hashesPath } from "./paths";
-import { readTextFile } from "./readTextFile";
+import { HashCollection } from "../../shared/types/HashCollection.ts";
+import { hashesPath } from "./paths.ts";
+import { readTextFile } from "./readTextFile.ts";
 
 /**
  * Gets a dictionary of all hashes for given urls

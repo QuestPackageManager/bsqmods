@@ -24,5 +24,7 @@
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
-  "editor.wordWrap": "off"
+  "editor.wordWrap": "off",
+  "deno.enable": true,
+  "deno.disablePaths": ["./website"]
 }

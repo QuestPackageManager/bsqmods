@@ -1,6 +1,6 @@
-import path from "path";
-import { sanitizeFilename } from "../../shared/sanitizeFilename";
-import { modsPath } from "./paths";
+import path from "node:path";
+import { sanitizeFilename } from "../../shared/sanitizeFilename.ts";
+import { modsPath } from "./paths.ts";
 
 /**
  * Constructs a sanitized filename based on given parameters.

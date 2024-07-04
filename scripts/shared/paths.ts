@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 /** The base path of the git repo */
 export const repoDir = path.join(__dirname, "..", "..");

@@ -1,11 +1,11 @@
-import fs from "fs"
-import path from "path"
-import { splitModKeys } from "../shared/types/Mod";
-import { allModsPath } from "./shared/paths";
-import { ModsCollection } from "../shared/types/ModsCollection";
-import { getFilename } from "./shared/getFilename";
+import fs from "node:fs"
+import path from "node:path"
+import { splitModKeys } from "../shared/types/Mod.ts";
+import { allModsPath } from "./shared/paths.ts";
+import { ModsCollection } from "../shared/types/ModsCollection.ts";
+import { getFilename } from "./shared/getFilename.ts";
 
-const allMods: ModsCollection = require(allModsPath);
+const allMods: ModsCollection = await import(allModsPath);
 
 // Loop through the keys of allMods as gameVersion
 for (const gameVersion in allMods) {
@@ -18,7 +18,7 @@ for (const gameVersion in allMods) {
       }
     }
 
-    const uniformMod = {}
+    const uniformMod: any = {}
 
     for (const key of splitModKeys) {
       uniformMod[key] = (mod[key] || "").trim();

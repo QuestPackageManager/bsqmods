@@ -1,9 +1,9 @@
-import { argv } from "process";
-import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { hashesPath, coversPath } from "./shared/paths";
-import { existsSync, unlinkSync, writeFileSync } from "fs";
-import { basename, join } from "path";
-import { getQmodHashes } from "./shared/getQmodHashes";
+
+import { isNullOrWhitespace } from "../shared/isNullOrWhitespace.ts";
+import { hashesPath, coversPath } from "./shared/paths.ts";
+import { existsSync, unlinkSync, writeFileSync } from "node:fs";
+import { basename, join } from "node:path";
+import { getQmodHashes } from "./shared/getQmodHashes.ts";
 
 /** The name of the currently running script. */
 const scriptName = basename(__filename);
@@ -42,35 +42,37 @@ export function purgeCache(urls: string[]) {
  * Main entry point of the script.
  * Checks if the script is run directly and processes the command line arguments.
  */
-if (require.main === module) {
+if (import.meta.main) {
   // Check if there are command line arguments provided
-  if (argv.length > 2) {
+  if (Deno.args.length > 2) {
     // Check if the first argument is not null or whitespace
-    if (!isNullOrWhitespace(argv[2])) {
-      if (argv[2] === "--all") {
+    if (!isNullOrWhitespace(Deno.args[2])) {
+      if (Deno.args[2] === "--all") {
         // If the argument is "--all", purge the cache for all saved URLs
         purgeCache(Object.keys(savedHashes));
       } else {
         // Otherwise, split the argument by '|' and purge the cache for the specified URLs
-        purgeCache(argv[2].split("|"));
+        purgeCache(Deno.args[2].split("|"));
       }
     }
   } else {
     // If no arguments are provided, display the usage information
-    console.log([
-      `Usage: ${scriptName} [--all] [urls]`,
-      '',
-      'This script purges the cached images and saved hashes.',
-      '',
-      'Options:',
-      '  --all        Clear the entire cache.',
-      '',
-      'Arguments:',
-      '  urls         A list of URLs to purge, separated by \'|\'.',
-      '',
-      'Examples:',
-      `  node ${scriptName} --all`,
-      `  node ${scriptName} "http://example.com/mod1.qmod|http://example.com/mod2.qmod"`
-    ].join('\n'));
+    console.log(
+      [
+        `Usage: ${scriptName} [--all] [urls]`,
+        "",
+        "This script purges the cached images and saved hashes.",
+        "",
+        "Options:",
+        "  --all        Clear the entire cache.",
+        "",
+        "Arguments:",
+        "  urls         A list of URLs to purge, separated by '|'.",
+        "",
+        "Examples:",
+        `  node ${scriptName} --all`,
+        `  node ${scriptName} "http://example.com/mod1.qmod|http://example.com/mod2.qmod"`,
+      ].join("\n")
+    );
   }
 }

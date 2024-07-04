@@ -6,5 +6,15 @@
  */
 export function exitWithError(message: string, code: number = 1): void {
   console.error(message);
-  process.exit(code);
+  exitProgram(code);
+}
+
+function exitProgram(code = 0) {
+  if (typeof Deno !== "undefined") {
+    Deno.exit(code);
+  } else if (typeof process !== "undefined") {
+    process.exit(code);
+  } else {
+    throw new Error("Unable to determine the runtime environment.");
+  }
 }

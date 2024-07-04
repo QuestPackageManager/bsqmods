@@ -1,6 +1,6 @@
-import crypto from "crypto";
-import fs from "fs";
-import fetch from "node-fetch";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import fetch from "npm:node-fetch";
 
 /**
  * Downloads a file from a URL and saves it to a specified destination, returning the SHA-1 hash of the file.
@@ -22,7 +22,7 @@ export async function downloadFile(url: string, dest: string): Promise<string | 
     const hash = crypto.createHash('sha1');
     const writableStream = res.body.pipe(fileStream);
 
-    res.body.on('data', (chunk: Buffer) => {
+    res.body.on('data', (chunk: DataView) => {
       hash.update(chunk);
     });
 

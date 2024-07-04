@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from "npm:node-fetch";
 
 /**
  * Checks if a URL is accessible by sending a HEAD request.

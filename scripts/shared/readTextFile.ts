@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 /**
  * Reads the content of a text file if it exists, otherwise returns a default value.

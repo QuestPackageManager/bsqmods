@@ -1,4 +1,4 @@
-import { Mod } from "./Mod";
+import { Mod } from "./Mod.ts";
 
 export type GameVersion = string;
 export interface ModsCollection {

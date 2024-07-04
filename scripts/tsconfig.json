@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
+    "strict": true,
+    "target": "ES2023",
+    "experimentalDecorators": false,
+    "inlineSourceMap": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["deno.window"],
+    "module": "esnext",
+    "moduleDetection": "force",
+    "useDefineForClassFields": true
   }
 }
