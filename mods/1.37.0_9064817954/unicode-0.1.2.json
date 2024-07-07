@@ -1,0 +1,13 @@
+{
+  "name": "Unicode",
+  "description": "Finally, 𒈙",
+  "id": "unicode",
+  "version": "0.1.2",
+  "author": "Metalit",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/UnicodeQuest/releases/download/v0.1.2/Unicode.qmod",
+  "source": "https://github.com/Metalit/UnicodeQuest/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}
