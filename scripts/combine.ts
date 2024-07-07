@@ -13,7 +13,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath } from "./shared/paths";
+import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 
 /** All of the mods after combine the individual files */
@@ -192,83 +192,112 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 }
 
 // Async anonymous function to be able to `await`
-(async () => {
-  // Read all game versions from the mods directory
-  const gameVersions = fs.readdirSync(modsPath)
-    .filter(versionPath => fs.statSync(path.join(modsPath, versionPath)).isDirectory());
 
-  for (const version of gameVersions) {
-    const versionPath = path.join(modsPath, version);
-    const mods = allMods[version] || (allMods[version] = []);
-    const modFilenames = fs.readdirSync(versionPath)
-      .filter(modPath => modPath.toLowerCase().endsWith(".json") && fs.statSync(path.join(versionPath, modPath)).isFile());
+// Read all game versions from the mods directory
+const gameVersions = fs.readdirSync(modsPath)
+  .filter(versionPath => fs.statSync(path.join(modsPath, versionPath)).isDirectory());
 
-    for (const modFilename of modFilenames) {
-      const modPath = path.join(versionPath, modFilename);
-      const shortModPath = modPath.substring(repoDir.length + 1);
-      const mod: Mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
-      const requiredFilename = getFilename(mod.id || "", mod.version || "", version, modsPath, "json");
+for (const version of gameVersions) {
+  const versionPath = path.join(modsPath, version);
+  const mods = allMods[version] || (allMods[version] = []);
+  const modFilenames = fs.readdirSync(versionPath)
+    .filter(modPath => modPath.toLowerCase().endsWith(".json") && fs.statSync(path.join(versionPath, modPath)).isFile());
 
-      // Verify if the mod file is named correctly
-      if (shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
-        exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
-      }
+  for (const modFilename of modFilenames) {
+    const modPath = path.join(versionPath, modFilename);
+    const shortModPath = modPath.substring(repoDir.length + 1);
+    const mod: Mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
+    const requiredFilename = getFilename(mod.id || "", mod.version || "", version, modsPath, "json");
 
-      // Check for required fields in the mod object
-      for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-        if (isNullOrWhitespace(mod[field])) {
-          exitWithError(`Mod ${field} not set`);
-        }
-      }
-
-      // Validate the mod loader
-      if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
-        exitWithError("Mod loader is invalid");
-      }
-
-      // Process the mod file and generate a hash
-      const qmodResult = await processQmod(mod, version);
-      const uniformMod: Partial<Mod> = {};
-
-      // Normalize the mod object by trimming and setting empty strings to null
-      for (const key of modKeys) {
-        uniformMod[key] = (mod[key] || "").trim();
-
-        if (uniformMod[key] === "") {
-          uniformMod[key] = null;
-        }
-      }
-
-      // If there are no errors, add the mod to the list and save the hash
-      if (qmodResult.errors.length === 0) {
-        if (uniformMod.download) {
-          uniformMod.hash = hashes[uniformMod.download];
-        }
-
-        mods.push(uniformMod as Mod);
-      } else {
-        if (uniformMod.download) {
-          delete hashes[uniformMod.download];
-        }
-      }
-
-      // Log any warnings or errors encountered during processing
-      if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
-        console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${shortModPath}`);
-
-        qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
-        qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
-        qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
-
-        console.log("");
-      }
-
-      // Save the updated hashes to the hashes file
-      fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "  "));
+    // Verify if the mod file is named correctly
+    if (shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
+      exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
     }
-  }
 
-  // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
-  fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-  fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));
-})();
+    // Check for required fields in the mod object
+    for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
+      if (isNullOrWhitespace(mod[field])) {
+        exitWithError(`Mod ${field} not set`);
+      }
+    }
+
+    // Validate the mod loader
+    if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
+      exitWithError("Mod loader is invalid");
+    }
+
+    // Process the mod file and generate a hash
+    const qmodResult = await processQmod(mod, version);
+    const uniformMod: Partial<Mod> = {};
+
+    // Normalize the mod object by trimming and setting empty strings to null
+    for (const key of modKeys) {
+      uniformMod[key] = (mod[key] || "").trim();
+
+      if (uniformMod[key] === "") {
+        uniformMod[key] = null;
+      }
+    }
+
+    // If there are no errors, add the mod to the list and save the hash
+    if (qmodResult.errors.length === 0) {
+      if (uniformMod.download) {
+        uniformMod.hash = hashes[uniformMod.download];
+      }
+
+      mods.push(uniformMod as Mod);
+    } else {
+      if (uniformMod.download) {
+        delete hashes[uniformMod.download];
+      }
+    }
+
+    // Log any warnings or errors encountered during processing
+    if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
+      console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${shortModPath}`);
+
+      qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
+      qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
+      qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
+
+      console.log("");
+    }
+
+    // Save the updated hashes to the hashes file
+    fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "  "));
+  }
+}
+
+// Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
+fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
+fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));
+
+// now make per-version json
+type GameVersionType = string
+
+type ModIdType = string
+type ModVersionType = string
+type ModObjectType = unknown
+type QmodRepoResult =Record<ModIdType, Record<ModVersionType, ModObjectType>>
+
+const versionMap: Record<GameVersionType, QmodRepoResult> = {}
+
+// transform to structure
+Object.entries(allMods).forEach(([game_ver, mods]) => {
+  const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {})
+
+  mods.forEach(mod => {
+    const modVersionMap = modMap[mod.id!] ?? (modMap[mod.id!] = {});
+
+    modVersionMap[mod.version!] = mod
+  })
+})
+
+// now write
+// Create the directory
+fs.mkdirSync(qmodRepoDirPath, { recursive: true });
+
+Object.entries(versionMap).forEach(([game_ver, qmodRepo]) => {
+  const versionFile = path.join(qmodRepoDirPath, game_ver);
+  fs.writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
+});

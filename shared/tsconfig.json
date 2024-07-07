@@ -2,16 +2,14 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "strict": true,
-    "target": "ESNext",
+    "target": "ES2021",
     "experimentalDecorators": false,
     "inlineSourceMap": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["DOM", "DOM.AsyncIterable", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "lib": ["DOM", "DOM.AsyncIterable", "DOM.Iterable", "ES2021"],
+    "module": "esnext",
     "moduleDetection": "force",
-    "useDefineForClassFields": true,
-    "moduleResolution": "Bundler",
-    
+    "useDefineForClassFields": true
   }
 }

@@ -1,5 +1,6 @@
 website/public/covers
 website/public/mods.json
+website/public/qmod_repo
 website/public/sha1sums.json
 **/node_modules
 qmods
