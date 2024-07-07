@@ -1,7 +1,7 @@
 import path from "path";
 
 /** The base path of the git repo */
-export const repoDir = path.join(__dirname, "..", "..");
+export const repoDir = path.join(import.meta.dirname, "..", "..");
 
 /** The path to the mods folder */
 export const modsPath = path.join(repoDir, "mods");
@@ -13,10 +13,13 @@ export const coversPath = path.join(repoDir, "website", "public", "covers");
 export const hashesPath = path.join(repoDir, "website", "public", "sha1sums.json");
 
 /** The path to the qmod download cache */
-export const qmodsPath = path.join(__dirname, "..", "qmods");
+export const qmodsPath = path.join(import.meta.dirname, "..", "qmods");
 
 /** The path to the combined mods.json file */
 export const allModsPath = path.join(repoDir, "website", "public", "mods.json");
+
+/** The path to the combined mods.json file */
+export const qmodRepoDirPath = path.join(repoDir, "website", "public", "qmod_repo");
 
 /** The path to the imported.json file used to track which core mods have been imported */
 export const importedCoreModsInfo = path.join(modsPath, "imported.json")
