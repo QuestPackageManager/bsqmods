@@ -1,0 +1,13 @@
+{
+  "name": "MoreButtons",
+  "description": "Overloads your keyboard!",
+  "id": "morebuttons",
+  "version": "1.0.1",
+  "author": "Metalit",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/MoreButtons/releases/download/v1.0.1/MoreButtons.qmod",
+  "source": "https://github.com/Metalit/MoreButtons/",
+  "cover": null,
+  "funding": null,
+  "website": null
+}

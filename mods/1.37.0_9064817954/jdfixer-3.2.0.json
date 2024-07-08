@@ -1,0 +1,13 @@
+{
+  "name": "JDFixer",
+  "description": "Configure your Jump Distance, Speed, and more with ultra precision!",
+  "id": "jdfixer",
+  "version": "3.2.0",
+  "author": "Metalit",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/QuestJDFixer/releases/download/v3.2.0/JDFixer.qmod",
+  "source": "https://github.com/Metalit/QuestJDFixer/",
+  "cover": "https://raw.githubusercontent.com/Metalit/QuestJDFixer/master/cover.png",
+  "funding": null,
+  "website": null
+}
