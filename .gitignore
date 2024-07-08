@@ -1,8 +1,9 @@
-website/public/covers
-website/public/mods.json
-website/public/qmod_repo
-website/public/sha1sums.json
 **/node_modules
-qmods
 .cache-restored
+qmods
+website/public/covers
 website/public/deploy-log.txt
+website/public/mods
+website/public/mods.json
+website/public/sha1sums.json
+website/public/versions.json

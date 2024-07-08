@@ -13,7 +13,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath } from "./shared/paths";
+import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 
 /** All of the mods after combine the individual files */
@@ -264,13 +264,17 @@ for (const version of gameVersions) {
     }
 
     // Save the updated hashes to the hashes file
-    fs.writeFileSync(hashesPath, JSON.stringify(hashes, null, "  "));
+    fs.writeFileSync(hashesPath, JSON.stringify(hashes));
   }
 }
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
 fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-fs.writeFileSync(allModsPath, JSON.stringify(allMods, null, "  "));
+fs.writeFileSync(allModsPath, JSON.stringify(allMods));
+
+// Create the directory for the versions JSON file if it doesn't exist and save the data
+fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
+fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods)));
 
 // now make per-version json
 type GameVersionType = string
@@ -278,7 +282,7 @@ type GameVersionType = string
 type ModIdType = string
 type ModVersionType = string
 type ModObjectType = unknown
-type QmodRepoResult =Record<ModIdType, Record<ModVersionType, ModObjectType>>
+type QmodRepoResult = Record<ModIdType, Record<ModVersionType, ModObjectType>>
 
 const versionMap: Record<GameVersionType, QmodRepoResult> = {}
 
