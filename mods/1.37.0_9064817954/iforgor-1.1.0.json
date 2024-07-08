@@ -1,1 +1,11 @@
-{}
+{
+  "name": "IForgor 💀",
+  "description": "Shows the direction of the last blocks and the angle of your sabers before you paused",
+  "id": "iforgor",
+  "version": "1.1.0",
+  "downloadLink": "https://github.com/Futuremappermydud/IForgor-quest/releases/download/v1.1.0/IForgor.qmod",
+  "source": "https://github.com/Futuremappermydud/IForgor-quest/",
+  "authorIcon": "https://avatars.githubusercontent.com/u/54294576?v=4",
+  "author": "FutureMapper",
+  "cover": "cover.png"
+}
