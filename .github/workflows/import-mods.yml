@@ -72,6 +72,7 @@ jobs:
       - name: Push the updated files
         if: env.MODS_UPDATED == 'yes'
         run: |
+          git pull --rebase
           git push
 
       - name: Trigger deploy
