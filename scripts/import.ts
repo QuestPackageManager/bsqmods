@@ -13,6 +13,7 @@ import { dirname, resolve } from "path";
 import { Logger, ConsoleLogger } from "../shared/Logger"
 import { argv } from "process";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
+import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
 
 /**
  * Creates the json file for the given qmod url.
@@ -40,7 +41,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           modloader: json.modloader || "QuestLoader",
           download: url,
           source: null,
-          cover: null,
+          cover: await getQmodCoverUrl(url),
           funding: json.funding || null,
           website: json.website || null
         }

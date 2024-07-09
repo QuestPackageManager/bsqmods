@@ -283,6 +283,8 @@
   import { fetchJson } from "../../../shared/fetchJson";
   import { ghRegex } from "../../../shared/ghRegex";
   import { getStandardizedMod } from "../../../shared/getStandardizedMod";
+  import { getGithubIconUrl } from "../../../shared/getGithubIconUrl";
+  import { getQmodCoverUrl } from "../../../shared/getQmodCoverUrl";
 
   ("use strict");
   (async () => {
@@ -579,35 +581,8 @@
       if (match) {
         modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
         modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
-        authorIconElement.value = `https://github.com/${match[1]}.png`;
-        modCoverElement.value = "";
-
-        try {
-          const repoJson: any = await fetchJson(
-            `https://api.github.com/repos/${match[1]}/${match[2]}`,
-          );
-          const defaultBranch = repoJson["default_branch"] as string;
-          modCoverElement.value = repoJson?.owner?.avatar_url || "";
-          let coverFilename = "cover.png";
-
-          try {
-            var modJson: any = await fetchJson(
-              `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.template.json?${new Date().getTime()}`,
-            );
-            coverFilename = modJson.coverImage || coverFilename;
-          } catch (err) {}
-
-          const coverResponse = await fetch(
-            `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}?${new Date().getTime()}`,
-            {
-              method: "HEAD",
-            },
-          );
-
-          if (coverResponse.ok) {
-            modCoverElement.value = `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}`;
-          }
-        } catch (err) {}
+        authorIconElement.value = await getGithubIconUrl(match[0]) || "";
+        modCoverElement.value = await getQmodCoverUrl(match[0]) || "";
       }
     }
 

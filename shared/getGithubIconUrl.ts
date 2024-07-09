@@ -1,3 +1,4 @@
+import { fetchJson } from "./fetchJson";
 import { fetchRedirectedLocation } from "./fetchRedirectedLocation";
 import { ghRegex } from "./ghRegex";
 
@@ -35,7 +36,13 @@ export async function getGithubIconUrl(link: string): Promise<string | null> {
       return iconCache[ghMatch[1]];
     } else {
       // We're in the browser, we need to use the GitHub API.
-      throw new Error("Not implemented");
+      try {
+        const repoJson: any = await fetchJson(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`, true);
+
+        iconCache[ghMatch[1]] = repoJson?.owner?.avatar_url || null;
+
+        return iconCache[ghMatch[1]]
+      } catch (err) { }
     }
   }
 
