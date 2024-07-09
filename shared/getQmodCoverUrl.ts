@@ -1,21 +1,31 @@
-import { fetchJson } from "./fetchJson";
+import { cachedFetchJson } from "./cachedFetch";
+import { fetchJson } from "./fetch";
 import { ghRegex } from "./ghRegex";
 
+/**
+ * Retrieves the cover image URL for a GitHub repository.
+ *
+ * @param url - The URL of the GitHub repository.
+ * @returns The URL of the cover image or null if not found.
+ */
 export async function getQmodCoverUrl(url: string) {
   const match = ghRegex.exec(url);
 
   if (match) {
     try {
-      const repoJson: any = await fetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`, true);
+      const repoJson: any = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
 
       const defaultBranch = repoJson["default_branch"] as string;
       let coverFilename = "cover.png";
 
       try {
-        var modJson: any = await fetchJson(
+        var result = await fetchJson<any>(
           `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.template.json?${new Date().getTime()}`,
         );
-        coverFilename = modJson.coverImage || coverFilename;
+
+        if (result.data) {
+          coverFilename = result.data.coverImage || coverFilename;
+        }
       } catch (err) { }
 
       const coverResponse = await fetch(`https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}?${new Date().getTime()}`, {

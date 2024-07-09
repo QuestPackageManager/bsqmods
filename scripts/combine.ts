@@ -6,8 +6,6 @@ import path from "path"
 import sharp from "sharp";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { exitWithError } from "./shared/exitWithError";
-import { checkUrl } from "./shared/checkUrl";
-import { fetchAsBuffer } from "./shared/fetchAsBuffer";
 import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
@@ -17,6 +15,8 @@ import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
 import { validateMod } from "../shared/validateMod";
+import { iterateSplitMods } from "./shared/iterateMods";
+import { fetchBuffer, fetchHead } from "../shared/fetch";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -62,7 +62,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     throw new Error("Mod download not set.")
   }
 
-  if (process.argv.indexOf("--recheckUrls") !== -1 && qmodHash != null && !(await checkUrl(mod.download))) {
+  if (process.argv.indexOf("--recheckUrls") !== -1 && qmodHash != null && !(await fetchHead(mod.download))) {
     qmodHash = null;
     if (mod.download) {
       delete hashes[mod.download];
@@ -161,7 +161,12 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
       coverBuffer = await coverFile.async("nodebuffer");
     } else if (mod.cover) {
-      coverBuffer = await fetchAsBuffer(mod.cover);
+      const result = (await fetchBuffer(mod.cover))
+      if (result.data) {
+        coverBuffer = Buffer.from(result.data)
+      } else {
+        throw new Error(result.response.statusText)
+      }
     }
   } catch (error) {
     output.warnings.push("Error fetching cover buffer");
@@ -195,66 +200,52 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   return output;
 }
 
-// Async anonymous function to be able to `await`
+for (const iteration of iterateSplitMods()) {
+  const mods = allMods[iteration.version] || (allMods[iteration.version] = []);
+  const mod: Mod = iteration.getModJson();
+  const requiredFilename = getFilename(mod.id || "", mod.version || "", iteration.version, modsPath, "json");
 
-// Read all game versions from the mods directory
-const gameVersions = fs.readdirSync(modsPath)
-  .filter(versionPath => fs.statSync(path.join(modsPath, versionPath)).isDirectory());
-
-for (const version of gameVersions) {
-  const versionPath = path.join(modsPath, version);
-  const mods = allMods[version] || (allMods[version] = []);
-  const modFilenames = fs.readdirSync(versionPath)
-    .filter(modPath => modPath.toLowerCase().endsWith(".json") && fs.statSync(path.join(versionPath, modPath)).isFile());
-
-  for (const modFilename of modFilenames) {
-    const modPath = path.join(versionPath, modFilename);
-    const shortModPath = modPath.substring(repoDir.length + 1);
-    const mod: Mod = JSON.parse(fs.readFileSync(modPath, "utf8"));
-    const requiredFilename = getFilename(mod.id || "", mod.version || "", version, modsPath, "json");
-
-    // Verify if the mod file is named correctly
-    if (shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
-      exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
-    }
-
-    try {
-      validateMod(mod);
-    } catch (err: any) {
-      exitWithError((err as Error).message)
-    }
-
-    // Process the mod file and generate a hash
-    const qmodResult = await processQmod(mod, version);
-    const uniformMod = getStandardizedMod(mod);
-
-    // If there are no errors, add the mod to the list and save the hash
-    if (qmodResult.errors.length === 0) {
-      if (uniformMod.download) {
-        uniformMod.hash = hashes[uniformMod.download];
-      }
-
-      mods.push(uniformMod as Mod);
-    } else {
-      if (uniformMod.download) {
-        delete hashes[uniformMod.download];
-      }
-    }
-
-    // Log any warnings or errors encountered during processing
-    if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
-      console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${shortModPath}`);
-
-      qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
-      qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
-      qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
-
-      console.log("");
-    }
-
-    // Save the updated hashes to the hashes file
-    fs.writeFileSync(hashesPath, JSON.stringify(hashes));
+  // Verify if the mod file is named correctly
+  if (iteration.shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
+    exitWithError(`Mod filename is not what it should be.  ${iteration.shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
   }
+
+  try {
+    validateMod(mod);
+  } catch (err: any) {
+    exitWithError((err as Error).message)
+  }
+
+  // Process the mod file and generate a hash
+  const qmodResult = await processQmod(mod, iteration.version);
+  const uniformMod = getStandardizedMod(mod);
+
+  // If there are no errors, add the mod to the list and save the hash
+  if (qmodResult.errors.length === 0) {
+    if (uniformMod.download) {
+      uniformMod.hash = hashes[uniformMod.download];
+    }
+
+    mods.push(uniformMod as Mod);
+  } else {
+    if (uniformMod.download) {
+      delete hashes[uniformMod.download];
+    }
+  }
+
+  // Log any warnings or errors encountered during processing
+  if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
+    console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${iteration.shortModPath}`);
+
+    qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
+    qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
+    qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
+
+    console.log("");
+  }
+
+  // Save the updated hashes to the hashes file
+  fs.writeFileSync(hashesPath, JSON.stringify(hashes));
 }
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data

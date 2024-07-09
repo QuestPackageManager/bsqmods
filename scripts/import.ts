@@ -1,6 +1,5 @@
 import { mkdirSync, writeFileSync } from "fs";
 import { getCoreMods } from "../shared/CoreMods"
-import { fetchAsBuffer } from "./shared/fetchAsBuffer";
 import { importedCoreModsInfo } from "./shared/paths"
 import { readTextFile } from "./shared/readTextFile"
 import JSZip from "jszip";
@@ -14,17 +13,25 @@ import { argv } from "process";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
 import { validateMod } from "../shared/validateMod";
+import { fetchBuffer } from "../shared/fetch";
 
 /**
  * Creates the json file for the given qmod url.
  * @param url - The URL of the qmod to load.
  * @param gameVersion - The game version the qmod applies to.
+ * @param writeFile - If the json file should be written to disk.
  * @param logger - The logger to use.  Defaults to the console.
  * @returns A boolean indicating whether the import was successful.
  */
-export async function importRemoteQmod(url: string, gameVersion: string | null = null, logger: Logger = ConsoleLogger): Promise<boolean> {
+export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<Mod | null> {
   try {
-    const zip = await JSZip.loadAsync(await fetchAsBuffer(url));
+    const result = await fetchBuffer(url);
+
+    if (!result.data) {
+      throw new Error(result.response.statusText);
+    }
+
+    const zip = await JSZip.loadAsync(result.data);
 
     const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");
 
@@ -82,21 +89,21 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         mkdirSync(dirname(modFilename), { recursive: true });
         writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
 
-        return true;
+        return modInfo;
       } catch (error: any) {
         logger.error(`Error processing ${infoFile.name}\n${error.message}`);
-        return false;
+        return null;
       }
     } else {
       logger.warn("No info json");
-      return false;
+      return null;
     }
   } catch (error) {
     logger.error("Invalid archive");
-    return false;
+    return null;
   }
 
-  return false;
+  return null;
 }
 
 if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
@@ -112,7 +119,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
         if (!importCache.includes(cacheString)) {
           const logger = new CapturingLogger();
 
-          if (await importRemoteQmod(mod.downloadLink, gameVersion, logger)) {
+          if (await importRemoteQmod(mod.downloadLink, gameVersion, true, logger)) {
             if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
               console.log(mod.downloadLink);
 
@@ -131,7 +138,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
     const logger = new CapturingLogger();
 
-    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, logger))) {
+    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger))) {
       if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
         console.log(url);
 

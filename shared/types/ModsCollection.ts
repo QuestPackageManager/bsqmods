@@ -1,6 +1,7 @@
+import { Dictionary } from "./Dictionary";
 import { Mod } from "./Mod";
 
-export type GameVersion = string;
-export interface ModsCollection {
-  [key: GameVersion]: Mod[];
-}
+/**
+ * Represents a collection of mods indexed by game version.
+ */
+export type ModsCollection = Dictionary<Mod[]>

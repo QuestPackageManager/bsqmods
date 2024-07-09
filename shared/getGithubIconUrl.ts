@@ -1,12 +1,20 @@
-import { fetchJson } from "./fetchJson";
-import { fetchRedirectedLocation } from "./fetchRedirectedLocation";
+import { cachedFetchJson } from "./cachedFetch";
+import { fetchRedirectedLocation } from "./fetch";
 import { ghRegex } from "./ghRegex";
+import { Dictionary } from "./types/Dictionary";
 
-const iconCache: {
-  [key: string]: string | null;
-} = {};
+/**
+ * Represents a collection of icon URLs indexed by the source url.
+ */
+const iconCache: Dictionary<string | null> = {};
 
-async function fetchIconLink(url: string) {
+/**
+ * Fetches the redirected URL from a given URL.
+ *
+ * @param url - The URL to fetch and check for redirection.
+ * @returns A promise that resolves to the redirected URL or null if no redirection occurs.
+ */
+async function fetchIconLink(url: string): Promise<string | null> {
   const redirected = await fetchRedirectedLocation(url)
 
   if (url == redirected) {
@@ -37,7 +45,7 @@ export async function getGithubIconUrl(link: string): Promise<string | null> {
     } else {
       // We're in the browser, we need to use the GitHub API.
       try {
-        const repoJson: any = await fetchJson(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`, true);
+        const repoJson = await cachedFetchJson<any>(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`);
 
         iconCache[ghMatch[1]] = repoJson?.owner?.avatar_url || null;
 

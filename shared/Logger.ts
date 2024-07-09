@@ -37,8 +37,17 @@ export interface Logger {
   error: (...data: any[]) => void;
 }
 
+/**
+ * Extends the 'Logger' interface to include a method for retrieving loggers based on a log level.
+ */
 export interface ConsoleLoggerInterface extends Logger {
-  getLogger: (level: LogLevel) => ((...data: any[]) => void)
+  /**
+   * Retrieves a logger function based on the specified log level.
+   *
+   * @param level - The log level to retrieve the logger for.
+   * @returns A logger function that accepts variadic arguments.
+   */
+  getLogger: (level: LogLevel) => ((...data: any[]) => void);
 }
 
 /**

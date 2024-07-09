@@ -1,10 +1,14 @@
+import { FetchType } from "./types/FetchType";
+import { fetchAsType } from "./fetch"
+import { Dictionary } from "./types/Dictionary";
+
 /**
  * Interface defining the structure of the fetch cache.
  */
 export interface FetchCache {
-  json: { [index: string]: any };
-  text: { [index: string]: string };
-  buffer: { [index: string]: ArrayBuffer };
+  json: Dictionary<any>;
+  text: Dictionary<string>;
+  buffer: Dictionary<ArrayBuffer>;
 }
 
 /**
@@ -16,15 +20,6 @@ const fetchCache: FetchCache = {
   text: {},
   buffer: {}
 };
-
-/**
- * Enum representing the types of fetch results.
- */
-export enum FetchType {
-  Json, // Represents JSON fetch results.
-  Text, // Represents text fetch results.
-  Buffer // Represents ArrayBuffer fetch results.
-}
 
 /**
  * Retrieves the cache type based on the FetchType.
@@ -53,22 +48,10 @@ async function cachedFetch<T>(url: string, type: FetchType = FetchType.Json, for
     }
   }
 
-  const response = await fetch(url);
+  const response = await fetchAsType<T>(url, type);
 
-  if (response.ok) {
-    switch (type) {
-      case FetchType.Json:
-        fetchCache[cacheType][url] = await response.json();
-        break;
-
-      case FetchType.Text:
-        fetchCache[cacheType][url] = await response.text();
-        break;
-
-      case FetchType.Buffer:
-        fetchCache[cacheType][url] = await response.arrayBuffer();
-        break;
-    }
+  if (response.data) {
+    fetchCache[cacheType][url] = response.data;
 
     return fetchCache[cacheType][url];
   }

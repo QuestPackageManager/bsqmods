@@ -1,9 +1,11 @@
+import { Dictionary } from "./Dictionary";
 
-/** The target version of the game. */
-
-export type Url = string;
+/**
+ * Represents a SHA-1 hash value.
+ */
 export type Sha1Hash = string;
 
-export interface HashCollection {
-  [key: Url]: Sha1Hash
-}
+/**
+ * Represents a collection of SHA-1 hash values, indexed by strings.
+ */
+export type HashCollection = Dictionary<Sha1Hash>;

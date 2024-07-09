@@ -280,7 +280,7 @@
   import type { Mod } from "../../../shared/types/Mod";
   import type { ModsCollection } from "../../../shared/types/ModsCollection";
   import type { QmodInfo } from "../../../shared/types/QmodInfo";
-  import { fetchJson } from "../../../shared/fetchJson";
+  import { fetchJson } from "../../../shared/fetch";
   import { ghRegex } from "../../../shared/ghRegex";
   import { getStandardizedMod } from "../../../shared/getStandardizedMod";
   import { getGithubIconUrl } from "../../../shared/getGithubIconUrl";
@@ -349,12 +349,12 @@
     // Load the mod.json file
     (async function loadModJson() {
       try {
-        const response = await fetch(
+        const result = await fetchJson<ModsCollection>(
           `../mods.json?${Math.floor(Date.now() / 1000)}`,
         );
 
-        if (response.ok) {
-          modJson = await response.json();
+        if (result.data) {
+          modJson = result.data;
         }
       } catch (error) {}
     })();
@@ -581,8 +581,8 @@
       if (match) {
         modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
         modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
-        authorIconElement.value = await getGithubIconUrl(match[0]) || "";
-        modCoverElement.value = await getQmodCoverUrl(match[0]) || "";
+        authorIconElement.value = (await getGithubIconUrl(match[0])) || "";
+        modCoverElement.value = (await getQmodCoverUrl(match[0])) || "";
       }
     }
 
