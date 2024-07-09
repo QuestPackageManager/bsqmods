@@ -42,7 +42,7 @@ export function purgeCache(urls: string[]) {
  * Main entry point of the script.
  * Checks if the script is run directly and processes the command line arguments.
  */
-if (resolve(import.meta.filename) == resolve(argv[1])) {
+if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1]))
   // Check if there are command line arguments provided
   if (argv.length > 2) {
     // Check if the first argument is not null or whitespace

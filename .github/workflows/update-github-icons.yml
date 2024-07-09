@@ -1,0 +1,63 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Update missing GitHub icons
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Every hour
+  schedule:
+    - cron: "0 * * * *"
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  # Single deploy job since we're just deploying
+  update-github-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update the core mods
+        run: |
+          cd scripts
+          npm install
+          npx tsx ./update-github-icons.ts 2>&1
+
+      - name: Configure git user
+        run: |
+          git config --global user.email "790119+DanTheMan827@users.noreply.github.com"
+          git config --global user.name "DanTheMan827 (Automated)"
+
+      - name: Commit the updated files
+        run: |
+          git add -A mods
+          (
+            git commit -m "Update author icons (Automated)" &&
+            (
+              echo "MODS_UPDATED=yes" >> $GITHUB_ENV
+            )
+          ) || true
+
+      - name: Push the updated files
+        if: env.MODS_UPDATED == 'yes'
+        run: |
+          git push
+
+      - name: Trigger deploy
+        if: env.MODS_UPDATED == 'yes'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"trigger_deploy"}'

@@ -1,12 +1,11 @@
 import { ModsCollection } from "../shared/types/ModsCollection";
-import { Mod, modKeys } from "../shared/types/Mod";
+import { Mod } from "../shared/types/Mod";
 import JSZip from "jszip";
 import fs from "fs"
 import path from "path"
 import sharp from "sharp";
 import { validModLoaders } from "../shared/validModLoaders";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { fetchRedirectedLocation } from "../shared/fetchRedirectedLocation"
 import { exitWithError } from "./shared/exitWithError";
 import { checkUrl } from "./shared/checkUrl";
 import { fetchAsBuffer } from "./shared/fetchAsBuffer";
@@ -16,17 +15,14 @@ import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
 import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
-import { ghRegex } from "../shared/ghRegex";
+import { getGithubIconUrl } from "../shared/getGithubIconUrl";
+import { getStandardizedMod } from "../shared/getStandardizedMod"
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
 
 /** A dictionary of all hashes for given urls. */
 const hashes = getQmodHashes();
-
-const ghIcons: {
-  [key: string]: string;
-} = {};
 
 /** Public url base */
 let urlBase = (() => {
@@ -73,11 +69,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     }
   }
 
-  const ghMatch = ghRegex.exec(mod.download);
-  if (ghMatch) {
-    ghIcons[ghMatch[1]] = ghIcons[ghMatch[1]] || `https://github.com/${ghMatch[1]}.png`;
-    mod.authorIcon = await fetchRedirectedLocation(ghIcons[ghMatch[1]])
-  }
+  mod.authorIcon = mod.authorIcon || await getGithubIconUrl(mod.download);
 
   // We've already processed this, don't do it again.
   if (qmodHash != null) {
@@ -240,16 +232,7 @@ for (const version of gameVersions) {
 
     // Process the mod file and generate a hash
     const qmodResult = await processQmod(mod, version);
-    const uniformMod: Partial<Mod> = {};
-
-    // Normalize the mod object by trimming and setting empty strings to null
-    for (const key of modKeys) {
-      uniformMod[key] = (mod[key] || "").trim();
-
-      if (uniformMod[key] === "") {
-        uniformMod[key] = null;
-      }
-    }
+    const uniformMod = getStandardizedMod(mod);
 
     // If there are no errors, add the mod to the list and save the hash
     if (qmodResult.errors.length === 0) {

@@ -280,7 +280,9 @@
   import type { Mod } from "../../../shared/types/Mod";
   import type { ModsCollection } from "../../../shared/types/ModsCollection";
   import type { QmodInfo } from "../../../shared/types/QmodInfo";
+  import { fetchJson } from "../../../shared/fetchJson";
   import { ghRegex } from "../../../shared/ghRegex";
+  import { getStandardizedMod } from "../../../shared/getStandardizedMod";
 
   ("use strict");
   (async () => {
@@ -444,7 +446,7 @@
         modJson[targetGameVersionElement.value] = [];
       }
 
-      let mod: Mod = {
+      let mod: Mod = getStandardizedMod({
         name: modNameElement.value.trim(),
         description: modDescriptionElement.value.trim(),
         id: modIdElement.value.trim(),
@@ -457,13 +459,7 @@
         cover: modCoverElement.value.trim(),
         funding: modFundingLinkElement.value.trim(),
         website: modWebsiteLinkElement.value.trim(),
-      };
-
-      for (const key in mod) {
-        if (mod[key] == "") {
-          mod[key] = null;
-        }
-      }
+      });
 
       const modFilename = getFilename(
         mod.id || "",
@@ -570,21 +566,6 @@
       }
     }
 
-    function fetchJson(
-      url: string,
-      rejectOnError = false,
-    ): Promise<Response | null> {
-      return new Promise(async (resolve, reject) => {
-        const response = await fetch(url);
-
-        if (response.ok) {
-          resolve(await response.json());
-        } else {
-          reject(response.statusText);
-        }
-      });
-    }
-
     /**
      * Fills in the source code text input if the link is from GitHub.
      * @param e
@@ -602,17 +583,18 @@
         modCoverElement.value = "";
 
         try {
-          const repoJson = await fetchJson(
+          const repoJson: any = await fetchJson(
             `https://api.github.com/repos/${match[1]}/${match[2]}`,
           );
           const defaultBranch = repoJson["default_branch"] as string;
+          modCoverElement.value = repoJson?.owner?.avatar_url || "";
           let coverFilename = "cover.png";
 
           try {
-            var modJson = await fetchJson(
+            var modJson: any = await fetchJson(
               `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.template.json?${new Date().getTime()}`,
             );
-            coverFilename = modJson["coverImage"] || coverFilename;
+            coverFilename = modJson.coverImage || coverFilename;
           } catch (err) {}
 
           const coverResponse = await fetch(

@@ -13,12 +13,16 @@ import { modsPath } from "./paths";
  * @returns - The constructed filename.
  */
 export function getFilename(
-  id: string = "",
-  version: string = "",
-  gameVersion: string = "",
+  id: string | null = null,
+  version: string | null = null,
+  gameVersion: string | null = null,
   basePath: string = modsPath,
   extension: string = "json"
 ): string {
+  id = id || "";
+  version = version || "";
+  gameVersion = gameVersion || "";
+
   return path.join(
     basePath,
     sanitizeFilename(gameVersion.trim()),

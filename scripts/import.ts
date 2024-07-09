@@ -9,96 +9,120 @@ import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { validModLoaders } from "../shared/validModLoaders";
 import { getFilename } from "./shared/getFilename";
 import { ghRegex } from "../shared/ghRegex"
-import { dirname } from "path";
+import { dirname, resolve } from "path";
+import { Logger, ConsoleLogger } from "../shared/Logger"
+import { argv } from "process";
+import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 
-const importCache = JSON.parse(readTextFile(importedCoreModsInfo, `["Do not manually modify this file."]`));
+/**
+ * Creates the json file for the given qmod url.
+ * @param url - The URL of the qmod to load.
+ * @param gameVersion - The game version the qmod applies to.
+ * @param logger - The logger to use.  Defaults to the console.
+ * @returns A boolean indicating whether the import was successful.
+ */
+export async function importRemoteQmod(url: string, gameVersion: string | null = null, logger: Logger = ConsoleLogger): Promise<boolean> {
+  try {
+    const zip = await JSZip.loadAsync(await fetchAsBuffer(url));
 
-var cores = await getCoreMods()
+    const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");
 
-for (const gameVersion in cores) {
-  for (const mod of cores[gameVersion].mods || []) {
-    const cacheString = [gameVersion, mod.id, mod.version, mod.downloadLink].join("\0");
-
-    if (!importCache.includes(cacheString)) {
-      console.log(mod.downloadLink);
-
+    if (infoFile != null) {
       try {
-        const zip = await JSZip.loadAsync(await fetchAsBuffer(mod.downloadLink));
-
-        const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");
-
-        if (infoFile != null) {
-          try {
-            const json = JSON.parse(await infoFile.async("text"));
-            const modInfo: Mod = {
-              name: json.name || null,
-              description: json.description || null,
-              id: json.id || null,
-              version: json.version || null,
-              author: (!json.porter ? "" : json.porter + (isNullOrWhitespace(json.author) ? "" : ", ")) + json.author,
-              modloader: json.modloader || "QuestLoader",
-              download: mod.downloadLink,
-              source: null,
-              cover: null,
-              funding: json.funding || null,
-              website: json.website || null
-            }
-
-            if (isNullOrWhitespace(modInfo.source)) {
-              const match = ghRegex.exec(mod.downloadLink);
-
-              if (match) {
-                modInfo.source = `https://github.com/${match[1]}/${match[2]}/`;
-              }
-            }
-
-            for (const key in modInfo) {
-              let value = modInfo[key];
-
-              if (value instanceof Array) {
-                value = modInfo[key] = value.map(line => line.trim()).join("\n\n");
-              }
-
-              if (isNullOrWhitespace(value) || value == "undefined") {
-                modInfo[key] = null;
-              } else {
-                modInfo[key] = value.trim();
-              }
-            }
-
-            // Check for required fields in the mod object
-            for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-              if (isNullOrWhitespace(modInfo[field])) {
-                console.error(`  Mod ${field} not set`);
-                continue;
-              }
-            }
-
-            // Validate the mod loader
-            if (modInfo.modloader == null || !validModLoaders.includes(modInfo.modloader)) {
-              console.error("  Mod loader is invalid");
-              continue;
-            }
-
-            const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
-            mkdirSync(dirname(modFilename), { recursive: true });
-            writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
-          } catch (error) {
-            console.error(`  Error processing ${infoFile.name}\n${error.message}`);
-            continue;
-          }
-        } else {
-          console.warn("  No info json");
-          continue;
+        const json = JSON.parse(await infoFile.async("text"));
+        const modInfo: Mod = {
+          name: json.name || null,
+          description: json.description || null,
+          id: json.id || null,
+          version: json.version || null,
+          author: (!json.porter ? "" : json.porter + (isNullOrWhitespace(json.author) ? "" : ", ")) + json.author,
+          authorIcon: await getGithubIconUrl(url),
+          modloader: json.modloader || "QuestLoader",
+          download: url,
+          source: null,
+          cover: null,
+          funding: json.funding || null,
+          website: json.website || null
         }
-      } catch (error) {
-        console.error("  Invalid archive");
-        continue;
-      }
 
-      importCache.push(cacheString)
+        gameVersion = gameVersion || json.packageVersion || json.gameVersion || "global";
+
+        console.log(gameVersion);
+        if (isNullOrWhitespace(modInfo.source)) {
+          const match = ghRegex.exec(url);
+
+          if (match) {
+            modInfo.source = `https://github.com/${match[1]}/${match[2]}/`;
+          }
+        }
+
+        for (const key of (Object.keys(modInfo) as (keyof (Mod))[])) {
+          let value = modInfo[key];
+
+          if (value != null && value as any instanceof Array) {
+            value = modInfo[key] = (value as unknown as string[]).map(line => line.trim()).join("\n\n");
+          }
+
+          if (isNullOrWhitespace(value) || value == "undefined") {
+            modInfo[key] = null;
+          } else if (value != null) {
+            modInfo[key] = value.trim();
+          }
+        }
+
+        // Check for required fields in the mod object
+        for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
+          if (isNullOrWhitespace(modInfo[field])) {
+            logger.error(`  Mod ${field} not set`);
+            return false;
+          }
+        }
+
+        // Validate the mod loader
+        if (modInfo.modloader == null || !validModLoaders.includes(modInfo.modloader)) {
+          logger.error("  Mod loader is invalid");
+          return false;
+        }
+
+        const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
+        mkdirSync(dirname(modFilename), { recursive: true });
+        writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
+
+        return true;
+      } catch (error: any) {
+        logger.error(`  Error processing ${infoFile.name}\n${error.message}`);
+        return false;
+      }
+    } else {
+      logger.warn("  No info json");
+      return false;
     }
+  } catch (error) {
+    logger.error("  Invalid archive");
+    return false;
   }
+
+  return false;
 }
 
-writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
+if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
+  const importCache = JSON.parse(readTextFile(importedCoreModsInfo, `["Do not manually modify this file."]`));
+
+  var cores = await getCoreMods()
+
+  for (const gameVersion in cores) {
+    for (const mod of cores[gameVersion].mods || []) {
+      const cacheString = [gameVersion, mod.id, mod.version, mod.downloadLink].join("\0");
+
+      if (!importCache.includes(cacheString)) {
+        console.log(mod.downloadLink);
+
+        if (await importRemoteQmod(mod.downloadLink, gameVersion)) {
+          importCache.push(cacheString)
+        }
+      }
+    }
+  }
+
+  writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
+}

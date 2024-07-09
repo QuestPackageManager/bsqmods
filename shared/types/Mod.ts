@@ -39,12 +39,9 @@ export interface Mod {
   hash?: string | null;
 }
 
-export const modKeys: (keyof Mod)[] = [
-  "name", "description", "id", "version", "author", "authorIcon", "modloader",
-  "download", "source", "cover", "funding", "website", "hash"
-];
-
 export const splitModKeys: (keyof Mod)[] = [
   "name", "description", "id", "version", "author", "authorIcon", "modloader",
   "download", "source", "cover", "funding", "website"
 ];
+
+export const modKeys: (keyof Mod)[] = [...splitModKeys, "hash"];
