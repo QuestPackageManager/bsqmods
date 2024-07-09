@@ -6,6 +6,7 @@ import path from "path"
 import sharp from "sharp";
 import { validModLoaders } from "../shared/validModLoaders";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
+import { fetchRedirectedLocation } from "../shared/fetchRedirectedLocation"
 import { exitWithError } from "./shared/exitWithError";
 import { checkUrl } from "./shared/checkUrl";
 import { fetchAsBuffer } from "./shared/fetchAsBuffer";
@@ -15,12 +16,17 @@ import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
 import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
+import { ghRegex } from "../shared/ghRegex";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
 
 /** A dictionary of all hashes for given urls. */
 const hashes = getQmodHashes();
+
+const ghIcons: {
+  [key: string]: string;
+} = {};
 
 /** Public url base */
 let urlBase = (() => {
@@ -65,6 +71,12 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     if (mod.download) {
       delete hashes[mod.download];
     }
+  }
+
+  const ghMatch = ghRegex.exec(mod.download);
+  if (ghMatch) {
+    ghIcons[ghMatch[1]] = ghIcons[ghMatch[1]] || `https://github.com/${ghMatch[1]}.png`;
+    mod.authorIcon = await fetchRedirectedLocation(ghIcons[ghMatch[1]])
   }
 
   // We've already processed this, don't do it again.

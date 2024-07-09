@@ -14,6 +14,9 @@ export interface Mod {
   /** The author(s) of the mod. */
   author: string | null;
 
+  /** The icon url of the primary author. */
+  authorIcon: string | null;
+
   /** The mod loader used by the mod. */
   modloader: string | null;
 
@@ -37,11 +40,11 @@ export interface Mod {
 }
 
 export const modKeys: (keyof Mod)[] = [
-  "name", "description", "id", "version", "author", "modloader",
+  "name", "description", "id", "version", "author", "authorIcon", "modloader",
   "download", "source", "cover", "funding", "website", "hash"
 ];
 
 export const splitModKeys: (keyof Mod)[] = [
-  "name", "description", "id", "version", "author", "modloader",
+  "name", "description", "id", "version", "author", "authorIcon", "modloader",
   "download", "source", "cover", "funding", "website"
 ];

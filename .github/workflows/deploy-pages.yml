@@ -54,6 +54,7 @@ jobs:
       - name: Set pages url
         run: |
           echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
+          echo "GH_REPO=$REPO_USERNAME/$REPO_NAME" >> $GITHUB_ENV
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
