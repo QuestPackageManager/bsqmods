@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/henwill8/IntroSkip/releases/download/0.2.0/introskip_v0.2.0.zip",
   "source": "https://github.com/henwill8/IntroSkip/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/henwill8/IntroSkip/master/cover.png",
   "funding": null,
   "website": null
 }

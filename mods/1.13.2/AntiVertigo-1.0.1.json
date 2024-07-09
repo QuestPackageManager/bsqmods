@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/AntiVertigo/releases/download/1.0.1/AntiVertigo.zip",
   "source": "https://github.com/RedBrumbler/AntiVertigo/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/RedBrumbler/AntiVertigo/master/cover.png",
   "funding": null,
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/henwill8/SliceVisualizer/releases/download/0.1.0/slicevisualizer_v0.1.0.zip",
   "source": "https://github.com/henwill8/SliceVisualizer/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/henwill8/SliceVisualizer/master/cover.png",
   "funding": null,
   "website": null
 }

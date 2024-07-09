@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Raemien/CustomBackgroundsQuest/releases/download/v1.2.6/CustomBackgrounds.zip",
   "source": "https://github.com/Raemien/CustomBackgroundsQuest/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Raemien/CustomBackgroundsQuest/master/cover.png",
   "funding": null,
   "website": null
 }

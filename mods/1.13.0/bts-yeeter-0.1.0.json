@@ -4,10 +4,11 @@
   "id": "bts-yeeter",
   "version": "0.1.0",
   "author": "gabriella",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/IsGabriellaCurious/BTSYeeter/releases/download/v0.1.0/bts-yeeter_v0.1.0.zip",
   "source": "https://github.com/IsGabriellaCurious/BTSYeeter/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/IsGabriellaCurious/BTSYeeter/master/cover.png",
   "funding": null,
   "website": null
 }

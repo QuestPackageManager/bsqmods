@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/SlowResume/releases/download/0.1.0/slow-resume_v0.1.0.zip",
   "source": "https://github.com/Lauriethefish/SlowResume/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Lauriethefish/SlowResume/main/cover.png",
   "funding": null,
   "website": null
 }

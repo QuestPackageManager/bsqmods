@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.19.3/Codegen.qmod",
   "source": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/sc2ad/BeatSaber-Quest-Codegen/master/cover.png",
   "funding": null,
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/Il2CppQuestTypePatching/releases/download/v0.12.7/custom-types_v0_12_7.qmod",
   "source": "https://github.com/sc2ad/Il2CppQuestTypePatching/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/sc2ad/Il2CppQuestTypePatching/master/cover.png",
   "funding": null,
   "website": null
 }

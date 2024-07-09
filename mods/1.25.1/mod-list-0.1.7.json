@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.7/ModList.qmod",
   "source": "https://github.com/Lauriethefish/ModList/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Lauriethefish/ModList/main/cover.png",
   "funding": null,
   "website": null
 }

@@ -4,10 +4,11 @@
   "id": "PinkCore",
   "version": "1.4.1",
   "author": "Pink, StackDoubleFlow, Lillie, RedBrumbler",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/BSMGPink/PinkCore/releases/download/1.4.1/PinkCoreV1.4.1.zip",
   "source": "https://github.com/BSMGPink/PinkCore/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/BSMGPink/PinkCore/master/cover.png",
   "funding": null,
   "website": null
 }

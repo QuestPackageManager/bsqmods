@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/danrouse/bsq-qounters-minus/releases/download/1.1.0/qounters-minus_v1.1.0.qmod",
   "source": "https://github.com/danrouse/bsq-qounters-minus/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/danrouse/bsq-qounters-minus/master/cover.png",
   "funding": null,
   "website": null
 }

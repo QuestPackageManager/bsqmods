@@ -4,10 +4,11 @@
   "id": "nomisstext",
   "version": "2.1.0",
   "author": "gabriella",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/IsGabriellaCurious/NoMissText/releases/download/v2.1.0/nomisstext_v2.1.0.zip",
   "source": "https://github.com/IsGabriellaCurious/NoMissText/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/IsGabriellaCurious/NoMissText/master/cover.png",
   "funding": null,
   "website": null
 }
