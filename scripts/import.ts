@@ -6,14 +6,14 @@ import { readTextFile } from "./shared/readTextFile"
 import JSZip from "jszip";
 import { Mod } from "../shared/types/Mod";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { validModLoaders } from "../shared/validModLoaders";
 import { getFilename } from "./shared/getFilename";
 import { ghRegex } from "../shared/ghRegex"
 import { dirname, resolve } from "path";
-import { Logger, ConsoleLogger } from "../shared/Logger"
+import { Logger, ConsoleLogger, CapturingLogger, LogLevel } from "../shared/Logger"
 import { argv } from "process";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
+import { validateMod } from "../shared/validateMod";
 
 /**
  * Creates the json file for the given qmod url.
@@ -72,18 +72,10 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           }
         }
 
-        // Check for required fields in the mod object
-        for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-          if (isNullOrWhitespace(modInfo[field])) {
-            logger.error(`  Mod ${field} not set`);
-            return false;
-          }
-        }
-
-        // Validate the mod loader
-        if (modInfo.modloader == null || !validModLoaders.includes(modInfo.modloader)) {
-          logger.error("  Mod loader is invalid");
-          return false;
+        try {
+          validateMod(modInfo)
+        } catch (err: any) {
+          logger.error((err as Error).message)
         }
 
         const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
@@ -92,15 +84,15 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
 
         return true;
       } catch (error: any) {
-        logger.error(`  Error processing ${infoFile.name}\n${error.message}`);
+        logger.error(`Error processing ${infoFile.name}\n${error.message}`);
         return false;
       }
     } else {
-      logger.warn("  No info json");
+      logger.warn("No info json");
       return false;
     }
   } catch (error) {
-    logger.error("  Invalid archive");
+    logger.error("Invalid archive");
     return false;
   }
 
@@ -118,9 +110,16 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
         const cacheString = [gameVersion, mod.id, mod.version, mod.downloadLink].join("\0");
 
         if (!importCache.includes(cacheString)) {
-          console.log(mod.downloadLink);
+          const logger = new CapturingLogger();
 
-          if (await importRemoteQmod(mod.downloadLink, gameVersion)) {
+          if (await importRemoteQmod(mod.downloadLink, gameVersion, logger)) {
+            if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
+              console.log(mod.downloadLink);
+
+              for (const message of logger.getMessages()) {
+                ConsoleLogger.getLogger(message.level)(`  ${LogLevel[message.level]}: ${message.data}`)
+              }
+            }
             importCache.push(cacheString)
           }
         }
@@ -130,8 +129,16 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
   } else if (argv.length > 2) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
+    const logger = new CapturingLogger();
 
-    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion))) {
+    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, logger))) {
+      if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
+        console.log(url);
+
+        for (const message of logger.getMessages()) {
+          ConsoleLogger.getLogger(message.level)(`  ${LogLevel[message.level]}: ${message.data}`)
+        }
+      }
       process.exit(1);
     }
   }

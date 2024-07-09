@@ -4,7 +4,6 @@ import JSZip from "jszip";
 import fs from "fs"
 import path from "path"
 import sharp from "sharp";
-import { validModLoaders } from "../shared/validModLoaders";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { exitWithError } from "./shared/exitWithError";
 import { checkUrl } from "./shared/checkUrl";
@@ -17,6 +16,7 @@ import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmod
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
+import { validateMod } from "../shared/validateMod";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -218,16 +218,10 @@ for (const version of gameVersions) {
       exitWithError(`Mod filename is not what it should be.  ${shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
     }
 
-    // Check for required fields in the mod object
-    for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-      if (isNullOrWhitespace(mod[field])) {
-        exitWithError(`Mod ${field} not set`);
-      }
-    }
-
-    // Validate the mod loader
-    if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
-      exitWithError("Mod loader is invalid");
+    try {
+      validateMod(mod);
+    } catch (err: any) {
+      exitWithError((err as Error).message)
     }
 
     // Process the mod file and generate a hash

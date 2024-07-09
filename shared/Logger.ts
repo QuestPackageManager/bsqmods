@@ -37,15 +37,29 @@ export interface Logger {
   error: (...data: any[]) => void;
 }
 
+export interface ConsoleLoggerInterface extends Logger {
+  getLogger: (level: LogLevel) => ((...data: any[]) => void)
+}
+
 /**
  * Logger that logs to the console.
  * @type {Readonly<Logger>}
  */
-export const ConsoleLogger: Readonly<Logger> = {
+export const ConsoleLogger: ConsoleLoggerInterface = {
   log: console.log,
   debug: console.debug,
   warn: console.warn,
-  error: console.error
+  error: console.error,
+  getLogger: function getLogger(level: LogLevel): ((...data: any[]) => void) {
+    switch (level) {
+      case LogLevel.Log: return console.log;
+      case LogLevel.Debug: return console.debug;
+      case LogLevel.Warn: return console.warn;
+      case LogLevel.Error: return console.error;
+    }
+
+    return console.log;
+  }
 }
 
 /**
@@ -60,10 +74,18 @@ export const StubLogger: Readonly<Logger> = {
 }
 
 /**
+ * A captured message.
+ */
+export interface CapturedMessage {
+  level: LogLevel,
+  data: any[]
+}
+
+/**
  * Logger class that captures messages and stores them for later retrieval.
  */
 export class CapturingLogger implements Logger {
-  private messages: { level: LogLevel, data: any[] }[] = [];
+  private messages: CapturedMessage[] = [];
 
   /**
    * Logs a message with the log level.
