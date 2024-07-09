@@ -1,9 +1,16 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update core mods
+name: Import mods
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      url:
+        description: "A url to a qmod that should be imported. If not specified, core mods are imported."
+        default: ""
+      targetVersion:
+        description: "The target game version of the qmod.  If not specified, it will be read from the qmod itself."
+        default: ""
 
   # Every 30 minutes
   schedule:
@@ -17,7 +24,7 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-core-mods:
+  import-mods:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,11 +34,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the core mods
+      - name: npm install
         run: |
           cd scripts
           npm install
+
+      - name: Import the core mods
+        if: ${{ github.event.inputs.url == '' }}
+        run: |
+          cd scripts
           npx tsx ./import.ts 2>&1
+          echo "COMMIT_MSG=\"Update core mods (Automated)\"" >> $GITHUB_ENV
+
+      - name: Import the specified mod
+        if: ${{ github.event.inputs.url != '' }}
+        run: |
+          cd scripts
+          npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
+          git add -A mods
+          echo "COMMIT_MSG=\"Update $(git diff --name-only --cached) (Automated)\"" >> $GITHUB_ENV
 
       - name: Configure git user
         run: |
@@ -42,7 +63,7 @@ jobs:
         run: |
           git add -A mods
           (
-            git commit -m "Update core mods (Automated)" &&
+            git commit -m "$COMMIT_MSG" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )

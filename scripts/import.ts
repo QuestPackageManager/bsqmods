@@ -47,13 +47,14 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
 
         gameVersion = gameVersion || json.packageVersion || json.gameVersion || "global";
 
-        console.log(gameVersion);
-        if (isNullOrWhitespace(modInfo.source)) {
-          const match = ghRegex.exec(url);
+        const ghMatch = ghRegex.exec(url);
 
-          if (match) {
-            modInfo.source = `https://github.com/${match[1]}/${match[2]}/`;
-          }
+        if (ghMatch && isNullOrWhitespace(modInfo.source)) {
+          modInfo.source = `https://github.com/${ghMatch[1]}/${ghMatch[2]}/`;
+        }
+
+        if (ghMatch && isNullOrWhitespace(modInfo.website)) {
+          modInfo.website = `https://github.com/${ghMatch[1]}/${ghMatch[2]}/`
         }
 
         for (const key of (Object.keys(modInfo) as (keyof (Mod))[])) {
@@ -106,23 +107,31 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
 }
 
 if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
-  const importCache = JSON.parse(readTextFile(importedCoreModsInfo, `["Do not manually modify this file."]`));
+  if (argv.length == 2) {
+    const importCache = JSON.parse(readTextFile(importedCoreModsInfo, `["Do not manually modify this file."]`));
 
-  var cores = await getCoreMods()
+    var cores = await getCoreMods()
 
-  for (const gameVersion in cores) {
-    for (const mod of cores[gameVersion].mods || []) {
-      const cacheString = [gameVersion, mod.id, mod.version, mod.downloadLink].join("\0");
+    for (const gameVersion in cores) {
+      for (const mod of cores[gameVersion].mods || []) {
+        const cacheString = [gameVersion, mod.id, mod.version, mod.downloadLink].join("\0");
 
-      if (!importCache.includes(cacheString)) {
-        console.log(mod.downloadLink);
+        if (!importCache.includes(cacheString)) {
+          console.log(mod.downloadLink);
 
-        if (await importRemoteQmod(mod.downloadLink, gameVersion)) {
-          importCache.push(cacheString)
+          if (await importRemoteQmod(mod.downloadLink, gameVersion)) {
+            importCache.push(cacheString)
+          }
         }
       }
     }
-  }
 
-  writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
+    writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
+  } else if (argv.length > 2) {
+    const [nodeProcess, script, url, gameVersion = null] = argv;
+
+    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion))) {
+      process.exit(1);
+    }
+  }
 }
