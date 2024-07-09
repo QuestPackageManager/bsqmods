@@ -14,6 +14,7 @@ import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
 import { validateMod } from "../shared/validateMod";
 import { fetchBuffer } from "../shared/fetch";
+import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage"
 
 /**
  * Creates the json file for the given qmod url.
@@ -21,7 +22,7 @@ import { fetchBuffer } from "../shared/fetch";
  * @param gameVersion - The game version the qmod applies to.
  * @param writeFile - If the json file should be written to disk.
  * @param logger - The logger to use.  Defaults to the console.
- * @returns A boolean indicating whether the import was successful.
+ * @returns The mod data if successful, or null.
  */
 export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<Mod | null> {
   try {
@@ -85,9 +86,11 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           logger.error((err as Error).message)
         }
 
-        const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
-        mkdirSync(dirname(modFilename), { recursive: true });
-        writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
+        if (writeFile) {
+          const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
+          mkdirSync(dirname(modFilename), { recursive: true });
+          writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
+        }
 
         return modInfo;
       } catch (error: any) {
@@ -120,11 +123,11 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
           const logger = new CapturingLogger();
 
           if (await importRemoteQmod(mod.downloadLink, gameVersion, true, logger)) {
-            if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
+            if (logger.getErrorMessages().length > 0) {
               console.log(mod.downloadLink);
 
               for (const message of logger.getMessages()) {
-                ConsoleLogger.getLogger(message.level)(`  ${LogLevel[message.level]}: ${message.data}`)
+                writeIndentedLogMessage(message);
               }
             }
             importCache.push(cacheString)
@@ -139,11 +142,11 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     const logger = new CapturingLogger();
 
     if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger))) {
-      if (logger.getMessages().filter(msg => msg.level == LogLevel.Error).length > 0) {
+      if (logger.getErrorMessages().length > 0) {
         console.log(url);
 
         for (const message of logger.getMessages()) {
-          ConsoleLogger.getLogger(message.level)(`  ${LogLevel[message.level]}: ${message.data}`)
+          writeIndentedLogMessage(message);
         }
       }
       process.exit(1);

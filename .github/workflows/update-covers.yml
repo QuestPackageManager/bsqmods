@@ -1,13 +1,9 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update missing GitHub icons
+name: Update missing covers
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-  # Every hour
-  schedule:
-    - cron: "0 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -17,7 +13,7 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-github-icons:
+  update-covers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,11 +23,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the author icons
+      - name: Update the covers
         run: |
           cd scripts
           npm install
-          npx tsx ./update-github-icons.ts 2>&1
+          npx tsx ./update-covers.ts 2>&1
 
       - name: Configure git user
         run: |
@@ -42,7 +38,7 @@ jobs:
         run: |
           git add -A mods
           (
-            git commit -m "Update author icons (Automated)" &&
+            git commit -m "Update covers (Automated)" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )

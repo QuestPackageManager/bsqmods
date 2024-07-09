@@ -141,8 +141,44 @@ export class CapturingLogger implements Logger {
    * Retrieves all captured messages.
    * @returns {Array<{ level: string, data: any[] }>} - The captured messages.
    */
-  public getMessages(): { level: LogLevel, data: any[] }[] {
+  public getMessages(): CapturedMessage[] {
     return this.messages;
+  }
+
+  /**
+   * Retrieves log messages filtered by log level 'LogLevel.Log'.
+   *
+   * @returns An array of log messages.
+   */
+  public getLogMessages(): CapturedMessage[] {
+    return this.messages.filter(msg => msg.level == LogLevel.Log)
+  }
+
+  /**
+   * Retrieves log messages filtered by log level 'LogLevel.Debug'.
+   *
+   * @returns An array of debug messages.
+   */
+  public getDebugMessages(): CapturedMessage[] {
+    return this.messages.filter(msg => msg.level == LogLevel.Debug)
+  }
+
+  /**
+   * Retrieves log messages filtered by log level 'LogLevel.Warn'.
+   *
+   * @returns An array of warn messages.
+   */
+  public getWarnMessages(): CapturedMessage[] {
+    return this.messages.filter(msg => msg.level == LogLevel.Warn)
+  }
+
+  /**
+   * Retrieves log messages filtered by log level 'LogLevel.Error'.
+   *
+   * @returns An array of error messages.
+   */
+  public getErrorMessages(): CapturedMessage[] {
+    return this.messages.filter(msg => msg.level == LogLevel.Error)
   }
 
   /**
