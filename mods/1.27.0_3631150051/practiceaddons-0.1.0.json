@@ -4,6 +4,7 @@
   "id": "practiceaddons",
   "version": "0.1.0",
   "author": "KodenameKRAK",
+  "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/PracticeAddons/releases/download/0.1.0/PracticeAddons.qmod",
   "source": "https://github.com/kodenamekrak/PracticeAddons/",

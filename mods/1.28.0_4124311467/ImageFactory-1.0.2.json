@@ -4,6 +4,7 @@
   "id": "ImageFactory",
   "version": "1.0.2",
   "author": "Optimus",
+  "authorIcon": "https://avatars.githubusercontent.com/u/69561711?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/OptimusChen/ImageFactory-Quest/releases/download/v1.0.2/ImageFactory.qmod",
   "source": "https://github.com/OptimusChen/ImageFactory-Quest/",

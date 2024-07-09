@@ -4,6 +4,7 @@
   "id": "mod-list",
   "version": "0.1.10",
   "author": "Lauriethefish",
+  "authorIcon": "https://avatars.githubusercontent.com/u/44222319?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.10/ModList.qmod",
   "source": "https://github.com/Lauriethefish/ModList/",

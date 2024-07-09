@@ -4,6 +4,7 @@
   "id": "practice_skipper",
   "version": "1.0.0",
   "author": "danrouse",
+  "authorIcon": "https://avatars.githubusercontent.com/u/128349?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/danrouse/bsq-practice-skipper/releases/download/1.0.0/practice_skipper_v1.0.0.zip",
   "source": "https://github.com/danrouse/bsq-practice-skipper/",

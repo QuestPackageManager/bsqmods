@@ -4,6 +4,7 @@
   "id": "NoodleExtensions",
   "version": "1.4.0-beta1",
   "author": "StackDoubleFlow",
+  "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.4.0/noodle_extensions.qmod",
   "source": "https://github.com/StackDoubleFlow/NoodleExtensions/",

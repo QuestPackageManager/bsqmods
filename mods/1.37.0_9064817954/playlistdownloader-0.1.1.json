@@ -4,6 +4,7 @@
   "id": "playlistdownloader",
   "version": "0.1.1",
   "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlaylistDownloader/releases/download/v0.1.1/PlaylistDownloader.qmod",
   "source": "https://github.com/Metalit/PlaylistDownloader/",

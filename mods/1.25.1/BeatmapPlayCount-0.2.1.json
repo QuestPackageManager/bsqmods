@@ -4,6 +4,7 @@
   "id": "BeatmapPlayCount",
   "version": "0.2.1",
   "author": "Netux",
+  "authorIcon": "https://avatars.githubusercontent.com/u/6181929?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest/releases/download/v0.2.1/BeatmapPlayCount.v0.2.1.qmod",
   "source": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest",

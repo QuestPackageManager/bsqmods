@@ -4,6 +4,7 @@
   "id": "custom-types",
   "version": "0.15.6",
   "author": "Sc2ad",
+  "authorIcon": "https://avatars.githubusercontent.com/u/10663758?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/Il2CppQuestTypePatching/releases/download/v0.15.6/CustomTypes.qmod",
   "source": "https://github.com/sc2ad/Il2CppQuestTypePatching/",

@@ -4,6 +4,7 @@
   "id": "qubes",
   "version": "1.3.1",
   "author": "Metalit,  speecil",
+  "authorIcon": "https://avatars.githubusercontent.com/u/90689870?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/Qubes/releases/download/v1.3.1/Qubes.qmod",
   "source": "https://github.com/speecil/Qubes/",

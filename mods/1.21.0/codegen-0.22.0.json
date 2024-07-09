@@ -4,6 +4,7 @@
   "id": "codegen",
   "version": "0.22.0",
   "author": "Sc2ad",
+  "authorIcon": "https://avatars.githubusercontent.com/u/10663758?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.22.0/Codegen.qmod",
   "source": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/",

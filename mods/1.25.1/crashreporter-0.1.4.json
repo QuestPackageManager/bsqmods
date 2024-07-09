@@ -4,6 +4,7 @@
   "id": "crashreporter",
   "version": "0.1.4",
   "author": "darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/darknight1050/CrashReporter/releases/download/v0.1.4/CrashReporter.qmod",
   "source": "https://github.com/darknight1050/CrashReporter/",
