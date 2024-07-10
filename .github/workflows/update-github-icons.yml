@@ -5,10 +5,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Every hour
-  schedule:
-    - cron: "0 * * * *"
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
@@ -51,6 +47,7 @@ jobs:
       - name: Push the updated files
         if: env.MODS_UPDATED == 'yes'
         run: |
+          git pull --rebase
           git push
 
       - name: Trigger deploy

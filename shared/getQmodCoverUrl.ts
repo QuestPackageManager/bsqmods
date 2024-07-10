@@ -1,6 +1,7 @@
 import { cachedFetchJson } from "./cachedFetch";
 import { fetchJson } from "./fetch";
 import { ghRegex } from "./ghRegex";
+import { isNullOrWhitespace } from "./isNullOrWhitespace";
 
 /**
  * Retrieves the cover image URL for a GitHub repository.
@@ -19,12 +20,24 @@ export async function getQmodCoverUrl(url: string) {
       let coverFilename = "cover.png";
 
       try {
-        var result = await fetchJson<any>(
+        let result = await fetchJson<any>(
           `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.template.json?${new Date().getTime()}`,
         );
 
-        if (result.data) {
-          coverFilename = result.data.coverImage || coverFilename;
+        if (!result.data) {
+          result = await fetchJson<any>(
+            `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.json?${new Date().getTime()}`,
+          );
+        }
+
+        if (!result.data) {
+          result = await fetchJson<any>(
+            `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/bmbfmod.json?${new Date().getTime()}`,
+          );
+        }
+
+        if (result.data && !isNullOrWhitespace(result.data.coverImage || result.data.coverImageFilename)) {
+          coverFilename = result.data.coverImage || result.data.coverImageFilename;
         }
       } catch (err) { }
 

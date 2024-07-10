@@ -1,9 +1,13 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update missing covers
+name: Update data from ComputerElite
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+  # Every two hours
+  schedule:
+    - cron: "30 */2 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -13,7 +17,7 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-covers:
+  update-github-icons:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,10 +27,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the covers
+      - name: Update the mods.json from ComputerElite
         run: |
+          wget "https://computerelite.github.io/tools/Beat_Saber/mods.json" -O website/public/mods.json
           cd scripts
           npm install
+          npx tsx ./split.ts 2>&1
+          npx tsx ./delete-discord-mods.ts 2>&1
+          npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-covers.ts 2>&1
 
       - name: Configure git user
@@ -38,7 +46,7 @@ jobs:
         run: |
           git add -A mods
           (
-            git commit -m "Update covers" &&
+            git commit -m "Update mods" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )
