@@ -1,0 +1,14 @@
+{
+  "name": "Chroma",
+  "description": "Colors!",
+  "id": "chroma",
+  "version": "2.9.3",
+  "download": "https://github.com/bsq-ports/Chroma/releases/download/v2.9.3/Chroma.qmod",
+  "source": "https://github.com/bsq-ports/Chroma/",
+  "author": "Aeroluna",
+  "modloader": "Scotland2",
+  "cover": null,
+  "funding": null,
+  "website": null,
+  "hash": null
+}
