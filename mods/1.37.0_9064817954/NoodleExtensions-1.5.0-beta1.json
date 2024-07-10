@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.5.0/NoodleExtensions.qmod",
   "source": "https://github.com/StackDoubleFlow/NoodleExtensions/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/StackDoubleFlow/NoodleExtensions/master/cover.png",
   "funding": null,
   "website": null
 }

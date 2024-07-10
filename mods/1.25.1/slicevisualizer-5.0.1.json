@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/SliceVisualizer/releases/download/v5.0.1/Slice.Visualizer.qmod",
   "source": "https://github.com/Metalit/SliceVisualizer/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Metalit/SliceVisualizer/master/cover.png",
   "funding": null,
   "website": null
 }

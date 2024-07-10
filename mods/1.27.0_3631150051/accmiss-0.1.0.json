@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/AccMiss/releases/download/v0.1.0/AccMiss.qmod",
   "source": "https://github.com/Metalit/AccMiss/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Metalit/AccMiss/master/cover.png",
   "funding": null,
   "website": null
 }

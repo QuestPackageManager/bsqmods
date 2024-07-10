@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/BSMGPink/BurnMarksKeeper/releases/download/1.0.0/BurnMarksKeeper.zip",
   "source": "https://github.com/BSMGPink/BurnMarksKeeper/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/BSMGPink/BurnMarksKeeper/main/cover.jpg",
   "funding": null,
   "website": null
 }

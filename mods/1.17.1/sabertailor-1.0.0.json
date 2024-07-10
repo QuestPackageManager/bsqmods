@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Royston1999/Saber-Tailor-quest/releases/download/v1.0.0/sabertailor_v1.0.0.qmod",
   "source": "https://github.com/Royston1999/Saber-Tailor-quest/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Royston1999/Saber-Tailor-quest/main/Cover.png",
   "funding": null,
   "website": null
 }
