@@ -1,5 +1,5 @@
 import { isNullOrWhitespace } from "./isNullOrWhitespace";
-import { Mod } from "./types/Mod";
+import { Mod, splitModKeys } from "./types/Mod";
 import { validModLoaders } from "./validModLoaders";
 
 /**
@@ -20,6 +20,22 @@ export function validateMod(mod: Mod) {
   // Validate the mod loader
   if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
     throw new Error("Mod loader is invalid");
+  }
+
+  // Check for any keys not in the allowed list.
+  for (const key of Object.keys(mod) as (keyof (Mod))[]) {
+    if (!splitModKeys.includes(key)) {
+      throw new Error(`"${key}" is not a valid key`);
+    }
+  }
+
+  // Check key types
+  for (const key of splitModKeys) {
+    const value = mod[key];
+
+    if (!(value === null || typeof (value) == "string")) {
+      throw new Error(`"${key}" is not the expected type`);
+    }
   }
 
   return true;
