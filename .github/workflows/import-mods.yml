@@ -44,7 +44,7 @@ jobs:
         run: |
           cd scripts
           npx tsx ./import.ts 2>&1
-          echo "COMMIT_MSG=Update core mods (Automated)" >> $GITHUB_ENV
+          echo "COMMIT_MSG=Update core mods" >> $GITHUB_ENV
 
       - name: Import the specified mod
         if: ${{ github.event.inputs.url != '' }}
@@ -52,12 +52,12 @@ jobs:
           cd scripts
           npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
           git add -A ../mods
-          echo "COMMIT_MSG=Update $(git diff --name-only --cached) (Automated)" >> $GITHUB_ENV
+          echo "COMMIT_MSG=Update $(git diff --name-only --cached)" >> $GITHUB_ENV
 
       - name: Configure git user
         run: |
-          git config --global user.email "790119+DanTheMan827@users.noreply.github.com"
-          git config --global user.name "DanTheMan827 (Automated)"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit the updated files
         run: |

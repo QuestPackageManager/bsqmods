@@ -50,6 +50,7 @@ jobs:
         run: |
           echo "REPO_USERNAME=${GITHUB_REPOSITORY%%/*}" >> $GITHUB_ENV
           echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+          echo "REPO_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
 
       - name: Set pages url
         run: |

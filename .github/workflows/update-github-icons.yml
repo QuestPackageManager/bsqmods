@@ -35,14 +35,14 @@ jobs:
 
       - name: Configure git user
         run: |
-          git config --global user.email "790119+DanTheMan827@users.noreply.github.com"
-          git config --global user.name "DanTheMan827 (Automated)"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit the updated files
         run: |
           git add -A mods
           (
-            git commit -m "Update author icons (Automated)" &&
+            git commit -m "Update author icons" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )
