@@ -4,6 +4,7 @@
   "id": "ScoreSaber",
   "version": "0.2.4",
   "author": "Umbranox",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://new.scoresaber.com/quest/",
   "source": null,

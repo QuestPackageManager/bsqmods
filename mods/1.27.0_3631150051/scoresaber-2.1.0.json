@@ -4,6 +4,7 @@
   "id": "scoresaber",
   "version": "2.1.0",
   "author": "Umbranox, Optimus, RedBrumbler, Qwasyx",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://scoresaber.com/quest",
   "source": "https://github.com/ScoreSaber/ScoreSaber-Quest",

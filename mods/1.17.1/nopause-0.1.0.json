@@ -4,6 +4,7 @@
   "id": "nopause",
   "version": "0.1.0",
   "author": "Jd The Fusky",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/Jd-Gamer65/bsq-dont-pause/releases/download/v1.2/nopause.qmod",
   "source": "https://github.com/Jd-Gamer65/bsq-dont-pause/",

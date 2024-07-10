@@ -4,6 +4,7 @@
   "id": "BurnMarksKeeper",
   "version": "1.0.0",
   "author": "Pink",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/BSMGPink/BurnMarksKeeper/releases/download/1.0.0/BurnMarksKeeper.zip",
   "source": "https://github.com/BSMGPink/BurnMarksKeeper/",

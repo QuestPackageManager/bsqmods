@@ -4,6 +4,7 @@
   "id": "peripheralhud",
   "version": "1.1.0",
   "author": "Kaitlyn",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/ItsKaitlyn03/PeripheralHUD/releases/download/v1.1.0/peripheralhud_v1.1.0.qmod",
   "source": "https://github.com/ItsKaitlyn03/PeripheralHUD/",

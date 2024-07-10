@@ -4,6 +4,7 @@
   "id": "goodbyebug",
   "version": "0.1.3",
   "author": "Lillie",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://github.com/Rugtveit/GoodbyeBug/releases/download/0.1.3/GoodbyeBug.zip",
   "source": "https://github.com/Rugtveit/GoodbyeBug/",

@@ -4,6 +4,7 @@
   "id": "scribble",
   "version": "1.0.0",
   "author": "RedBrumbler",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://redbrumbler.itch.io/scribble-quest",
   "source": null,

@@ -4,6 +4,7 @@
   "id": "slicevisualizer",
   "version": "0.2.1",
   "author": "Henwill8,  Metalit",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://henwill8.itch.io/slice-visualizer",
   "source": null,

@@ -4,6 +4,7 @@
   "id": "scoresaber",
   "version": "1.0.0",
   "author": "Umbranox,  Optimus,  RedBrumbler",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://scoresaber.com/quest",
   "source": null,

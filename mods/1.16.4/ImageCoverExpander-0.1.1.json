@@ -4,6 +4,7 @@
   "id": "ImageCoverExpander",
   "version": "0.1.1",
   "author": "Millzy and Raine",
+  "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://millzydev.itch.io/imgcoverexp-quest",
   "source": null,
