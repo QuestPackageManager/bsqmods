@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const { title, headerTitle, linkHome } = Astro.props;
-let baseUrl = ((import.meta as any)?.env?.BASE_URL as string) || "";
+let baseUrl = ((import.meta as any).env.BASE_URL as string) || "";
 
 if (!baseUrl.endsWith("/")) {
   baseUrl = baseUrl + "/";
