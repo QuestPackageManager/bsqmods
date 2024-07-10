@@ -16,11 +16,9 @@ on:
   schedule:
     - cron: "*/30 * * * *"
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow push
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   # Single deploy job since we're just deploying

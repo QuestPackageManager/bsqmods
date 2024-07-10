@@ -8,21 +8,16 @@ on:
   schedule:
     - cron: "10 * * * *"
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow push and requesting PRs
 permissions:
+  pull-requests: write
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   # Single deploy job since we're just deploying
   update-mods:
     concurrency:
       group: update-mods-${{ github.ref }}
-
-    permissions:
-      pull-requests: write
-      contents: write
 
     runs-on: ubuntu-latest
     steps:

@@ -5,11 +5,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+  schedule:
+    - cron: "0 */1 * * *"
+
+# Sets permissions of the GITHUB_TOKEN to allow push and requesting PRs
 permissions:
+  pull-requests: write
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   # Single deploy job since we're just deploying
@@ -38,12 +40,21 @@ jobs:
           npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-covers.ts 2>&1
 
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: Update Mods from ComputerElite
+          commit-message: Update mods
+          branch: update-mods-computer
+
       - name: Configure git user
+        if: false
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit the updated files
+        if: false
         run: |
           git add -A mods
           (
