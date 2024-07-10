@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/OptimusChen/ImageFactory-Quest/releases/download/v1.0.1/ImageFactory.qmod",
   "source": "https://github.com/OptimusChen/ImageFactory-Quest/",
-  "cover": "https://raw.githubusercontent.com/OptimusChen/ImageFactory-Quest/master/cover.png",
+  "cover": null,
   "funding": null,
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/PauseRemapper/releases/download/v1.1.0/Pause.Remapper.qmod",
   "source": "https://github.com/speecil/PauseRemapper/",
-  "cover": "https://raw.githubusercontent.com/speecil/PauseRemapper/main/PauseRemapper.gif",
+  "cover": null,
   "funding": null,
   "website": null
 }

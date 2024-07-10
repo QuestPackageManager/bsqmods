@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/NoParticles/releases/download/0.1.3/NoParticles.qmod",
   "source": "https://github.com/kodenamekrak/NoParticles/",
-  "cover": "https://raw.githubusercontent.com/kodenamekrak/NoParticles/master/cover.png",
+  "cover": null,
   "funding": null,
   "website": null
 }
