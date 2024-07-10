@@ -1,18 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Test PR
+name: Validate Mod Json
 
 on:
   # Runs on pushes targeting the default branch
   pull_request:
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
+permissions:
+  pull-requests: write
+  
 jobs:
   # Single deploy job since we're just deploying
   test:
+    name: pr-check-mods
     runs-on: ubuntu-latest
+    if: (github.event.issue.pull_request && github.event_name == 'issue_comment' && github.event.comment.body == '/check') || github.event_name == 'pull_request'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,10 +24,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Combine json
-        run: "cd scripts && npm install && npx tsx ./combine.ts --skipHashes"
+      - name: Get changed files
+        id: get_changed_files
+        run: |
+          # Get the list of changed files and save them to a file
+          git fetch --all
+          git diff --name-only origin/main HEAD > changed-files.txt
+          cat changed-files.txt
 
-      - uses: actions/upload-artifact@v4.3.3
-        with:
-          # A file, directory or wildcard pattern that describes what to upload
-          path: "./dist/mods.json"
+      - name: Validate json
+        run: |
+          cd scripts
+          npm install
+          npx tsx ./pr-check.ts
