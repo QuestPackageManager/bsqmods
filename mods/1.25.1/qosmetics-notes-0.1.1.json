@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.1.1/QosmeticsCyoobs.qmod",
   "source": "https://github.com/Qosmetics/Qosmetics-Notes/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Notes/master/cover.png",
   "funding": null,
   "website": null
 }

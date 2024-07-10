@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlaylistCore/releases/download/v1.3.2/PlaylistCore.qmod",
   "source": "https://github.com/Metalit/PlaylistCore/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Metalit/PlaylistCore/main/cover.png",
   "funding": null,
   "website": null
 }

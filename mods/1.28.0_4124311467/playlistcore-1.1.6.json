@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/PlaylistCore/releases/download/1.1.6/PlaylistCore.qmod",
   "source": "https://github.com/Metalit/PlaylistCore",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Metalit/PlaylistCore/main/cover.png",
   "funding": null,
   "website": "https://github.com/Metalit/PlaylistCore"
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Royston1999/SliceDetails-Quest/releases/download/v1.1.1/slicedetails_v1.1.0.qmod",
   "source": "https://github.com/Royston1999/SliceDetails-Quest/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Royston1999/SliceDetails-Quest/main/Cover.jpg",
   "funding": null,
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/ItsKaitlyn03/AnyTweaks/releases/download/v4.0.0/anytweaks_v4.0.0.qmod",
   "source": "https://github.com/ItsKaitlyn03/AnyTweaks/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/ItsKaitlyn03/AnyTweaks/main/cover.png",
   "funding": null,
   "website": null
 }

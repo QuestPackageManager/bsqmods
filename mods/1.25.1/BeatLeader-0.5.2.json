@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.2/BeatLeader_1_25_1.qmod",
   "source": "https://github.com/BeatLeader/beatleader-qmod/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
   "funding": null,
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/bsq-qounters-minus/releases/download/1.2.2/Qounters-.qmod",
   "source": "https://github.com/Metalit/bsq-qounters-minus/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Metalit/bsq-qounters-minus/master/cover.png",
   "funding": null,
   "website": null
 }

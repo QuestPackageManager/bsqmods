@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/BSMGPink/QuestNoItalics/releases/download/1.0.0/NoItalicsQuestDownload.zip",
   "source": "https://github.com/BSMGPink/QuestNoItalics/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/BSMGPink/QuestNoItalics/main/cover.jpg",
   "funding": null,
   "website": null
 }

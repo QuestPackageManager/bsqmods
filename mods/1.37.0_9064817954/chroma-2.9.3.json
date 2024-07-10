@@ -3,12 +3,12 @@
   "description": "Colors!",
   "id": "chroma",
   "version": "2.9.3",
+  "author": "Aeroluna, FernTheDev, nyamimi~",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/Chroma/releases/download/v2.9.3/Chroma.qmod",
   "source": "https://github.com/bsq-ports/Chroma/",
-  "author": "Aeroluna, FernTheDev, nyamimi~",
-  "modloader": "Scotland2",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/bsq-ports/Chroma/main/cover.png",
   "funding": null,
-  "website": null,
-  "hash": null
+  "website": null
 }

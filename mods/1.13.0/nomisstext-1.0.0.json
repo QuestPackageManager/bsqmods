@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/BSMGPink/QuestNoMissText/releases/download/1.0.0/NoMissText.zip",
   "source": "https://github.com/BSMGPink/QuestNoMissText/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/BSMGPink/QuestNoMissText/main/cover.jpg",
   "funding": null,
   "website": null
 }

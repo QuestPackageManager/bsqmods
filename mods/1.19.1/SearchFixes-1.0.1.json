@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/releases/download/v1.0.1/SearchFixes.qmod",
   "source": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/FranciscoRibeiro03/SearchFixesQuest/master/cover.png",
   "funding": null,
   "website": null
 }
