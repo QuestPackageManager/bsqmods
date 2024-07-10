@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.2.0/streamer-tools.qmod",
   "source": "https://github.com/EnderdracheLP/streamer-tools/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
   "funding": null,
   "website": null
 }
