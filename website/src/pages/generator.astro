@@ -116,6 +116,7 @@
             id="generateJson"
             type="button"
             data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
+            data-branch={(import.meta as any).env.REPO_BRANCH}
             >Create JSON on GitHub</button
           >
         </div>
@@ -277,7 +278,7 @@
 <script>
   import JSZip from "jszip";
   import { sanitizeFilename } from "../../../shared/sanitizeFilename";
-  import type { Mod } from "../../../shared/types/Mod";
+  import { splitModKeys, type Mod } from "../../../shared/types/Mod";
   import type { ModsCollection } from "../../../shared/types/ModsCollection";
   import type { QmodInfo } from "../../../shared/types/QmodInfo";
   import { fetchJson } from "../../../shared/fetch";
@@ -296,28 +297,28 @@
      */
     const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
-        "modDescription",
+        "modDescription"
       ) as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
       modDownloadLinkElement = getElementById(
-        "modDownloadLink",
+        "modDownloadLink"
       ) as HTMLInputElement,
       modSourceLinkElement = getElementById(
-        "modSourceLink",
+        "modSourceLink"
       ) as HTMLInputElement,
       modWebsiteLinkElement = getElementById(
-        "modWebsiteLink",
+        "modWebsiteLink"
       ) as HTMLInputElement,
       modFundingLinkElement = getElementById(
-        "modFundingLink",
+        "modFundingLink"
       ) as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       authorIconElement = getElementById("authorIcon") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById(
-        "targetGameVersion",
+        "targetGameVersion"
       ) as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLInputElement,
       qmodDropZoneElement = document.body,
@@ -350,7 +351,7 @@
     (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(
-          `../mods.json?${Math.floor(Date.now() / 1000)}`,
+          `../mods.json?${Math.floor(Date.now() / 1000)}`
         );
 
         if (result.data) {
@@ -381,7 +382,7 @@
     function checkMod(
       id: string,
       version: string,
-      gameVersion: string,
+      gameVersion: string
     ): boolean {
       /**
        * Array of mods for the specified game version.
@@ -443,44 +444,48 @@
      */
     function generateJson(this: HTMLElement, e: Event) {
       const repo = this.getAttribute("data-repo");
+      const branch = this.getAttribute("data-branch");
 
       if (!modJson[targetGameVersionElement.value]) {
         modJson[targetGameVersionElement.value] = [];
       }
 
-      let mod: Mod = getStandardizedMod({
-        name: modNameElement.value.trim(),
-        description: modDescriptionElement.value.trim(),
-        id: modIdElement.value.trim(),
-        version: modVersionElement.value.trim(),
-        author: modCreatorsElement.value.trim(),
-        authorIcon: authorIconElement.value.trim(),
-        modloader: modLoaderElement.value.trim(),
-        download: modDownloadLinkElement.value.trim(),
-        source: modSourceLinkElement.value.trim(),
-        cover: modCoverElement.value.trim(),
-        funding: modFundingLinkElement.value.trim(),
-        website: modWebsiteLinkElement.value.trim(),
-      });
+      let mod: Mod = getStandardizedMod(
+        {
+          name: modNameElement.value.trim(),
+          description: modDescriptionElement.value.trim(),
+          id: modIdElement.value.trim(),
+          version: modVersionElement.value.trim(),
+          author: modCreatorsElement.value.trim(),
+          authorIcon: authorIconElement.value.trim(),
+          modloader: modLoaderElement.value.trim(),
+          download: modDownloadLinkElement.value.trim(),
+          source: modSourceLinkElement.value.trim(),
+          cover: modCoverElement.value.trim(),
+          funding: modFundingLinkElement.value.trim(),
+          website: modWebsiteLinkElement.value.trim(),
+        },
+        splitModKeys
+      );
 
       const modFilename = getFilename(
         mod.id || "",
         mod.version || "",
-        targetGameVersionElement.value,
+        targetGameVersionElement.value
       );
 
       if (
         checkMod(
           mod.id || "",
           mod.version || "",
-          targetGameVersionElement.value,
+          targetGameVersionElement.value
         )
       ) {
         alert("This mod version already exists in the json");
-        window.open(`https://github.com/${repo}/edit/main/${modFilename}`);
+        window.open(`https://github.com/${repo}/edit/${branch}/${modFilename}`);
       } else {
         window.open(
-          `https://github.com/${repo}/new/main?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
+          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
         );
       }
     }
@@ -513,35 +518,37 @@
      */
     async function qmodLoadHandler(
       this: FileReader,
-      ev: ProgressEvent<FileReader>,
+      ev: ProgressEvent<FileReader>
     ) {
       const reader = this;
 
-      try {
-        const zip = await JSZip.loadAsync(reader.result);
-        const modFile = zip.file("mod.json");
+      if (reader.result) {
+        try {
+          const zip = await JSZip.loadAsync(reader.result);
+          const modFile = zip.file("mod.json");
 
-        if (!modFile) {
-          console.error("No mod.json");
-          return;
+          if (!modFile) {
+            console.error("No mod.json");
+            return;
+          }
+
+          const modInfo: QmodInfo = JSON.parse(await modFile.async("string"));
+
+          modNameElement.value = modInfo.name || "";
+          modDescriptionElement.value = modInfo.description || "";
+          modIdElement.value = modInfo.id || "";
+          modVersionElement.value = modInfo.version || "";
+          modCreatorsElement.value =
+            (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
+          targetGameVersionElement.value = modInfo.packageVersion || "";
+          modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
+          modFundingLinkElement.value = modInfo.funding || "";
+          modWebsiteLinkElement.value = modInfo.website || "";
+
+          console.log(modInfo);
+        } catch (error) {
+          console.error("Error loading QMOD file:", error);
         }
-
-        const modInfo: QmodInfo = JSON.parse(await modFile.async("string"));
-
-        modNameElement.value = modInfo.name || "";
-        modDescriptionElement.value = modInfo.description || "";
-        modIdElement.value = modInfo.id || "";
-        modVersionElement.value = modInfo.version || "";
-        modCreatorsElement.value =
-          (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
-        targetGameVersionElement.value = modInfo.packageVersion || "";
-        modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
-        modFundingLinkElement.value = modInfo.funding || "";
-        modWebsiteLinkElement.value = modInfo.website || "";
-
-        console.log(modInfo);
-      } catch (error) {
-        console.error("Error loading QMOD file:", error);
       }
     }
 
@@ -574,7 +581,7 @@
      */
     async function modDownloadLinkChangeHandler(
       this: HTMLInputElement,
-      e: Event,
+      e: Event
     ) {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
@@ -590,7 +597,7 @@
     qmodDropZoneElement.addEventListener(
       "dragover",
       (e) => e.preventDefault(),
-      false,
+      false
     );
 
     // Event listener for dropping files into the qmodDropZone
@@ -602,7 +609,7 @@
     // Event listener for onchange event of link input
     modDownloadLinkElement.addEventListener(
       "change",
-      modDownloadLinkChangeHandler,
+      modDownloadLinkChangeHandler
     );
 
     // Add url drop handlers to the following
@@ -622,7 +629,7 @@
     console.error(error);
 
     alert(
-      "An error has occurred during initialization, please see the console for more information.",
+      "An error has occurred during initialization, please see the console for more information."
     );
   });
 </script>

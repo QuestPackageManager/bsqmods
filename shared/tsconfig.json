@@ -1,15 +1,26 @@
 {
+  "include": [
+    "src/env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "compilerOptions": {
     "esModuleInterop": true,
     "strict": true,
-    "target": "ES2021",
+    "target": "ESNext",
     "experimentalDecorators": false,
     "inlineSourceMap": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["DOM", "DOM.AsyncIterable", "DOM.Iterable", "ES2021"],
-    "module": "esnext",
+    "lib": [
+      "DOM",
+      "DOM.AsyncIterable",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
     "moduleDetection": "force",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "moduleResolution": "Bundler",
   }
 }

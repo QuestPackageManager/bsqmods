@@ -22,7 +22,7 @@ for (const gameVersion in allMods) {
   for (const mod of allMods[gameVersion]) {
     // Delete keys that don't have a value, or are only whitespace. "undefined" too.
     for (const key of Object.keys(mod) as (keyof (Mod))[]) {
-      if (mod[key] == null || mod[key].length == 0 || mod[key] == "undefined") {
+      if (mod[key] == null || mod[key]?.length == 0 || mod[key] == "undefined") {
         delete mod[key];
       }
     }

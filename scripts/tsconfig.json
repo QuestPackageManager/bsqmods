@@ -1,4 +1,11 @@
 {
+  "include": [
+    "src/env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../shared/**/*.ts",
+    "../shared/**/*.tsx"
+  ],
   "compilerOptions": {
     "esModuleInterop": true,
     "strict": true,
@@ -7,11 +14,15 @@
     "inlineSourceMap": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["DOM", "DOM.AsyncIterable", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.AsyncIterable",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "module": "ESNext",
     "moduleDetection": "force",
     "useDefineForClassFields": true,
     "moduleResolution": "Bundler",
-    
   }
 }

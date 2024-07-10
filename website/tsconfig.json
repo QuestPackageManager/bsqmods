@@ -1,14 +1,26 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": [
+    "astro/tsconfigs/strict"
+  ],
   "include": [
     "src/env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "../shared/**/*.ts",
+    "../shared/**/*.tsx"
   ],
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "esModuleInterop": true,
     "strict": true,
+    "target": "ESNext",
+    "experimentalDecorators": false,
+    "inlineSourceMap": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+    "moduleResolution": "Bundler",
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
