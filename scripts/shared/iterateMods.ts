@@ -7,8 +7,7 @@ import { validateMod } from "../../shared/validateMod";
 import { getStandardizedMod } from "../../shared/getStandardizedMod";
 import { ModsCollection } from "../../shared/types/ModsCollection";
 import { getFilename } from "./getFilename";
-import semver from "semver";
-import { compareVersionAscending } from "../../shared/comparisonFunctions.ts";
+import { compareVersionAscending } from "../../shared/comparisonFunctions";
 
 /**
  * Class representing mod iteration data.

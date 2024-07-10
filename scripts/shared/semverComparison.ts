@@ -11,14 +11,23 @@ import semver from "semver";
  * - `-1` if `v2` is greater.
  */
 export function compareVersionAscending(a: string | null, b: string | null): number {
-  a = a || "";
-  b = b || "";
+  if (a == null) return 1;
+  if (b == null) return -1;
 
-  a = a.replace(/_/g, "-");
-  b = b.replace(/_/g, "-");
+  if (a) {
+    a = a.replace(/_/g, "-");
+  }
 
-  if (!semver.valid(a)) {
+  if (b) {
+    b = b.replace(/_/g, "-");
+  }
+
+  if (semver.valid(a) == null) {
     return 1;
+  }
+
+  if (semver.valid(b) == null) {
+    return -1;
   }
 
   return semver.compare(a, b)
@@ -35,14 +44,23 @@ export function compareVersionAscending(a: string | null, b: string | null): num
  * - `-1` if `v2` is greater.
  */
 export function compareVersionDescending(a: string | null, b: string | null): number {
-  a = a || "";
-  b = b || "";
+  if (a == null) return 1;
+  if (b == null) return -1;
 
-  a = a.replace(/_/g, "-");
-  b = b.replace(/_/g, "-");
+  if (a) {
+    a = a.replace(/_/g, "-");
+  }
 
-  if (!semver.valid(a)) {
+  if (b) {
+    b = b.replace(/_/g, "-");
+  }
+
+  if (semver.valid(a) == null) {
     return 1;
+  }
+
+  if (semver.valid(b) == null) {
+    return -1;
   }
 
   return semver.rcompare(a, b)
