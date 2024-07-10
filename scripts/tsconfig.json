@@ -4,7 +4,8 @@
     "**/*.ts",
     "**/*.tsx",
     "../shared/**/*.ts",
-    "../shared/**/*.tsx"
+    "../shared/**/*.tsx",
+    "../shared/comparisonFunctions.ts"
   ],
   "compilerOptions": {
     "esModuleInterop": true,

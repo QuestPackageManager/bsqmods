@@ -1,6 +1,7 @@
 ---
 import mods from "../../public/mods.json";
 import { getCoreMods } from "../../../shared/CoreMods";
+import { compareVersionDescending } from "../../../shared/comparisonFunctions";
 
 export async function getVersions() {
   const coreMods = await getCoreMods();
@@ -8,7 +9,7 @@ export async function getVersions() {
   return Object.keys(mods)
     .filter((version) => version != "undefined")
     .filter((version) => Object.keys(coreMods).includes(version))
-    .reverse();
+    .sort(compareVersionDescending);
 }
 ---
 

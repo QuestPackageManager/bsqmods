@@ -7,6 +7,8 @@ import { validateMod } from "../../shared/validateMod";
 import { getStandardizedMod } from "../../shared/getStandardizedMod";
 import { ModsCollection } from "../../shared/types/ModsCollection";
 import { getFilename } from "./getFilename";
+import semver from "semver";
+import { compareVersionAscending } from "../../shared/comparisonFunctions.ts";
 
 /**
  * Class representing mod iteration data.
@@ -68,7 +70,8 @@ export class ModIterationData {
 
 export function* iterateSplitMods(): Generator<ModIterationData, void, unknown> {
   const gameVersions = readdirSync(modsPath)
-    .filter(versionPath => statSync(join(modsPath, versionPath)).isDirectory());
+    .filter(versionPath => statSync(join(modsPath, versionPath)).isDirectory())
+    .sort(compareVersionAscending);
 
   for (const version of gameVersions) {
     const versionPath = join(modsPath, version);
@@ -87,7 +90,7 @@ export function* iterateCombinedMods(): Generator<ModIterationData, void, unknow
   const allMods: ModsCollection = JSON.parse(readTextFile(allModsPath, "{}"));
 
   // Loop through the keys of allMods as gameVersion
-  for (const version in allMods) {
+  for (const version of Object.keys(allMods).sort(compareVersionAscending)) {
     const versionPath = join(modsPath, version);
 
     // Loop through all the mods for that game version.

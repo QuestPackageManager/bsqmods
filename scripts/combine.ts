@@ -17,6 +17,8 @@ import { getStandardizedMod } from "../shared/getStandardizedMod"
 import { validateMod } from "../shared/validateMod";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { fetchBuffer, fetchHead } from "../shared/fetch";
+import { compareAlphabeticallyAscInsensitive, compareVersionAscending } from "../shared/comparisonFunctions";
+import { compareVersionDescending } from "./shared/semverComparison";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -248,13 +250,25 @@ for (const iteration of iterateSplitMods()) {
   fs.writeFileSync(hashesPath, JSON.stringify(hashes));
 }
 
+function sortMods(mods: ModsCollection): ModsCollection {
+  const sortedMods: ModsCollection = {};
+
+  for (const version of Object.keys(mods).sort(compareVersionAscending)) {
+    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id))
+
+    sortedMods[version] = mods[version];
+  }
+
+  return sortedMods;
+}
+
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
 fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-fs.writeFileSync(allModsPath, JSON.stringify(allMods));
+fs.writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
 
 // Create the directory for the versions JSON file if it doesn't exist and save the data
 fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
-fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods)));
+fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
 
 // now make per-version json
 type GameVersionType = string
