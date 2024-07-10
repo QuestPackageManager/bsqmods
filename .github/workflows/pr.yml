@@ -4,6 +4,10 @@ on:
   # Runs on pushes targeting the default branch
   pull_request:
     branches: ["main"]
+    types: [opened, synchronize, reopened]
+
+  issue_comment:
+    types: [created]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,7 +17,20 @@ jobs:
   test:
     name: pr-check-mods
     runs-on: ubuntu-latest
+    if: (github.event.issue.pull_request && github.event_name == 'issue_comment' && github.event.comment.body == '/check') || github.event_name == 'pull_request'
     steps:
+      - name: Delete comment
+        if: (github.event.issue.pull_request && github.event_name == 'issue_comment' && github.event.comment.body == '/check')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          comment_id=$(jq --raw-output .comment.id "$GITHUB_EVENT_PATH")
+          curl \
+            -X DELETE \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/comments/$comment_id"
+            
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -26,7 +43,7 @@ jobs:
         run: |
           # Get the list of changed files and save them to a file
           git fetch --all
-          git diff --name-only "origin/${{ github.base_ref }}" HEAD > changed-files.txt
+          git diff --name-only origin/main HEAD > changed-files.txt
           cat changed-files.txt
 
       - name: Validate json
