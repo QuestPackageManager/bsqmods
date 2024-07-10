@@ -1,5 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Test PR
+name: Validate Mod Json
 
 on:
   # Runs on pushes targeting the default branch
@@ -21,10 +20,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Combine json
-        run: "cd scripts && npm install && npx tsx ./combine.ts --skipHashes"
+      - name: Get changed files
+        id: get_changed_files
+        run: |
+          # Get the list of changed files and save them to a file
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} > changed-files.txt
 
-      - uses: actions/upload-artifact@v4.3.3
-        with:
-          # A file, directory or wildcard pattern that describes what to upload
-          path: "./dist/mods.json"
+      - name: Validate json
+        run: |
+          cd scripts
+          npm install
+          npx tsx ./pr-check.ts

@@ -28,4 +28,7 @@ export const versionsModsPath = path.join(websiteBase, "versions.json");
 export const qmodRepoDirPath = path.join(websiteBase, "mods");
 
 /** The path to the imported.json file used to track which core mods have been imported */
-export const importedCoreModsInfo = path.join(modsPath, "imported.json")
+export const importedCoreModsInfo = path.join(modsPath, "imported.json");
+
+/** The path to the changed files text file.  Used during PR checks. */
+export const changedFilesPath = path.join(repoDir, "changed-files.txt");
