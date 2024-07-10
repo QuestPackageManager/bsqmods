@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.0.0/noodle_extensions.qmod",
   "source": "https://github.com/StackDoubleFlow/NoodleExtensions/",
-  "cover": "https://raw.githubusercontent.com/StackDoubleFlow/NoodleExtensions/master/cover.png",
+  "cover": null,
   "funding": null,
   "website": null
 }

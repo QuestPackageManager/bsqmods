@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/darknight1050/CrashReporter/releases/download/v0.1.3/CrashReporter.qmod",
   "source": "https://github.com/darknight1050/CrashReporter/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/darknight1050/CrashReporter/master/cover.png",
   "funding": null,
   "website": null
 }

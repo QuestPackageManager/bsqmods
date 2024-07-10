@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/QonsistentSaberColors/releases/download/0.1.1/QonsistentSaberColors.qmod",
   "source": "https://github.com/kodenamekrak/QonsistentSaberColors/",
-  "cover": "https://raw.githubusercontent.com/kodenamekrak/QonsistentSaberColors/master/cover.jpg",
+  "cover": null,
   "funding": null,
   "website": null
 }

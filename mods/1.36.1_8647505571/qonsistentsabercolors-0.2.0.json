@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/kodenamekrak/QonsistentSaberColors/releases/download/0.2.0/QonsistentSaberColors.qmod",
   "source": "https://github.com/kodenamekrak/QonsistentSaberColors/",
-  "cover": "https://raw.githubusercontent.com/kodenamekrak/QonsistentSaberColors/master/cover.jpg",
+  "cover": null,
   "funding": null,
   "website": null
 }
