@@ -13,10 +13,20 @@ export async function getQmodCoverUrl(url: string) {
   const match = ghRegex.exec(url);
 
   if (match) {
-    try {
-      const repoJson: any = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
 
-      const defaultBranch = repoJson["default_branch"] as string;
+    const repoJson: any = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
+
+    if (!repoJson) {
+      throw new Error("Error fetching repo json")
+    }
+
+    const defaultBranch = repoJson["default_branch"] || null;
+
+    if (!defaultBranch) {
+      throw new Error(`API issue.\n\n${JSON.stringify(repoJson, null, "  ")}`);
+    }
+
+    try {
       let coverFilename = "cover.png";
 
       try {

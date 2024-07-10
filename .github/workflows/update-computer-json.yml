@@ -17,7 +17,10 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-github-icons:
+  update-computer-json:
+    concurrency:
+      group: update-computer-json-${{ github.ref }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,6 +31,8 @@ jobs:
           node-version: 20
 
       - name: Update the mods.json from ComputerElite
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           wget "https://computerelite.github.io/tools/Beat_Saber/mods.json" -O website/public/mods.json
           cd scripts

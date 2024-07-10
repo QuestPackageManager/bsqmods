@@ -1,7 +1,9 @@
-import { fetchHead } from "../shared/fetch";
+import { fetchHead, fetchJson } from "../shared/fetch";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl";
 import { delay } from "../shared/delay"
 import { iterateSplitMods } from "./shared/iterateMods";
+
+console.log("GitHub API", (await fetchJson("https://api.github.com/rate_limit")).data)
 
 for (const iteration of iterateSplitMods()) {
   try {
@@ -24,8 +26,12 @@ for (const iteration of iterateSplitMods()) {
       // Delay to keep GitHub happy.
       await delay(2000);
     }
-  } catch (err) {
+  } catch (err: any) {
     console.error(`  ${err}`);
     console.log("");
+
+    if ((err?.message || "").startsWith("API issue.")) {
+      process.exit(1);
+    }
   }
 }

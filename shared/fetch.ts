@@ -1,3 +1,4 @@
+import { getGithubToken } from "./githubToken";
 import { FetchType } from "./types/FetchType";
 
 export interface FetchedData<T> {
@@ -13,7 +14,14 @@ export interface FetchedData<T> {
  * @returns - A promise resolving to the fetched data or null if not found.
  */
 export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Json): Promise<FetchedData<T>> {
-  const response = await fetch(url);
+  const token = await getGithubToken();
+  const useToken = token && url.toLocaleLowerCase().startsWith("https://api.github.com/");
+  const response = await fetch(url, useToken ? {
+    headers: {
+      'Accept': 'application/vnd.github.v3+json',
+      'Authorization': `Bearer ${token}`
+    },
+  } : undefined);
 
   if (response.ok) {
     switch (type) {
