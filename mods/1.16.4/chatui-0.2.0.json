@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/darknight1050/ChatUI/releases/download/v0.2.0/chatui.qmod",
   "source": "https://github.com/darknight1050/ChatUI/",
-  "cover": "https://raw.githubusercontent.com/darknight1050/ChatUI/master/cover.png",
+  "cover": null,
   "funding": null,
   "website": null
 }
