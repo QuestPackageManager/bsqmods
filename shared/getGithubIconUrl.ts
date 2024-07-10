@@ -1,4 +1,4 @@
-import { cachedFetchJson } from "./cachedFetch";
+import { cachedFetchJson, CachableResult } from "./cachedFetch";
 import { fetchRedirectedLocation } from "./fetch";
 import { ghRegex } from "./ghRegex";
 import { Dictionary } from "./types/Dictionary";
@@ -29,30 +29,43 @@ async function fetchIconLink(url: string): Promise<string | null> {
  * @param link - A link starting with `https://github.com/[owner]/[repo]
  * @returns
  */
-export async function getGithubIconUrl(link: string): Promise<string | null> {
+export async function getGithubIconUrl(link: string): Promise<CachableResult<string | null>> {
   const ghMatch = ghRegex.exec(link);
 
   if (ghMatch) {
     if (iconCache[ghMatch[1]] !== undefined) {
-      return iconCache[ghMatch[1]];
+      return {
+        data: iconCache[ghMatch[1]],
+        fromCache: true
+      };
     }
 
     if (typeof window === "undefined") {
       // We're not in the browser, we can use fetch.
       iconCache[ghMatch[1]] = await fetchIconLink(`https://github.com/${ghMatch[1]}.png`);
 
-      return iconCache[ghMatch[1]];
+      return {
+        data: iconCache[ghMatch[1]],
+        fromCache: false
+      };
     } else {
       // We're in the browser, we need to use the GitHub API.
       try {
-        const repoJson = await cachedFetchJson<any>(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`);
+        const result = await cachedFetchJson<any>(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`);
+        const repoJson = result.data;
 
         iconCache[ghMatch[1]] = repoJson?.owner?.avatar_url || null;
 
-        return iconCache[ghMatch[1]]
+        return {
+          data: iconCache[ghMatch[1]],
+          fromCache: result.fromCache
+        }
       } catch (err) { }
     }
   }
 
-  return null;
+  return {
+    data: null,
+    fromCache: true
+  };
 }

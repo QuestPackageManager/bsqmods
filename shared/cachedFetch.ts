@@ -30,6 +30,14 @@ function getCacheType(type: FetchType): keyof FetchCache {
   return FetchType[type].toLowerCase() as keyof FetchCache;
 }
 
+export interface CachableResult<T> {
+  /** The requested data. */
+  data: T
+
+  /** If the result was from the cache. */
+  fromCache: boolean
+}
+
 /**
  * Performs a cached fetch operation based on the provided URL and fetch type.
  * @param url - The URL to fetch data from.
@@ -37,14 +45,17 @@ function getCacheType(type: FetchType): keyof FetchCache {
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched data or null if not found.
  */
-async function cachedFetch<T>(url: string, type: FetchType = FetchType.Json, force = false): Promise<T | null> {
+async function cachedFetch<T>(url: string, type: FetchType = FetchType.Json, force = false): Promise<CachableResult<T | null>> {
   const cacheType = getCacheType(type);
 
   if (fetchCache[cacheType][url]) {
     if (force) {
       delete fetchCache[cacheType][url];
     } else {
-      return fetchCache[cacheType][url];
+      return {
+        data: fetchCache[cacheType][url],
+        fromCache: true
+      };
     }
   }
 
@@ -53,10 +64,16 @@ async function cachedFetch<T>(url: string, type: FetchType = FetchType.Json, for
   if (response.data) {
     fetchCache[cacheType][url] = response.data;
 
-    return fetchCache[cacheType][url];
+    return {
+      data: fetchCache[cacheType][url],
+      fromCache: true
+    };
   }
 
-  return null;
+  return {
+    data: null,
+    fromCache: false
+  };
 }
 
 /**
@@ -65,7 +82,7 @@ async function cachedFetch<T>(url: string, type: FetchType = FetchType.Json, for
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched JSON data or null if not found.
  */
-export const cachedFetchJson = async <T>(url: string, force = false): Promise<T | null> =>
+export const cachedFetchJson = async <T>(url: string, force = false): Promise<CachableResult<T | null>> =>
   await cachedFetch<any>(url, FetchType.Json, force);
 
 /**
@@ -74,7 +91,7 @@ export const cachedFetchJson = async <T>(url: string, force = false): Promise<T 
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched text data or null if not found.
  */
-export const cachedFetchText = async (url: string, force = false): Promise<string | null> =>
+export const cachedFetchText = async (url: string, force = false): Promise<CachableResult<string | null>> =>
   await cachedFetch<string>(url, FetchType.Text, force);
 
 /**
@@ -83,5 +100,5 @@ export const cachedFetchText = async (url: string, force = false): Promise<strin
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched ArrayBuffer data or null if not found.
  */
-export const cachedFetchBuffer = async (url: string, force = false): Promise<ArrayBuffer | null> =>
+export const cachedFetchBuffer = async (url: string, force = false): Promise<CachableResult<ArrayBuffer | null>> =>
   await cachedFetch<ArrayBuffer>(url, FetchType.Buffer, force);

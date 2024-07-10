@@ -6,7 +6,7 @@ for (const iteration of iterateSplitMods()) {
     var json = iteration.getModJson();
 
     if (json.authorIcon == null) {
-      if (json.authorIcon = await getGithubIconUrl(json.download as string)) {
+      if (json.authorIcon = (await getGithubIconUrl(json.download as string)).data) {
         iteration.writeModJson(json);
       }
     }

@@ -1,4 +1,4 @@
-import { cachedFetchJson } from "./cachedFetch";
+import { cachedFetchJson, CachableResult } from "./cachedFetch";
 import { fetchJson } from "./fetch";
 import { ghRegex } from "./ghRegex";
 import { isNullOrWhitespace } from "./isNullOrWhitespace";
@@ -9,12 +9,12 @@ import { isNullOrWhitespace } from "./isNullOrWhitespace";
  * @param url - The URL of the GitHub repository.
  * @returns The URL of the cover image or null if not found.
  */
-export async function getQmodCoverUrl(url: string) {
+export async function getQmodCoverUrl(url: string): Promise<CachableResult<string | null>> {
   const match = ghRegex.exec(url);
 
   if (match) {
-
-    const repoJson: any = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
+    const result = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
+    const repoJson: any = result.data;
 
     if (!repoJson) {
       throw new Error("Error fetching repo json")
@@ -56,10 +56,16 @@ export async function getQmodCoverUrl(url: string) {
       });
 
       if (coverResponse.ok) {
-        return `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}`;
+        return {
+          data: `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}`,
+          fromCache: result.fromCache
+        };
       }
     } catch (err) { }
   }
 
-  return null;
+  return {
+    data: null,
+    fromCache: true
+  };
 }

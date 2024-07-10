@@ -20,11 +20,15 @@ for (const iteration of iterateSplitMods()) {
     }
 
     if (!json.cover) {
-      json.cover = await getQmodCoverUrl(json.download);
+      const result = await getQmodCoverUrl(json.download);
+
+      json.cover = result.data;
       iteration.writeModJson(json);
 
       // Delay to keep GitHub happy.
-      await delay(2000);
+      if (!result.fromCache) {
+        await delay(2000);
+      }
     }
   } catch (err: any) {
     console.error(`  ${err}`);

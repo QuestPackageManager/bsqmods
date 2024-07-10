@@ -15,6 +15,7 @@ import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
 import { validateMod } from "../shared/validateMod";
 import { fetchBuffer } from "../shared/fetch";
 import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage"
+import { CachableResult } from "../shared/cachedFetch";
 
 /**
  * Creates the json file for the given qmod url.
@@ -24,7 +25,7 @@ import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage"
  * @param logger - The logger to use.  Defaults to the console.
  * @returns The mod data if successful, or null.
  */
-export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<Mod | null> {
+export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<CachableResult<Mod | null>> {
   try {
     const result = await fetchBuffer(url);
 
@@ -39,17 +40,18 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
     if (infoFile != null) {
       try {
         const json = JSON.parse(await infoFile.async("text"));
+        const coverResult = await getQmodCoverUrl(url);
         const modInfo: Mod = {
           name: json.name || null,
           description: json.description || null,
           id: json.id || null,
           version: json.version || null,
           author: (!json.porter ? "" : json.porter + (isNullOrWhitespace(json.author) ? "" : ", ")) + json.author,
-          authorIcon: await getGithubIconUrl(url),
+          authorIcon: (await getGithubIconUrl(url)).data,
           modloader: json.modloader || "QuestLoader",
           download: url,
           source: null,
-          cover: await getQmodCoverUrl(url),
+          cover: coverResult.data,
           funding: json.funding || null,
           website: json.website || null
         }
@@ -92,21 +94,36 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
         }
 
-        return modInfo;
+        return {
+          data: modInfo,
+          fromCache: coverResult.fromCache
+        };
       } catch (error: any) {
         logger.error(`Error processing ${infoFile.name}\n${error.message}`);
-        return null;
+        return {
+          data: null,
+          fromCache: true
+        };
       }
     } else {
       logger.warn("No info json");
-      return null;
+      return {
+        data: null,
+        fromCache: true
+      };
     }
   } catch (error) {
     logger.error("Invalid archive");
-    return null;
+    return {
+      data: null,
+      fromCache: true
+    };
   }
 
-  return null;
+  return {
+    data: null,
+    fromCache: true
+  };
 }
 
 if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
@@ -122,7 +139,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
         if (!importCache.includes(cacheString)) {
           const logger = new CapturingLogger();
 
-          if (await importRemoteQmod(mod.downloadLink, gameVersion, true, logger)) {
+          if ((await importRemoteQmod(mod.downloadLink, gameVersion, true, logger)).data) {
             if (logger.getErrorMessages().length > 0) {
               console.log(mod.downloadLink);
 
@@ -141,7 +158,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
     const logger = new CapturingLogger();
 
-    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger))) {
+    if (!((await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger)).data)) {
       if (logger.getErrorMessages().length > 0) {
         console.log(url);
 

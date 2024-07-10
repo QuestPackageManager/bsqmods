@@ -71,7 +71,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     }
   }
 
-  mod.authorIcon = mod.authorIcon || await getGithubIconUrl(mod.download);
+  mod.authorIcon = mod.authorIcon || (await getGithubIconUrl(mod.download)).data;
 
   // We've already processed this, don't do it again.
   if (qmodHash != null) {
