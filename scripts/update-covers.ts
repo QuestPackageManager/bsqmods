@@ -40,3 +40,5 @@ for (const iteration of iterateSplitMods()) {
     }
   }
 }
+
+console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)

@@ -1,12 +1,13 @@
 import { compareAlphabeticallyDesc } from "../shared/comparisonFunctions";
-import { delay } from "../shared/delay";
 import { fetchJson } from "../shared/fetch";
 import { getIndentedMessage as indent } from "../shared/getIndentedMessage";
 import { ghRegex } from "../shared/ghRegex";
 import { IndentedConsoleLogger } from "../shared/IndentedConsoleLogger";
-import { Message, Release, Releases } from "../shared/types/GitHubAPI";
+import { Message, RateLimits, Release, Releases } from "../shared/types/GitHubAPI";
 import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
+
+console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
 
 const mods = [...iterateSplitMods()].map(mod => mod.getModJson());
 const repos = mods
@@ -77,3 +78,5 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
     }
   }
 }
+
+console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
