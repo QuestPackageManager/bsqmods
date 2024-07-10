@@ -1,0 +1,14 @@
+{
+  "name": "Chroma",
+  "description": "Colors!",
+  "id": "chroma",
+  "version": "2.9.3",
+  "author": "FernTheDev, nyamimi~, Aeroluna",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/Chroma/releases/download/v2.9.3/Chroma.qmod",
+  "source": "https://github.com/bsq-ports/Chroma/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/Chroma/main/cover.png",
+  "funding": null,
+  "website": "https://github.com/bsq-ports/Chroma/"
+}
