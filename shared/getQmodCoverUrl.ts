@@ -2,6 +2,7 @@ import { cachedFetchJson, CachableResult } from "./cachedFetch";
 import { fetchJson } from "./fetch";
 import { ghRegex } from "./ghRegex";
 import { isNullOrWhitespace } from "./isNullOrWhitespace";
+import { Repository } from "./types/GitHubAPI";
 
 /**
  * Retrieves the cover image URL for a GitHub repository.
@@ -13,14 +14,14 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
   const match = ghRegex.exec(url);
 
   if (match) {
-    const result = await cachedFetchJson(`https://api.github.com/repos/${match[1]}/${match[2]}`);
-    const repoJson: any = result.data;
+    const result = await cachedFetchJson<Repository>(`https://api.github.com/repos/${match[1]}/${match[2]}`);
+    const repoJson = result.data;
 
     if (!repoJson) {
       throw new Error("Error fetching repo json")
     }
 
-    const defaultBranch = repoJson["default_branch"] || null;
+    const defaultBranch = repoJson.default_branch || null;
 
     if (!defaultBranch) {
       throw new Error(`API issue.\n\n${JSON.stringify(repoJson, null, "  ")}`);

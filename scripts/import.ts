@@ -26,13 +26,17 @@ import { CachableResult } from "../shared/cachedFetch";
  * @returns The mod data if successful, or null.
  */
 export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<CachableResult<Mod | null>> {
+  const result = await fetchBuffer(url);
+
+  if (!result.data) {
+    logger.error(result.response.statusText);
+    return {
+      data: null,
+      fromCache: true
+    };
+  }
+
   try {
-    const result = await fetchBuffer(url);
-
-    if (!result.data) {
-      throw new Error(result.response.statusText);
-    }
-
     const zip = await JSZip.loadAsync(result.data);
 
     const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");

@@ -2,6 +2,7 @@ import { cachedFetchJson, CachableResult } from "./cachedFetch";
 import { fetchRedirectedLocation } from "./fetch";
 import { ghRegex } from "./ghRegex";
 import { Dictionary } from "./types/Dictionary";
+import { Repository } from "./types/GitHubAPI";
 
 /**
  * Represents a collection of icon URLs indexed by the source url.
@@ -51,10 +52,10 @@ export async function getGithubIconUrl(link: string): Promise<CachableResult<str
     } else {
       // We're in the browser, we need to use the GitHub API.
       try {
-        const result = await cachedFetchJson<any>(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`);
+        const result = await cachedFetchJson<Repository>(`https://api.github.com/repos/${ghMatch[1]}/${ghMatch[2]}`);
         const repoJson = result.data;
 
-        iconCache[ghMatch[1]] = repoJson?.owner?.avatar_url || null;
+        iconCache[ghMatch[1]] = repoJson?.owner.avatar_url || null;
 
         return {
           data: iconCache[ghMatch[1]],

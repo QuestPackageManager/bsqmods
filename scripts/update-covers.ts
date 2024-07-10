@@ -2,8 +2,9 @@ import { fetchHead, fetchJson } from "../shared/fetch";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl";
 import { delay } from "../shared/delay"
 import { iterateSplitMods } from "./shared/iterateMods";
+import { RateLimits } from "../shared/types/GitHubAPI";
 
-console.log("GitHub API", (await fetchJson("https://api.github.com/rate_limit")).data)
+console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
 
 for (const iteration of iterateSplitMods()) {
   try {
