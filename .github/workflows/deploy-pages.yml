@@ -13,9 +13,6 @@ on:
         description: "A list of URLs to purge from the cache, separated by \"|\".\n\nTo clear the entire cache, use \"--all\"."
         default: ""
 
-  schedule:
-    - cron: "0 0 * * *"
-
   repository_dispatch:
     types: [trigger_deploy]
 
