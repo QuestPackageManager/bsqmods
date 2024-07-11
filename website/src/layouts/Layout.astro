@@ -1,5 +1,6 @@
 ---
 import BottomAnchor from "../components/BottomAnchor.astro";
+import GithubCorner from "../components/GithubCorner.astro";
 
 export interface Props {
   title: string;
@@ -51,6 +52,7 @@ if (!baseUrl.endsWith("/")) {
       relative
     `}
   >
+    <GithubCorner />
     <header
       class={`
         before:absolute
