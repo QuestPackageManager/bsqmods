@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -27,10 +29,13 @@ jobs:
       - name: Get changed files
         id: get_changed_files
         run: |
-          # Get the list of changed files and save them to a file
-          git fetch --all
-          git diff --name-only origin/main HEAD > changed-files.txt
-          cat changed-files.txt
+          curl --silent "https://api.github.com/repos/dantheman827/bsqmods/pulls/${{ github.event.pull_request.number }}/files" | jq -r '.[].filename' > changed-files.txt
+
+      - name: Get the mods folder of the PR
+        id: download_mods_json
+        run: |
+          rm -r mods
+          wget "https://api.github.com/repos/dantheman827/bsqmods/tarball/pull/${{ github.event.pull_request.number }}/head" -qO - | tar -xzvf - --strip-components=1 --wildcards '*/mods/'
 
       - name: Validate json
         run: |
