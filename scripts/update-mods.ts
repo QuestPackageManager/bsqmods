@@ -59,6 +59,8 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
     throw new Error((releases as Message).message);
   }
 
+  let assetFound = false;
+
   release_loop:
   for (const release of (releases as Release[]).filter(release => !release.draft && !release.prerelease).sort((a, b) => compareAlphabeticallyDesc(a?.published_at, b?.published_at))) {
     console.log(indent(`Processing tag: ${release.tag_name}`, 1))
@@ -74,12 +76,10 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
       }
 
       if (links.includes(url.toLowerCase())) {
-        console.log(indent(`Tag found, moving to next repo.\n`, 2))
-        newLine = false;
-        break release_loop;
+        assetFound = true;
       }
 
-      if (asset.name.toLowerCase().endsWith(".qmod")) {
+      if (asset.name.toLowerCase().endsWith(".qmod") && !links.includes(url.toLowerCase())) {
         console.log(indent(`Processing asset: ${asset.name}\n`, 2))
         newLine = false;
         await importRemoteQmod(url, null, true, new IndentedConsoleLogger(3));
@@ -89,6 +89,11 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
 
     if (newLine) {
       console.log("");
+    }
+
+    if (assetFound) {
+      console.log(indent(`Moving to next repo.\n`, 2))
+      break;
     }
   }
 }
