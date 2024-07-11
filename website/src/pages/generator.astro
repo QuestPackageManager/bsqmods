@@ -588,8 +588,8 @@
       if (match) {
         modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
         modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
-        authorIconElement.value = (await getGithubIconUrl(match[0])) || "";
-        modCoverElement.value = (await getQmodCoverUrl(match[0])) || "";
+        authorIconElement.value = (await getGithubIconUrl(match[0])).data || "";
+        modCoverElement.value = (await getQmodCoverUrl(match[0])).data || "";
       }
     }
 
