@@ -8,17 +8,24 @@ on:
       url:
         description: "A url to a qmod that should be imported. If not specified, core mods are imported."
         default: ""
+
       targetVersion:
         description: "The target game version of the qmod.  If not specified, it will be read from the qmod itself."
         default: ""
 
+      createPr:
+        description: "Should a PR be created? If false, the result will be committed automatically."
+        type: boolean
+        default: true
+
   # Every 30 minutes
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "0 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow push
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   # Single deploy job since we're just deploying
@@ -51,13 +58,27 @@ jobs:
           npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
           git add -A ../mods
           echo "COMMIT_MSG=Update $(git diff --name-only --cached)" >> $GITHUB_ENV
+          echo "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" |
+            tr A-Z a-z |
+            md5sum |
+            awk '{ print "BRANCH_NAME=" $1 }' >> $GITHUB_ENV
+
+      - name: Create PR
+        if: ${{ github.event.inputs.createPr == 'true'}}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: ${{ env.COMMIT_MSG }}
+          commit-message: ${{ env.COMMIT_MSG }}
+          branch: import/${{ env.BRANCH_NAME }}
 
       - name: Configure git user
+        if: ${{ github.event.inputs.createPr != 'true'}}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit the updated files
+        if: ${{ github.event.inputs.createPr != 'true'}}
         run: |
           git add -A mods
           (
