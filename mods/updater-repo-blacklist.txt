@@ -1,0 +1,6 @@
+# This file contains a list of repositories that shouldn't
+# be scanned by the auto-updater. One repository per line.
+
+Futuremappermydud/HapticRevert
+Futuremappermydud/IForgor-quest
+bsq-ports/Chroma

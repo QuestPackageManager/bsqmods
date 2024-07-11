@@ -3,9 +3,18 @@ import { fetchJson } from "../shared/fetch";
 import { getIndentedMessage as indent } from "../shared/getIndentedMessage";
 import { ghRegex } from "../shared/ghRegex";
 import { IndentedConsoleLogger } from "../shared/IndentedConsoleLogger";
+import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { Message, RateLimits, Release, Releases } from "../shared/types/GitHubAPI";
 import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
+import { modBlacklistPath } from "./shared/paths";
+import { readTextFile } from "./shared/readTextFile";
+
+const repoBlacklist = (await readTextFile(modBlacklistPath, ""))
+  .replace(/\r/g, "")
+  .split("\n")
+  .filter(line => !isNullOrWhitespace(line) && !line.trim().startsWith("#"))
+  .map(line => line.trim().toLowerCase());
 
 console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
 
@@ -33,6 +42,11 @@ console.log("Running mod updater...\n");
 repo_loop:
 for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
   console.log(`Processing ${owner}/${repo}`)
+
+  if (repoBlacklist.includes(`${owner}/${repo}`.toLowerCase())) {
+    console.log(indent("Skipping due to blacklist\n", 1));
+    continue;
+  }
 
   const releases = (await fetchJson<Releases>(`https://api.github.com/repos/${owner}/${repo}/releases?per_page=100`)).data;
 

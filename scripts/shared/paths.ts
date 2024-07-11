@@ -32,3 +32,6 @@ export const importedCoreModsInfo = path.join(modsPath, "imported.json");
 
 /** The path to the changed files text file.  Used during PR checks. */
 export const changedFilesPath = path.join(repoDir, "changed-files.txt");
+
+/** The path to the mod blacklist file. */
+export const modBlacklistPath = path.join(modsPath, "updater-repo-blacklist.txt")
