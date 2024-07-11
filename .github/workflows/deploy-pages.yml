@@ -13,6 +13,14 @@ on:
         description: "A list of URLs to purge from the cache, separated by \"|\".\n\nTo clear the entire cache, use \"--all\"."
         default: ""
 
+      recheckUrls:
+        description: "Should the existing URLs be re-checked to determine if there are any missing?"
+        type: boolean
+        default: false
+
+  schedule:
+    - cron: "48 0 * * *"
+
   repository_dispatch:
     types: [trigger_deploy]
 
@@ -80,7 +88,7 @@ jobs:
           npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
 
       - name: Process the json (schedule)
-        if: ${{ github.event_name == 'schedule' }}
+        if: ${{ github.event_name == 'schedule' }} || ${{ github.event.inputs.recheckUrls == 'true'}}
         run: |
           cd scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
