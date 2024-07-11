@@ -82,19 +82,19 @@ jobs:
           npm install
 
       - name: Purge specified items from cache
-        if: ${{ github.event.inputs.purgeCache != '' }}
+        if: (github.event.inputs.purgeCache != '')
         run: |
           cd scripts
           npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
 
       - name: Process the json (schedule)
-        if: ${{ github.event_name == 'schedule' }} || ${{ github.event.inputs.recheckUrls == 'true'}}
+        if: (github.event_name == 'schedule' || github.event.inputs.recheckUrls == 'true')
         run: |
           cd scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: Process the json (normal)
-        if: ${{ github.event_name != 'schedule' }}
+        if: (github.event_name != 'schedule')
         run: |
           cd scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt

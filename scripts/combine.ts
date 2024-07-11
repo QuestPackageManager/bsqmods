@@ -10,7 +10,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath } from "./shared/paths";
+import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase } from "./shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
@@ -262,15 +262,7 @@ function sortMods(mods: ModsCollection): ModsCollection {
   return sortedMods;
 }
 
-// Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
-fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-fs.writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
-
-// Create the directory for the versions JSON file if it doesn't exist and save the data
-fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
-fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
-
-// now make per-version json
+// Make per-version json
 type GameVersionType = string
 
 type ModIdType = string
@@ -292,10 +284,15 @@ Object.entries(allMods).forEach(([game_ver, mods]) => {
 })
 
 // now write
-// Create the directory
-fs.mkdirSync(qmodRepoDirPath, { recursive: true });
-
 Object.entries(versionMap).forEach(([game_ver, qmodRepo]) => {
-  const versionFile = path.join(qmodRepoDirPath, game_ver);
+  const versionFile = path.join(websiteBase, game_ver);
   fs.writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
 });
+
+// Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
+fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
+fs.writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
+
+// Create the directory for the versions JSON file if it doesn't exist and save the data
+fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
+fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));

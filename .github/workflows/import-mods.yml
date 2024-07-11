@@ -45,14 +45,14 @@ jobs:
           npm install
 
       - name: Import the core mods
-        if: ${{ github.event.inputs.url == '' }}
+        if: (github.event.inputs.url == '')
         run: |
           cd scripts
           npx tsx ./import.ts 2>&1
           echo "COMMIT_MSG=Update core mods" >> $GITHUB_ENV
 
       - name: Import the specified mod
-        if: ${{ github.event.inputs.url != '' }}
+        if: (github.event.inputs.url != '')
         run: |
           cd scripts
           npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
@@ -64,7 +64,7 @@ jobs:
             awk '{ print "BRANCH_NAME=" $1 }' >> $GITHUB_ENV
 
       - name: Create PR
-        if: ${{ github.event.inputs.createPr == 'true'}}
+        if: (github.event.inputs.createPr == 'true')
         uses: peter-evans/create-pull-request@v6
         with:
           title: ${{ env.COMMIT_MSG }}
@@ -72,13 +72,13 @@ jobs:
           branch: import/${{ env.BRANCH_NAME }}
 
       - name: Configure git user
-        if: ${{ github.event.inputs.createPr != 'true'}}
+        if: (github.event.inputs.createPr != 'true')
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit the updated files
-        if: ${{ github.event.inputs.createPr != 'true'}}
+        if: (github.event.inputs.createPr != 'true')
         run: |
           git add -A mods
           (
@@ -89,13 +89,13 @@ jobs:
           ) || true
 
       - name: Push the updated files
-        if: env.MODS_UPDATED == 'yes'
+        if: (env.MODS_UPDATED == 'yes')
         run: |
           git pull --rebase
           git push
 
       - name: Trigger deploy
-        if: env.MODS_UPDATED == 'yes'
+        if: (env.MODS_UPDATED == 'yes')
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \

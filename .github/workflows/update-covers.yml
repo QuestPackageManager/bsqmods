@@ -43,13 +43,13 @@ jobs:
           ) || true
 
       - name: Push the updated files
-        if: env.MODS_UPDATED == 'yes'
+        if: (env.MODS_UPDATED == 'yes')
         run: |
           git pull --rebase
           git push
 
       - name: Trigger deploy
-        if: env.MODS_UPDATED == 'yes'
+        if: (env.MODS_UPDATED == 'yes')
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
