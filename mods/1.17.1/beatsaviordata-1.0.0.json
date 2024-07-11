@@ -1,0 +1,14 @@
+{
+  "name": "BeatSaviorJustData",
+  "description": null,
+  "id": "beatsaviordata",
+  "version": "1.0.0",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/QuestBeatSaviourData/releases/download/v1.0.0/BeatSaviorJustData.qmod",
+  "source": "https://github.com/Metalit/QuestBeatSaviourData/",
+  "cover": "https://raw.githubusercontent.com/Metalit/QuestBeatSaviourData/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/Metalit/QuestBeatSaviourData/"
+}

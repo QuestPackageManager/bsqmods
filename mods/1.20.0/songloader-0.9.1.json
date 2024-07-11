@@ -1,0 +1,14 @@
+{
+  "name": "songloader",
+  "description": "Load Custom Songs at Runtime",
+  "id": "songloader",
+  "version": "0.9.1",
+  "author": "darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/SongLoader/releases/download/v0.9.1/SongLoader.qmod",
+  "source": "https://github.com/darknight1050/SongLoader/",
+  "cover": "https://raw.githubusercontent.com/darknight1050/SongLoader/main/cover.png",
+  "funding": null,
+  "website": "https://github.com/darknight1050/SongLoader/"
+}

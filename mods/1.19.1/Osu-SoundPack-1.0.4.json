@@ -1,0 +1,14 @@
+{
+  "name": "Osu SoundPack",
+  "description": "The Osu Sound Pack contains Sounds from Osu.",
+  "id": "Osu-SoundPack",
+  "version": "1.0.4",
+  "author": "EnderdracheLP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/EnderdracheLP/QuestSounds/releases/download/1.0.4/Osu-SoundPack.qmod",
+  "source": "https://github.com/EnderdracheLP/QuestSounds/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/QuestSounds/master/Cover.jpg",
+  "funding": null,
+  "website": "https://github.com/EnderdracheLP/QuestSounds/"
+}

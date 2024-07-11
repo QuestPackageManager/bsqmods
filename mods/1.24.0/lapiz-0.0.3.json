@@ -1,0 +1,14 @@
+{
+  "name": "Lapiz",
+  "description": "Lapiz makes modders' lives easier by exposing utilities to them cleanly. This mod does nothing on it's own.",
+  "id": "lapiz",
+  "version": "0.0.3",
+  "author": "Raine",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/raineio/Lapiz/releases/download/v0.0.3/Lapiz.qmod",
+  "source": "https://github.com/raineio/Lapiz/",
+  "cover": null,
+  "funding": null,
+  "website": "https://github.com/raineio/Lapiz/"
+}

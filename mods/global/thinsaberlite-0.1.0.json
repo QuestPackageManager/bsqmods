@@ -1,0 +1,14 @@
+{
+  "name": "ThinSaberLite",
+  "description": "An incredibly lightweight mod that should remain unbroken between Beat Saber updates.",
+  "id": "thinsaberlite",
+  "version": "0.1.0",
+  "author": "Millzy",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64277238?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/MillzyDev/bsq-ThinSaberCore/releases/download/v0.1.0/ThinSaberLite.qmod",
+  "source": "https://github.com/MillzyDev/bsq-ThinSaberCore/",
+  "cover": null,
+  "funding": null,
+  "website": "https://github.com/MillzyDev/bsq-ThinSaberCore/"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "custom-types",
+  "description": "Core mod required for other mods to function!",
+  "id": "custom-types",
+  "version": "0.15.16",
+  "author": "Sc2ad",
+  "authorIcon": "https://avatars.githubusercontent.com/u/10663758?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/sc2ad/Il2CppQuestTypePatching/releases/download/v0.15.16/CustomTypes.qmod",
+  "source": "https://github.com/sc2ad/Il2CppQuestTypePatching/",
+  "cover": "https://raw.githubusercontent.com/sc2ad/Il2CppQuestTypePatching/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/sc2ad/Il2CppQuestTypePatching/"
+}

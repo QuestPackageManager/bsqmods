@@ -1,0 +1,14 @@
+{
+  "name": "SongDownloader",
+  "description": "Download Custom Songs at Runtime",
+  "id": "songdownloader",
+  "version": "0.4.12",
+  "author": "darknight1050, EnderdracheLP, Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.4.12/SongDownloader.qmod",
+  "source": "https://github.com/darknight1050/SongDownloader/",
+  "cover": "https://raw.githubusercontent.com/darknight1050/SongDownloader/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/darknight1050/SongDownloader/"
+}

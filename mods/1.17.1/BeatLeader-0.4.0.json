@@ -1,0 +1,14 @@
+{
+  "name": "BeatLeader",
+  "description": null,
+  "id": "BeatLeader",
+  "version": "0.4.0",
+  "author": "NSGolova",
+  "authorIcon": "https://avatars.githubusercontent.com/u/98843512?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.4.0/BeatLeader_1_17_1.qmod",
+  "source": "https://github.com/BeatLeader/beatleader-qmod/",
+  "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/BeatLeader/beatleader-qmod/"
+}

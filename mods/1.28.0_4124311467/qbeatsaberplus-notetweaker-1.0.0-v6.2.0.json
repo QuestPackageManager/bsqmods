@@ -1,0 +1,14 @@
+{
+  "name": "QBeatSaberPlus-NoteTweaker",
+  "description": "Feel good!",
+  "id": "qbeatsaberplus-notetweaker",
+  "version": "1.0.0-v6.2.0",
+  "author": "HardCPP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/releases/download/v1.0.0-v6.2.0/QBeatSaberPlus-NoteTweaker.qmod",
+  "source": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-NoteTweaker/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/"
+}

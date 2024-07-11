@@ -1,0 +1,14 @@
+{
+  "name": "Hot-Swappable Mods",
+  "description": "Allows you to enable and disable your mods from in game!",
+  "id": "HotSwappableMods",
+  "version": "1.0.0",
+  "author": "Bobby Shmurner",
+  "authorIcon": "https://avatars.githubusercontent.com/u/34596112?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BobbyShmurner/HotSwappableMods/releases/download/v1.0.0/Hot-Swappable.Mods_v1.0.0.qmod",
+  "source": "https://github.com/BobbyShmurner/HotSwappableMods/",
+  "cover": "https://raw.githubusercontent.com/BobbyShmurner/HotSwappableMods/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/BobbyShmurner/HotSwappableMods/"
+}

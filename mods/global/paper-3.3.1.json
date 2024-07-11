@@ -1,0 +1,14 @@
+{
+  "name": "Paper",
+  "description": "Logging library for mods light as paper",
+  "id": "paper",
+  "version": "3.3.1",
+  "author": "Fernthedev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Fernthedev/paperlog/releases/download/v3.3.1/paperlog.qmod",
+  "source": "https://github.com/Fernthedev/paperlog/",
+  "cover": null,
+  "funding": null,
+  "website": "https://github.com/Fernthedev/paperlog/"
+}

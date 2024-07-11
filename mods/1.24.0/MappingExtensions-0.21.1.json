@@ -1,0 +1,14 @@
+{
+  "name": "Mapping Extensions",
+  "description": "This adds a host of new things you can do with your maps as a mapper, and allows you to play said maps as a player. An update of the port of the PC original mod by Kyle 1413. Previously maintained by zoller27osu.",
+  "id": "MappingExtensions",
+  "version": "0.21.1",
+  "author": "StackDoubleFlow, rxzz0, rcelyte",
+  "authorIcon": "https://avatars.githubusercontent.com/u/25163630?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/rcelyte/MappingExtensions/releases/download/0.21.1/MappingExtensions.qmod",
+  "source": "https://github.com/rcelyte/MappingExtensions/",
+  "cover": "https://raw.githubusercontent.com/rcelyte/MappingExtensions/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/rcelyte/MappingExtensions/"
+}

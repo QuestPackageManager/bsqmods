@@ -1,0 +1,14 @@
+{
+  "name": "MultiQuestensions",
+  "description": "Lightweight port of MultiplayerExtensions, the PC mod that adds features to Multiplayer.",
+  "id": "multiquestensions",
+  "version": "0.1.0",
+  "author": "EnderdracheLP and Goobie",
+  "authorIcon": "https://avatars.githubusercontent.com/u/47616186?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Goobwabber/MultiQuestensions/releases/download/v0.1.0/MultiQuestensions.qmod",
+  "source": "https://github.com/Goobwabber/MultiQuestensions/",
+  "cover": null,
+  "funding": null,
+  "website": "https://github.com/Goobwabber/MultiQuestensions/"
+}

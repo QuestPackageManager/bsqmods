@@ -1,0 +1,14 @@
+{
+  "name": "QonsistentSaberColors",
+  "description": "Menu saber colors reflect in game saber colors.",
+  "id": "QonsistentSaberColors",
+  "version": "1.0.0",
+  "author": "Henri",
+  "authorIcon": "https://avatars.githubusercontent.com/u/38835729?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/im-henri/QonsistentSaberColors/releases/download/release/QonsistentSaberColors_v1.0.0.qmod",
+  "source": "https://github.com/im-henri/QonsistentSaberColors/",
+  "cover": "https://raw.githubusercontent.com/im-henri/QonsistentSaberColors/master/Cover.jpg",
+  "funding": null,
+  "website": "https://github.com/im-henri/QonsistentSaberColors/"
+}

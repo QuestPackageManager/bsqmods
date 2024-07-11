@@ -1,0 +1,14 @@
+{
+  "name": "Playlist Editor",
+  "description": "Modify the playlist in game.",
+  "id": "playlisteditor",
+  "version": "0.2.0",
+  "author": "Wonda",
+  "authorIcon": "https://avatars.githubusercontent.com/u/10583408?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/jk4837/PlaylistEditor/releases/download/v0.2.0/playlisteditor_0.2.0.qmod",
+  "source": "https://github.com/jk4837/PlaylistEditor/",
+  "cover": null,
+  "funding": null,
+  "website": "https://github.com/jk4837/PlaylistEditor/"
+}

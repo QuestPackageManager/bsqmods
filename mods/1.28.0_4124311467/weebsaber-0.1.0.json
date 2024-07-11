@@ -1,0 +1,14 @@
+{
+  "name": "Weeb Saber",
+  "description": "Webbyfies your Beat Saber",
+  "id": "weebsaber",
+  "version": "0.1.0",
+  "author": "jonas",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/jxnxsdev/WeebSaber/releases/download/0.1.0/Weeb.Saber.qmod",
+  "source": "https://github.com/jxnxsdev/WeebSaber/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/WeebSaber/main/logo.png",
+  "funding": null,
+  "website": "https://github.com/jxnxsdev/WeebSaber/"
+}

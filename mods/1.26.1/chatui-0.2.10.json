@@ -1,0 +1,14 @@
+{
+  "name": "ChatUI",
+  "description": "Shows your Twitch Chat Ingame",
+  "id": "chatui",
+  "version": "0.2.10",
+  "author": "darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/ChatUI/releases/download/v0.2.10/ChatUI.qmod",
+  "source": "https://github.com/darknight1050/ChatUI/",
+  "cover": "https://raw.githubusercontent.com/darknight1050/ChatUI/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/darknight1050/ChatUI/"
+}

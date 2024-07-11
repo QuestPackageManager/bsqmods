@@ -1,0 +1,14 @@
+{
+  "name": "HeartBeatLanClientQuest",
+  "description": "view your heartbeat inside the quest game",
+  "id": "HeartBeatLanClientQuest",
+  "version": "0.1.0",
+  "author": "frto027",
+  "authorIcon": "https://avatars.githubusercontent.com/u/20887940?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.1.0/HeartBeatLanClientQuest.qmod",
+  "source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
+  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
+  "funding": null,
+  "website": "https://github.com/frto027/HeartBeatLanClientBSQuest/"
+}
