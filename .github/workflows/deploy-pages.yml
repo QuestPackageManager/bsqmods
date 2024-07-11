@@ -67,12 +67,12 @@ jobs:
       - name: Download cache
         continue-on-error: true
         run: |
-          wget "$PAGES_URL/cache.tgz?`date +%s`" -O website/public/cache.tgz
+          wget "$PAGES_URL/cache.txz?`date +%s`" -O website/public/cache.txz
 
       - name: Extract cache
         continue-on-error: true
         run: |
-          tar -xzvf website/public/cache.tgz
+          tar -xJvf website/public/cache.txz
 
       - name: Install npm modules
         run: |
@@ -101,7 +101,7 @@ jobs:
 
       - name: "Archive cache"
         run: |
-          tar -czvf website/public/cache.tgz website/public/covers website/public/sha1sums.json website/public/mods.json
+          tar -cJvf website/public/cache.txz website/public/covers website/public/sha1sums.json website/public/mods.json
 
       - name: Build website
         run: |
