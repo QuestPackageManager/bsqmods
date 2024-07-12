@@ -1,5 +1,5 @@
 import { readTextFile } from "./shared/readTextFile";
-import { changedFilesPath, qmodsPath } from "./shared/paths";
+import { changedFilesPath, qmodsPath } from "../shared/paths";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { validateMod } from "../shared/validateMod";
 import { fetchBuffer, fetchJson } from "../shared/fetch";

@@ -1,6 +1,6 @@
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "fs";
 import { basename, dirname, join } from "path";
-import { allModsPath, modsPath, repoDir } from "./paths";
+import { allModsPath, modsPath, repoDir } from "../../shared/paths";
 import { readTextFile } from "./readTextFile";
 import { Mod, splitModKeys } from "../../shared/types/Mod";
 import { validateMod } from "../../shared/validateMod";

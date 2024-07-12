@@ -1,5 +1,5 @@
 import { HashCollection } from "../../shared/types/HashCollection";
-import { hashesPath } from "./paths";
+import { hashesPath } from "../../shared/paths";
 import { readTextFile } from "./readTextFile";
 
 /**

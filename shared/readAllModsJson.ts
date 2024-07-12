@@ -1,5 +1,5 @@
 import { ModsCollection } from "./types/ModsCollection";
-import { allModsPath } from "../scripts/shared/paths"
+import { allModsPath } from "./paths"
 import { readFileSync } from "fs";
 
 export function readAllModsJson(): ModsCollection {

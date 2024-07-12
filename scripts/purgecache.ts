@@ -1,6 +1,6 @@
 import { argv } from "process";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { hashesPath, coversPath } from "./shared/paths";
+import { hashesPath, coversPath } from "../shared/paths";
 import { existsSync, unlinkSync, writeFileSync } from "fs";
 import { basename, join, resolve } from "path";
 import { getQmodHashes } from "./shared/getQmodHashes";

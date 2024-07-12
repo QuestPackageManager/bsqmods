@@ -1,6 +1,6 @@
 import path from "path";
 import { sanitizeFilename } from "../../shared/sanitizeFilename";
-import { modsPath } from "./paths";
+import { modsPath } from "../../shared/paths";
 
 /**
  * Constructs a sanitized filename based on given parameters.

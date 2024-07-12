@@ -7,7 +7,7 @@ import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { Message, RateLimits, Release, Releases } from "../shared/types/GitHubAPI";
 import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
-import { modBlacklistPath } from "./shared/paths";
+import { modBlacklistPath } from "../shared/paths";
 import { readTextFile } from "./shared/readTextFile";
 
 const repoBlacklist = (await readTextFile(modBlacklistPath, ""))

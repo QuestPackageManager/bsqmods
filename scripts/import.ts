@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "fs";
 import { getCoreMods } from "../shared/CoreMods"
-import { importedCoreModsInfo } from "./shared/paths"
+import { importedCoreModsInfo } from "../shared/paths"
 import { readTextFile } from "./shared/readTextFile"
 import JSZip from "jszip";
 import { Mod } from "../shared/types/Mod";
