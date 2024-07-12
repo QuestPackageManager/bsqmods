@@ -23,7 +23,7 @@ if (!baseUrl.endsWith("/")) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{headerTitle}</title>
+    <title>{title || headerTitle}</title>
   </head>
   <body
     class={`

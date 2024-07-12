@@ -1,9 +1,10 @@
 ---
-import mods from "../../public/mods.json";
 import { getCoreMods } from "../../../shared/CoreMods";
 import { compareVersionDescending } from "../../../shared/comparisonFunctions";
+import { readAllModsJson } from "../../../shared/readAllModsJson";
 
 export async function getVersions() {
+  const mods = readAllModsJson();
   const coreMods = await getCoreMods();
 
   return Object.keys(mods)

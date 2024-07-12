@@ -2,15 +2,18 @@
 import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
 import ModList from "../components/ModList.astro";
-import modJson from "../../public/mods.json";
 import { Mod } from "../../../shared/types/Mod";
 import { getCoreMods } from "../../../shared/CoreMods";
 import VersionSelector from "../components/VersionSelector.astro";
 import { ModsCollection } from "../../../shared/types/ModsCollection";
 import { compareVersionDescending } from "../../../scripts/shared/semverComparison";
 import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonFunctions";
+import { readAllModsJson } from "../../../shared/readAllModsJson";
+
+const modJson = readAllModsJson();
 
 export const getStaticPaths = (() => {
+  const modJson = readAllModsJson();
   return Object.keys(modJson).map((key) => ({
     params: {
       gameVersion: key,
@@ -32,7 +35,7 @@ export interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string
+  key: string,
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
@@ -57,7 +60,7 @@ for (const modList of Object.values(modGroups)) {
 const modList = Object.values(modGroups) as Mod[][];
 
 modList.sort((a, b) =>
-  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name)
+  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name),
 );
 
 const coreMods = (await getCoreMods())[gameVersion];
