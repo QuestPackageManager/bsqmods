@@ -183,7 +183,7 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
     (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(
-          `../mods.json?${Math.floor(Date.now() / 1000)}`,
+          `mods.json?${Math.floor(Date.now() / 1000)}`,
         );
 
         if (result.data) {
