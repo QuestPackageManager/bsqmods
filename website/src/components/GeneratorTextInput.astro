@@ -1,0 +1,14 @@
+---
+export interface Props {
+  id: string;
+  placeholder: string;
+  value?: string;
+}
+
+const { id, placeholder, value } = Astro.props as Props;
+---
+
+<label>
+  <slot />
+  <input id={id} placeholder={placeholder} value={value} type="text" />
+</label>

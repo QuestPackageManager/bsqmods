@@ -1,131 +1,98 @@
 ---
-import GithubCorner from "../components/GithubCorner.astro";
+import GeneratorTextInput from "../components/GeneratorTextInput.astro";
+import Layout from "../layouts/Layout.astro";
+import GeneratorColumn from "../components/GeneratorColumn.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mod JSON Generator</title>
-  </head>
-  <body id="qmodDropZone">
-    <GithubCorner />
-    <div id="wrapper">
-      <header id="title">
-        <h1>Mod JSON Generator</h1>
-      </header>
-      <div id="flexWrapper">
-        <div>
-          <label
-            >Mod Name
-            <input id="modName" placeholder="The name of the mod" type="text" />
-          </label>
-          <label
-            >Mod ID
-            <input id="modId" placeholder="The ID of the mod" type="text" />
-          </label>
-          <label
-            >Mod Creator(s)
-            <input
-              id="modCreators"
-              placeholder="Who made this mod?"
-              type="text"
-            />
-          </label>
-          <label
-            >Mod Version
-            <input id="modVersion" placeholder="The mod version" type="text" />
-          </label>
-          <label
-            >Mod Description
-            <textarea
-              id="modDescription"
-              placeholder="A description of what the mod does"
-              style="resize: none;"
-              rows="10"></textarea>
-          </label>
-          <label
-            >Game Version
-            <input
-              id="targetGameVersion"
-              placeholder="The version of the game the mod is made for"
-              type="text"
-            />
-          </label>
-          <label
-            >Mod Loader
-            <input
-              id="modLoader"
-              placeholder="The mod loader used by the mod"
-              type="text"
-            />
-          </label>
-          <div class="dropZone" id="loadQmod">
-            <p>Drag/drop .qmod file here, or click to select file.</p>
-          </div>
-        </div>
-        <div>
-          <label
-            >Download Link
-            <input
-              id="modDownloadLink"
-              placeholder="A direct link to the .qmod file"
-              type="text"
-            />
-          </label>
-          <label
-            >Source Code
-            <input
-              id="modSourceLink"
-              placeholder="A link to the source code for the mod"
-              type="text"
-            />
-          </label>
-          <label
-            >Author Icon URL
-            <input
-              id="authorIcon"
-              placeholder="URL to a square image file."
-              type="text"
-            />
-          </label>
-          <label
-            >Website
-            <input
-              id="modWebsiteLink"
-              placeholder="A link to a website for the mod."
-              type="text"
-            />
-          </label>
-          <label
-            >Funding
-            <input
-              id="modFundingLink"
-              placeholder="A link to a page where people can donate some money."
-              type="text"
-            />
-          </label>
-          <label
-            >Cover link
-            <input
-              id="modCover"
-              placeholder="A direct link to a cover image."
-              type="text"
-            />
-          </label>
-          <button
-            id="generateJson"
-            type="button"
-            data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
-            data-branch={(import.meta as any).env.REPO_BRANCH}
-            >Create JSON on GitHub</button
-          >
-        </div>
-      </div>
+<Layout title="Mod JSON Generator">
+  <GeneratorColumn>
+    <GeneratorTextInput id="modName" placeholder="The name of the mod">
+      Mod Name
+    </GeneratorTextInput>
+    <GeneratorTextInput id="modId" placeholder="The ID of the mod">
+      Mod ID
+    </GeneratorTextInput>
+    <GeneratorTextInput id="modCreators" placeholder="Who made this mod?">
+      Mod Creator(s)
+    </GeneratorTextInput>
+    <GeneratorTextInput id="modVersion" placeholder="The mod version">
+      Mod Version
+    </GeneratorTextInput>
+    <label
+      >Mod Description
+      <textarea
+        id="modDescription"
+        placeholder="A description of what the mod does"
+        style="resize: none;"
+        rows="10"></textarea>
+    </label>
+    <GeneratorTextInput
+      id="targetGameVersion"
+      placeholder="The version of the game the mod is made for"
+    >
+      Game Version
+    </GeneratorTextInput>
+    <GeneratorTextInput
+      id="modLoader"
+      placeholder="The mod loader used by the mod"
+      >Mod Loader</GeneratorTextInput
+    >
+    <div class="dropZone" id="loadQmod">
+      <p>Drag/drop .qmod file here, or click to select file.</p>
     </div>
-    <footer>Beat Saber render by Pixelguy</footer>
-  </body>
-</html>
+  </GeneratorColumn>
+  <GeneratorColumn>
+    <GeneratorTextInput
+      id="modDownloadLink"
+      placeholder="A direct link to the .qmod file"
+    >
+      Download Link
+    </GeneratorTextInput>
+
+    <GeneratorTextInput
+      id="modSourceLink"
+      placeholder="A link to the source code for the mod"
+    >
+      Source Code
+    </GeneratorTextInput>
+
+    <GeneratorTextInput
+      id="authorIcon"
+      placeholder="URL to a square image file."
+    >
+      Author Icon URL
+    </GeneratorTextInput>
+
+    <GeneratorTextInput
+      id="modWebsiteLink"
+      placeholder="A link to a website for the mod."
+    >
+      Website
+    </GeneratorTextInput>
+
+    <GeneratorTextInput
+      id="modFundingLink"
+      placeholder="A link to a page where people can donate some money."
+    >
+      Funding
+    </GeneratorTextInput>
+
+    <GeneratorTextInput
+      id="modCover"
+      placeholder="A direct link to a cover image."
+    >
+      Cover link
+    </GeneratorTextInput>
+
+    <button
+      id="generateJson"
+      type="button"
+      data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
+      data-branch={(import.meta as any).env.REPO_BRANCH}
+      >Create JSON on GitHub</button
+    >
+  </GeneratorColumn>
+</Layout>
 <style is:global>
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic");
 
@@ -298,28 +265,28 @@ import GithubCorner from "../components/GithubCorner.astro";
      */
     const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
-        "modDescription",
+        "modDescription"
       ) as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
       modDownloadLinkElement = getElementById(
-        "modDownloadLink",
+        "modDownloadLink"
       ) as HTMLInputElement,
       modSourceLinkElement = getElementById(
-        "modSourceLink",
+        "modSourceLink"
       ) as HTMLInputElement,
       modWebsiteLinkElement = getElementById(
-        "modWebsiteLink",
+        "modWebsiteLink"
       ) as HTMLInputElement,
       modFundingLinkElement = getElementById(
-        "modFundingLink",
+        "modFundingLink"
       ) as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       authorIconElement = getElementById("authorIcon") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById(
-        "targetGameVersion",
+        "targetGameVersion"
       ) as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLInputElement,
       qmodDropZoneElement = document.body,
@@ -352,7 +319,7 @@ import GithubCorner from "../components/GithubCorner.astro";
     (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(
-          `../mods.json?${Math.floor(Date.now() / 1000)}`,
+          `../mods.json?${Math.floor(Date.now() / 1000)}`
         );
 
         if (result.data) {
@@ -383,7 +350,7 @@ import GithubCorner from "../components/GithubCorner.astro";
     function checkMod(
       id: string,
       version: string,
-      gameVersion: string,
+      gameVersion: string
     ): boolean {
       /**
        * Array of mods for the specified game version.
@@ -466,27 +433,27 @@ import GithubCorner from "../components/GithubCorner.astro";
           funding: modFundingLinkElement.value.trim(),
           website: modWebsiteLinkElement.value.trim(),
         },
-        splitModKeys,
+        splitModKeys
       );
 
       const modFilename = getFilename(
         mod.id || "",
         mod.version || "",
-        targetGameVersionElement.value,
+        targetGameVersionElement.value
       );
 
       if (
         checkMod(
           mod.id || "",
           mod.version || "",
-          targetGameVersionElement.value,
+          targetGameVersionElement.value
         )
       ) {
         alert("This mod version already exists in the json");
         window.open(`https://github.com/${repo}/edit/${branch}/${modFilename}`);
       } else {
         window.open(
-          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
+          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
         );
       }
     }
@@ -519,7 +486,7 @@ import GithubCorner from "../components/GithubCorner.astro";
      */
     async function qmodLoadHandler(
       this: FileReader,
-      ev: ProgressEvent<FileReader>,
+      ev: ProgressEvent<FileReader>
     ) {
       const reader = this;
 
@@ -582,7 +549,7 @@ import GithubCorner from "../components/GithubCorner.astro";
      */
     async function modDownloadLinkChangeHandler(
       this: HTMLInputElement,
-      e: Event,
+      e: Event
     ) {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
@@ -598,7 +565,7 @@ import GithubCorner from "../components/GithubCorner.astro";
     qmodDropZoneElement.addEventListener(
       "dragover",
       (e) => e.preventDefault(),
-      false,
+      false
     );
 
     // Event listener for dropping files into the qmodDropZone
@@ -610,7 +577,7 @@ import GithubCorner from "../components/GithubCorner.astro";
     // Event listener for onchange event of link input
     modDownloadLinkElement.addEventListener(
       "change",
-      modDownloadLinkChangeHandler,
+      modDownloadLinkChangeHandler
     );
 
     // Add url drop handlers to the following
@@ -630,7 +597,7 @@ import GithubCorner from "../components/GithubCorner.astro";
     console.error(error);
 
     alert(
-      "An error has occurred during initialization, please see the console for more information.",
+      "An error has occurred during initialization, please see the console for more information."
     );
   });
 </script>
