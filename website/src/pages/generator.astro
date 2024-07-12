@@ -2,247 +2,111 @@
 import GeneratorTextInput from "../components/GeneratorTextInput.astro";
 import Layout from "../layouts/Layout.astro";
 import GeneratorColumn from "../components/GeneratorColumn.astro";
+import GeneratorWrapper from "../components/GeneratorWrapper.astro";
+import GeneratorDropZone from "../components/GeneratorDropZone.astro";
+import GeneratorTextArea from "../components/GeneratorTextArea.astro";
 ---
 
-<Layout title="Mod JSON Generator">
-  <GeneratorColumn>
-    <GeneratorTextInput id="modName" placeholder="The name of the mod">
-      Mod Name
-    </GeneratorTextInput>
-    <GeneratorTextInput id="modId" placeholder="The ID of the mod">
-      Mod ID
-    </GeneratorTextInput>
-    <GeneratorTextInput id="modCreators" placeholder="Who made this mod?">
-      Mod Creator(s)
-    </GeneratorTextInput>
-    <GeneratorTextInput id="modVersion" placeholder="The mod version">
-      Mod Version
-    </GeneratorTextInput>
-    <label
-      >Mod Description
-      <textarea
+<Layout title="Mod JSON Generator" linkHome={true}>
+  <GeneratorWrapper>
+    <GeneratorColumn>
+      <GeneratorTextInput id="modName" placeholder="The name of the mod">
+        Mod Name
+      </GeneratorTextInput>
+      <GeneratorTextInput id="modId" placeholder="The ID of the mod">
+        Mod ID
+      </GeneratorTextInput>
+      <GeneratorTextInput id="modCreators" placeholder="Who made this mod?">
+        Mod Creator(s)
+      </GeneratorTextInput>
+      <GeneratorTextInput id="modVersion" placeholder="The mod version">
+        Mod Version
+      </GeneratorTextInput>
+      <GeneratorTextArea
         id="modDescription"
         placeholder="A description of what the mod does"
-        style="resize: none;"
-        rows="10"></textarea>
-    </label>
-    <GeneratorTextInput
-      id="targetGameVersion"
-      placeholder="The version of the game the mod is made for"
-    >
-      Game Version
-    </GeneratorTextInput>
-    <GeneratorTextInput
-      id="modLoader"
-      placeholder="The mod loader used by the mod"
-      >Mod Loader</GeneratorTextInput
-    >
-    <div class="dropZone" id="loadQmod">
-      <p>Drag/drop .qmod file here, or click to select file.</p>
-    </div>
-  </GeneratorColumn>
-  <GeneratorColumn>
-    <GeneratorTextInput
-      id="modDownloadLink"
-      placeholder="A direct link to the .qmod file"
-    >
-      Download Link
-    </GeneratorTextInput>
+        rows={10}
+      >
+        Mod Description
+      </GeneratorTextArea>
+      <GeneratorTextInput
+        id="targetGameVersion"
+        placeholder="The version of the game the mod is made for"
+      >
+        Game Version
+      </GeneratorTextInput>
+      <GeneratorTextInput
+        id="modLoader"
+        placeholder="The mod loader used by the mod"
+        >Mod Loader</GeneratorTextInput
+      >
+      <GeneratorDropZone id="loadQmod">
+        Drag/drop .qmod file here, or click to select file.
+      </GeneratorDropZone>
+    </GeneratorColumn>
+    <GeneratorColumn>
+      <GeneratorTextInput
+        id="modDownloadLink"
+        placeholder="A direct link to the .qmod file"
+      >
+        Download Link
+      </GeneratorTextInput>
 
-    <GeneratorTextInput
-      id="modSourceLink"
-      placeholder="A link to the source code for the mod"
-    >
-      Source Code
-    </GeneratorTextInput>
+      <GeneratorTextInput
+        id="modSourceLink"
+        placeholder="A link to the source code for the mod"
+      >
+        Source Code
+      </GeneratorTextInput>
 
-    <GeneratorTextInput
-      id="authorIcon"
-      placeholder="URL to a square image file."
-    >
-      Author Icon URL
-    </GeneratorTextInput>
+      <GeneratorTextInput
+        id="authorIcon"
+        placeholder="URL to a square image file."
+      >
+        Author Icon URL
+      </GeneratorTextInput>
 
-    <GeneratorTextInput
-      id="modWebsiteLink"
-      placeholder="A link to a website for the mod."
-    >
-      Website
-    </GeneratorTextInput>
+      <GeneratorTextInput
+        id="modWebsiteLink"
+        placeholder="A link to a website for the mod."
+      >
+        Website
+      </GeneratorTextInput>
 
-    <GeneratorTextInput
-      id="modFundingLink"
-      placeholder="A link to a page where people can donate some money."
-    >
-      Funding
-    </GeneratorTextInput>
+      <GeneratorTextInput
+        id="modFundingLink"
+        placeholder="A link to a page where people can donate some money."
+      >
+        Funding
+      </GeneratorTextInput>
 
-    <GeneratorTextInput
-      id="modCover"
-      placeholder="A direct link to a cover image."
-    >
-      Cover link
-    </GeneratorTextInput>
+      <GeneratorTextInput
+        id="modCover"
+        placeholder="A direct link to a cover image."
+      >
+        Cover link
+      </GeneratorTextInput>
 
-    <button
-      id="generateJson"
-      type="button"
-      data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
-      data-branch={(import.meta as any).env.REPO_BRANCH}
-      >Create JSON on GitHub</button
-    >
-  </GeneratorColumn>
+      <button
+        class={`
+          btn
+          btn-primary
+          btn
+          rounded-lg
+          text-white
+          mt-4
+          w-full
+        `}
+        id="generateJson"
+        type="button"
+        data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
+        data-branch={(import.meta as any).env.REPO_BRANCH}
+      >
+        Create JSON on GitHub
+      </button>
+    </GeneratorColumn>
+  </GeneratorWrapper>
 </Layout>
-<style is:global>
-  @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic");
-
-  * {
-    box-sizing: border-box !important;
-    transition: background-color 100ms;
-  }
-
-  body {
-    color: #eeeeee;
-  }
-
-  html {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("/images/pixelguy.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: #111111dd;
-  }
-
-  html,
-  body {
-    min-height: 100vh;
-    min-width: 100vw;
-  }
-
-  body,
-  table,
-  input {
-    font-size: 14px;
-    font-family: "Open Sans";
-  }
-
-  a {
-    text-decoration: none;
-    color: #30a2ec;
-  }
-
-  a:visited {
-    color: #30a2ec;
-  }
-
-  label {
-    text-align: center;
-    font-weight: bold;
-  }
-
-  input,
-  textarea {
-    margin: 0.5rem 0;
-    font-weight: normal;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px;
-    width: 100%;
-    color: #fff;
-    background-color: rgba(64, 64, 64, 0.8);
-
-    &::placeholder {
-      color: rgb(182, 182, 182);
-      font-style: italic;
-    }
-
-    &:focus,
-    &:hover {
-      background-color: rgba(78, 78, 78, 0.8);
-    }
-  }
-
-  code {
-    padding: 5px;
-    border-radius: 3px;
-    background-color: #202225;
-    border: 1px solid black;
-  }
-
-  .headerDescription {
-    font-size: 11px;
-    color: #888;
-    margin-bottom: 10px;
-    padding-left: 20px;
-  }
-
-  #wrapper {
-    padding: 1rem;
-  }
-
-  #flexWrapper {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-  }
-
-  #flexWrapper > div {
-    display: flex;
-    flex-direction: column;
-    min-width: 500px;
-    margin: 1rem 0.5rem 0 0.5rem;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  #title {
-    text-align: center;
-  }
-
-  .dropZone {
-    width: 100%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(64, 64, 64, 0.8);
-    border-radius: 10px;
-    font-weight: bold;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-  }
-
-  button {
-    all: unset;
-    text-align: center;
-    padding: 0.7rem;
-    background: rgba(64, 64, 64, 0.8);
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-  }
-
-  .dropZone,
-  button {
-    margin-top: 0.5rem;
-    cursor: pointer;
-
-    &:focus,
-    &:hover {
-      background-color: rgba(78, 78, 78, 0.8);
-    }
-  }
-
-  footer {
-    display: block;
-    width: 100%;
-    padding: 0 1rem 1rem 1rem;
-    text-align: center;
-    font-weight: bold;
-  }
-</style>
 <script>
   import JSZip from "jszip";
   import { sanitizeFilename } from "../../../shared/sanitizeFilename";
@@ -265,28 +129,28 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
      */
     const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
-        "modDescription"
+        "modDescription",
       ) as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
       modDownloadLinkElement = getElementById(
-        "modDownloadLink"
+        "modDownloadLink",
       ) as HTMLInputElement,
       modSourceLinkElement = getElementById(
-        "modSourceLink"
+        "modSourceLink",
       ) as HTMLInputElement,
       modWebsiteLinkElement = getElementById(
-        "modWebsiteLink"
+        "modWebsiteLink",
       ) as HTMLInputElement,
       modFundingLinkElement = getElementById(
-        "modFundingLink"
+        "modFundingLink",
       ) as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       authorIconElement = getElementById("authorIcon") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById(
-        "targetGameVersion"
+        "targetGameVersion",
       ) as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLInputElement,
       qmodDropZoneElement = document.body,
@@ -319,7 +183,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
     (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(
-          `../mods.json?${Math.floor(Date.now() / 1000)}`
+          `../mods.json?${Math.floor(Date.now() / 1000)}`,
         );
 
         if (result.data) {
@@ -350,7 +214,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
     function checkMod(
       id: string,
       version: string,
-      gameVersion: string
+      gameVersion: string,
     ): boolean {
       /**
        * Array of mods for the specified game version.
@@ -433,27 +297,27 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
           funding: modFundingLinkElement.value.trim(),
           website: modWebsiteLinkElement.value.trim(),
         },
-        splitModKeys
+        splitModKeys,
       );
 
       const modFilename = getFilename(
         mod.id || "",
         mod.version || "",
-        targetGameVersionElement.value
+        targetGameVersionElement.value,
       );
 
       if (
         checkMod(
           mod.id || "",
           mod.version || "",
-          targetGameVersionElement.value
+          targetGameVersionElement.value,
         )
       ) {
         alert("This mod version already exists in the json");
         window.open(`https://github.com/${repo}/edit/${branch}/${modFilename}`);
       } else {
         window.open(
-          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
+          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
         );
       }
     }
@@ -486,7 +350,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
      */
     async function qmodLoadHandler(
       this: FileReader,
-      ev: ProgressEvent<FileReader>
+      ev: ProgressEvent<FileReader>,
     ) {
       const reader = this;
 
@@ -549,7 +413,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
      */
     async function modDownloadLinkChangeHandler(
       this: HTMLInputElement,
-      e: Event
+      e: Event,
     ) {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
@@ -565,7 +429,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
     qmodDropZoneElement.addEventListener(
       "dragover",
       (e) => e.preventDefault(),
-      false
+      false,
     );
 
     // Event listener for dropping files into the qmodDropZone
@@ -577,7 +441,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
     // Event listener for onchange event of link input
     modDownloadLinkElement.addEventListener(
       "change",
-      modDownloadLinkChangeHandler
+      modDownloadLinkChangeHandler,
     );
 
     // Add url drop handlers to the following
@@ -597,7 +461,7 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
     console.error(error);
 
     alert(
-      "An error has occurred during initialization, please see the console for more information."
+      "An error has occurred during initialization, please see the console for more information.",
     );
   });
 </script>

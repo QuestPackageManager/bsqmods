@@ -2,10 +2,10 @@
 export interface Props {
   id: string;
   placeholder: string;
-  value?: string;
+  rows?: number;
 }
 
-const { id, placeholder, value } = Astro.props as Props;
+const { id, placeholder, rows } = Astro.props as Props;
 ---
 
 <div
@@ -18,14 +18,13 @@ const { id, placeholder, value } = Astro.props as Props;
     class={`
       block
       font-bold
-      leading-normal
       py-1
       text-shadow
     `}
   >
     <slot />
   </span>
-  <input
+  <textarea
     class={`
       backdrop-blur
       bg-white-alpha-70
@@ -36,7 +35,6 @@ const { id, placeholder, value } = Astro.props as Props;
       dark:text-white
       dark:text-white
       max-w
-      my-1
       p-2
       placeholder-black-alpha-40
       rounded-md
@@ -45,9 +43,7 @@ const { id, placeholder, value } = Astro.props as Props;
     `}
     id={id}
     placeholder={placeholder}
-    value={value}
-    type="text"
-  />
+    rows={rows}></textarea>
 </div>
 <style>
   span {

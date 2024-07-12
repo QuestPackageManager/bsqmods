@@ -1,0 +1,37 @@
+---
+export interface Props {
+  id: string;
+}
+
+const { id } = Astro.props as Props;
+---
+
+<div
+  class={`
+    1024:mb-0
+    backdrop-blur
+    bg-gray-700
+    bg-opacity-80
+    bg-white-alpha-70
+    border-2
+    border-black-alpha-20
+    border-dashed
+    cursor-pointer
+    dark:bg-dark-card
+    dark:border-white-alpha-20
+    dark:text-white
+    flex
+    font-semibold
+    h-[150px]
+    items-center
+    justify-center
+    mb-1
+    mt-4
+    rounded-lg
+    text-black
+    w-full
+  `}
+  id={id}
+>
+  <slot />
+</div>
