@@ -15,20 +15,8 @@ updates:
    directory: "/scripts/"
    schedule:
      interval: weekly
-   rebase-strategy: auto
-   groups:
-     all-dependencies:
-       patterns:
-         - "devDependencies"
-         - "dependencies"
 
  - package-ecosystem: "npm"
    directory: "/website/"
    schedule:
      interval: weekly
-   rebase-strategy: auto
-   groups:
-     all-dependencies:
-       patterns:
-         - "devDependencies"
-         - "dependencies"
