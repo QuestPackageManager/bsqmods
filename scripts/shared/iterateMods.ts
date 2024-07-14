@@ -57,9 +57,10 @@ export class ModIterationData {
    * @param mod The mod data to write.
    */
   public writeModJson(mod: Mod): void {
+    mod = getStandardizedMod(mod, splitModKeys);
     validateMod(mod);
     mkdirSync(dirname(this.modPath), { recursive: true });
-    writeFileSync(this.modPath, JSON.stringify(getStandardizedMod(mod, splitModKeys), null, "  "), {});
+    writeFileSync(this.modPath, JSON.stringify(mod, null, "  "), {});
 
     if (this.modData) {
       this.modData = null;
