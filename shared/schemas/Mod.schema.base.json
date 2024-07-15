@@ -64,5 +64,5 @@
       "flags": "i"
     }
   },
-  "required": ["name", "id", "version", "modloader", "download", "funding"]
+  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "source", "cover", "funding", "website"]
 }
