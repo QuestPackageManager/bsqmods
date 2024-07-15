@@ -40,6 +40,12 @@ jobs:
           npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-covers.ts 2>&1
 
+      - name: Only keep new files.
+        run: |
+          git add $(git ls-files --others --exclude-standard mods)
+          git checkout .
+          git reset
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
