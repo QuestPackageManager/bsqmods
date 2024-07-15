@@ -28,7 +28,6 @@ export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Js
     if (delaySinceLast < githubMinimumDelay) {
       const delayMs = githubMinimumDelay - delaySinceLast;
 
-      console.log(`Waiting ${delayMs}ms for GitHub API`);
       await delay(delayMs);
     }
   }

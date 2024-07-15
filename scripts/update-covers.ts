@@ -3,8 +3,9 @@ import { getQmodCoverUrl } from "../shared/getQmodCoverUrl";
 import { delay } from "../shared/delay"
 import { iterateSplitMods } from "./shared/iterateMods";
 import { RateLimits } from "../shared/types/GitHubAPI";
+import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 
-console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
+await logGithubApiUsage();
 
 for (const iteration of iterateSplitMods()) {
   try {
@@ -41,4 +42,4 @@ for (const iteration of iterateSplitMods()) {
   }
 }
 
-console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
+await logGithubApiUsage();

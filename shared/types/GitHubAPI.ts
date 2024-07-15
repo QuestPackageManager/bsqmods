@@ -229,3 +229,29 @@ export interface Resources {
   audit_log_streaming?: Rate;
   code_search?: Rate;
 }
+
+/**
+ * Represents the contents of a repo.
+ *
+ * https://api.github.com/repos/[user]/[repo]/contents
+ */
+export interface RepoContent {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url: string;
+  git_url: string;
+  download_url: null | string;
+  type: string;
+  _links: Links;
+}
+
+export type RepoContents = RepoContent[] | Message
+
+export interface Links {
+  self: string;
+  git: string;
+  html: string;
+}

@@ -1,7 +1,7 @@
 import { ModsCollection } from "../shared/types/ModsCollection";
 import { Mod } from "../shared/types/Mod";
 import JSZip from "jszip";
-import fs from "fs"
+import fs, { writeFileSync } from "fs"
 import path from "path"
 import sharp from "sharp";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
@@ -10,7 +10,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase } from "../shared/paths";
+import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath } from "../shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
@@ -19,12 +19,20 @@ import { iterateSplitMods } from "./shared/iterateMods";
 import { fetchBuffer, fetchHead } from "../shared/fetch";
 import { compareAlphabeticallyAscInsensitive, compareVersionAscending } from "../shared/comparisonFunctions";
 import { compareVersionDescending } from "./shared/semverComparison";
+import { getFundingCache } from "./shared/getFundingCache";
+import { ghRegex } from "../shared/ghRegex";
+import { getRepoFundingInfo } from "../shared/getRepoFundingInfo";
+import { argv } from "process";
+import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
 
 /** A dictionary of all hashes for given urls. */
 const hashes = getQmodHashes();
+
+/** A dictionary of repository funding information. */
+const funding = argv.includes("--updateFunding") ? {} : await getFundingCache();
 
 /** Public url base */
 let urlBase = (() => {
@@ -202,6 +210,8 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   return output;
 }
 
+await logGithubApiUsage();
+
 for (const iteration of iterateSplitMods()) {
   const mods = allMods[iteration.version] || (allMods[iteration.version] = []);
   const mod: Mod = iteration.getModJson();
@@ -221,6 +231,23 @@ for (const iteration of iterateSplitMods()) {
   // Process the mod file and generate a hash
   const qmodResult = await processQmod(mod, iteration.version);
   const uniformMod = getStandardizedMod(mod);
+
+  if (uniformMod.funding.length == 0) {
+    const match = ghRegex.exec(uniformMod.download ?? "");
+
+    if (match) {
+      const cacheKey = `${match[1]}/${match[2]}`.toLowerCase();
+
+      if (!funding[cacheKey]) {
+        const fundingResult = await getRepoFundingInfo(uniformMod.download || "");
+        funding[cacheKey] = fundingResult;
+      }
+
+      uniformMod.funding = funding[cacheKey] || [];
+    }
+
+    writeFileSync(fundingInfoPath, JSON.stringify(funding));
+  }
 
   // If there are no errors, add the mod to the list and save the hash
   if (qmodResult.errors.length === 0) {
@@ -296,3 +323,5 @@ fs.writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
 // Create the directory for the versions JSON file if it doesn't exist and save the data
 fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
 fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
+
+await logGithubApiUsage();

@@ -9,6 +9,7 @@ import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { modBlacklistPath } from "../shared/paths";
 import { readTextFile } from "./shared/readTextFile";
+import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 
 const repoBlacklist = (await readTextFile(modBlacklistPath, ""))
   .replace(/\r/g, "")
@@ -16,7 +17,7 @@ const repoBlacklist = (await readTextFile(modBlacklistPath, ""))
   .filter(line => !isNullOrWhitespace(line) && !line.trim().startsWith("#"))
   .map(line => line.trim().toLowerCase());
 
-console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
+await logGithubApiUsage();
 
 const mods = [...iterateSplitMods()].map(mod => mod.getModJson());
 const repos = mods
@@ -98,4 +99,4 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
   }
 }
 
-console.log("GitHub API", (await fetchJson<RateLimits>("https://api.github.com/rate_limit")).data)
+await logGithubApiUsage();

@@ -1,8 +1,11 @@
 import { cachedFetchJson, CachableResult } from "./cachedFetch";
+import { checkGithubResponse } from "./checkGithubResponse";
 import { fetchJson } from "./fetch";
+import { ghRawRegex } from "./ghRawRegex";
 import { ghRegex } from "./ghRegex";
 import { isNullOrWhitespace } from "./isNullOrWhitespace";
-import { Repository } from "./types/GitHubAPI";
+import { Dictionary } from "./types/Dictionary";
+import { Message, RepoContent, RepoContents, Repository } from "./types/GitHubAPI";
 
 /**
  * Retrieves the cover image URL for a GitHub repository.
@@ -14,37 +17,42 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
   const match = ghRegex.exec(url);
 
   if (match) {
-    const result = await cachedFetchJson<Repository>(`https://api.github.com/repos/${match[1]}/${match[2]}`);
+    const result = await cachedFetchJson<RepoContents>(`https://api.github.com/repos/${match[1]}/${match[2]}/contents`);
     const repoJson = result.data;
 
     if (!repoJson) {
       throw new Error("Error fetching repo json")
     }
 
-    const defaultBranch = repoJson.default_branch || null;
+    checkGithubResponse(repoJson as Message)
 
-    if (!defaultBranch) {
-      throw new Error(`API issue.\n\n${JSON.stringify(repoJson, null, "  ")}`);
+    const files = {} as Dictionary<RepoContent>;
+    let defaultBranch = null as string | null;
+
+    for (const file of (repoJson as RepoContent[])) {
+      files[file.path.toLowerCase()] = file;
+
+      const match = ghRawRegex.exec(file.download_url || "");
+      if (match) {
+        defaultBranch = match[3];
+      }
     }
 
     try {
       let coverFilename = "cover.png";
 
       try {
-        let result = await fetchJson<any>(
-          `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.template.json?${new Date().getTime()}`,
-        );
+        let result: any = undefined;
 
-        if (!result.data) {
-          result = await fetchJson<any>(
-            `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/mod.json?${new Date().getTime()}`,
-          );
-        }
+        for (const path of ["mod.template.json", "mod.json", "bmbfmod.json"]) {
+          const file = files[path];
 
-        if (!result.data) {
-          result = await fetchJson<any>(
-            `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/bmbfmod.json?${new Date().getTime()}`,
-          );
+          if (file.download_url) {
+            result = await fetchJson<any>(
+              `${file.download_url}?${new Date().getTime()}`,
+            );
+            break;
+          }
         }
 
         if (result.data && !isNullOrWhitespace(result.data.coverImage || result.data.coverImageFilename)) {

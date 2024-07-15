@@ -1,8 +1,9 @@
 **/node_modules
+!/shared/node_modules
 .cache-restored
-qmods
 changed-files.txt
+qmods
+website/public/*.json
 website/public/covers
 website/public/deploy-log.txt
 website/public/mods
-website/public/*.json

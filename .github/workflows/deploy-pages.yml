@@ -89,19 +89,27 @@ jobs:
 
       - name: Process the json (schedule)
         if: (github.event_name == 'schedule' || github.event.inputs.recheckUrls == 'true')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd scripts
-          npx tsx ./combine.ts "--baseHref=$PAGES_URL" --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
+          npx tsx ./combine.ts "--baseHref=$PAGES_URL" --updateFunding --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: Process the json (normal)
         if: (github.event_name != 'schedule')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: "Archive cache"
         run: |
-          tar -cJvf website/public/cache.txz website/public/covers website/public/sha1sums.json website/public/mods.json
+          tar -cJvf website/public/cache.txz \
+            website/public/covers \
+            website/public/funding-info.json \
+            website/public/mods.json \
+            website/public/sha1sums.json
 
       - name: Build website
         run: |

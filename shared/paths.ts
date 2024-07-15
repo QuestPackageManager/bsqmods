@@ -36,3 +36,6 @@ export const changedFilesPath = join(repoDir, "changed-files.txt");
 
 /** The path to the mod blacklist file. */
 export const modBlacklistPath = join(modsPath, "updater-repo-blacklist.txt")
+
+/** The path to the funding json file. */
+export const fundingInfoPath = join(websiteBase, "funding-info.json");
