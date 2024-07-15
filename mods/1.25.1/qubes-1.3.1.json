@@ -9,6 +9,6 @@
   "download": "https://github.com/speecil/Qubes/releases/download/v1.3.1/Qubes.qmod",
   "source": "https://github.com/speecil/Qubes/",
   "cover": "https://raw.githubusercontent.com/speecil/Qubes/master/cover.png",
-  "funding": null,
+  "funding": [],
   "website": null
 }

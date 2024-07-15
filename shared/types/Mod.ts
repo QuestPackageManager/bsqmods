@@ -30,7 +30,7 @@ export interface Mod {
   cover: string | null;
 
   /** A link to a page where people can donate some money. */
-  funding: string | null;
+  funding: string[];
 
   /** A link to a website for the mod. */
   website: string | null;

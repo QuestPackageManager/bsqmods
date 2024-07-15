@@ -56,7 +56,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           download: url,
           source: null,
           cover: coverResult.data,
-          funding: json.funding || null,
+          funding: json.funding ? [json.funding] : [],
           website: json.website || null
         }
 

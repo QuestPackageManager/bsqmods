@@ -118,6 +118,8 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
   import { getStandardizedMod } from "../../../shared/getStandardizedMod";
   import { getGithubIconUrl } from "../../../shared/getGithubIconUrl";
   import { getQmodCoverUrl } from "../../../shared/getQmodCoverUrl";
+  import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
+  import { validateMod } from "../../../shared/validateMod";
 
   ("use strict");
   (async () => {
@@ -275,50 +277,60 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
      * Generates JSON for the mod, and opens a GitHub page with a new file pre-populated with it, or the existing file if it already exists.
      */
     function generateJson(this: HTMLElement, e: Event) {
-      const repo = this.getAttribute("data-repo");
-      const branch = this.getAttribute("data-branch");
+      try {
+        const repo = this.getAttribute("data-repo");
+        const branch = this.getAttribute("data-branch");
 
-      if (!modJson[targetGameVersionElement.value]) {
-        modJson[targetGameVersionElement.value] = [];
-      }
+        if (!modJson[targetGameVersionElement.value]) {
+          modJson[targetGameVersionElement.value] = [];
+        }
 
-      let mod: Mod = getStandardizedMod(
-        {
-          name: modNameElement.value.trim(),
-          description: modDescriptionElement.value.trim(),
-          id: modIdElement.value.trim(),
-          version: modVersionElement.value.trim(),
-          author: modCreatorsElement.value.trim(),
-          authorIcon: authorIconElement.value.trim(),
-          modloader: modLoaderElement.value.trim(),
-          download: modDownloadLinkElement.value.trim(),
-          source: modSourceLinkElement.value.trim(),
-          cover: modCoverElement.value.trim(),
-          funding: modFundingLinkElement.value.trim(),
-          website: modWebsiteLinkElement.value.trim(),
-        },
-        splitModKeys,
-      );
+        const funding = modFundingLinkElement.value.trim();
 
-      const modFilename = getFilename(
-        mod.id || "",
-        mod.version || "",
-        targetGameVersionElement.value,
-      );
+        let mod: Mod = getStandardizedMod(
+          {
+            name: modNameElement.value.trim(),
+            description: modDescriptionElement.value.trim(),
+            id: modIdElement.value.trim(),
+            version: modVersionElement.value.trim(),
+            author: modCreatorsElement.value.trim(),
+            authorIcon: authorIconElement.value.trim(),
+            modloader: modLoaderElement.value.trim(),
+            download: modDownloadLinkElement.value.trim(),
+            source: modSourceLinkElement.value.trim(),
+            cover: modCoverElement.value.trim(),
+            funding: isNullOrWhitespace(funding) ? [] : [funding],
+            website: modWebsiteLinkElement.value.trim(),
+          },
+          splitModKeys,
+        );
 
-      if (
-        checkMod(
+        validateMod(mod);
+
+        const modFilename = getFilename(
           mod.id || "",
           mod.version || "",
           targetGameVersionElement.value,
-        )
-      ) {
-        alert("This mod version already exists in the json");
-        window.open(`https://github.com/${repo}/edit/${branch}/${modFilename}`);
-      } else {
-        window.open(
-          `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
         );
+
+        if (
+          checkMod(
+            mod.id || "",
+            mod.version || "",
+            targetGameVersionElement.value,
+          )
+        ) {
+          alert("This mod version already exists in the json");
+          window.open(
+            `https://github.com/${repo}/edit/${branch}/${modFilename}`,
+          );
+        } else {
+          window.open(
+            `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
+          );
+        }
+      } catch (err) {
+        alert(`${err.message || err}`);
       }
     }
 

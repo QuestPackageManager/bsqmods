@@ -12,7 +12,7 @@ import { validModLoaders } from "./validModLoaders";
 export function validateMod(mod: Mod) {
   // Check for required fields in the mod object
   for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-    if (isNullOrWhitespace(mod[field])) {
+    if (isNullOrWhitespace(mod[field] as string | null)) {
       throw new Error(`Mod ${field} not set`);
     }
   }
@@ -33,8 +33,15 @@ export function validateMod(mod: Mod) {
   for (const key of splitModKeys) {
     const value = mod[key];
 
+    if (key == "funding") {
+      if (!(value instanceof Array)) {
+        throw new Error("Funding is not an array");
+      }
+      continue;
+    }
+
     if (!(value === null || typeof (value) == "string")) {
-      throw new Error(`"${key}" is not the expected type`);
+      throw new Error(`"${key}" is not the expected type${value}`);
     }
   }
 

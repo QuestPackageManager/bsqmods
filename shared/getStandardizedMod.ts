@@ -11,6 +11,16 @@ export function getStandardizedMod(mod: Mod, keys: (keyof (Mod))[] = modKeys): M
 
   // Normalize the mod object by trimming and setting empty strings to null
   for (const key of keys) {
+    if (key == "funding") {
+      uniformMod[key] = mod[key] || [];
+
+      if (!(uniformMod[key] instanceof Array)) {
+        uniformMod[key] = [uniformMod[key]];
+      }
+
+      continue;
+    }
+
     uniformMod[key] = (mod[key] || "").trim();
 
     if (uniformMod[key] === "") {
