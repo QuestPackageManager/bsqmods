@@ -124,9 +124,10 @@ jobs:
       - name: Precompress assets
         run: |
           find website/out -type f | while read -r asset; do
-            echo "$asset"
-            brotli -k -q 11 "$asset"
-            gzip -k -9 "$asset"
+            if [[ "$file" == *.html || "$file" == *.css || "$file" == *.js || "$file" == *.json ]]; then
+              echo "$asset"
+              brotli -k -q 11 "$asset"
+            fi
           done
 
       - name: Upload artifact
