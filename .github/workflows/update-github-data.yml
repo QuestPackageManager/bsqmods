@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update missing GitHub icons
+name: Update mod repository data
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-github-icons:
+  update-github-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,11 +26,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the author icons
+      - name: Update the repo data
         run: |
           cd scripts
           npm install
           npx tsx ./update-github-icons.ts 2>&1
+          npx tsx ./update-repo-links.ts 2>&1
 
       - name: Configure git user
         run: |
@@ -41,7 +42,7 @@ jobs:
         run: |
           git add -A mods
           (
-            git commit -m "Update author icons" &&
+            git commit -m "Update mod data" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )
