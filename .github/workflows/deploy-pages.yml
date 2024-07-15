@@ -74,6 +74,11 @@ jobs:
         run: |
           tar -xJvf website/public/cache.txz
 
+      - name: Delete cache
+        continue-on-error: true
+        run: |
+          rm website/public/cache.txz
+
       - name: Install npm modules
         run: |
           cd scripts
@@ -115,6 +120,14 @@ jobs:
         run: |
           cd website
           npx astro build --base "/$REPO_NAME"
+
+      - name: Precompress assets
+        run: |
+          find website/out -type f | while read -r asset; do
+            echo "$asset"
+            brotli -k -q 11 "$asset"
+            gzip -k -9 "$asset"
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
