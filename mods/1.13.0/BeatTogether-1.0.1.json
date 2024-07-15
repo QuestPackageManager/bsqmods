@@ -6,9 +6,9 @@
   "author": "BeatTogether Team",
   "authorIcon": "https://avatars.githubusercontent.com/u/9069824?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/pythonology/BeatTogether.Quest/releases/download/v1.0.1/BeatTogether_v1.0.1.zip",
-  "source": "https://github.com/pythonology/BeatTogether.Quest/",
-  "cover": "https://raw.githubusercontent.com/pythonology/BeatTogether.Quest/master/Cover.png",
+  "download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v1.0.1/BeatTogether_v1.0.1.zip",
+  "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
+  "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
   "funding": [],
   "website": null
 }
