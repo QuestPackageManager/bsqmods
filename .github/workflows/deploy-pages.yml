@@ -123,10 +123,10 @@ jobs:
 
       - name: Precompress assets
         run: |
-          find website/out -type f | while read -r asset; do
+          find website/out -type f | while read -r file; do
             if [[ "$file" == *.html || "$file" == *.css || "$file" == *.js || "$file" == *.json ]]; then
-              echo "$asset"
-              brotli -k -q 11 "$asset"
+              echo "$file"
+              brotli -k -q 11 "$file"
             fi
           done
 
