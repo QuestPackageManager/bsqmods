@@ -1,5 +1,9 @@
+import { delay } from "./delay";
 import { getGithubToken } from "./githubToken";
 import { FetchType } from "./types/FetchType";
+
+const githubMinimumDelay = 1000;
+let lastGithubRelease = 0;
 
 export interface FetchedData<T> {
   data: T | null,
@@ -15,13 +19,29 @@ export interface FetchedData<T> {
  */
 export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Json): Promise<FetchedData<T>> {
   const token = await getGithubToken();
-  const useToken = token && url.toLocaleLowerCase().startsWith("https://api.github.com/");
+  const isGithub = url.toLocaleLowerCase().startsWith("https://api.github.com/");
+  const useToken = token && isGithub;
+
+  if (isGithub) {
+    const delaySinceLast = (new Date()).getTime() - lastGithubRelease;
+
+    if (delaySinceLast < githubMinimumDelay) {
+      const delayMs = githubMinimumDelay - delaySinceLast;
+
+      console.log(`Waiting ${delayMs}ms for GitHub API`);
+      await delay(delayMs);
+    }
+  }
   const response = await fetch(url, useToken ? {
     headers: {
       'Accept': 'application/vnd.github.v3+json',
       'Authorization': `Bearer ${token}`
     },
   } : undefined);
+
+  if (isGithub) {
+    lastGithubRelease = (new Date()).getTime();
+  }
 
   if (response.ok) {
     switch (type) {
