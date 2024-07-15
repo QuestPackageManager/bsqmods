@@ -20,57 +20,83 @@ async function checkFunding(contents: RepoContent[]) {
           const value = parsed[key];
           switch (key) {
             case "community_bridge":
-              links.push(`https://funding.communitybridge.org/projects/${value}`)
+              if (value) {
+                links.push(`https://funding.communitybridge.org/projects/${value}`);
+              }
               break;
 
             case "github":
               if (typeof (value) === "string") {
-                links.push(`https://github.com/sponsors/${value}`);
+                if (value) {
+                  links.push(`https://github.com/sponsors/${value}`);;
+                }
               } else if (value instanceof Array) {
                 for (const user of value) {
-                  links.push(`https://github.com/sponsors/${user}`);
+                  if (user) {
+                    links.push(`https://github.com/sponsors/${user}`);
+                  }
                 }
               }
               break;
 
             case "issuehunt":
-              links.push(`https://issuehunt.io/r/${value}`)
+              if (value) {
+                links.push(`https://issuehunt.io/r/${value}`);
+              }
               break;
 
             case "ko_fi":
-              links.push(`https://ko-fi.com/${value}`)
+              if (value) {
+                links.push(`https://ko-fi.com/${value}`);
+              }
               break;
 
             case "liberapay":
-              links.push(`https://liberapay.com/${value}`)
+              if (value) {
+                links.push(`https://liberapay.com/${value}`);
+              }
               break;
 
             case "open_collective":
-              links.push(`https://opencollective.com/${value}`)
+              if (value) {
+                links.push(`https://opencollective.com/${value}`);
+              }
               break;
 
             case "patreon":
-              links.push(`https://patreon.com/${value}`)
+              if (value) {
+                links.push(`https://patreon.com/${value}`);
+              }
               break;
 
             case "tidelift":
-              links.push(`https://tidelift.com/funding/github/${value}`)
+              if (value) {
+                links.push(`https://tidelift.com/funding/github/${value}`);
+              }
               break;
 
             case "polar":
-              links.push(`https://polar.sh/${value}`)
+              if (value) {
+                links.push(`https://polar.sh/${value}`);
+              }
               break;
 
             case "buy_me_a_coffee":
-              links.push(`https://buymeacoffee.com/${value}`)
+              if (value) {
+                links.push(`https://buymeacoffee.com/${value}`);
+              }
               break;
 
             case "custom":
               if (typeof (value) === "string") {
-                links.push(`${value}`);
+                if (value) {
+                  links.push(`${value}`);;
+                }
               } else if (value instanceof Array) {
                 for (const link of value) {
-                  links.push(`${link}`);
+                  if (link) {
+                    links.push(`${link}`);
+                  }
                 }
               }
               break;
