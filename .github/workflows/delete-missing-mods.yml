@@ -1,12 +1,12 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update data from ComputerElite
+name: Cleanup missing mods
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
   schedule:
-    - cron: "36 0 * * *"
+    - cron: "24 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow push and requesting PRs
 permissions:
@@ -15,9 +15,9 @@ permissions:
 
 jobs:
   # Single deploy job since we're just deploying
-  update-computer-json:
+  delete-missing-mods:
     concurrency:
-      group: update-computer-json-${{ github.ref }}
+      group: delete-missing-mods-${{ github.ref }}
 
     runs-on: ubuntu-latest
     steps:
@@ -28,30 +28,19 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the mods.json from ComputerElite
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the mods from known repos.
         run: |
-          wget "https://computerelite.github.io/tools/Beat_Saber/mods.json" -O website/public/mods.json
           cd scripts
           npm install
-          npx tsx ./split.ts 2>&1
           npx tsx ./delete-missing-mods.ts 2>&1
-          npx tsx ./update-github-icons.ts 2>&1
-          npx tsx ./update-covers.ts 2>&1
-
-      - name: Only keep new files.
-        run: |
-          git add $(git ls-files --others --exclude-standard mods)
-          git checkout .
-          git reset
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          title: Update Mods from ComputerElite
-          commit-message: Update mods
-          branch: update-mods-computer
+          title: Cleanup missing mods
+          commit-message: Cleanup missing mods
+          body: The download links for the mods in this PR are no longer functioning.
+          branch: delete-missing-mods
 
       - name: Configure git user
         if: (false)
@@ -59,19 +48,19 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Commit the updated files
+      - name: Commit the new files
         if: (false)
         run: |
           git add -A mods
           (
-            git commit -m "Update mods" &&
+            git commit -m "Cleanup missing mods" &&
             (
               echo "MODS_UPDATED=yes" >> $GITHUB_ENV
             )
           ) || true
 
       - name: Push the updated files
-        if: (env.MODS_UPDATED == 'yes')
+        if: (false)
         run: |
           git pull --rebase
           git push
