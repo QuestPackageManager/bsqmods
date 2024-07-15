@@ -300,21 +300,21 @@ type QmodRepoResult = Record<ModIdType, Record<ModVersionType, ModObjectType>>
 const versionMap: Record<GameVersionType, QmodRepoResult> = {}
 
 // transform to structure
-Object.entries(allMods).forEach(([game_ver, mods]) => {
+for (const [game_ver, mods] of Object.entries(allMods)) {
   const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {})
 
-  mods.forEach(mod => {
+  for (const mod of mods) {
     const modVersionMap = modMap[mod.id!] ?? (modMap[mod.id!] = {});
 
     modVersionMap[mod.version!] = mod
-  })
-})
+  }
+}
 
 // now write
-Object.entries(versionMap).forEach(([game_ver, qmodRepo]) => {
+for (const [game_ver, qmodRepo] of Object.entries(versionMap)) {
   const versionFile = path.join(websiteBase, game_ver);
   fs.writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
-});
+}
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
 fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
