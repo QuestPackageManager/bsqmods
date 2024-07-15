@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ModCollection.schema.json",
+  "type": "object",
+  "patternProperties": {
+    ".*": {
+      "type": "array",
+      "items": {
+        "$ref": "CombinedMod.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "Mod.schema.json",
+  "type": "object",
+  "allOf": [{
+    "$ref": "CombinedMod.schema.json"
+  }, {
+    "type": "object",
+    "properties": {
+      "name": {},
+      "description": {},
+      "id": {},
+      "version": {},
+      "author": {},
+      "authorIcon": {},
+      "modloader": {},
+      "download": {},
+      "source": {},
+      "cover": {},
+      "funding": {},
+      "website": {}
+    },
+    "additionalProperties": false
+  }]
+}
