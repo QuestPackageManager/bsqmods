@@ -7,28 +7,40 @@
       "type": "string"
     },
     "description": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "id": {
       "type": "string"
     },
     "version": {
       "type": "string",
-      "pattern": "^(?<=^v?|\\sv?)(?:(?:0|[1-9]\\d{0,9}?)\\.){2}(?:0|[1-9]\\d{0,9})(?:-(?:--+)?(?:0|[1-9]\\d*|\\d*[a-z]+\\d*)){0,100}(?=$| |\\+|\\.)(?:(?<=-\\S+)(?:\\.(?:--?|[\\da-z-]*[a-z-]\\d*|0|[1-9]\\d*)){1,100}?)?(?!\\.)(?:\\+(?:[\\da-z]\\.\\?-?){1,100}?(?!\\w))?(?!\\+)$",
+      "pattern": "^(?<=^v?|\\sv?)(?:(?:0|[1-9]\\d{0,9}?)\\.){2}(?:0|[1-9]\\d{0,9})(?:-(?:--+)?(?:0|[1-9]\\d*|\\d*[a-zA-Z]+\\d*)){0,100}(?=$| |\\+|\\.)(?:(?<=-\\S+)(?:\\.(?:--?|[\\da-zA-Z-]*[a-zA-Z-]\\d*|0|[1-9]\\d*)){1,100}?)?(?!\\.)(?:\\+(?:[\\da-zA-Z]\\.\\?-?){1,100}?(?!\\w))?(?!\\+)$",
       "flags": "i"
     },
     "author": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "authorIcon": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     },
     "modloader": {
       "type": "string",
-      "enum": ["QuestLoader", "Scotland2"]
+      "enum": [
+        "QuestLoader",
+        "Scotland2"
+      ]
     },
     "download": {
       "type": "string",
@@ -37,15 +49,21 @@
       "flags": "i"
     },
     "source": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     },
     "cover": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uri",
-      "pattern": "^(http|https)://.*$",
+      "pattern": "^(http|https)://.*\\.(gif|jpg|jpeg|png)$",
       "flags": "i"
     },
     "funding": {
@@ -58,11 +76,27 @@
       }
     },
     "website": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     }
   },
-  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "source", "cover", "funding", "website"]
+  "required": [
+    "name",
+    "description",
+    "id",
+    "version",
+    "author",
+    "authorIcon",
+    "modloader",
+    "download",
+    "source",
+    "cover",
+    "funding",
+    "website"
+  ]
 }

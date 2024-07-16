@@ -1,6 +1,31 @@
 import { isNullOrWhitespace } from "./isNullOrWhitespace";
 import { Mod, splitModKeys } from "./types/Mod";
 import { validModLoaders } from "./validModLoaders";
+import { Validator, ValidatorResult } from "jsonschema";
+import CombinedModSchema from "./schemas/CombinedMod.schema.json";
+import ModSchemaBase from "./schemas/Mod.schema.base.json";
+import ModSchema from "./schemas/Mod.schema.json";
+import ModCollectionSchema from "./schemas/ModCollection.schema.json"
+
+let validator: Validator | null
+
+function getValidator(): Validator {
+  if (!validator) {
+    validator = new Validator();
+    validator
+
+    for (const schema of [
+      ModSchemaBase,
+      CombinedModSchema,
+      ModSchema,
+      ModCollectionSchema
+    ]) {
+      validator.addSchema(schema);
+    }
+  }
+
+  return validator;
+}
 
 /**
  * Validates a 'Mod' object to ensure all required fields are present and valid.
@@ -10,39 +35,11 @@ import { validModLoaders } from "./validModLoaders";
  * @returns true if the 'Mod' object is valid.
  */
 export function validateMod(mod: Mod) {
-  // Check for required fields in the mod object
-  for (const field of ["name", "id", "version", "download"] as (keyof Mod)[]) {
-    if (isNullOrWhitespace(mod[field] as string | null)) {
-      throw new Error(`Mod ${field} not set`);
-    }
-  }
+  const validator = getValidator();
+  const result = validator.validate(mod, ModSchemaBase);
 
-  // Validate the mod loader
-  if (mod.modloader == null || !validModLoaders.includes(mod.modloader)) {
-    throw new Error("Mod loader is invalid");
-  }
-
-  // Check for any keys not in the allowed list.
-  for (const key of Object.keys(mod) as (keyof (Mod))[]) {
-    if (!splitModKeys.includes(key)) {
-      throw new Error(`"${key}" is not a valid key`);
-    }
-  }
-
-  // Check key types
-  for (const key of splitModKeys) {
-    const value = mod[key];
-
-    if (key == "funding") {
-      if (!(value instanceof Array)) {
-        throw new Error("Funding is not an array");
-      }
-      continue;
-    }
-
-    if (!(value === null || typeof (value) == "string")) {
-      throw new Error(`"${key}" is not the expected type${value}`);
-    }
+  if (result.errors.length > 0) {
+    throw new Error(result.errors.map(err => err.toString()).join("\n\n"));
   }
 
   return true;
