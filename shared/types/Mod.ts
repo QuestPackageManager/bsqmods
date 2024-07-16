@@ -1,3 +1,25 @@
+/**
+ * Represents a mod.
+ *
+ * @example
+ * ```json
+ * {
+ *   "name": "Lapiz",
+ *   "description": "Lapiz makes modders' lives easier by exposing utilities to them cleanly. This mod does nothing on its own.",
+ *   "id": "lapiz",
+ *   "version": "0.2.13",
+ *   "author": "Raine",
+ *   "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
+ *   "modloader": "Scotland2",
+ *   "download": "https://github.com/raineio/Lapiz/releases/download/v0.2.13/Lapiz.qmod",
+ *   "source": "https://github.com/raineio/Lapiz/",
+ *   "cover": null,
+ *   "funding": [],
+ *   "website": "https://github.com/raineio/Lapiz/",
+ *   "hash": "2798b33142721386cce71f49ab02f8e328e57cf9"
+ * }
+ * ```
+ */
 export interface Mod {
   /** The name of the mod. */
   name: string | null;
@@ -29,7 +51,7 @@ export interface Mod {
   /** A direct link to a cover image. */
   cover: string | null;
 
-  /** A link to a page where people can donate some money. */
+  /** A list of links to pages where people can donate some money. */
   funding: string[];
 
   /** A link to a website for the mod. */

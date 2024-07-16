@@ -1,14 +1,14 @@
 import { Dictionary } from "./Dictionary";
-import { Mod } from "./Mod";
+import { GroupedMod } from "./GroupedMod";
 
 /**
- * Represents a collection of mods indexed by game version.
+ * Represents a collection of mods indexed by mod id, then mod version.
  *
  * @example
  * ```json
  * {
- *   "1.37.1_9895289101": [
- *     {
+ *   "lapiz": {
+ *     "0.2.13": {
  *       "name": "Lapiz",
  *       "description": "Lapiz makes modders' lives easier by exposing utilities to them cleanly. This mod does nothing on its own.",
  *       "id": "lapiz",
@@ -23,8 +23,8 @@ import { Mod } from "./Mod";
  *       "website": "https://github.com/raineio/Lapiz/",
  *       "hash": "2798b33142721386cce71f49ab02f8e328e57cf9"
  *     }
- *   ]
+ *   }
  * }
  * ```
  */
-export interface ModsCollection extends Dictionary<Mod[]> { }
+export interface GroupedMods extends Dictionary<GroupedMod> { }

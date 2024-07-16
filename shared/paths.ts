@@ -25,6 +25,9 @@ export const qmodsPath = join(repoDir, "scripts", "qmods");
 /** The path to the combined mods.json file */
 export const allModsPath = join(websiteBase, "mods.json");
 
+/** The path to the combined and grouped mods-grouped.json file */
+export const groupedModsPath = join(websiteBase, "mods-grouped.json");
+
 /** The path to the versions.json file */
 export const versionsModsPath = join(websiteBase, "versions.json");
 

@@ -10,7 +10,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { modMetadataPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath } from "../shared/paths";
+import { modMetadataPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath, groupedModsPath } from "../shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
@@ -27,6 +27,7 @@ import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 import { ModMetadata } from "../shared/types/ModMetadata";
 import { getOptimizedCoverFilePath } from "./shared/getOptimizedCoverFilePath";
 import { getOriginalCoverFilePath } from "./shared/getOriginalCoverFilePath";
+import { GroupedModsCollection } from "../shared/types/GroupedModsCollection";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -252,6 +253,18 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   return output;
 }
 
+function sortMods(mods: ModsCollection): ModsCollection {
+  const sortedMods: ModsCollection = {};
+
+  for (const version of Object.keys(mods).sort(compareVersionAscending)) {
+    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id))
+
+    sortedMods[version] = mods[version];
+  }
+
+  return sortedMods;
+}
+
 await logGithubApiUsage();
 
 for (const iteration of iterateSplitMods()) {
@@ -319,35 +332,22 @@ for (const iteration of iterateSplitMods()) {
   writeFileSync(modMetadataPath, JSON.stringify(hashes));
 }
 
-function sortMods(mods: ModsCollection): ModsCollection {
-  const sortedMods: ModsCollection = {};
-
-  for (const version of Object.keys(mods).sort(compareVersionAscending)) {
-    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id))
-
-    sortedMods[version] = mods[version];
-  }
-
-  return sortedMods;
-}
-
 // Make per-version json
 type GameVersionType = string
 
 type ModIdType = string
 type ModVersionType = string
 type ModObjectType = unknown
-type QmodRepoResult = Record<ModIdType, Record<ModVersionType, ModObjectType>>
 
-const versionMap: Record<GameVersionType, QmodRepoResult> = {}
+const versionMap: GroupedModsCollection = {}
+const sortedMods = sortMods(allMods);
 
 // transform to structure
-for (const [game_ver, mods] of Object.entries(allMods)) {
+for (const [game_ver, mods] of Object.entries(sortedMods)) {
   const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {})
 
   for (const mod of mods) {
     const modVersionMap = modMap[mod.id!] ?? (modMap[mod.id!] = {});
-
     modVersionMap[mod.version!] = mod
   }
 }
@@ -360,7 +360,11 @@ for (const [game_ver, qmodRepo] of Object.entries(versionMap)) {
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
 mkdirSync(dirname(allModsPath), { recursive: true });
-writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
+writeFileSync(allModsPath, JSON.stringify(sortedMods));
+
+// Create the directory for the grouped mods JSON file if it doesn't exist and save the data
+mkdirSync(dirname(groupedModsPath), { recursive: true });
+writeFileSync(groupedModsPath, JSON.stringify(versionMap));
 
 // Create the directory for the versions JSON file if it doesn't exist and save the data
 mkdirSync(dirname(versionsModsPath), { recursive: true });

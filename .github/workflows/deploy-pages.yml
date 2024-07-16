@@ -116,8 +116,7 @@ jobs:
           tar -cJvf website/public/cache.txz \
             website/public/covers \
             website/public/funding-info.json \
-            website/public/mod-metadata.json \
-            website/public/mods.json
+            website/public/mod-metadata.json
 
       - name: Build website
         run: |
