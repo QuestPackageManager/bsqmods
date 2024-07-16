@@ -65,16 +65,19 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Download cache
+        if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           wget "$PAGES_URL/cache.txz?`date +%s`" -O website/public/cache.txz
 
       - name: Extract cache
+        if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           tar -xJvf website/public/cache.txz
 
       - name: Delete cache
+        if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           rm website/public/cache.txz
@@ -87,7 +90,7 @@ jobs:
           npm install
 
       - name: Purge specified items from cache
-        if: (github.event.inputs.purgeCache != '')
+        if: ((github.event.inputs.purgeCache != '') && (github.event.inputs.purgeCache != '--all'))
         run: |
           cd scripts
           npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
@@ -113,8 +116,8 @@ jobs:
           tar -cJvf website/public/cache.txz \
             website/public/covers \
             website/public/funding-info.json \
-            website/public/mods.json \
-            website/public/sha1sums.json
+            website/public/mod-metadata.json \
+            website/public/mods.json
 
       - name: Build website
         run: |
