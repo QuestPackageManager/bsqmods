@@ -28,13 +28,19 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install npm modules
+        run: |
+          cd scripts
+          npm install
+          cd ../website
+          npm install
+
       - name: Update the mods.json from ComputerElite
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           wget "https://computerelite.github.io/tools/Beat_Saber/mods.json" -O website/public/mods.json
           cd scripts
-          npm install
           npx tsx ./split.ts 2>&1
           npx tsx ./delete-missing-mods.ts 2>&1
           npx tsx ./update-github-icons.ts 2>&1

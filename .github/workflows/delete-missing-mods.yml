@@ -28,10 +28,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the mods from known repos.
+      - name: Install npm modules
         run: |
           cd scripts
           npm install
+          cd ../website
+          npm install
+          
+      - name: Update the mods from known repos.
+        run: |
+          cd scripts
           npx tsx ./delete-missing-mods.ts 2>&1
 
       - name: Create Pull Request

@@ -34,8 +34,14 @@ jobs:
           rm -r mods
           wget "https://api.github.com/repos/dantheman827/bsqmods/tarball/pull/${{ github.event.pull_request.number }}/head" -qO - | tar -xzvf - --strip-components=1 --wildcards '*/mods/'
 
-      - name: Validate json
+      - name: Install npm modules
         run: |
           cd scripts
           npm install
+          cd ../website
+          npm install
+
+      - name: Validate json
+        run: |
+          cd scripts
           npx tsx ./pr-check.ts

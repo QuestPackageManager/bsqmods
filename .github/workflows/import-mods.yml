@@ -39,9 +39,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: npm install
+      - name: Install npm modules
         run: |
           cd scripts
+          npm install
+          cd ../website
           npm install
 
       - name: Import the core mods
@@ -50,6 +52,7 @@ jobs:
           cd scripts
           npx tsx ./import.ts 2>&1
           echo "COMMIT_MSG=Update core mods" >> $GITHUB_ENV
+          echo "BRANCH_NAME=core-mods" >> $GITHUB_ENV
 
       - name: Import the specified mod
         if: (github.event.inputs.url != '')

@@ -21,10 +21,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the covers
+      - name: Install npm modules
         run: |
           cd scripts
           npm install
+          cd ../website
+          npm install
+
+      - name: Update the covers
+        run: |
+          cd scripts
           npx tsx ./update-covers.ts 2>&1
 
       - name: Configure git user

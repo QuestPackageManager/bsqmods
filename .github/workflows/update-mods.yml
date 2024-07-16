@@ -28,12 +28,18 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install npm modules
+        run: |
+          cd scripts
+          npm install
+          cd ../website
+          npm install
+
       - name: Update the mods from known repos.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd scripts
-          npm install
           npx tsx ./update-mods.ts 2>&1
 
       - name: Only keep new files.

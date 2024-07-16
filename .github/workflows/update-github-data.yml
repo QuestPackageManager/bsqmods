@@ -26,10 +26,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update the repo data
+      - name: Install npm modules
         run: |
           cd scripts
           npm install
+          cd ../website
+          npm install
+
+      - name: Update the repo data
+        run: |
+          cd scripts
           npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-repo-links.ts 2>&1
 
