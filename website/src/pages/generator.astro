@@ -5,6 +5,9 @@ import GeneratorColumn from "../components/GeneratorColumn.astro";
 import GeneratorWrapper from "../components/GeneratorWrapper.astro";
 import GeneratorDropZone from "../components/GeneratorDropZone.astro";
 import GeneratorTextArea from "../components/GeneratorTextArea.astro";
+import GeneratorSelectMenu from "../components/GeneratorSelectMenu.astro";
+import { ModLoader } from "../../../shared/types/ModLoader";
+import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonFunctions";
 ---
 
 <Layout title="Mod JSON Generator" linkHome={true}>
@@ -35,11 +38,14 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
       >
         Game Version
       </GeneratorTextInput>
-      <GeneratorTextInput
+      <GeneratorSelectMenu
         id="modLoader"
-        placeholder="The mod loader used by the mod"
-        >Mod Loader</GeneratorTextInput
+        values={Object.keys(ModLoader)
+          .sort(compareAlphabeticallyAscInsensitive)
+          .map((k) => [k, k, k == ModLoader.Scotland2])}
       >
+        Mod Loader
+      </GeneratorSelectMenu>
       <GeneratorDropZone id="loadQmod">
         Drag/drop .qmod file here, or click to select file.
       </GeneratorDropZone>
@@ -120,6 +126,7 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
   import { getQmodCoverUrl } from "../../../shared/getQmodCoverUrl";
   import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
   import { validateMod } from "../../../shared/validateMod";
+import { ModLoader } from "../../../shared/types/ModLoader";
 
   ("use strict");
   (async () => {
@@ -154,7 +161,7 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
       targetGameVersionElement = getElementById(
         "targetGameVersion",
       ) as HTMLInputElement,
-      modLoaderElement = getElementById("modLoader") as HTMLInputElement,
+      modLoaderElement = getElementById("modLoader") as HTMLSelectElement,
       qmodDropZoneElement = document.body,
       generateButtonElement = getElementById("generateJson");
 
@@ -295,7 +302,7 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
             version: modVersionElement.value.trim(),
             author: modCreatorsElement.value.trim(),
             authorIcon: authorIconElement.value.trim(),
-            modloader: modLoaderElement.value.trim(),
+            modloader: Object.keys(ModLoader).includes(modLoaderElement.value.trim()) ? modLoaderElement.value.trim() as ModLoader : ModLoader.QuestLoader,
             download: modDownloadLinkElement.value.trim(),
             source: modSourceLinkElement.value.trim(),
             cover: modCoverElement.value.trim(),
@@ -330,6 +337,7 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
           );
         }
       } catch (err) {
+        console.error(err);
         alert(`${err.message || err}`);
       }
     }
@@ -386,8 +394,8 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
             (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
           targetGameVersionElement.value = modInfo.packageVersion || "";
           modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
-          modFundingLinkElement.value = modInfo.funding || "";
-          modWebsiteLinkElement.value = modInfo.website || "";
+          modFundingLinkElement.value = "";
+          modWebsiteLinkElement.value = "";
 
           console.log(modInfo);
         } catch (error) {

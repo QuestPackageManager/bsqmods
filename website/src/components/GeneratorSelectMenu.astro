@@ -1,0 +1,55 @@
+---
+export interface Props {
+  id: string;
+  values: [string, string, boolean][];
+}
+
+const { id, values } = Astro.props as Props;
+---
+
+<div
+  class={`
+    block
+    text-center
+  `}
+>
+  <span
+    class={`
+      block
+      font-bold
+      leading-normal
+      py-1
+      text-shadow
+      text-white
+    `}
+  >
+    <slot />
+  </span>
+  <select
+    class={`
+      backdrop-blur
+      bg-white-alpha-70
+      border
+      border-white-alpha-20
+      dark:bg-dark-card
+      dark:placeholder-white-alpha-40
+      dark:text-white
+      dark:text-white
+      max-w
+      my-1
+      p-2
+      placeholder-black-alpha-40
+      rounded-md
+      text-black
+      w-full
+    `}
+    id={id}
+  >
+    {values?.map((value) => <option value={value[0]} selected={value[2] ? "selected" : null}>{value[1]}</option>)}
+  </select>
+</div>
+<style>
+  span {
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  }
+</style>

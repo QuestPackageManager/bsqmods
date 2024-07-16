@@ -1,3 +1,4 @@
+import { GameVersion } from "./Aliases";
 import { Mod } from "./Mod";
 
 export interface QmodInfo extends Mod {
@@ -9,5 +10,7 @@ export interface QmodInfo extends Mod {
   /**
    * The version of the game the mod is made for.
    */
-  packageVersion: string | null;
+  packageVersion: GameVersion | null;
+
+  website: never
 }
