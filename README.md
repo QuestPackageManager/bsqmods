@@ -12,5 +12,6 @@ https://dantheman827.github.io/bsqmods/generator/
 We generate JSON files from the data in this repository. You can access these files at the following endpoints:
 
 - https://dantheman827.github.io/bsqmods/mods.json
+- https://dantheman827.github.io/bsqmods/mods-grouped.json
 - https://dantheman827.github.io/bsqmods/versions.json
 - [https://dantheman827.github.io/bsqmods/[version].json](https://dantheman827.github.io/bsqmods/1.37.0_9064817954.json)
