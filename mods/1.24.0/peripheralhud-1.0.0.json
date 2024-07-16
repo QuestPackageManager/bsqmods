@@ -6,9 +6,9 @@
   "author": "Kaitlyn",
   "authorIcon": null,
   "modloader": "QuestLoader",
-  "download": "https://github.com/ItsKaitlyn03/PeripheralHUD/releases/download/v1.0.0/peripheralhud_v1.0.0.qmod",
-  "source": "https://github.com/ItsKaitlyn03/PeripheralHUD/",
-  "cover": "https://raw.githubusercontent.com/ItsKaitlyn03/PeripheralHUD/main/cover.png",
+  "download": "https://github.com/irlbunny/PeripheralHUD/releases/download/v1.0.0/peripheralhud_v1.0.0.qmod",
+  "source": "https://github.com/irlbunny/PeripheralHUD/",
+  "cover": "https://raw.githubusercontent.com/irlbunny/PeripheralHUD/main/cover.png",
   "funding": [],
   "website": null
 }
