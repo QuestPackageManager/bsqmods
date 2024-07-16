@@ -1,8 +1,8 @@
 import { ModsCollection } from "../shared/types/ModsCollection";
 import { Mod } from "../shared/types/Mod";
 import JSZip from "jszip";
-import fs, { writeFileSync } from "fs"
-import path from "path"
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs"
+import { basename, dirname, join } from "path"
 import sharp from "sharp";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { exitWithError } from "./shared/exitWithError";
@@ -10,7 +10,7 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { hashesPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath } from "../shared/paths";
+import { modMetadataPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath } from "../shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
@@ -24,6 +24,9 @@ import { ghRegex } from "../shared/ghRegex";
 import { getRepoFundingInfo } from "../shared/getRepoFundingInfo";
 import { argv } from "process";
 import { logGithubApiUsage } from "../shared/logGithubApiUsage";
+import { ModMetadata } from "../shared/types/ModMetadata";
+import { getOptimizedCoverFilePath } from "./shared/getOptimizedCoverFilePath";
+import { getOriginalCoverFilePath } from "./shared/getOriginalCoverFilePath";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -65,30 +68,31 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     return output;
   }
 
-  let qmodHash: string | null = mod.download ? hashes[mod.download] : null;
-  let coverFilename = path.join(coversPath, `${qmodHash}.png`);
+  const metadata = hashes[mod.download as string] || {
+    hash: null,
+    image: null
+  } as ModMetadata
+  const alreadyHashed = hashes[mod.download as string]?.hash != null;
 
   if (!mod.download) {
     throw new Error("Mod download not set.")
   }
 
-  if (process.argv.indexOf("--recheckUrls") !== -1 && qmodHash != null && !(await fetchHead(mod.download))) {
-    qmodHash = null;
+  if (process.argv.indexOf("--recheckUrls") !== -1 && metadata.hash != null && !(await fetchHead(mod.download))) {
+    metadata.hash = null;
+    metadata.image = null;
+
     if (mod.download) {
       delete hashes[mod.download];
     }
   }
 
   mod.authorIcon = mod.authorIcon || (await getGithubIconUrl(mod.download)).data;
+  output.hash = metadata.hash;
 
-  // We've already processed this, don't do it again.
-  if (qmodHash != null) {
-    output.hash = qmodHash;
-
-    if (fs.existsSync(coverFilename)) {
-      mod.cover = `${urlBase}/covers/${path.basename(coverFilename)}`;
-    }
-    return output;
+  const coverFilename = getOptimizedCoverFilePath(metadata.image)
+  if (coverFilename && existsSync(coverFilename)) {
+    mod.cover = `${urlBase}/covers/${basename(coverFilename)}`;
   }
 
   if (!mod.id) {
@@ -103,107 +107,127 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     throw new Error("Mod download not set")
   }
 
-  const qmodPath = getFilename(mod.id, mod.version, gameVersion, qmodsPath, "qmod");
-  fs.mkdirSync(path.dirname(qmodPath), { recursive: true });
-
-  output.messages.push(mod.download);
-
-  if (fs.existsSync(qmodPath)) {
-    qmodHash = computeBufferSha1(fs.readFileSync(qmodPath));
-  } else {
-    qmodHash = await downloadFile(mod.download, qmodPath);
-  }
-
-  coverFilename = path.join(coversPath, `${qmodHash}.png`);
-
-  if (qmodHash == null) {
-    // File not found.
-    output.errors.push("Not found");
-    return output;
-    // process.exit(1);
-  }
-
-  hashes[mod.download] = qmodHash;
-  output.hash = qmodHash;
-
-  if (!fs.existsSync(qmodPath)) {
-    output.errors.push("Local file not found");
-    return output;
-  }
 
   let coverFile: JSZip.JSZipObject | null = null;
+  let coverImageFilename = null as string | null;
 
-  try {
-    const zip = await JSZip.loadAsync(fs.readFileSync(qmodPath));
+  if (!alreadyHashed) {
+    const qmodPath = getFilename(mod.id, mod.version, gameVersion, qmodsPath, "qmod");
+    mkdirSync(dirname(qmodPath), { recursive: true });
 
-    const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");
+    output.messages.push(mod.download);
 
-    if (infoFile != null) {
-      try {
-        const json = JSON.parse(await infoFile.async("text"));
-        const coverImageFilename = json.coverImageFilename || json.coverImage;
-
-        if (!isNullOrWhitespace(coverImageFilename) && coverImageFilename !== "undefined") {
-          coverFile = zip.file(coverImageFilename);
-
-          if (coverFile == null) {
-            output.warnings.push(`Cover file not found: ${path.join(qmodPath.substring(qmodsPath.length + 1), coverImageFilename)}`);
-          }
-        }
-      } catch (error) {
-        output.errors.push(`Processing ${infoFile.name}`);
-        return output;
-      }
+    if (existsSync(qmodPath)) {
+      metadata.hash = computeBufferSha1(readFileSync(qmodPath));
     } else {
-      output.errors.push("No info json");
+      metadata.hash = await downloadFile(mod.download, qmodPath);
+    }
+
+    if (!metadata.hash) {
+      // File not found.
+      output.errors.push("Not found");
+      return output;
+      // process.exit(1);
+    }
+
+    hashes[mod.download] = metadata;
+    output.hash = metadata.hash;
+
+    if (!existsSync(qmodPath)) {
+      output.errors.push("Local file not found");
       return output;
     }
-  } catch (error) {
-    output.errors.push("Reading archive");
-    fs.unlinkSync(qmodPath);
-    return output;
-  }
 
-  let coverBuffer: Buffer | undefined;
-
-  try {
-    if (coverFile) {
-
-      coverBuffer = await coverFile.async("nodebuffer");
-    } else if (mod.cover) {
-      const result = (await fetchBuffer(mod.cover))
-      if (result.data) {
-        coverBuffer = Buffer.from(result.data)
-      } else {
-        throw new Error(result.response.statusText)
-      }
-    }
-  } catch (error) {
-    output.warnings.push("Error fetching cover buffer");
-  }
-
-  if (coverBuffer) {
     try {
-      if (!fs.existsSync(coverFilename)) {
-        fs.mkdirSync(coversPath, { recursive: true });
+      const zip = await JSZip.loadAsync(readFileSync(qmodPath));
 
-        await sharp(coverBuffer)
-          .rotate()
-          .resize(512, 512, {
-            fit: "inside",
-            withoutEnlargement: true
-          })
-          .png({
-            compressionLevel: 9.0,
-            palette: true
-          })
-          .toFile(coverFilename);
+      const infoFile = zip.file("bmbfmod.json") || zip.file("mod.json");
+
+      if (infoFile != null) {
+        try {
+          const json = JSON.parse(await infoFile.async("text"));
+          coverImageFilename = json.coverImageFilename || json.coverImage;
+
+          if (coverImageFilename && !isNullOrWhitespace(coverImageFilename) && coverImageFilename !== "undefined") {
+            coverFile = zip.file(coverImageFilename);
+
+            if (coverFile == null) {
+              output.warnings.push(`Cover file not found: ${join(qmodPath.substring(qmodsPath.length + 1), coverImageFilename)}`);
+              coverImageFilename = null
+            }
+          }
+        } catch (error) {
+          output.errors.push(`Processing ${infoFile.name}`);
+          return output;
+        }
+      } else {
+        output.errors.push("No info json");
+        return output;
+      }
+    } catch (error) {
+      output.errors.push("Reading archive");
+      unlinkSync(qmodPath);
+      return output;
+    }
+  }
+
+  if (!metadata.image?.hash) {
+    let coverBuffer: Buffer | undefined;
+
+    try {
+      if (coverFile) {
+        coverBuffer = await coverFile.async("nodebuffer");
+      } else if (mod.cover) {
+        const result = (await fetchBuffer(mod.cover));
+
+        if (result.data) {
+          coverBuffer = Buffer.from(result.data);
+          coverImageFilename = basename(mod.cover);
+        } else {
+          throw new Error(result.response.statusText);
+        }
+      }
+    } catch (error) {
+      output.warnings.push("Error fetching cover buffer");
+    }
+
+    if (coverBuffer && coverImageFilename) {
+      metadata.image = {
+        hash: computeBufferSha1(coverBuffer),
+        extension: coverImageFilename.split(".").at(-1) || null
       }
 
-      mod.cover = `${urlBase}/covers/${path.basename(coverFilename)}`;
-    } catch (error) {
-      output.warnings.push("Error processing cover file");
-      output.warnings.push(`${(error as any).message}`);
+      const originalCoverFilename = getOriginalCoverFilePath(metadata.image);
+      const coverFilename = getOptimizedCoverFilePath(metadata.image);
+
+      if (originalCoverFilename && !existsSync(originalCoverFilename)) {
+        mkdirSync(dirname(originalCoverFilename), { recursive: true })
+        writeFileSync(originalCoverFilename, coverBuffer);
+      }
+
+
+      try {
+        if (coverFilename && !existsSync(coverFilename)) {
+          mkdirSync(coversPath, { recursive: true });
+
+          await sharp(coverBuffer)
+            .rotate()
+            .resize(512, 512, {
+              fit: "inside",
+              withoutEnlargement: true
+            })
+            .png({
+              compressionLevel: 9.0,
+              palette: true
+            })
+            .toFile(coverFilename);
+        }
+
+        mod.cover = `${urlBase}/covers/${basename(coverFilename as string)}`;
+      } catch (error) {
+        output.warnings.push("Error processing cover file");
+        output.warnings.push(`${(error as any).message}`);
+      }
     }
   }
 
@@ -252,7 +276,7 @@ for (const iteration of iterateSplitMods()) {
   // If there are no errors, add the mod to the list and save the hash
   if (qmodResult.errors.length === 0) {
     if (uniformMod.download) {
-      uniformMod.hash = hashes[uniformMod.download];
+      uniformMod.hash = hashes[uniformMod.download].hash;
     }
 
     mods.push(uniformMod as Mod);
@@ -274,7 +298,7 @@ for (const iteration of iterateSplitMods()) {
   }
 
   // Save the updated hashes to the hashes file
-  fs.writeFileSync(hashesPath, JSON.stringify(hashes));
+  writeFileSync(modMetadataPath, JSON.stringify(hashes));
 }
 
 function sortMods(mods: ModsCollection): ModsCollection {
@@ -312,16 +336,16 @@ for (const [game_ver, mods] of Object.entries(allMods)) {
 
 // now write
 for (const [game_ver, qmodRepo] of Object.entries(versionMap)) {
-  const versionFile = path.join(websiteBase, game_ver);
-  fs.writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
+  const versionFile = join(websiteBase, game_ver);
+  writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
 }
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
-fs.mkdirSync(path.dirname(allModsPath), { recursive: true });
-fs.writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
+mkdirSync(dirname(allModsPath), { recursive: true });
+writeFileSync(allModsPath, JSON.stringify(sortMods(allMods)));
 
 // Create the directory for the versions JSON file if it doesn't exist and save the data
-fs.mkdirSync(path.dirname(versionsModsPath), { recursive: true });
-fs.writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
+mkdirSync(dirname(versionsModsPath), { recursive: true });
+writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
 
 await logGithubApiUsage();

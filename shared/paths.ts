@@ -13,8 +13,11 @@ export const modsPath = join(repoDir, "mods");
 /** The path to the covers folder */
 export const coversPath = join(websiteBase, "covers");
 
-/** The path to the sha1sums.json file */
-export const hashesPath = join(websiteBase, "sha1sums.json");
+/** The path to the original covers folder */
+export const originalCoversPath = join(websiteBase, "covers", "originals");
+
+/** The path to the mod-metadata.json file */
+export const modMetadataPath = join(websiteBase, "mod-metadata.json");
 
 /** The path to the qmod download cache */
 export const qmodsPath = join(repoDir, "scripts", "qmods");

@@ -1,15 +1,18 @@
 import { argv } from "process";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { hashesPath, coversPath } from "../shared/paths";
+import { modMetadataPath } from "../shared/paths";
 import { existsSync, unlinkSync, writeFileSync } from "fs";
-import { basename, join, resolve } from "path";
+import { basename, resolve } from "path";
 import { getQmodHashes } from "./shared/getQmodHashes";
+import { getOptimizedCoverFilePath } from "./shared/getOptimizedCoverFilePath";
+import { getOriginalCoverFilePath } from "./shared/getOriginalCoverFilePath";
+import { getIndentedMessage as indent } from "../shared/getIndentedMessage";
 
 /** The name of the currently running script. */
 const scriptName = basename(import.meta.filename);
 
 /** A dictionary of all hashes for given urls. */
-const savedHashes = getQmodHashes();
+const saveMetadata = getQmodHashes();
 
 /**
  * Purges the cached images and saved hashes for the given URLs.
@@ -17,23 +20,35 @@ const savedHashes = getQmodHashes();
  */
 export function purgeCache(urls: string[]) {
   for (const url of urls) {
-    const hash = savedHashes[url];
+    const metadata = saveMetadata[url];
 
-    if (hash) {
-      const coverPath = join(coversPath, `${hash}.png`);
+    if (metadata) {
+      console.log(`Removing hash for ${url}`);
 
-      // If the cached image exists, delete it
-      if (existsSync(coverPath)) {
-        console.log(`Deleting ${basename(coverPath)}`);
-        unlinkSync(coverPath);
+      if (metadata.image?.hash) {
+        const referenceCount = Object.values(saveMetadata).filter(meta => meta.image?.hash && meta.image.hash == metadata.image?.hash).length;
+
+        console.log(indent(`Cover reference count: ${referenceCount}`, 1))
+
+        // If the cached image exists, and only one entry is referencing it, delete it
+        if (referenceCount == 1) {
+          for (const path of [
+            getOptimizedCoverFilePath(metadata.image),
+            getOriginalCoverFilePath(metadata.image)
+          ]) {
+            if (path && existsSync(path)) {
+              console.log(indent(`Deleting ${basename(path)}`, 1));
+              unlinkSync(path);
+            }
+          }
+        }
       }
 
       // Remove the hash for the URL
-      console.log(`Removing hash for ${url}`);
-      delete savedHashes[url];
+      delete saveMetadata[url];
 
       // Update the hashes file
-      writeFileSync(hashesPath, JSON.stringify(savedHashes, null, "  "));
+      writeFileSync(modMetadataPath, JSON.stringify(saveMetadata));
     }
   }
 }
@@ -49,7 +64,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     if (!isNullOrWhitespace(argv[2])) {
       if (argv[2] === "--all") {
         // If the argument is "--all", purge the cache for all saved URLs
-        purgeCache(Object.keys(savedHashes));
+        purgeCache(Object.keys(saveMetadata));
       } else {
         // Otherwise, split the argument by '|' and purge the cache for the specified URLs
         purgeCache(argv[2].split("|"));

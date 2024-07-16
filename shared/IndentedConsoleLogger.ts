@@ -1,4 +1,4 @@
-import { getIndentedMessage as indent } from "./getIndentedMessage";
+import { indent as indent } from "./getIndentedMessage";
 import { Logger } from "./Logger";
 
 

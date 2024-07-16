@@ -1,11 +1,12 @@
-import { HashCollection } from "../../shared/types/HashCollection";
-import { hashesPath } from "../../shared/paths";
+import { modMetadataPath } from "../../shared/paths";
 import { readTextFile } from "./readTextFile";
+import { ModMetadata } from "../../shared/types/ModMetadata";
+import { Dictionary } from "../../shared/types/Dictionary";
 
 /**
  * Gets a dictionary of all hashes for given urls
  * @returns
  */
-export function getQmodHashes(): HashCollection {
-  return JSON.parse(readTextFile(hashesPath, "{}"));
+export function getQmodHashes(): Dictionary<ModMetadata> {
+  return JSON.parse(readTextFile(modMetadataPath, "{}"));
 }
