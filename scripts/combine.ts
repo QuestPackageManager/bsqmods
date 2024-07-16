@@ -193,9 +193,27 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
     if (coverBuffer && coverImageFilename) {
       metadata.image = {
-        hash: computeBufferSha1(coverBuffer),
+        hash: null,
         extension: coverImageFilename.split(".").at(-1) || null
       }
+
+      if (metadata.image.extension?.toLowerCase() === "png") {
+        try {
+          const newBuffer = Buffer.alloc(0);
+
+          coverBuffer = await sharp(coverBuffer)
+            .png({
+              compressionLevel: 9.0,
+              palette: true
+            })
+            .toBuffer();
+        } catch (error) {
+          output.warnings.push("Error processing cover file");
+          output.warnings.push(`${(error as any).message}`);
+        }
+      }
+
+      metadata.image.hash = computeBufferSha1(coverBuffer);
 
       const originalCoverFilename = getOriginalCoverFilePath(metadata.image);
       const coverFilename = getOptimizedCoverFilePath(metadata.image);

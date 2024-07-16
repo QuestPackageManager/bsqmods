@@ -7,5 +7,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   outDir: './out',
-  integrations: [react(), tailwind(), playformCompress()]
+  integrations: [react(), tailwind(), playformCompress({
+    Image: false
+  })]
 });
