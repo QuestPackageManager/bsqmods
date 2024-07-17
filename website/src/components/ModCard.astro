@@ -3,6 +3,7 @@ import { Mod } from "../../../shared/types/Mod";
 import BottomAnchor from "./BottomAnchor.astro";
 import { encode } from "html-entities";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import ExpandableLongText from "./ExpandableLongText.astro";
 
 export interface Props {
   /**
@@ -33,12 +34,11 @@ const { mods } = Astro.props as Props;
           p-2
           relative
           w-full
-          sm:w-1/2
-          md:w-1/3
-          lg:w-1/4
-          xl:w-1/5
-          xxl:w-1/6
-          xxxl:w-[12.5%]
+          md:w-1/2
+          lg:w-1/3
+          xl:w-1/4
+          xxl:w-1/5
+          xxxl:w-1/6
         `}
       >
         <div
@@ -93,40 +93,42 @@ const { mods } = Astro.props as Props;
               p-4
             `}
           >
-            <div
-              class={`
+            <ExpandableLongText>
+              <div
+                class={`
                 font-semibold
               `}
-            >
-              {mod.name}
-              <span
-                class={`
+              >
+                {mod.name}
+                <span
+                  class={`
                   pl-1
                   text-[.6em]
                 `}
-              >
-                v{mod.version}
-              </span>
-            </div>
-            <div
-              class={`
+                >
+                  v{mod.version}
+                </span>
+              </div>
+              <div
+                class={`
                 italic
                 text-[.7em]
               `}
-            >
-              {mod.author}
-            </div>
-            {mod.description ? (
-              <span
-                class={`
+              >
+                {mod.author}
+              </div>
+              {mod.description ? (
+                <span
+                  class={`
                   text-sm
                   whitespace-pre-line
                 `}
-                set:html={encode(mod.description)
-                  .replace(/\n/g, "&#10;")
-                  .replace(/\r/g, "")}
-              />
-            ) : null}
+                  set:html={encode(mod.description)
+                    .replace(/\n/g, "&#10;")
+                    .replace(/\r/g, "")}
+                />
+              ) : null}
+            </ExpandableLongText>
           </div>
           {(() => {
             const buttons = [];
@@ -208,7 +210,7 @@ const { mods } = Astro.props as Props;
                       </ul>
                     </details>
                   ) : null}
-                </div>,
+                </div>
               );
             }
 
@@ -226,7 +228,7 @@ const { mods } = Astro.props as Props;
                   `}
                 >
                   Source Code
-                </a>,
+                </a>
               );
             }
 
