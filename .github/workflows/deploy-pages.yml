@@ -58,8 +58,19 @@ jobs:
           echo "REPO_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
 
       - name: Set pages url
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
+          HOMEPAGE_URL="$(curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY" | jq -r '.homepage' | sed 's/\/$//')"
+          if [ "$HOMEPAGE_URL" == "null" ]; then
+            echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
+          else
+            echo "PAGES_URL=$HOMEPAGE_URL" >> $GITHUB_ENV
+          fi
+
+      - name: Set page path
+        run: |
+          echo "PAGES_PATH=$(echo "$PAGES_URL" | awk -F/ -v OFS="/" '{$1=$2=$3=""; print $0}' | sed 's/\/\+/\//')" >> $GITHUB_ENV
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -121,7 +132,7 @@ jobs:
       - name: Build website
         run: |
           cd website
-          npx astro build --base "/$REPO_NAME"
+          npx astro build --base "$PAGES_PATH"
 
       - name: Precompress assets
         run: |
