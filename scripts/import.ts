@@ -83,14 +83,21 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         for (const key of (Object.keys(modInfo) as (keyof (Mod))[])) {
           let value = modInfo[key];
 
-          if (value != null && value as any instanceof Array) {
-            value = modInfo[key] = (value as unknown as string[]).map(line => line.trim()).join("\n\n");
+          if (value instanceof Array) {
+            for (var i = 0; i < value.length; i++) {
+              if (typeof (value[i]) == "string") {
+                (value as string[])[i] = value[i].trim();
+              }
+            }
+            break;
           }
 
-          if (isNullOrWhitespace(value) || value == "undefined") {
-            modInfo[key] = null;
-          } else if (value != null) {
-            modInfo[key] = value.trim();
+          if (key != "modloader" && key != "funding") {
+            if (isNullOrWhitespace(value) || value == "undefined") {
+              modInfo[key] = null;
+            } else if (value != null) {
+              modInfo[key] = value.trim();
+            }
           }
         }
 
