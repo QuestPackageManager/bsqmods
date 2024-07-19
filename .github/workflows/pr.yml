@@ -6,14 +6,42 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "The PR number to check against"
+        default: ""
+
+
+  repository_dispatch:
+    types: [trigger_deploy]
 
 jobs:
   # Single deploy job since we're just deploying
   test:
     name: pr-check-mods
     runs-on: ubuntu-latest
-    if: (github.event.issue.pull_request && github.event_name == 'issue_comment' && github.event.comment.body == '/check') || github.event_name == 'pull_request'
     steps:
+      - name: Set PR number
+        run: |
+          if [ "${{ github.event.pull_request.number }}" != "" ]; then
+            echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          fi
+
+          if [ "${{ github.event.client_payload.pr_number }}" != "" ]; then
+            echo "PR_NUMBER=${{ github.event.client_payload.pr_number }}" >> $GITHUB_ENV
+          fi
+
+          if [ "${{ github.event.inputs.pr_number }}" != "" ]; then
+            echo "PR_NUMBER=${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
+          fi
+
+      - name: Check PR number
+        run: |
+          if [ "$PR_NUMBER" == "" ]; then
+            echo "PR number not set"
+            false
+          fi
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -26,13 +54,13 @@ jobs:
       - name: Get changed files
         id: get_changed_files
         run: |
-          curl --silent "https://api.github.com/repos/dantheman827/bsqmods/pulls/${{ github.event.pull_request.number }}/files" | jq -r '.[].filename' > changed-files.txt
+          curl --silent "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" | jq -r '.[].filename' > changed-files.txt
 
       - name: Get the mods folder of the PR
         id: download_mods_json
         run: |
           rm -r mods
-          wget "https://api.github.com/repos/dantheman827/bsqmods/tarball/pull/${{ github.event.pull_request.number }}/head" -qO - | tar -xzvf - --strip-components=1 --wildcards '*/mods/'
+          wget "https://api.github.com/repos/$GITHUB_REPOSITORY/tarball/pull/$PR_NUMBER/head" -qO - | tar -xzvf - --strip-components=1 --wildcards '*/mods/'
 
       - name: Install npm modules
         run: |
