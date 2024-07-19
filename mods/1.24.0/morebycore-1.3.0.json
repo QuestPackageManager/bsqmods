@@ -1,6 +1,6 @@
 {
   "name": "More By Core",
-  "description": "More By Core, for 1.24.0! Lets you customize BeatSaber with added stuff!",
+  "description": "More By Core, version #{version} for 1.24! Lets you customize BeatSaber with added stuff!",
   "id": "morebycore",
   "version": "1.3.0",
   "author": "Core",
@@ -10,5 +10,5 @@
   "source": "https://github.com/Core-Quest/MoreByCore/",
   "cover": null,
   "funding": [],
-  "website": null
+  "website": "https://github.com/Core-Quest/MoreByCore/"
 }
