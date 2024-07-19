@@ -56,8 +56,16 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           download: url,
           source: null,
           cover: coverResult.data,
-          funding: json.funding ? [json.funding] : [],
+          funding: [],
           website: json.website || null
+        }
+
+        if (json.funding != null) {
+          if (typeof (json.funding) == "string" && !isNullOrWhitespace(json.funding)) {
+            modInfo.funding = [json.funding];
+          } else if (json.funding instanceof Array) {
+            modInfo.funding = json.funding;
+          }
         }
 
         gameVersion = gameVersion || json.packageVersion || json.gameVersion || "global";
