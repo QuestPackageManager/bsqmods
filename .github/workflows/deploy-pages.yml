@@ -61,7 +61,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          HOMEPAGE_URL="$(curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY" | jq -r '.homepage' | sed 's/\/$//')"
+          HOMEPAGE_URL="$(curl -H "Authorization: Bearer $GITHUB_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY/pages" | jq -r '.html_url' | sed 's/\/$//')"
           if [ "$HOMEPAGE_URL" == "null" ]; then
             echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
           else
