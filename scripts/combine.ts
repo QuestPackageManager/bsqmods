@@ -16,7 +16,7 @@ import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
 import { validateMod } from "../shared/validateMod";
 import { iterateSplitMods } from "./shared/iterateMods";
-import { fetchBuffer, fetchHead } from "../shared/fetch";
+import { fetchBuffer, fetchHead, fetchJson } from "../shared/fetch";
 import { compareAlphabeticallyAscInsensitive, compareVersionAscending } from "../shared/comparisonFunctions";
 import { compareVersionDescending } from "./shared/semverComparison";
 import { getFundingCache } from "./shared/getFundingCache";
@@ -28,6 +28,7 @@ import { ModMetadata } from "../shared/types/ModMetadata";
 import { getOptimizedCoverFilePath } from "./shared/getOptimizedCoverFilePath";
 import { getOriginalCoverFilePath } from "./shared/getOriginalCoverFilePath";
 import { GroupedModsCollection } from "../shared/types/GroupedModsCollection";
+import { getMirrorMetadata, hasMirrorUrl, mirrorBase, MirrorMetadata } from "../shared/types/MirrorMetadata";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -40,16 +41,19 @@ const funding = argv.includes("--updateFunding") ? {} : await getFundingCache();
 
 /** Public url base */
 let urlBase = (() => {
-  const baseHrefArg = "--baseHref=";
+  const targetArg = "--baseHref=";
 
   for (const arg of process.argv) {
-    if (arg.startsWith(baseHrefArg)) {
-      return arg.substring(baseHrefArg.length);
+    if (arg.startsWith(targetArg)) {
+      return arg.substring(targetArg.length);
     }
   }
 
   return ".";
 })();
+
+/** The base path to the mod mirror. */
+let mirrorMetadata: MirrorMetadata = await getMirrorMetadata();
 
 /**
  * Processes a mod by downloading the file, hashing it, creating a resized cover image, and updating the cover image link.
@@ -71,22 +75,28 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
   const metadata = hashes[mod.download as string] || {
     hash: null,
-    image: null
+    image: null,
+    useMirror: false
   } as ModMetadata
-  const alreadyHashed = hashes[mod.download as string]?.hash != null;
 
   if (!mod.download) {
     throw new Error("Mod download not set.")
+  }
+
+  let originalUrl = mod.download;
+
+  if (metadata.useMirror && hasMirrorUrl(originalUrl, mirrorMetadata)) {
+    mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
   }
 
   if (process.argv.indexOf("--recheckUrls") !== -1 && metadata.hash != null && !(await fetchHead(mod.download))) {
     metadata.hash = null;
     metadata.image = null;
 
-    if (mod.download) {
-      delete hashes[mod.download];
-    }
+    delete hashes[originalUrl];
   }
+
+  const alreadyHashed = hashes[originalUrl as string]?.hash != null;
 
   mod.authorIcon = mod.authorIcon || (await getGithubIconUrl(mod.download)).data;
   output.hash = metadata.hash;
@@ -125,13 +135,21 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     }
 
     if (!metadata.hash) {
+      if (metadata.useMirror != true && hasMirrorUrl(originalUrl, mirrorMetadata)) {
+        metadata.useMirror = true;
+        hashes[originalUrl] = metadata;
+
+        return await processQmod(mod, gameVersion);
+        process.exit(0);
+      }
+
       // File not found.
       output.errors.push("Not found");
       return output;
       // process.exit(1);
     }
 
-    hashes[mod.download] = metadata;
+    hashes[originalUrl] = metadata;
     output.hash = metadata.hash;
 
     if (!existsSync(qmodPath)) {
@@ -284,17 +302,18 @@ for (const iteration of iterateSplitMods()) {
   }
 
   // Process the mod file and generate a hash
+  const originalUrl = mod.download;
   const qmodResult = await processQmod(mod, iteration.version);
   const uniformMod = getStandardizedMod(mod);
 
   if (uniformMod.funding.length == 0) {
-    const match = ghRegex.exec(uniformMod.download ?? "");
+    const match = ghRegex.exec(originalUrl ?? "");
 
     if (match) {
       const cacheKey = `${match[1]}/${match[2]}`.toLowerCase();
 
       if (!funding[cacheKey]) {
-        const fundingResult = await getRepoFundingInfo(uniformMod.download || "");
+        const fundingResult = await getRepoFundingInfo(originalUrl || "");
         funding[cacheKey] = fundingResult;
       }
 
@@ -306,14 +325,14 @@ for (const iteration of iterateSplitMods()) {
 
   // If there are no errors, add the mod to the list and save the hash
   if (qmodResult.errors.length === 0) {
-    if (uniformMod.download) {
-      uniformMod.hash = hashes[uniformMod.download].hash;
+    if (originalUrl) {
+      uniformMod.hash = hashes[originalUrl].hash;
     }
 
     mods.push(uniformMod as Mod);
   } else {
-    if (uniformMod.download) {
-      delete hashes[uniformMod.download];
+    if (originalUrl) {
+      delete hashes[originalUrl];
     }
   }
 

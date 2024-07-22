@@ -6,6 +6,13 @@ export interface ModMetadata {
 
   /** Image metadata */
   image: ModImageMetadata | null
+
+  /**
+   * If the mod should use the mirror.
+   *
+   * For situations where the original link is no longer available.
+   */
+  useMirror: boolean
 }
 
 export interface ModImageMetadata {

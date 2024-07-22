@@ -1,14 +1,24 @@
 import { unlinkSync } from "fs";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { fetchHead } from "../shared/fetch";
+import { getMirrorMetadata, hasMirrorUrl } from "../shared/types/MirrorMetadata";
+
+const mirrorMetadata = await getMirrorMetadata();
+
+console.log(mirrorMetadata);
 
 for (const iteration of iterateSplitMods()) {
   console.log(iteration.shortModPath);
+  const json = iteration.getModJson();
+
+  if (!json.download) {
+    unlinkSync(iteration.modPath);
+    continue;
+  }
 
   try {
-    const json = iteration.getModJson();
 
-    if (!(await fetchHead(json.download))) {
+    if (!(await fetchHead(json.download)) && !hasMirrorUrl(json.download, mirrorMetadata)) {
       unlinkSync(iteration.modPath)
     }
   } catch (err) {

@@ -45,3 +45,9 @@ export const modBlacklistPath = join(modsPath, "updater-repo-blacklist.txt")
 
 /** The path to the funding json file. */
 export const fundingInfoPath = join(websiteBase, "funding-info.json");
+
+/** The path to the mod-mirror directory. */
+export const modMirrorPath = join(repoDir, "mod-mirror");
+
+/** The path to the mod-mirror metadata. */
+export const modMirrorMetadataPath = join(modMirrorPath, "metadata.json");

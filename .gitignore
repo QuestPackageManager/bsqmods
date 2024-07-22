@@ -2,6 +2,7 @@
 !/shared/node_modules
 .cache-restored
 changed-files.txt
+mod-mirror/
 qmods
 website/public/*.json
 website/public/covers
