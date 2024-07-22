@@ -3,10 +3,10 @@ Welcome to **BSQMods**, a repository containing information about mods available
 
 ## Website
 A website is dynamically generated based on the contents of this repository. You can find it here.  
-https://dantheman827.github.io/bsqmods/
+https://mods.bsquest.xyz/
 
 To make the process of generating and submitting JSON files for a QMod easier, we've developed a tool that you can access here.  
-https://dantheman827.github.io/bsqmods/generator/
+https://mods.bsquest.xyz/generator/
 
 ## Data Endpoints
 We generate JSON files from the data in this repository. You can access these files at the following endpoints:
