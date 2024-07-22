@@ -11,7 +11,11 @@ https://dantheman827.github.io/bsqmods/generator/
 ## Data Endpoints
 We generate JSON files from the data in this repository. You can access these files at the following endpoints:
 
-- https://dantheman827.github.io/bsqmods/mods.json
-- https://dantheman827.github.io/bsqmods/mods-grouped.json
-- https://dantheman827.github.io/bsqmods/versions.json
-- [https://dantheman827.github.io/bsqmods/[version].json](https://dantheman827.github.io/bsqmods/1.37.0_9064817954.json)
+- https://mods.bsquest.xyz/mods.json
+- https://mods.bsquest.xyz/mods-grouped.json
+- https://mods.bsquest.xyz/versions.json
+- [https://mods.bsquest.xyz/[version].json](https://mods.bsquest.xyz/1.37.0_9064817954.json)
+
+## Credits
+- Created by [DanTheMan827](https://github.com/DanTheMan827)
+- Beat Saber render by PixelGuy
