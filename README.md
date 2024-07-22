@@ -16,6 +16,8 @@ We generate JSON files from the data in this repository. You can access these fi
 - https://mods.bsquest.xyz/versions.json
 - [https://mods.bsquest.xyz/[version].json](https://mods.bsquest.xyz/1.37.0_9064817954.json)
 
+If you want brotli compressed files, just add `.br` to the end of the endpoint url.
+
 ## Credits
 - Created by [DanTheMan827](https://github.com/DanTheMan827)
 - Beat Saber render by PixelGuy
