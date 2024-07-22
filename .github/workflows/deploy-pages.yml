@@ -79,7 +79,7 @@ jobs:
         if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
-          wget "$PAGES_URL/cache.txz?`date +%s`" -O website/public/cache.txz
+          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O website/public/cache.txz
 
       - name: Extract cache
         if: (github.event.inputs.purgeCache != '--all')
@@ -143,7 +143,7 @@ jobs:
 
       - name: "Archive cache"
         run: |
-          tar -cJvf website/public/cache.txz \
+          tar -cJvf cache.txz \
             website/public/covers \
             website/public/funding-info.json \
             website/public/mod-metadata.json
@@ -167,6 +167,12 @@ jobs:
         with:
           # Upload entire repository
           path: "./website/out"
+
+      - name: Push cache
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload cache --clobber "cache.txz"
 
       - name: Deploy to GitHub Pages
         id: deployment
