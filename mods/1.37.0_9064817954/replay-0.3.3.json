@@ -1,0 +1,14 @@
+{
+  "name": "Replay",
+  "description": "Watch back your best scores!",
+  "id": "replay",
+  "version": "0.3.3",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/Replay/releases/download/v0.3.3/Replay.qmod",
+  "source": "https://github.com/Metalit/Replay/",
+  "cover": "https://raw.githubusercontent.com/Metalit/Replay/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Metalit/Replay/"
+}
