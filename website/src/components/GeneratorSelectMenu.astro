@@ -45,7 +45,13 @@ const { id, values } = Astro.props as Props;
     `}
     id={id}
   >
-    {values?.map((value) => <option value={value[0]} selected={value[2] ? "selected" : null}>{value[1]}</option>)}
+    {
+      values?.map((value) => (
+        <option value={value[0]} selected={value[2] ? "selected" : null}>
+          {value[1]}
+        </option>
+      ))
+    }
   </select>
 </div>
 <style>

@@ -126,7 +126,7 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
   import { getQmodCoverUrl } from "../../../shared/getQmodCoverUrl";
   import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
   import { validateMod } from "../../../shared/validateMod";
-import { ModLoader } from "../../../shared/types/ModLoader";
+  import { ModLoader } from "../../../shared/types/ModLoader";
 
   ("use strict");
   (async () => {
@@ -138,28 +138,28 @@ import { ModLoader } from "../../../shared/types/ModLoader";
      */
     const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
-        "modDescription",
+        "modDescription"
       ) as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
       modDownloadLinkElement = getElementById(
-        "modDownloadLink",
+        "modDownloadLink"
       ) as HTMLInputElement,
       modSourceLinkElement = getElementById(
-        "modSourceLink",
+        "modSourceLink"
       ) as HTMLInputElement,
       modWebsiteLinkElement = getElementById(
-        "modWebsiteLink",
+        "modWebsiteLink"
       ) as HTMLInputElement,
       modFundingLinkElement = getElementById(
-        "modFundingLink",
+        "modFundingLink"
       ) as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       authorIconElement = getElementById("authorIcon") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById(
-        "targetGameVersion",
+        "targetGameVersion"
       ) as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLSelectElement,
       qmodDropZoneElement = document.body,
@@ -192,7 +192,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
     (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(
-          `mods.json?${Math.floor(Date.now() / 1000)}`,
+          `mods.json?${Math.floor(Date.now() / 1000)}`
         );
 
         if (result.data) {
@@ -223,7 +223,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
     function checkMod(
       id: string,
       version: string,
-      gameVersion: string,
+      gameVersion: string
     ): boolean {
       /**
        * Array of mods for the specified game version.
@@ -302,14 +302,18 @@ import { ModLoader } from "../../../shared/types/ModLoader";
             version: modVersionElement.value.trim(),
             author: modCreatorsElement.value.trim(),
             authorIcon: authorIconElement.value.trim(),
-            modloader: Object.keys(ModLoader).includes(modLoaderElement.value.trim()) ? modLoaderElement.value.trim() as ModLoader : ModLoader.QuestLoader,
+            modloader: Object.keys(ModLoader).includes(
+              modLoaderElement.value.trim()
+            )
+              ? (modLoaderElement.value.trim() as ModLoader)
+              : ModLoader.QuestLoader,
             download: modDownloadLinkElement.value.trim(),
             source: modSourceLinkElement.value.trim(),
             cover: modCoverElement.value.trim(),
             funding: isNullOrWhitespace(funding) ? [] : [funding],
             website: modWebsiteLinkElement.value.trim(),
           },
-          splitModKeys,
+          splitModKeys
         );
 
         validateMod(mod);
@@ -317,23 +321,23 @@ import { ModLoader } from "../../../shared/types/ModLoader";
         const modFilename = getFilename(
           mod.id || "",
           mod.version || "",
-          targetGameVersionElement.value,
+          targetGameVersionElement.value
         );
 
         if (
           checkMod(
             mod.id || "",
             mod.version || "",
-            targetGameVersionElement.value,
+            targetGameVersionElement.value
           )
         ) {
           alert("This mod version already exists in the json");
           window.open(
-            `https://github.com/${repo}/edit/${branch}/${modFilename}`,
+            `https://github.com/${repo}/edit/${branch}/${modFilename}`
           );
         } else {
           window.open(
-            `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`,
+            `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
           );
         }
       } catch (err) {
@@ -370,7 +374,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
      */
     async function qmodLoadHandler(
       this: FileReader,
-      ev: ProgressEvent<FileReader>,
+      ev: ProgressEvent<FileReader>
     ) {
       const reader = this;
 
@@ -433,7 +437,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
      */
     async function modDownloadLinkChangeHandler(
       this: HTMLInputElement,
-      e: Event,
+      e: Event
     ) {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
@@ -449,7 +453,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
     qmodDropZoneElement.addEventListener(
       "dragover",
       (e) => e.preventDefault(),
-      false,
+      false
     );
 
     // Event listener for dropping files into the qmodDropZone
@@ -461,7 +465,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
     // Event listener for onchange event of link input
     modDownloadLinkElement.addEventListener(
       "change",
-      modDownloadLinkChangeHandler,
+      modDownloadLinkChangeHandler
     );
 
     // Add url drop handlers to the following
@@ -481,7 +485,7 @@ import { ModLoader } from "../../../shared/types/ModLoader";
     console.error(error);
 
     alert(
-      "An error has occurred during initialization, please see the console for more information.",
+      "An error has occurred during initialization, please see the console for more information."
     );
   });
 </script>

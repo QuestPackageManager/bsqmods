@@ -35,7 +35,7 @@ export interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string,
+  key: string
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
@@ -60,7 +60,7 @@ for (const modList of Object.values(modGroups)) {
 const modList = Object.values(modGroups) as Mod[][];
 
 modList.sort((a, b) =>
-  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name),
+  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name)
 );
 
 const coreMods = (await getCoreMods())[gameVersion];
