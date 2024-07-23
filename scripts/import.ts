@@ -110,7 +110,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         if (writeFile) {
           const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
           mkdirSync(dirname(modFilename), { recursive: true });
-          writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
+          writeFileSync(modFilename, `${JSON.stringify(modInfo, null, "  ")}\n`);
         }
 
         return {

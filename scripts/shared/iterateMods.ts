@@ -60,7 +60,7 @@ export class ModIterationData {
     mod = getStandardizedMod(mod, splitModKeys);
     validateMod(mod);
     mkdirSync(dirname(this.modPath), { recursive: true });
-    writeFileSync(this.modPath, JSON.stringify(mod, null, "  "), {});
+    writeFileSync(this.modPath, `${JSON.stringify(mod, null, "  ")}\n`, {});
 
     if (this.modData) {
       this.modData = null;
