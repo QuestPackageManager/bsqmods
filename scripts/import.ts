@@ -110,7 +110,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         if (writeFile) {
           const modFilename = getFilename(modInfo.id, modInfo.version, gameVersion);
           mkdirSync(dirname(modFilename), { recursive: true });
-          writeFileSync(modFilename, JSON.stringify(modInfo, null, "  "));
+          writeFileSync(modFilename, `${JSON.stringify(modInfo, null, "  ")}\n`);
         }
 
         return {
@@ -172,7 +172,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
       }
     }
 
-    writeFileSync(importedCoreModsInfo, `${JSON.stringify(importCache, null, "  ")}\n`);
+    writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
   } else if (argv.length > 2) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
     const logger = new CapturingLogger();
