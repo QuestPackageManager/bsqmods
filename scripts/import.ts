@@ -172,7 +172,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
       }
     }
 
-    writeFileSync(importedCoreModsInfo, JSON.stringify(importCache, null, "  "));
+    writeFileSync(importedCoreModsInfo, `${JSON.stringify(importCache, null, "  ")}\n`);
   } else if (argv.length > 2) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
     const logger = new CapturingLogger();
