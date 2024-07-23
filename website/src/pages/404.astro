@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VersionSelector from "../components/VersionSelector.astro";
+import Flamingo from "../components/Flamingo.astro";
 ---
 
 <Layout linkHome={false} title="Quest Beat Saber Mods">
@@ -16,11 +17,12 @@ import VersionSelector from "../components/VersionSelector.astro";
       text-xl
     `}
   >
-    <p>To continue, please select a game version from the list above.</p>
+    <p>Blame the flamingo, it ate the page you're trying to load...</p>
+    <span
+      class="p-4"
+      style="display: inline-block; width: 100vw; height: 100vh; max-width: 100%; max-height: 400px"
+    >
+      <Flamingo />
+    </span>
   </div>
 </Layout>
-<script>
-  if (localStorage && localStorage.lastVisitedModVersion) {
-    location.href = localStorage.lastVisitedModVersion;
-  }
-</script>
