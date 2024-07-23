@@ -337,7 +337,7 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
           );
         } else {
           window.open(
-            `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(JSON.stringify(mod, null, "  "))}`
+            `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(`${JSON.stringify(mod, null, "  ")}\n`)}`
           );
         }
       } catch (err) {
