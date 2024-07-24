@@ -1,0 +1,65 @@
+---
+export interface Props {
+  /** The target game version. */
+  version: string;
+
+  /** A space-separated list of the classes of the inner `a` element. */
+  class?: string;
+
+  /** CSS styles to apply to the inner `a` element. */
+  style?: string;
+
+  /** A space-separated list of the classes of the inner `a` element. */
+  outerClass?: string;
+
+  /** CSS styles to apply to the inner `a` element. */
+  outerStyle?: string;
+}
+const {
+  version,
+  class: className,
+  style,
+  outerClass,
+  outerStyle,
+} = Astro.props as Props;
+---
+
+<download-core-mods-link
+  style={`display: none; ${outerStyle}`}
+  class={outerClass}
+  version={version}
+>
+  <slot name="pre" />
+  <a class={className} style={style}><slot /></a>
+</download-core-mods-link>
+<script>
+  import { generateCoresQmod } from "../../../shared/generateCoresQmod";
+
+  class DownloadCoreModsLink extends HTMLElement {
+    aElement: HTMLAnchorElement;
+
+    async generateQmod() {
+      const version = this.getAttribute("version");
+
+      if (version) {
+        const data = await generateCoresQmod(version);
+
+        this.aElement.href = `data:application/octet-stream;base64,${await data.qmod.generateAsync(
+          {
+            type: "base64",
+          }
+        )}`;
+        this.aElement.download = data.filename;
+        this.style.display = "";
+      }
+    }
+
+    constructor() {
+      super();
+      this.aElement = this.children[0]! as HTMLAnchorElement;
+      this.generateQmod();
+    }
+  }
+
+  customElements.define("download-core-mods-link", DownloadCoreModsLink);
+</script>

@@ -1,13 +1,14 @@
 ---
-import type { GetStaticPaths } from "astro";
+import DownloadCoreModsLink from "../components/DownloadCoreModsLink.astro";
 import Layout from "../layouts/Layout.astro";
 import ModList from "../components/ModList.astro";
-import { Mod } from "../../../shared/types/Mod";
-import { getCoreMods } from "../../../shared/CoreMods";
 import VersionSelector from "../components/VersionSelector.astro";
+import type { GetStaticPaths } from "astro";
+import { Mod } from "../../../shared/types/Mod";
 import { ModsCollection } from "../../../shared/types/ModsCollection";
-import { compareVersionDescending } from "../../../scripts/shared/semverComparison";
 import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonFunctions";
+import { compareVersionDescending } from "../../../scripts/shared/semverComparison";
+import { getCoreMods } from "../../../shared/CoreMods";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
 
 const modJson = readAllModsJson();
@@ -84,6 +85,27 @@ const coreMods = (await getCoreMods())[gameVersion];
   >
     Core Mods
   </div>
+  {
+    coreMods && coreMods.mods.length > 0 ? (
+      <DownloadCoreModsLink
+        version={gameVersion}
+        outerClass={`
+          block
+          text-center
+          pt-2.5
+        `}
+        class={`
+          btn
+          btn-primary
+          btn-sm
+          rounded-lg
+          text-white
+        `}
+      >
+        Download All Core Mods
+      </DownloadCoreModsLink>
+    ) : null
+  }
   <ModList
     mods={modList}
     core={true}

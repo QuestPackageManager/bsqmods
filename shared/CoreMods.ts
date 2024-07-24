@@ -1,4 +1,7 @@
+import { cachedFetchJson } from "./cachedFetch";
 import { Dictionary } from "./types/Dictionary";
+
+let fetchedUrl: string | null = null
 
 /**
  * Represents a collection of 'CoreMods' indexed by game version.
@@ -51,13 +54,13 @@ export interface CoreMod {
  * @returns A promise that resolves to a 'CoreModCollection' object.
  */
 export async function getCoreMods(): Promise<CoreModCollection> {
-  const res = await fetch(
-    "https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json",
+  const res = await cachedFetchJson<CoreModCollection>(
+    (fetchedUrl = fetchedUrl || `https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json?${new Date().getTime()}`),
   );
 
-  if (!res.ok || !res.body) {
-    return {}
+  if (res.data) {
+    return res.data;
   }
 
-  return await res.json();
+  return {}
 }
