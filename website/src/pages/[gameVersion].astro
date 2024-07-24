@@ -72,6 +72,7 @@ const coreMods = (await getCoreMods())[gameVersion];
   title={`Quest Beat Saber Mods for ${gameVersion}`}
   headerTitle="Quest Beat Saber Mods"
   linkHome={true}
+  clearLastVisited={true}
 >
   <div slot="header-post-title" class="text-center block pb-4">
     <VersionSelector currentVersion={gameVersion} />

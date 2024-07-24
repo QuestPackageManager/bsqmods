@@ -6,9 +6,10 @@ export interface Props {
   title: string;
   headerTitle?: string;
   linkHome?: boolean;
+  clearLastVisited?: boolean;
 }
 
-const { title, headerTitle, linkHome } = Astro.props;
+const { title, headerTitle, linkHome, clearLastVisited = false } = Astro.props;
 let baseUrl = ((import.meta as any).env.BASE_URL as string) || "";
 
 if (!baseUrl.endsWith("/")) {
@@ -79,7 +80,16 @@ if (!baseUrl.endsWith("/")) {
         >
           {
             linkHome ? (
-              <a href={baseUrl}>{headerTitle || title}</a>
+              <a
+                href={baseUrl}
+                onclick={
+                  clearLastVisited
+                    ? "delete localStorage.lastVisitedModVersion; return true;"
+                    : null
+                }
+              >
+                {headerTitle || title}
+              </a>
             ) : (
               headerTitle || title
             )

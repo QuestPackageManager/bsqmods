@@ -60,7 +60,7 @@ const { currentVersion } = Astro.props as Props;
                 px-4
                 py-2
               `}
-              href={version}
+              href={`${version}/`}
               onclick={`localStorage.lastVisitedModVersion = "${version}";`}
             >
               {version}
