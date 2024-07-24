@@ -12,6 +12,7 @@ import VersionSelector from "../components/VersionSelector.astro";
       block
       pt-2
       text-center
+      text-shadow
       text-white
       text-xl
     `}
@@ -19,6 +20,11 @@ import VersionSelector from "../components/VersionSelector.astro";
     <p>To continue, please select a game version from the list above.</p>
   </div>
 </Layout>
+<style>
+  .text-shadow {
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  }
+</style>
 <script>
   if (localStorage && localStorage.lastVisitedModVersion) {
     location.href = localStorage.lastVisitedModVersion;

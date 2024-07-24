@@ -1,0 +1,95 @@
+---
+export interface Props {
+  /** A space-separated list of the classes of the inner `input` element. */
+  class?: string;
+
+  /** CSS styles to apply to the inner `input` element. */
+  style?: string;
+
+  /** A space-separated list of the classes of the inner `input` element. */
+  outerClass?: string;
+
+  /** CSS styles to apply to the inner `input` element. */
+  outerStyle?: string;
+
+  /** Placeholder text for the input element */
+  placeholder?: string;
+}
+const {
+  class: className,
+  style,
+  outerClass,
+  outerStyle,
+  placeholder,
+} = Astro.props as Props;
+---
+
+<mod-filter class={outerClass} style={`display: none; ${outerStyle}`}>
+  <input
+    type="text"
+    class={className}
+    style={style}
+    placeholder={placeholder}
+  />
+</mod-filter>
+<script>
+  interface ModObject {
+    element: HTMLElement;
+    id: string;
+    title: string;
+    version: string;
+    author: string;
+    description: string;
+  }
+
+  class ModFilter extends HTMLElement {
+    inputElement: HTMLInputElement;
+    mods: ModObject[];
+
+    filter() {
+      const term = this.inputElement.value.trim().toLowerCase();
+
+      for (const mod of this.mods) {
+        const shouldDisplay =
+          mod.id.includes(term) ||
+          mod.title.includes(term) ||
+          mod.author.includes(term) ||
+          mod.description.includes(term);
+
+        mod.element.style.display = shouldDisplay ? "" : "none";
+      }
+    }
+
+    static getMods(): ModObject[] {
+      return [...document.querySelectorAll<HTMLElement>("mod-card")].map(
+        (card) => ({
+          element: card,
+          id: (card.getAttribute("mod-id") || "").toLowerCase(),
+          title: (
+            card.querySelector<HTMLElement>("mod-name")?.innerText || ""
+          ).toLowerCase(),
+          version: (
+            card.querySelector<HTMLElement>("mod-version")?.innerText || ""
+          ).toLowerCase(),
+          author: (
+            card.querySelector<HTMLElement>("mod-author")?.innerText || ""
+          ).toLowerCase(),
+          description: (
+            card.querySelector<HTMLElement>("mod-description")?.innerText || ""
+          ).toLowerCase(),
+        })
+      );
+    }
+
+    constructor() {
+      super();
+      this.mods = ModFilter.getMods();
+      console.log(this.mods);
+      this.inputElement = this.children[0] as HTMLInputElement;
+      this.inputElement.addEventListener("keyup", () => this.filter());
+      this.style.display = "";
+    }
+  }
+
+  customElements.define("mod-filter", ModFilter);
+</script>

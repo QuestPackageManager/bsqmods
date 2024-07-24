@@ -2,6 +2,7 @@
 import DownloadCoreModsLink from "../components/DownloadCoreModsLink.astro";
 import Layout from "../layouts/Layout.astro";
 import ModList from "../components/ModList.astro";
+import ModFilter from "../components/ModFilter.astro";
 import VersionSelector from "../components/VersionSelector.astro";
 import type { GetStaticPaths } from "astro";
 import { Mod } from "../../../shared/types/Mod";
@@ -75,12 +76,42 @@ const coreMods = (await getCoreMods())[gameVersion];
   <div slot="header-post-title" class="text-center block pb-4">
     <VersionSelector currentVersion={gameVersion} />
   </div>
+  <ModFilter
+    outerClass={`
+      block
+      text-center
+      px-4
+      pt-4
+      mx-auto
+      w-[1024px]
+      max-w-full
+    `}
+    class={`
+      backdrop-blur
+      bg-white-alpha-70
+      border
+      border-white-alpha-20
+      dark:bg-dark-card
+      dark:placeholder-white-alpha-40
+      dark:text-white
+      dark:text-white
+      max-w
+      p-2
+      placeholder-black-alpha-40
+      rounded-md
+      text-black
+      w-full
+      placeholder:text-center
+    `}
+    placeholder="Search mods"
+  />
   <div
     class={`
       pt-2 block
       text-center
       text-white
       text-xl
+      text-shadow
     `}
   >
     Core Mods
@@ -118,6 +149,7 @@ const coreMods = (await getCoreMods())[gameVersion];
       text-center
       text-white
       text-xl
+      text-shadow
     `}
   >
     Other Mods
@@ -128,3 +160,8 @@ const coreMods = (await getCoreMods())[gameVersion];
     coreMods={coreMods ? coreMods.mods : []}
   />
 </Layout>
+<style>
+  .text-shadow {
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  }
+</style>

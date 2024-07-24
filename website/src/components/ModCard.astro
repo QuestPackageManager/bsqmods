@@ -20,7 +20,8 @@ const { mods } = Astro.props as Props;
     const mod = mods[0];
 
     return (
-      <div
+      <mod-card
+        mod-id={mod.id}
         class={`
           before:absolute
           before:backdrop-blur
@@ -99,29 +100,31 @@ const { mods } = Astro.props as Props;
                 font-semibold
               `}
               >
-                {mod.name}
-                <span
+                <mod-name>{mod.name}</mod-name>
+                <mod-version
                   class={`
-                  pl-1
-                  text-[.6em]
+                    before:content-['v']
+                    pl-1
+                    text-[.6em]
                 `}
                 >
-                  v{mod.version}
-                </span>
+                  {mod.version}
+                </mod-version>
               </div>
-              <div
+              <mod-author
                 class={`
-                italic
-                text-[.7em]
+                  block
+                  italic
+                  text-[.7em]
               `}
               >
                 {mod.author}
-              </div>
+              </mod-author>
               {mod.description ? (
-                <span
+                <mod-description
                   class={`
-                  text-sm
-                  whitespace-pre-line
+                    text-sm
+                    whitespace-pre-line
                 `}
                   set:html={encode(mod.description)
                     .replace(/\n/g, "&#10;")
@@ -252,7 +255,7 @@ const { mods } = Astro.props as Props;
             );
           })()}
         </div>
-      </div>
+      </mod-card>
     );
   })()
 }
