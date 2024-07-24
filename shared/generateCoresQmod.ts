@@ -58,7 +58,8 @@ async function generateCoreQmodJson(version: string): Promise<CoreQmodJSON> {
   const cores = await getCoreMods();
 
   if (cores[version]) {
-    const lastUpdated = cores[version];
+    const lastUpdated = cores[version].lastUpdated;
+    json.version = `1.0.0-${lastUpdated.replace(/[^0-9TZ-]+/g, '-')}`
 
     for (const mod of cores[version].mods) {
       json.dependencies.push({
