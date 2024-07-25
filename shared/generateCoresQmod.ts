@@ -1,6 +1,8 @@
 import JSZip from "jszip";
 import { getCoreMods } from "./CoreMods";
 import { ModLoader } from "./types/ModLoader";
+import { semverDate } from "./semverDate";
+import { parseUTCDate } from "./parseUTCDate";
 
 /**
  * Interface representing the structure of the CoreQmodJSON object.
@@ -59,7 +61,10 @@ async function generateCoreQmodJson(version: string): Promise<CoreQmodJSON> {
 
   if (cores[version]) {
     const lastUpdated = cores[version].lastUpdated;
-    json.version = `1.0.0-${lastUpdated.replace(/[^0-9TZ-]+/g, '-')}`
+
+    try {
+      json.version = semverDate(parseUTCDate(lastUpdated));
+    } catch (_: any) { }
 
     for (const mod of cores[version].mods) {
       json.dependencies.push({
