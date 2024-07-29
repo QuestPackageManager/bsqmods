@@ -14,14 +14,14 @@ updates:
      interval: weekly
    groups:
     minor-and-path:
-     applied-to: version-updates
+     applies-to: version-updates
      patterns: 
       - "*"
      update-types:
       - "patch"
       - "minor"
     security:
-     applied-to: security-updates
+     applies-to: security-updates
      patterns: 
       - "*"
      update-types:
