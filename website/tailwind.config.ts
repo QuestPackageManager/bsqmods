@@ -1,6 +1,7 @@
 import { type Config } from "tailwindcss";
 import daisyui from "daisyui"
 import typography from "@tailwindcss/typography"
+import { type Dictionary } from "../shared/types/Dictionary"
 
 const config: Config = {
   mode: 'jit',
@@ -8,13 +9,24 @@ const config: Config = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '885px',
-      '1024': '1024px',
-      'lg': '1150px',
-      'xl': '1470px',
-      'xxl': '1760px',
-      'xxxl': '2330px',
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "xxl": "1536px",
+      ...(() => {
+        const output: Dictionary<string> = {};
+        const cardSize = 348;
+        const startSize = cardSize * 2;
+        const outerPad = 8;
+
+        for (let i = 0; i < 6; i++) {
+          const breakpoint = `mcb-${i + 2}`;
+          output[breakpoint] = `${startSize + (cardSize * (i)) + (outerPad * 2)}px`
+        }
+
+        return output
+      })()
     },
     colors: {
       "dark-header-footer": "rgba(0, 0, 17, 0.698)",
