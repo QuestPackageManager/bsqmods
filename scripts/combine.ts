@@ -1,6 +1,7 @@
 import { ModsCollection } from "../shared/types/ModsCollection";
 import { Mod } from "../shared/types/Mod";
 import JSZip from "jszip";
+import JSON5 from "json5";
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs"
 import { basename, dirname, join } from "path"
 import sharp from "sharp";
@@ -164,7 +165,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
       if (infoFile != null) {
         try {
-          const json = JSON.parse(await infoFile.async("text"));
+          const json = JSON5.parse(await infoFile.async("text"));
           coverImageFilename = json.coverImageFilename || json.coverImage;
 
           if (coverImageFilename && !isNullOrWhitespace(coverImageFilename) && coverImageFilename !== "undefined") {

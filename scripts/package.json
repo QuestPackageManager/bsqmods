@@ -13,6 +13,7 @@
     "@types/node": "^20.14.11",
     "@types/semver": "^7.5.8",
     "cheerio": "^1.0.0-rc.12",
+    "json5": "^2.2.3",
     "jsonschema": "^1.4.1",
     "jszip": "^3.10.1",
     "node-fetch": "^3.3.2",
