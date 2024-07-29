@@ -1,0 +1,106 @@
+---
+import HeartIcon from "@heroicons/react/16/solid/HeartIcon";
+import { isValidUrl } from "../../../shared/isValidUrl";
+import { getDomainFromUrl } from "../../../shared/getDomainFromUrl";
+
+interface Props {
+  funding: string[];
+}
+
+const { funding } = Astro.props as Props;
+const filteredFunding = funding.filter((url) => isValidUrl(url));
+---
+
+{
+  filteredFunding.length == 1 ? (
+    <a
+      href={filteredFunding[0]}
+      target="_blank"
+      class={`
+        align-middle
+        btn
+        btn-error
+        btn-sm
+        mr-2
+        rounded-lg
+        text-white
+      `}
+    >
+      <HeartIcon className="text-white size-4 inline-block" />
+    </a>
+  ) : null
+}
+{
+  filteredFunding.length > 1 ? (
+    <details class="dropdown">
+      <summary
+        class={`
+          align-middle
+          border
+          border-transparent
+          btn
+          btn-error
+          btn-sm
+          mr-2
+          rounded-lg
+          text-white
+        `}
+      >
+        <HeartIcon className="text-white size-4 inline-block" />
+      </summary>
+      <ul
+        class={`
+          backdrop-blur
+          bg-white-alpha-70
+          dark:bg-dark-header-footer
+          dark:text-white
+          dropdown-content
+          font-semibold
+          mt-1
+          p-2
+          right-0
+          rounded-lg
+          shadow
+          text-black
+          text-sm
+          top-[100%]
+          w-52
+          z-[1]
+        `}
+      >
+        {filteredFunding.map((fund) => (
+          <li
+            class={`
+              dark:hover:bg-white-alpha-10
+              hover:bg-black-alpha-10
+              rounded-md
+
+            `}
+          >
+            <a
+              href={fund}
+              target="_blank"
+              class={`
+                block
+                px-4
+                py-2
+                block
+              `}
+            >
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${getDomainFromUrl(fund)}&sz=48`}
+                class={`
+                  align-middle
+                  h-4
+                  inline-block
+                  pr-2
+                `}
+              />
+              <span class="align-middle">{getDomainFromUrl(fund)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ) : null
+}

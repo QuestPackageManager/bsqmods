@@ -4,6 +4,9 @@ import BottomAnchor from "./BottomAnchor.astro";
 import { encode } from "html-entities";
 import { ChevronDownIcon, HeartIcon } from "@heroicons/react/16/solid";
 import ExpandableLongText from "./ExpandableLongText.astro";
+import { isValidUrl } from "../../../shared/isValidUrl";
+import { getDomainFromUrl } from "../../../shared/getDomainFromUrl";
+import FundingButton from "./FundingButton.astro";
 
 export interface Props {
   /**
@@ -213,7 +216,7 @@ const { mods } = Astro.props as Props;
                       </ul>
                     </details>
                   ) : null}
-                </div>,
+                </div>
               );
             }
 
@@ -233,28 +236,14 @@ const { mods } = Astro.props as Props;
                   `}
                 >
                   Source Code
-                </a>,
+                </a>
               );
             }
 
-            if (mod.funding.length > 0) {
-              buttons.push(
-                <a
-                  href={mod.funding[0]}
-                  target="_blank"
-                  class={`
-                    align-middle
-                    btn
-                    btn-error
-                    btn-sm
-                    rounded-lg
-                    text-white
-                    mr-2
-                  `}
-                >
-                  <HeartIcon className="text-white size-4 inline-block" />
-                </a>,
-              );
+            const funding = mod.funding.filter((url) => isValidUrl(url));
+
+            if (funding.length > 0) {
+              buttons.push(<FundingButton funding={funding} />);
             }
 
             return (
