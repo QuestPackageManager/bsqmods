@@ -6,9 +6,11 @@
   "author": "Henwill8,  Metalit",
   "authorIcon": null,
   "modloader": "QuestLoader",
-  "download": "https://henwill8.itch.io/slice-visualizer",
+  "download": "https://github.com/QuestPackageManager/bsqmods/releases/download/mod-mirror/slicevisualizer-4.2.0-6ca04451f465453d773b86657d564cbaecf2d21e.qmod",
   "source": null,
   "cover": null,
-  "funding": [],
+  "funding": [
+    "https://henwill8.itch.io/slice-visualizer"
+  ],
   "website": null
 }

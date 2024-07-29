@@ -6,9 +6,11 @@
   "author": "Polly51104",
   "authorIcon": null,
   "modloader": "QuestLoader",
-  "download": "https://henwill8.itch.io/intro-skip",
+  "download": "https://github.com/QuestPackageManager/bsqmods/releases/download/mod-mirror/IntroSkip-0.3.2-435c7eebc805a96e327f393b1388badd9e48cb6d.qmod",
   "source": null,
   "cover": null,
-  "funding": [],
+  "funding": [
+    "https://henwill8.itch.io/intro-skip"
+  ],
   "website": null
 }

@@ -6,9 +6,11 @@
   "author": "Henwill8",
   "authorIcon": null,
   "modloader": "QuestLoader",
-  "download": "https://henwill8.itch.io/replay",
+  "download": "https://github.com/QuestPackageManager/bsqmods/releases/download/mod-mirror/replay-0.6.3-83c87af20732b15a2c04c2acabb5071d509de1c8.qmod",
   "source": null,
   "cover": null,
-  "funding": [],
+  "funding": [
+    "https://henwill8.itch.io/replay"
+  ],
   "website": null
 }
