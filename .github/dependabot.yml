@@ -6,17 +6,24 @@
 
 version: 2
 updates:
- - package-ecosystem: "devcontainers"
-   directory: "/"
-   schedule:
-     interval: weekly
-
  - package-ecosystem: "npm"
-   directory: "/scripts/"
+   directories: 
+    - "/scripts/"
+    - "/website/"
    schedule:
      interval: weekly
-
- - package-ecosystem: "npm"
-   directory: "/website/"
-   schedule:
-     interval: weekly
+   groups:
+    minor-and-path:
+     applied-to: version-updates
+     patterns: 
+      - "*"
+     update-types:
+      - "patch"
+      - "minor"
+    security:
+     applied-to: security-updates
+     patterns: 
+      - "*"
+     update-types:
+      - "patch"
+      - "minor"
