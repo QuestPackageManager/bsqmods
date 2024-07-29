@@ -2,7 +2,7 @@
 import { Mod } from "../../../shared/types/Mod";
 import BottomAnchor from "./BottomAnchor.astro";
 import { encode } from "html-entities";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { ChevronDownIcon, HeartIcon } from "@heroicons/react/16/solid";
 import ExpandableLongText from "./ExpandableLongText.astro";
 
 export interface Props {
@@ -137,7 +137,7 @@ const { mods } = Astro.props as Props;
             const buttons = [];
             if (mod.download) {
               buttons.push(
-                <div class="join mx-2">
+                <div class="align-middle join mx-2">
                   <a
                     href={mod.download}
                     class={`
@@ -223,14 +223,36 @@ const { mods } = Astro.props as Props;
                   href={mod.source}
                   target="_blank"
                   class={`
+                    align-middle
                     btn
                     btn-primary
                     btn-sm
                     rounded-lg
                     text-white
+                    mr-2
                   `}
                 >
                   Source Code
+                </a>
+              );
+            }
+
+            if (mod.funding.length > 0) {
+              buttons.push(
+                <a
+                  href={mod.funding[0]}
+                  target="_blank"
+                  class={`
+                    align-middle
+                    btn
+                    btn-error
+                    btn-sm
+                    rounded-lg
+                    text-white
+                    mr-2
+                  `}
+                >
+                  <HeartIcon className="text-white size-4 inline-block" />
                 </a>
               );
             }
