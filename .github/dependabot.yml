@@ -13,14 +13,14 @@ updates:
    schedule:
      interval: weekly
    groups:
-    minor-and-path:
+    minor-and-patch-updates:
      applies-to: version-updates
      patterns: 
       - "*"
      update-types:
       - "patch"
       - "minor"
-    security:
+    security-updates:
      applies-to: security-updates
      patterns: 
       - "*"
