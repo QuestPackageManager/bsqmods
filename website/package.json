@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.2",
+    "@astrojs/check": "^0.8.3",
     "@astrojs/react": "^3.6.0",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.8.0",
     "@heroicons/react": "^2.1.5",
-    "@playform/compress": "^0.0.13",
+    "@playform/compress": "^0.1.0",
     "@tailwindcss/typography": "github:tailwindcss/typography",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^20.14.11",
@@ -34,9 +34,9 @@
     "reset-css": "^5.0.2",
     "sass": "^1.77.6",
     "semver": "^7.6.3",
-    "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.2",
-    "url": "^0.11.3",
-    "yaml": "^2.4.5"
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4",
+    "url": "^0.11.4",
+    "yaml": "^2.5.0"
   }
 }
