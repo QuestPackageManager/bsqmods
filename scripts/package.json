@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^20.14.11",
+    "@types/node": "^22.0.0",
     "@types/semver": "^7.5.8",
     "cheerio": "^1.0.0-rc.12",
     "jsonschema": "^1.4.1",
