@@ -44,11 +44,12 @@ const {
       if (version) {
         const data = await generateCoresQmod(version);
 
-        this.aElement.href = `data:application/octet-stream;base64,${await data.qmod.generateAsync(
+        this.aElement.href = await data.qmod.generateAsync(
           {
-            type: "base64",
+            type: "blob",
+            mimeType: "application/qmod"
           }
-        )}`;
+        );
         this.aElement.download = data.filename;
         this.style.display = "";
       }
