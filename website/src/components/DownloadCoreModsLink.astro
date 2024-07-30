@@ -44,12 +44,12 @@ const {
       if (version) {
         const data = await generateCoresQmod(version);
 
-        this.aElement.href = await data.qmod.generateAsync(
+        this.aElement.href = URL.createObjectURL(await data.qmod.generateAsync(
           {
             type: "blob",
             mimeType: "application/qmod"
           }
-        );
+        ));
         this.aElement.download = data.filename;
         this.style.display = "";
       }
