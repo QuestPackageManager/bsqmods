@@ -105,36 +105,38 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
   ) : null
 }
 <style>
-  @keyframes heartbeat
-  {
-    0%
-    {
-      transform: scale( 1 );
+  @keyframes heartbeat {
+    0 % {
+      transform: scale(1)
     }
-    20%
-    {
-      transform: scale( 1.1 );
+    16.66% {
+      transform: scale(0.95)
     }
-    30%
-    {
-      transform: scale( .9 );
+    33.33% {
+      transform: scale(1.0375)
     }
-    50%
-    {
-      transform: scale( 1.075 );
+    41.66% {
+      transform: scale(0.9)
     }
-    80%
-    {
-      transform: scale( 1 );
+    50% {
+      transform: scale(1.075)
     }
-    100%
-    {
-      transform: scale( 1 );
+    58.33% {
+      transform: scale(0.9)
+    }
+    62.5% {
+      transform: scale(1)
+    }
+    83.33% {
+      transform: scale(1.0375)
+    }
+    100% {
+      transform: scale(1)
     }
   }
   
   svg
   {
-    animation: heartbeat 1.25s infinite;
+    animation: heartbeat 1.5s infinite;
   }
 </style>
