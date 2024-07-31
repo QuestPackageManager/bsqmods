@@ -27,7 +27,7 @@ const {
 <download-core-mods-link
   style={`display: none; ${outerStyle}`}
   class={outerClass}
-  version={version}
+  data-version={version}
 >
   <slot name="pre" />
   <a class={className} style={style}><slot /></a>
@@ -39,17 +39,17 @@ const {
     aElement: HTMLAnchorElement;
 
     async generateQmod() {
-      const version = this.getAttribute("version");
+      const version = this.dataset.version;
 
       if (version) {
         const data = await generateCoresQmod(version);
 
-        this.aElement.href = URL.createObjectURL(await data.qmod.generateAsync(
-          {
+        this.aElement.href = URL.createObjectURL(
+          await data.qmod.generateAsync({
             type: "blob",
-            mimeType: "application/qmod"
-          }
-        ));
+            mimeType: "application/qmod",
+          })
+        );
         this.aElement.download = data.filename;
         this.style.display = "";
       }
