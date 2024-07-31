@@ -24,7 +24,7 @@ const { mods } = Astro.props as Props;
 
     return (
       <mod-card
-        mod-id={mod.id}
+        data-mod-id={mod.id}
         class={`
           before:absolute
           before:backdrop-blur
@@ -231,7 +231,7 @@ const { mods } = Astro.props as Props;
                     btn-primary
                     btn-sm
                     mr-2
-                    qavs-hidden
+                    qavs-none
                     rounded-lg
                     text-white
                   `}

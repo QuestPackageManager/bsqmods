@@ -8,9 +8,24 @@ import GeneratorTextArea from "../components/GeneratorTextArea.astro";
 import GeneratorSelectMenu from "../components/GeneratorSelectMenu.astro";
 import { ModLoader } from "../../../shared/types/ModLoader";
 import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonFunctions";
+
+export interface GeneratorScriptData {
+  /** The GitHub org/repo name. */
+  repo: string;
+
+  /** The repo branch name */
+  branch: string;
+}
 ---
 
-<Layout title="Mod JSON Generator" linkHome={true}>
+<Layout
+  title="Mod JSON Generator"
+  linkHome={true}
+  pageScriptData={{
+    repo: (import.meta as any).env.GITHUB_REPOSITORY || "",
+    branch: (import.meta as any).env.REPO_BRANCH || "",
+  }}
+>
   <GeneratorWrapper>
     <GeneratorColumn>
       <GeneratorTextInput id="modName" placeholder="The name of the mod">
@@ -105,8 +120,6 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
         `}
         id="generateJson"
         type="button"
-        data-repo={(import.meta as any).env.GITHUB_REPOSITORY}
-        data-branch={(import.meta as any).env.REPO_BRANCH}
       >
         Create JSON on GitHub
       </button>
@@ -127,15 +140,15 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
   import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
   import { validateMod } from "../../../shared/validateMod";
   import { ModLoader } from "../../../shared/types/ModLoader";
+  import { getPageScriptData } from "../../../shared/getPageScriptData";
+  import type { GeneratorScriptData } from "./generator.astro";
 
-  ("use strict");
   (async () => {
     function getElementById(id) {
       return document.getElementById(id);
     }
-    /**
-     * Regular expression for matching GitHub repository URLs.
-     */
+
+    const { repo, branch } = getPageScriptData<GeneratorScriptData>();
     const modNameElement = getElementById("modName") as HTMLInputElement,
       modDescriptionElement = getElementById(
         "modDescription"
@@ -283,9 +296,6 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
      */
     function generateJson(this: HTMLElement, e: Event) {
       try {
-        const repo = this.getAttribute("data-repo");
-        const branch = this.getAttribute("data-branch");
-
         if (!modJson[targetGameVersionElement.value]) {
           modJson[targetGameVersionElement.value] = [];
         }

@@ -64,7 +64,7 @@ const {
       return [...document.querySelectorAll<HTMLElement>("mod-card")].map(
         (card) => ({
           element: card,
-          id: (card.getAttribute("mod-id") || "").toLowerCase(),
+          id: (card.dataset.modId || "").toLowerCase(),
           title: (
             card.querySelector<HTMLElement>("mod-name")?.innerText || ""
           ).toLowerCase(),
