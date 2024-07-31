@@ -51,13 +51,18 @@ const {
     height: 100%;
     fill: transparent;
     transition: 200ms opacity;
-    color: #000000;
+    color: #fff;
     top: 0;
     border: 0;
     right: 0;
-    fill: #fff;
+    fill: #000;
     opacity: 0.5;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+    @media (prefers-color-scheme: dark) {
+      color: #000;
+      fill: #fff;
+    }
 
     &:hover {
       opacity: 1;
