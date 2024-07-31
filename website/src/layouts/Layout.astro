@@ -52,18 +52,10 @@ if (!baseUrl.endsWith("/")) {
         if (isQavs) {
           const style = document.createElement("style");
 
-          for (const display of [
-            //"auto",
-            //"block",
-            //"flex",
-            //"initial",
-            //"inline-block",
-            "none",
-          ]) {
+          for (const display of ["none"]) {
             style.textContent += `.qavs-${display} { display: ${display} !important; }\n`;
           }
 
-          // Append the style element to the head of the document
           document.head.appendChild(style);
         }
       })();
