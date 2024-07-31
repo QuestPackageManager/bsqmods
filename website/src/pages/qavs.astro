@@ -85,10 +85,10 @@ const allVersions = await getVersions(true);
         <code>QuestAppVersionSwitcher</code>
         button at the top right to get back to the main menu.
       </p>
-      <p class="mb-4">
-        You can view mods for supported versions.
+      <p class="mb-4">You can view mods for supported versions.</p>
+      <div class="version-selector block my-[-0.25rem]">
         <VersionSelector />
-      </p>
+      </div>
     </div>
     <div
       id="qavs-unmodded"
@@ -171,7 +171,7 @@ const allVersions = await getVersions(true);
   const { versions, allVersions } = getPageScriptData<QavsScriptData>();
 
   // Extract the query string from the current URL
-  const queryString: string | null = location.href.split("?")[1] ?? null;
+  const queryString: string | null = location.href.split("?")[1] || null;
 
   /** The latest version with core mods. */
   const latestVersion = versions[0];
@@ -184,6 +184,15 @@ const allVersions = await getVersions(true);
     "a.bs-current-mods-link"
   )) {
     element.href = currentModsLink;
+  }
+
+  if (queryString) {
+    // Update the href attribute of all anchor elements to append the query string.
+    for (const element of document.querySelectorAll<HTMLAnchorElement>(
+      ".version-selector a"
+    )) {
+      element.href = `${element.href}?${queryString}`;
+    }
   }
 
   // Construct the download URL for the latest QAVS version
