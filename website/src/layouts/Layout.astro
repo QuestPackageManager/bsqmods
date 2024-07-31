@@ -28,6 +28,46 @@ if (!baseUrl.endsWith("/")) {
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline type="text/javascript">
+      (() => {
+        const theme = location.href
+          .split("?")
+          ?.at(1)
+          ?.match(/(?:^|&)theme=(dark|light)(?:$|&)/)
+          ?.at(1);
+
+        if (theme) {
+          document
+            .querySelector("html")
+            .setAttribute("data-color-scheme", theme);
+        }
+
+        const isQavs =
+          location.href
+            .split("?")
+            ?.at(1)
+            ?.match(/(?:^|&)isqavs=(true|false)(?:$|&)/)
+            ?.at(1) === "true";
+
+        if (isQavs) {
+          const style = document.createElement("style");
+
+          for (const display of [
+            //"auto",
+            //"block",
+            //"flex",
+            //"initial",
+            //"inline-block",
+            "none",
+          ]) {
+            style.textContent += `.qavs-${display} { display: ${display} !important; }\n`;
+          }
+
+          // Append the style element to the head of the document
+          document.head.appendChild(style);
+        }
+      })();
+    </script>
     <base href={baseUrl} />
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#0A0C11" />
@@ -74,14 +114,12 @@ if (!baseUrl.endsWith("/")) {
         before:content['']
         before:inset-0
         before:z-[-1]
-        bg-white-alpha-70
-        dark:bg-dark-header-footer
-        dark:text-white
+        bg-header-footer-bg
         pt-safe
         px-safe
         qavs-none
         relative
-        text-black
+        text-header-text
       `}
     >
       <slot name="header">
@@ -131,10 +169,8 @@ if (!baseUrl.endsWith("/")) {
           before:content['']
           before:inset-0
           before:z-[-1]
-          bg-white-alpha-70
+          bg-header-footer-bg
           bottom-0
-          dark:bg-dark-header-footer
-          dark:text-white
           left-0
           pt-4
           py-safe-offset-4
@@ -142,7 +178,7 @@ if (!baseUrl.endsWith("/")) {
           relative
           right-0
           t-center
-          text-black
+          text-header-text
           text-center
         `}
       >
@@ -154,6 +190,68 @@ if (!baseUrl.endsWith("/")) {
     </BottomAnchor>
   </body>
 </html>
+<style is:global lang="scss">
+  @mixin neutral-colors {
+    --header-input-bg: #040b2fb2;
+    --header-input-placeholder: rgba(255, 255, 255, 0.4);
+    --header-input-text: #ffffff;
+  }
+  @mixin dark-colors {
+    @include neutral-colors;
+    --header-footer-bg: #000011b2;
+    --header-text: #ffffff;
+    --card-body-bg: #040b2fb2;
+    --card-body-text: #ffffff;
+    --card-header-bg: #000011b2;
+    --github-corner-fill: #ffffff;
+    --github-corner-color: #000000;
+    --input-bg: #040b2fb2;
+    --input-placeholder: rgba(255, 255, 255, 0.4);
+    --input-text: #ffffff;
+    --dropdown-menu-bg: #000011b2;
+    --dropdown-menu-text: #ffffff;
+    --dropdown-menu-hover: rgba(255, 255, 255, 0.1);
+    --dropzone-bg: #040b2fb2;
+    --dropzone-border: rgba(255, 255, 255, 0.2);
+    --dropzone-text: #ffffff;
+  }
+  @mixin light-colors {
+    @include neutral-colors;
+    --header-footer-bg: #ffffffb3;
+    --header-text: #000000;
+    --card-body-bg: #ffffffb3;
+    --card-body-text: #000000;
+    --card-header-bg: rgba(0, 0, 0, 0.5);
+    --github-corner-fill: #000000;
+    --github-corner-color: #ffffff;
+    --input-bg: #ffffffb3;
+    --input-placeholder: rgba(0, 0, 0, 0.4);
+    --input-text: #000000;
+    --dropdown-menu-bg: #ffffffb3;
+    --dropdown-menu-text: #000000;
+    --dropdown-menu-hover: rgba(0, 0, 0, 0.1);
+    --dropzone-bg: #ffffffb3;
+    --dropzone-border: rgba(0, 0, 0, 0.2);
+    --dropzone-text: #000000;
+  }
+  :root {
+    @include dark-colors;
+
+    @media (prefers-color-scheme: dark) {
+      @include dark-colors;
+    }
+
+    @media (prefers-color-scheme: light) {
+      @include light-colors;
+    }
+  }
+  [data-color-scheme="dark"] {
+    @include dark-colors;
+  }
+  [data-color-scheme="light"] {
+    @include light-colors;
+  }
+</style>
 <script>
   import { getQavsQueryData } from "../../../shared/types/QavsQueryString";
   import { bindMultiClickAction } from "../../../shared/bindMultiClickAction";
@@ -162,23 +260,6 @@ if (!baseUrl.endsWith("/")) {
   const qs = getQavsQueryData();
 
   if (qs.isQavs) {
-    // Create a new style element
-    const style = document.createElement("style");
-
-    for (const display of [
-      //"auto",
-      //"block",
-      //"flex",
-      //"initial",
-      //"inline-block",
-      "none",
-    ]) {
-      style.textContent += `.qavs-${display} { display: ${display} !important; }\n`;
-    }
-
-    // Append the style element to the head of the document
-    document.head.appendChild(style);
-
     // 5 clicks on the footer redirects to google.com.
     bindMultiClickAction(
       [...document.querySelectorAll("footer")].at(-1)!,

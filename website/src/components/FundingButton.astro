@@ -53,9 +53,7 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
       <ul
         class={`
           backdrop-blur
-          bg-white-alpha-70
-          dark:bg-dark-header-footer
-          dark:text-white
+          bg-dropdown-menu-bg
           dropdown-content
           font-semibold
           mt-1
@@ -63,7 +61,7 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
           right-0
           rounded-lg
           shadow
-          text-black
+          text-dropdown-menu-text
           text-sm
           top-[100%]
           w-52
@@ -73,8 +71,7 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
         {filteredFunding.map((fund) => (
           <li
             class={`
-              dark:hover:bg-white-alpha-10
-              hover:bg-black-alpha-10
+              hover:bg-dropdown-menu-hover
               rounded-md
 
             `}

@@ -5,9 +5,9 @@ import safeArea from "tailwindcss-safe-area"
 import { type Dictionary } from "../shared/types/Dictionary"
 
 const config: Config = {
-  mode: 'jit',
-  purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,ts,tsx,vue}'],
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  mode: "jit",
+  purge: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     screens: {
       "sm": "640px",
@@ -30,8 +30,25 @@ const config: Config = {
       })()
     },
     colors: {
-      "dark-header-footer": "rgba(0, 0, 17, 0.698)",
-      "dark-card": "rgba(4, 11, 47, 0.698)",
+      "header-input-bg": "var(--header-input-bg)",
+      "header-input-placeholder": "var(--header-input-placeholder)",
+      "header-input-text": "var(--header-input-text)",
+      "header-footer-bg": "var(--header-footer-bg)",
+      "header-text": "var(--header-text)",
+      "card-body-bg": "var(--card-body-bg)",
+      "card-body-text": "var(--card-body-text)",
+      "card-header-bg": "var(--card-header-bg)",
+      "github-corner-fill": "var(--github-corner-fill)",
+      "github-corner-color": "var(--github-corner-color)",
+      "input-bg": "var(--input-bg)",
+      "input-placeholder": "var(--input-placeholder)",
+      "input-text": "var(--input-text)",
+      "dropdown-menu-bg": "var(--dropdown-menu-bg)",
+      "dropdown-menu-text": "var(--dropdown-menu-text)",
+      "dropdown-menu-hover": "var(--dropdown-menu-hover)",
+      "dropzone-bg": "var(--dropzone-bg)",
+      "dropzone-border": "var(--dropzone-border)",
+      "dropzone-text": "var(--dropzone-text)",
       "transparent": "rgba(0,0,0,0)",
       "white-alpha-10": "rgba(255, 255, 255, 0.1)",
       "white-alpha-20": "rgba(255, 255, 255, 0.2)",

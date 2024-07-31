@@ -28,16 +28,14 @@ const { currentVersion } = Astro.props as Props;
     class={`
       -translate-x-1/2
       backdrop-blur
-      bg-white-alpha-70
-      dark:bg-dark-header-footer
-      dark:text-white
+      bg-dropdown-menu-bg
       dropdown-content
       font-semibold
       left-1/2
       p-2
       rounded-lg
       shadow
-      text-black
+      text-dropdown-menu-text
       text-sm
       top-[100%]
       w-52
@@ -49,8 +47,7 @@ const { currentVersion } = Astro.props as Props;
         versions.map((version) => (
           <li
             class={`
-              dark:hover:bg-white-alpha-10
-              hover:bg-black-alpha-10
+              hover:bg-dropdown-menu-hover
               rounded-md
             `}
           >

@@ -84,9 +84,8 @@ const coreMods = (await getCoreMods())[gameVersion];
       before:content['']
       before:inset-0
       before:z-[-1]
-      bg-white-alpha-70
+      bg-header-footer-bg
       block
-      dark:bg-dark-header-footer
       mx-auto
       p-4
       sticky
@@ -97,16 +96,16 @@ const coreMods = (await getCoreMods())[gameVersion];
     `}
     class={`
       backdrop-blur
-      bg-dark-card
+      bg-header-input-bg
       border
       border-white-alpha-20
       max-w-full
       mx-auto
       p-2
-      placeholder-white-alpha-40
+      placeholder-header-input-placeholder
       placeholder:text-center
       rounded-md
-      text-white
+      text-header-input-text
       w-[444px]
     `}
     placeholder="Search mods"
