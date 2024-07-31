@@ -53,7 +53,7 @@ const allVersions = await getVersions(true);
         Your installed Beat Saber version
         <b>does not</b>
         support any mods.
-        <b>Install</b> version which supports mods.
+        <b>Install</b> a version which supports mods.
       </p>
       <p class="mb-4">
         Your game version:
@@ -68,7 +68,14 @@ const allVersions = await getVersions(true);
         <a
           id="qavs-download-latest"
           href="#"
-          class="btn btn-primary btn-sm text-bold rounded-lg text-white"
+          class={`
+            btn
+            btn-primary
+            btn-sm
+            rounded-lg
+            text-bold
+            text-white
+          `}
         >
           Download Latest Moddable Game Version
         </a>
@@ -88,6 +95,7 @@ const allVersions = await getVersions(true);
       class={`
         after:absolute
         after:backdrop-blur
+        after:bg-black-alpha-40
         after:inset-0
         after:rounded-lg
         after:z-[-2]
@@ -118,7 +126,14 @@ const allVersions = await getVersions(true);
         <a
           id="qavs-mod-now"
           href="#"
-          class="btn btn-primary btn-sm text-bold rounded-lg text-white"
+          class={`
+            btn
+            btn-primary
+            btn-sm
+            rounded-lg
+            text-bold
+            text-white
+          `}
         >
           Mod My Game
         </a>
@@ -129,8 +144,15 @@ const allVersions = await getVersions(true);
         button at the top right to get back to the main menu.
       </p>
       <p class="text-sm underline">
-        <a class="bs-current-mods-link" href={`${versions[0]}/`}
-          >View mods anyway</a
+        <a
+          class={`
+            bs-current-mods-link
+            btn
+            btn-primary
+            btn-sm
+            rounded-lg
+          `}
+          href={`${versions[0]}/`}>View mods anyway</a
         >
       </p>
     </div>
