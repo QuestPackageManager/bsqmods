@@ -156,6 +156,8 @@ if (!baseUrl.endsWith("/")) {
 </html>
 <script>
   import { getQavsQueryData } from "../../../shared/types/QavsQueryString";
+  import { bindMultiClickAction } from "../../../shared/bindMultiClickAction";
+  import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
 
   const qs = getQavsQueryData();
 
@@ -177,5 +179,19 @@ if (!baseUrl.endsWith("/")) {
 
     // Append the style element to the head of the document
     document.head.appendChild(style);
+
+    // 5 clicks on the footer redirects to google.com.
+    bindMultiClickAction(
+      [...document.querySelectorAll("footer")].at(-1)!,
+      () => {
+        const defaultUrl = "https://google.com/";
+        const result = prompt("Where do you want to go?", defaultUrl);
+
+        if (!isNullOrWhitespace(result)) {
+          location.href = result!;
+        }
+      },
+      5
+    );
   }
 </script>
