@@ -1,6 +1,7 @@
 import { type Config } from "tailwindcss";
 import daisyui from "daisyui"
 import typography from "@tailwindcss/typography"
+import safeArea from "tailwindcss-safe-area"
 import { type Dictionary } from "../shared/types/Dictionary"
 
 const config: Config = {
@@ -64,6 +65,7 @@ const config: Config = {
   plugins: [
     daisyui,
     typography,
+    safeArea
   ],
   daisyui: {
     themes: ["business"]

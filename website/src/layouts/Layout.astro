@@ -30,7 +30,10 @@ if (!baseUrl.endsWith("/")) {
   <head>
     <base href={baseUrl} />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title || headerTitle}</title>
   </head>
@@ -73,6 +76,8 @@ if (!baseUrl.endsWith("/")) {
         bg-white-alpha-70
         dark:bg-dark-header-footer
         dark:text-white
+        pt-safe
+        px-safe
         qavs-hidden
         relative
         text-black
@@ -130,7 +135,10 @@ if (!baseUrl.endsWith("/")) {
           dark:bg-dark-header-footer
           dark:text-white
           left-0
-          p-4
+          pt-4
+          py-safe-offset-4
+          pb-safe-offset-4
+
           relative
           right-0
           t-center

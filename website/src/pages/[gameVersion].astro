@@ -111,60 +111,62 @@ const coreMods = (await getCoreMods())[gameVersion];
     `}
     placeholder="Search mods"
   />
-  <div
-    class={`
-      pt-2 block
-      text-center
-      text-white
-      text-xl
-      text-shadow
-    `}
-  >
-    Core Mods
+  <div class="px-safe">
+    <div
+      class={`
+        pt-2 block
+        text-center
+        text-white
+        text-xl
+        text-shadow
+      `}
+    >
+      Core Mods
+    </div>
+    {
+      coreMods && coreMods.mods.length > 0 ? (
+        <DownloadCoreModsLink
+          version={gameVersion}
+          outerClass={`
+        block
+        text-center
+        pt-2.5
+      `}
+          class={`
+            btn
+            btn-primary
+            btn-sm
+            rounded-lg
+            text-white
+          `}
+        >
+          Download All Core Mods
+        </DownloadCoreModsLink>
+      ) : null
+    }
+    <ModList
+      mods={modList}
+      core={true}
+      coreMods={coreMods ? coreMods.mods : []}
+    />
+    <div
+      class={`
+        block
+        pt-2
+        text-center
+        text-white
+        text-xl
+        text-shadow
+      `}
+    >
+      Other Mods
+    </div>
+    <ModList
+      mods={modList}
+      core={false}
+      coreMods={coreMods ? coreMods.mods : []}
+    />
   </div>
-  {
-    coreMods && coreMods.mods.length > 0 ? (
-      <DownloadCoreModsLink
-        version={gameVersion}
-        outerClass={`
-          block
-          text-center
-          pt-2.5
-        `}
-        class={`
-          btn
-          btn-primary
-          btn-sm
-          rounded-lg
-          text-white
-        `}
-      >
-        Download All Core Mods
-      </DownloadCoreModsLink>
-    ) : null
-  }
-  <ModList
-    mods={modList}
-    core={true}
-    coreMods={coreMods ? coreMods.mods : []}
-  />
-  <div
-    class={`
-      block
-      pt-2
-      text-center
-      text-white
-      text-xl
-      text-shadow
-    `}
-  >
-    Other Mods
-  </div>
-  <ModList
-    mods={modList}
-    core={false}
-    coreMods={coreMods ? coreMods.mods : []}
-  />
 </Layout>
 <style>
   .text-shadow {
