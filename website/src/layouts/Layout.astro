@@ -1,4 +1,5 @@
 ---
+import { Dictionary } from "../../../shared/types/Dictionary";
 import BottomAnchor from "../components/BottomAnchor.astro";
 import GithubCorner from "../components/GithubCorner.astro";
 
@@ -7,9 +8,16 @@ export interface Props {
   headerTitle?: string;
   linkHome?: boolean;
   clearLastVisited?: boolean;
+  pageScriptData?: Dictionary<any>;
 }
 
-const { title, headerTitle, linkHome, clearLastVisited = false } = Astro.props;
+const {
+  title,
+  headerTitle,
+  linkHome,
+  clearLastVisited = false,
+  pageScriptData = {},
+} = Astro.props;
 let baseUrl = ((import.meta as any).env.BASE_URL as string) || "";
 
 if (!baseUrl.endsWith("/")) {
@@ -27,6 +35,7 @@ if (!baseUrl.endsWith("/")) {
     <title>{title || headerTitle}</title>
   </head>
   <body
+    data-page-script-data={JSON.stringify(pageScriptData || {})}
     class={`
       after:bg-center
       after:bg-cover
@@ -64,6 +73,7 @@ if (!baseUrl.endsWith("/")) {
         bg-white-alpha-70
         dark:bg-dark-header-footer
         dark:text-white
+        qavs-hidden
         relative
         text-black
       `}
@@ -130,9 +140,34 @@ if (!baseUrl.endsWith("/")) {
       >
         <p>Beat Saber render by Pixelguy</p>
         <p>
-          <a class="link" href="generator/">Mod JSON Generator</a>
+          <a class="link qavs-hidden" href="generator/">Mod JSON Generator</a>
         </p>
       </footer>
     </BottomAnchor>
   </body>
 </html>
+<script>
+  import { getQavsQueryData } from "../../../shared/types/QavsQueryString";
+
+  const qs = getQavsQueryData();
+
+  if (qs.isQavs) {
+    // Create a new style element
+    const style = document.createElement("style");
+
+    const classes = {
+      hidden: "display: none !important;",
+      block: "display: block !important;",
+      flex: "display: flex !important;",
+      "inline-block": "display: inline-block !important;",
+    };
+
+    // Set the content of the style element
+    style.textContent = Object.entries(classes)
+      .map(([key, value]) => `.qavs-${key} { ${value} }`)
+      .join("\n");
+
+    // Append the style element to the head of the document
+    document.head.appendChild(style);
+  }
+</script>

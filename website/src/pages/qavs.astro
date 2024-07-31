@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VersionSelector from "../components/VersionSelector.astro";
+import { getVersions } from "../components/VersionLinks.astro";
+
+export interface QavsScriptData {
+  /** All versions with core mods ordered by newest to oldest. */
+  versions: string[];
+
+  /** All versions regardless of core mods ordered by newest to oldest. */
+  allVersions: string[];
+}
+
+const versions = await getVersions();
+const allVersions = await getVersions(true);
+---
+
+<Layout
+  linkHome={false}
+  title="Quest Beat Saber Mods"
+  ,
+  pageScriptData={{ versions, allVersions }}
+>
+  <div class="px-4">
+    <div
+      id="qavs-unsupported"
+      class={`
+        after:absolute
+        after:backdrop-blur
+        after:inset-0
+        after:rounded-lg
+        after:z-[-2]
+        before:absolute
+        before:bg-error
+        before:block
+        before:inset-0
+        before:opacity-[0.5]
+        before:rounded-lg
+        before:z-[-1]
+        hidden
+        max-w-screen-lg
+        mx-auto
+        my-4
+        p-4
+        qavs-unsupported
+        relative
+        rounded-lg
+        text-white
+        w-full
+      `}
+    >
+      <p class="mb-4">
+        Your installed Beat Saber version
+        <b>does not</b>
+        support any mods.
+        <b>Install</b> version which supports mods.
+      </p>
+      <p class="mb-4">
+        Your game version:
+        <code id="bs-currentversion"></code>
+      </p>
+      <p class="mb-4">
+        The latest supported gameversion is
+        <code id="bs-latestversion">{versions[0]}</code>. To get this version
+        press the button below.
+      </p>
+      <p class="mb-4">
+        <a
+          id="qavs-download-latest"
+          href="#"
+          class="btn btn-primary btn-sm text-bold rounded-lg text-white"
+        >
+          Download Latest Moddable Game Version
+        </a>
+      </p>
+      <p class="mb-4">
+        Use the
+        <code>QuestAppVersionSwitcher</code>
+        button at the top right to get back to the main menu.
+      </p>
+      <p class="mb-4">
+        You can view mods for supported versions.
+        <VersionSelector />
+      </p>
+    </div>
+    <div
+      id="qavs-unmodded"
+      class={`
+        after:absolute
+        after:backdrop-blur
+        after:inset-0
+        after:rounded-lg
+        after:z-[-2]
+        before:absolute
+        before:bg-warning
+        before:block
+        before:inset-0
+        before:opacity-[0.5]
+        before:rounded-lg
+        before:z-[-1]
+        hidden
+        max-w-screen-lg
+        mx-auto
+        my-4
+        p-4
+        qavs-unsupported
+        relative
+        rounded-lg
+        text-white
+        w-full
+      `}
+    >
+      <p class="mb-4">
+        Your Beat Saber game is not modded yet. To mod it press the button
+        below.
+      </p>
+      <p class="mb-4">
+        <a
+          id="qavs-mod-now"
+          href="#"
+          class="btn btn-primary btn-sm text-bold rounded-lg text-white"
+        >
+          Mod My Game
+        </a>
+      </p>
+      <p class="mb-4">
+        Use the
+        <code>QuestAppVersionSwitcher</code>
+        button at the top right to get back to the main menu.
+      </p>
+      <p class="text-sm underline">
+        <a class="bs-current-mods-link" href={`${versions[0]}/`}
+          >View mods anyway</a
+        >
+      </p>
+    </div>
+  </div>
+</Layout>
+<script>
+  // Import necessary functions and types
+  import { getQavsQueryData } from "../../../shared/types/QavsQueryString";
+  import { getPageScriptData } from "../../../shared/getPageScriptData";
+  import type { QavsScriptData } from "./qavs.astro";
+
+  // Destructure the data returned by getQavsQueryData
+  const { version, isQavs, port = 0, isModded, modLoader } = getQavsQueryData();
+
+  // Destructure the data returned by getPageScriptData
+  const { versions, allVersions } = getPageScriptData<QavsScriptData>();
+
+  // Extract the query string from the current URL
+  const queryString: string | null = location.href.split("?")[1] ?? null;
+
+  /** The latest version with core mods. */
+  const latestVersion = versions[0];
+
+  // Construct the current mods link using the version and query string
+  const currentModsLink = `${version}/${queryString ? `?${queryString}` : ""}}`;
+
+  // Update the href attribute of all anchor elements with class "bs-current-mods-link"
+  for (const element of document.querySelectorAll<HTMLAnchorElement>(
+    "a.bs-current-mods-link"
+  )) {
+    element.href = currentModsLink;
+  }
+
+  // Construct the download URL for the latest QAVS version
+  const qavsVersionDownload = `http://127.0.0.1:${port}?download=true&version=${latestVersion}&game=2448060205267927`;
+
+  // Construct the URL for the QAVS mod now action
+  const qavsModNow = `http://127.0.0.1:${port}?package=com.beatgames.beatsaber&modnow=true`;
+
+  // Update the href attribute of the anchor element with id "qavs-download-latest"
+  document.querySelector<HTMLAnchorElement>("a#qavs-download-latest")!.href =
+    qavsVersionDownload;
+
+  // Update the href attribute of the anchor element with id "qavs-mod-now"
+  document.querySelector<HTMLAnchorElement>("a#qavs-mod-now")!.href =
+    qavsModNow;
+
+  // Update the inner text of the DOM element with id "bs-currentversion"
+  document.getElementById("bs-currentversion")!.innerText =
+    version ?? "Unknown";
+
+  // Show or hide elements based on the modded status and version
+  if (!isModded && versions.includes(version || "")) {
+    document.querySelector("#qavs-unmodded")?.classList.remove("hidden");
+  } else if (!isModded && !versions.includes(version || "")) {
+    document.querySelector("#qavs-unsupported")?.classList.remove("hidden");
+  } else if (isModded && allVersions.includes(version || "")) {
+    location.href = `${version}/${queryString ? `?${queryString}` : ""}`;
+  } else {
+    document.querySelector("#qavs-unsupported")?.classList.remove("hidden");
+  }
+</script>

@@ -3,13 +3,13 @@ import { getCoreMods } from "../../../shared/CoreMods";
 import { compareVersionDescending } from "../../../shared/comparisonFunctions";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
 
-export async function getVersions() {
+export async function getVersions(allVersions = false) {
   const mods = readAllModsJson();
   const coreMods = await getCoreMods();
 
   return Object.keys(mods)
     .filter((version) => version != "undefined")
-    .filter((version) => Object.keys(coreMods).includes(version))
+    .filter((version) => allVersions || Object.keys(coreMods).includes(version))
     .sort(compareVersionDescending);
 }
 ---
