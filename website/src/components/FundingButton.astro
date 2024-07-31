@@ -21,6 +21,7 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
         btn
         btn-error
         btn-sm
+        funding-link
         mr-2
         qavs-none
         rounded-lg
@@ -81,9 +82,10 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
               target="_blank"
               class={`
                 block
+                block
+                funding-link
                 px-4
                 py-2
-                block
               `}
             >
               <img

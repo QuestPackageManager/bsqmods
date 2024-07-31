@@ -33,15 +33,7 @@ const {
   />
 </mod-filter>
 <script>
-  interface ModObject {
-    element: HTMLElement;
-    id: string;
-    title: string;
-    version: string;
-    author: string;
-    description: string;
-  }
-
+  import { type ModObject, getModInfo } from "../getModInfo";
   class ModFilter extends HTMLElement {
     inputElement: HTMLInputElement;
     mods: ModObject[];
@@ -60,30 +52,9 @@ const {
       }
     }
 
-    static getMods(): ModObject[] {
-      return [...document.querySelectorAll<HTMLElement>("mod-card")].map(
-        (card) => ({
-          element: card,
-          id: (card.dataset.modId || "").toLowerCase(),
-          title: (
-            card.querySelector<HTMLElement>("mod-name")?.innerText || ""
-          ).toLowerCase(),
-          version: (
-            card.querySelector<HTMLElement>("mod-version")?.innerText || ""
-          ).toLowerCase(),
-          author: (
-            card.querySelector<HTMLElement>("mod-author")?.innerText || ""
-          ).toLowerCase(),
-          description: (
-            card.querySelector<HTMLElement>("mod-description")?.innerText || ""
-          ).toLowerCase(),
-        })
-      );
-    }
-
     constructor() {
       super();
-      this.mods = ModFilter.getMods();
+      this.mods = getModInfo();
       this.inputElement = this.children[0] as HTMLInputElement;
       this.inputElement.addEventListener("keyup", () => this.filter());
       this.style.display = "";
