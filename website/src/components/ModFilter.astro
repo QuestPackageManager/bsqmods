@@ -84,7 +84,6 @@ const {
     constructor() {
       super();
       this.mods = ModFilter.getMods();
-      console.log(this.mods);
       this.inputElement = this.children[0] as HTMLInputElement;
       this.inputElement.addEventListener("keyup", () => this.filter());
       this.style.display = "";
