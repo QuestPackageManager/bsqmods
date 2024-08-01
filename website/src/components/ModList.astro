@@ -34,7 +34,9 @@ const coreModList = coreMods.map((mod) => mod.id);
         return null;
       }
 
-      return <ModCard mods={mods} />;
+      return (
+        <ModCard core={coreModList.includes(mods[0].id || "")} mods={mods} />
+      );
     })
   }
 </div>

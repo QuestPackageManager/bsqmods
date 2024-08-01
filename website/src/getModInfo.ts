@@ -1,15 +1,16 @@
 let mods: ModObject[] | null = null;
 
 export interface ModObject {
-  element: HTMLElement;
   id: string;
   title: string;
   version: string;
   author: string;
   description: string;
-  download: string;
-  source: string | null
-  funding: string[]
+  download: string[];
+  source: string | null;
+  funding: string[];
+  show: () => void;
+  hide: () => void;
 }
 
 /**
@@ -21,7 +22,6 @@ export function getModInfo(): ModObject[] {
   if (mods === null) {
     mods = ([...document.querySelectorAll<HTMLElement>("mod-card")].map(
       (card) => ({
-        element: card,
         id: (card.dataset.modId || "").toLowerCase(),
         title: (
           card.querySelector<HTMLElement>("mod-name")?.innerText || ""
@@ -35,9 +35,11 @@ export function getModInfo(): ModObject[] {
         description: (
           card.querySelector<HTMLElement>("mod-description")?.innerText || ""
         ).toLowerCase(),
-        download: card.querySelector<HTMLAnchorElement>("a.mod-download")!.href,
+        download: [...card.querySelectorAll<HTMLAnchorElement>("a.mod-download")].map(a => a.href),
         source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
-        funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map(link => link.href)
+        funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map(link => link.href),
+        show: () => card.style.display = "",
+        hide: () => card.style.display = "none"
       })
     ));
   }

@@ -25,18 +25,24 @@ const {
 ---
 
 <download-core-mods-link
-  style={`display: none; ${outerStyle}`}
-  class={outerClass}
+  style={outerStyle}
+  class={`
+    hidden
+    script-inline-block
+    ${outerClass}
+  `}
   data-version={version}
 >
-  <slot name="pre" />
-  <a class={className} style={style}><slot /></a>
+  <button class={className} style={style} disabled><slot /></button>
 </download-core-mods-link>
 <script>
   import { generateCoresQmod } from "../../../shared/generateCoresQmod";
+  import { saveAs } from "file-saver";
 
   class DownloadCoreModsLink extends HTMLElement {
-    aElement: HTMLAnchorElement;
+    buttonElement: HTMLButtonElement;
+    blob: Blob | null = null;
+    fileName: string | null = null;
 
     async generateQmod() {
       const version = this.dataset.version;
@@ -44,20 +50,23 @@ const {
       if (version) {
         const data = await generateCoresQmod(version);
 
-        this.aElement.href = URL.createObjectURL(
-          await data.qmod.generateAsync({
-            type: "blob",
-            mimeType: "application/qmod",
-          })
-        );
-        this.aElement.download = data.filename;
-        this.style.display = "";
+        this.blob = await data.qmod.generateAsync({
+          type: "blob",
+          mimeType: "application/qmod",
+        });
+        this.fileName = data.filename;
+        this.buttonElement.disabled = false;
       }
     }
 
     constructor() {
       super();
-      this.aElement = this.children[0]! as HTMLAnchorElement;
+      this.buttonElement = this.children[0]! as HTMLButtonElement;
+      this.buttonElement.addEventListener("click", () => {
+        if (this.blob && this.fileName) {
+          saveAs(this.blob, this.fileName);
+        }
+      });
       this.generateQmod();
     }
   }

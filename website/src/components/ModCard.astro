@@ -13,9 +13,14 @@ export interface Props {
    * All the versions of the mod for this game version.
    */
   mods: Mod[];
+
+  /**
+   * If the mod is a core mod.
+   */
+  core: boolean;
 }
 
-const { mods } = Astro.props as Props;
+const { mods, core = false } = Astro.props as Props;
 ---
 
 {
@@ -138,7 +143,7 @@ const { mods } = Astro.props as Props;
             const buttons = [];
             if (mod.download) {
               buttons.push(
-                <div class="align-middle join mx-2">
+                <div class="align-middle join mr-2">
                   <a
                     href={mod.download}
                     class={`
@@ -188,7 +193,7 @@ const { mods } = Astro.props as Props;
                             z-[1]
                           `}
                       >
-                        {mods.map((mod) => (
+                        {mods.map((mod, index) => (
                           <li
                             class={`
                                 hover:bg-dropdown-menu-hover
@@ -197,12 +202,13 @@ const { mods } = Astro.props as Props;
                           >
                             <a
                               class={`
-                                  block
-                                  font-semibold
-                                  px-4
-                                  py-2
-                                  text-sm
-                                `}
+                                block
+                                font-semibold
+                                px-4
+                                py-2
+                                text-sm
+                                ${index > 0 && "mod-download"}
+                              `}
                               href={mod.download}
                             >
                               {mod.version}
@@ -254,7 +260,7 @@ const { mods } = Astro.props as Props;
                 >
                   <div
                     class={`
-
+                      ml-2
                     `}
                   >
                     {buttons}

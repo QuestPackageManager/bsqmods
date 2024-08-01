@@ -24,8 +24,9 @@ const {
 } = Astro.props as Props;
 ---
 
-<mod-filter class={outerClass} style={`display: none; ${outerStyle}`}>
+<mod-filter class={outerClass}>
   <input
+    disabled={true}
     type="text"
     class={className}
     style={style}
@@ -48,7 +49,11 @@ const {
           mod.author.includes(term) ||
           mod.description.includes(term);
 
-        mod.element.style.display = shouldDisplay ? "" : "none";
+        if (shouldDisplay) {
+          mod.show();
+        } else {
+          mod.hide();
+        }
       }
     }
 
@@ -57,7 +62,7 @@ const {
       this.mods = getModInfo();
       this.inputElement = this.children[0] as HTMLInputElement;
       this.inputElement.addEventListener("keyup", () => this.filter());
-      this.style.display = "";
+      this.inputElement.disabled = false;
     }
   }
 

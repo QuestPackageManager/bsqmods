@@ -85,7 +85,6 @@ const coreMods = (await getCoreMods())[gameVersion];
       before:inset-0
       before:z-[-1]
       bg-header-footer-bg
-      block
       mx-auto
       p-4
       sticky
@@ -93,6 +92,8 @@ const coreMods = (await getCoreMods())[gameVersion];
       top-0
       w-full
       z-10
+      hidden
+      script-block
     `}
     class={`
       backdrop-blur
@@ -121,28 +122,32 @@ const coreMods = (await getCoreMods())[gameVersion];
       `}
     >
       Core Mods
+      <div>
+        {
+          coreMods && coreMods.mods.length > 0 ? (
+            <DownloadCoreModsLink
+              version={gameVersion}
+              outerClass={`
+                block
+                text-center
+                pt-2.5
+              `}
+              class={`
+                btn
+                btn-primary
+                btn-sm
+                rounded-lg
+                text-white
+                disabled:bg-neutral
+              `}
+            >
+              Download All Core Mods
+            </DownloadCoreModsLink>
+          ) : null
+        }
+      </div>
     </div>
-    {
-      coreMods && coreMods.mods.length > 0 ? (
-        <DownloadCoreModsLink
-          version={gameVersion}
-          outerClass={`
-        block
-        text-center
-        pt-2.5
-      `}
-          class={`
-            btn
-            btn-primary
-            btn-sm
-            rounded-lg
-            text-white
-          `}
-        >
-          Download All Core Mods
-        </DownloadCoreModsLink>
-      ) : null
-    }
+
     <ModList
       mods={modList}
       core={true}
