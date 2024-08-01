@@ -98,6 +98,21 @@ if (!baseUrl.endsWith("/")) {
       relative
     `}
   >
+    <script is:inline type="text/javascript">
+      ((style) => {
+        for (const display of [
+          "none",
+          "block",
+          "inline-block",
+          "initial",
+          "auto",
+        ]) {
+          style.textContent += `.script-${display} { display: ${display}; }\n`;
+        }
+
+        document.head.appendChild(style);
+      })(document.createElement("style"));
+    </script>
     <GithubCorner />
     <header
       class={`
