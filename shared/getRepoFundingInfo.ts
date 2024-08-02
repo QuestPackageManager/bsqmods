@@ -110,12 +110,12 @@ async function checkFunding(contents: RepoContent[]) {
   return links;
 }
 
-export async function getRepoFundingInfo(link: string): Promise<string[]> {
-  const match = ghRegex.exec(link);
+export async function getRepoFundingInfo(repoLink: string, subDirectory?: string): Promise<string[]> {
+  const match = ghRegex.exec(repoLink);
   const funding = [] as string[];
 
   if (match) {
-    const result = await cachedFetchJson<RepoContents>(`https://api.github.com/repos/${match[1]}/${match[2]}/contents`);
+    const result = await cachedFetchJson<RepoContents>(`https://api.github.com/repos/${match[1]}/${match[2]}/contents${subDirectory ? `/${subDirectory}` : ""}`);
 
     if (result.data == null) {
       return funding;
@@ -123,8 +123,16 @@ export async function getRepoFundingInfo(link: string): Promise<string[]> {
 
     checkGithubResponse(result.data as Message);
 
+    const dotGithub = (result.data as RepoContent[]).filter(entry => entry.type == "dir" && entry.path.toLocaleLowerCase() == ".github")?.at(0)?.path;
+
     for (const link of await checkFunding(result.data as RepoContent[])) {
       funding.push(link);
+    }
+
+    if (funding.length == 0 && dotGithub) {
+      for (const link of await getRepoFundingInfo(repoLink, dotGithub)) {
+        funding.push(link);
+      }
     }
 
     if (funding.length == 0 && match[2].toLowerCase() != ".github") {
