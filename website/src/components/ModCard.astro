@@ -275,7 +275,11 @@ const { mods, core = false } = Astro.props as Props;
                     `}
                   >
                     <AddCheckbox
-                      title="Mark mods to batch download them"
+                      title={
+                        core
+                          ? "Core mods are always included"
+                          : "Mark mods to batch download them"
+                      }
                       class={`
                         checkbox-lg
                         checkbox-primary
@@ -283,20 +287,21 @@ const { mods, core = false } = Astro.props as Props;
                         mod-checkbox
                       `}
                       plusClass={`
-                        text-card-text
+                        m-[.125rem]
+                        text-white
                         ${core && "hidden"}
                       `}
                       outerClass={`
                         align-middle
-                        ${core ? "bg-success" : "bg-primary"}
                         h-8
                         hidden
                         inline-block
                         mr-2
+                        overflow-clip
                         qavs-none
                         rounded-lg
                         script-inline-block
-                        overflow-clip
+                        ${!core && "bg-primary"}
                       `}
                       disabled={!!core}
                       checked={!!core}

@@ -78,8 +78,8 @@ const coreMods = (await getCoreMods())[gameVersion];
   <div slot="header-post-title" class="text-center block pb-4">
     <VersionSelector currentVersion={gameVersion} />
   </div>
-  <ModFilter
-    outerClass={`
+  <div
+    class={`
       before:absolute
       before:backdrop-blur
       before:content['']
@@ -96,32 +96,32 @@ const coreMods = (await getCoreMods())[gameVersion];
       hidden
       script-block
     `}
-    class={`
-      backdrop-blur
-      bg-header-input-bg
-      border
-      border-white-alpha-20
-      max-w-full
-      mx-auto
-      p-2
-      placeholder-header-input-placeholder
-      placeholder:text-center
-      rounded-md
-      text-header-input-text
-      w-[444px]
-    `}
-    placeholder="Search mods"
-  />
-  <div class="px-safe">
-    <div class="hidden script-block text-center qavs-none">
-      {
-        coreMods && coreMods.mods.length > 0 ? (
+  >
+    <ModFilter
+      class={`
+        backdrop-blur
+        bg-header-input-bg
+        border
+        border-white-alpha-20
+        max-w-full
+        mx-auto
+        p-2
+        placeholder-header-input-placeholder
+        placeholder:text-center
+        rounded-md
+        text-header-input-text
+        w-[444px]
+      `}
+      placeholder="Search mods"
+    />
+    {
+      coreMods && coreMods.mods.length > 0 ? (
+        <div class="text-center qavs-none pt-4">
           <DownloadMarkedModsLink
             version={gameVersion}
             outerClass={`
               block
               text-center
-              pt-2.5
             `}
             class={`
               btn
@@ -134,9 +134,11 @@ const coreMods = (await getCoreMods())[gameVersion];
           >
             Download All Marked Mods
           </DownloadMarkedModsLink>
-        ) : null
-      }
-    </div>
+        </div>
+      ) : null
+    }
+  </div>
+  <div class="px-safe">
     <div
       class={`
         pt-2 block
