@@ -10,7 +10,7 @@ async function checkFunding(contents: RepoContent[]) {
   const links = [] as string[];
 
   for (const file of contents) {
-    if (file.path.toLowerCase() == "funding.yml" && file.download_url != null) {
+    if (file.name.toLowerCase() == "funding.yml" && file.download_url != null) {
       const fundingFile = await fetchText(file.download_url);
 
       if (fundingFile.data) {
@@ -123,7 +123,7 @@ export async function getRepoFundingInfo(repoLink: string, subDirectory?: string
 
     checkGithubResponse(result.data as Message);
 
-    const dotGithub = (result.data as RepoContent[]).filter(entry => entry.type == "dir" && entry.path.toLocaleLowerCase() == ".github")?.at(0)?.path;
+    const dotGithub = (result.data as RepoContent[]).filter(entry => entry.type == "dir" && entry.path.toLowerCase() == ".github")?.at(0)?.path;
 
     for (const link of await checkFunding(result.data as RepoContent[])) {
       funding.push(link);
