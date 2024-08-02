@@ -17,7 +17,7 @@ const config: Config = {
       "xxl": "1536px",
       ...(() => {
         const output: Dictionary<string> = {};
-        const cardSize = 348;
+        const cardSize = 372;
         const startSize = cardSize * 2;
         const outerPad = 8;
 

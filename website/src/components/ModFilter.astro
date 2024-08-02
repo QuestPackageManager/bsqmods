@@ -49,11 +49,7 @@ const {
           mod.author.includes(term) ||
           mod.description.includes(term);
 
-        if (shouldDisplay) {
-          mod.show();
-        } else {
-          mod.hide();
-        }
+        mod.isVisible(shouldDisplay);
       }
     }
 

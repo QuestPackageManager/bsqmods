@@ -7,6 +7,8 @@ import ExpandableLongText from "./ExpandableLongText.astro";
 import { isValidUrl } from "../../../shared/isValidUrl";
 import { getDomainFromUrl } from "../../../shared/getDomainFromUrl";
 import FundingButton from "./FundingButton.astro";
+import AddCheckbox from "./AddCheckbox.astro";
+import { CoreMod } from "../../../shared/CoreMods";
 
 export interface Props {
   /**
@@ -17,7 +19,7 @@ export interface Props {
   /**
    * If the mod is a core mod.
    */
-  core: boolean;
+  core?: CoreMod | null;
 }
 
 const { mods, core = false } = Astro.props as Props;
@@ -50,6 +52,15 @@ const { mods, core = false } = Astro.props as Props;
           mcb-6:w-1/6
         `}
       >
+        {core ? (
+          <core-mod-info
+            class="hidden"
+            data-id={core.id}
+            data-version={core.version}
+            data-download-link={core.downloadLink}
+            data-filename={core.filename}
+          />
+        ) : null}
         <div
           class={`
             bg-card-header-bg
@@ -263,6 +274,33 @@ const { mods, core = false } = Astro.props as Props;
                       ml-2
                     `}
                   >
+                    <AddCheckbox
+                      title="Mark mods to batch download them"
+                      class={`
+                        checkbox-lg
+                        checkbox-primary
+                        checked:checkbox-success
+                        mod-checkbox
+                      `}
+                      plusClass={`
+                        text-card-text
+                        ${core && "hidden"}
+                      `}
+                      outerClass={`
+                        align-middle
+                        ${core ? "bg-success" : "bg-primary"}
+                        h-8
+                        hidden
+                        inline-block
+                        mr-2
+                        qavs-none
+                        rounded-lg
+                        script-inline-block
+                        overflow-clip
+                      `}
+                      disabled={!!core}
+                      checked={!!core}
+                    />
                     {buttons}
                   </div>
                 </div>

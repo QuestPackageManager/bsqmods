@@ -1,0 +1,56 @@
+---
+import { PlusIcon } from "@heroicons/react/16/solid";
+
+interface Props extends Partial<HTMLInputElement> {
+  /** Additional classes on the input element */
+  class?: string;
+
+  /** Additional classes on the outer element */
+  outerClass?: string;
+
+  /** Additional classes on the plus svg element */
+  plusClass?: string;
+}
+
+const {
+  id,
+  name,
+  title,
+  class: innerClass = "",
+  outerClass = "",
+  plusClass = "",
+  disabled = false,
+  checked = false,
+} = Astro.props as Props;
+---
+
+<div
+  class={`
+    inline-block
+    relative
+    leading-[1px]
+    ${outerClass}
+  `}
+>
+  <input
+    type="checkbox"
+    class={`
+      checkbox
+      relative
+      z-[1]
+      ${innerClass}
+    `}
+    id={id}
+    name={name}
+    title={title}
+    disabled={disabled}
+    checked={checked}
+  />
+  <PlusIcon
+    className={`
+      absolute
+      inset-0
+      ${plusClass}
+    `}
+  />
+</div>

@@ -1,3 +1,5 @@
+import type { CoreMod } from "../../shared/CoreMods";
+
 let mods: ModObject[] | null = null;
 
 export interface ModObject {
@@ -7,10 +9,23 @@ export interface ModObject {
   author: string;
   description: string;
   download: string[];
+  coreModInfo?: CoreMod;
   source: string | null;
   funding: string[];
-  show: () => void;
-  hide: () => void;
+
+  /**
+   * Optionally sets the marked state and returns the current state.
+   * @param value The new value to set the mark state to.
+   * @returns The current mark state.
+   */
+  isMarked: (value?: boolean) => boolean;
+
+  /**
+   * Optionally sets the visibility state and returns the current state.
+   * @param value The new value to set the visibility state to.
+   * @returns The current visibility state.
+   */
+  isVisible: (value?: boolean) => boolean;
 }
 
 /**
@@ -36,10 +51,27 @@ export function getModInfo(): ModObject[] {
           card.querySelector<HTMLElement>("mod-description")?.innerText || ""
         ).toLowerCase(),
         download: [...card.querySelectorAll<HTMLAnchorElement>("a.mod-download")].map(a => a.href),
+        coreModInfo: card.querySelector<HTMLElement>("core-mod-info")?.dataset as unknown as CoreMod | undefined,
         source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
         funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map(link => link.href),
-        show: () => card.style.display = "",
-        hide: () => card.style.display = "none"
+        isMarked: (value) => {
+          var mark = card.querySelector<HTMLInputElement>("input.mod-checkbox")!;
+
+          if (value === true || value === false) {
+            mark.checked = value;
+          }
+
+          return mark.checked;
+        },
+        isVisible(value) {
+          if (value === true) {
+            card.style.display = "";
+          } else if (value === false) {
+            card.style.display = "none";
+          }
+
+          return card.style.display != "none";
+        },
       })
     ));
   }

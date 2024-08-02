@@ -1,0 +1,125 @@
+---
+export interface Props {
+  /** The target game version. */
+  version: string;
+
+  /** A space-separated list of the classes of the inner `a` element. */
+  class?: string;
+
+  /** CSS styles to apply to the inner `a` element. */
+  style?: string;
+
+  /** A space-separated list of the classes of the inner `a` element. */
+  outerClass?: string;
+
+  /** CSS styles to apply to the inner `a` element. */
+  outerStyle?: string;
+}
+const {
+  version,
+  class: className,
+  style,
+  outerClass,
+  outerStyle,
+} = Astro.props as Props;
+---
+
+<download-marked-mods-link
+  style={outerStyle}
+  class={`
+    hidden
+    script-inline-block
+    ${outerClass}
+  `}
+  data-version={version}
+>
+  <button class={className} style={style} disabled><slot /></button>
+</download-marked-mods-link>
+<script>
+  import { generateCoresQmod } from "../../../shared/generateCoresQmod";
+  import {
+    type DependencyQmodArguments,
+    generateDependencyQmod,
+    type QmodDependency,
+  } from "../../../shared/generateDependencyQmod";
+  import { ModLoader } from "../../../shared/types/ModLoader";
+  import { getModInfo, type ModObject } from "../getModInfo";
+  import { saveAs } from "file-saver";
+  import { semverDate } from "../../../shared/semverDate";
+  import { isQavs } from "../isQavs";
+
+  class DownloadMarkedModsLink extends HTMLElement {
+    buttonElement: HTMLButtonElement;
+    mods: ModObject[];
+
+    async generateQmod() {
+      const dependencies: QmodDependency[] = this.mods
+        .filter((mod) => mod.isMarked())
+        .map((mod) => {
+          if (mod.coreModInfo) {
+            return {
+              id: mod.id,
+              version: `^${mod.coreModInfo.version}`,
+              downloadIfMissing: mod.coreModInfo.downloadLink,
+            };
+          }
+
+          return {
+            id: mod.id,
+            version: `^${mod.version}`,
+            downloadIfMissing: mod.download[0],
+          };
+        });
+
+      const version = this.dataset.version!;
+      const info: DependencyQmodArguments = {
+        name: `Marked Mods for ${version}`,
+        id: `MarkedMods_${version}`,
+        author: "",
+        version: semverDate(),
+        packageId: "com.beatgames.beatsaber",
+        packageVersion: version,
+        modloader:
+          version > "1.28.0_4124311467"
+            ? ModLoader.Scotland2
+            : ModLoader.QuestLoader,
+        dependencies: dependencies,
+      };
+
+      info.filename = `ModBundle_${info.version}.qmod`;
+
+      const data = await generateDependencyQmod(info);
+
+      saveAs(
+        await data.qmod.generateAsync({
+          type: "blob",
+          mimeType: "application/qmod",
+        }),
+        data.filename
+      );
+    }
+
+    async setDisabledState() {
+      this.buttonElement.disabled =
+        this.mods.filter((mod) => mod.isMarked() && mod.coreModInfo == null)
+          .length == 0;
+    }
+
+    constructor() {
+      super();
+      this.buttonElement = this.children[0]! as HTMLButtonElement;
+      this.mods = getModInfo();
+      this.buttonElement.addEventListener("click", () => this.generateQmod());
+
+      for (const input of document.querySelectorAll<HTMLInputElement>(
+        "mod-card input.mod-checkbox"
+      )) {
+        input.addEventListener("change", () => this.setDisabledState());
+      }
+
+      this.setDisabledState();
+    }
+  }
+
+  customElements.define("download-marked-mods-link", DownloadMarkedModsLink);
+</script>

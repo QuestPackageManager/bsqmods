@@ -260,13 +260,11 @@ if (!baseUrl.endsWith("/")) {
   }
 </style>
 <script>
-  import { getQavsQueryData } from "../../../shared/types/QavsQueryString";
   import { bindMultiClickAction } from "../../../shared/bindMultiClickAction";
   import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
+  import { isQavs } from "../isQavs";
 
-  const qs = getQavsQueryData();
-
-  if (qs.isQavs) {
+  if (isQavs) {
     // 5 clicks on the footer redirects to google.com.
     bindMultiClickAction(
       [...document.querySelectorAll("footer")].at(-1)!,

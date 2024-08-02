@@ -11,6 +11,7 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
 import { compareVersionDescending } from "../../../scripts/shared/semverComparison";
 import { getCoreMods } from "../../../shared/CoreMods";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
+import DownloadMarkedModsLink from "../components/DownloadMarkedModsLink.astro";
 
 const modJson = readAllModsJson();
 
@@ -112,6 +113,30 @@ const coreMods = (await getCoreMods())[gameVersion];
     placeholder="Search mods"
   />
   <div class="px-safe">
+    <div class="hidden script-block text-center qavs-none">
+      {
+        coreMods && coreMods.mods.length > 0 ? (
+          <DownloadMarkedModsLink
+            version={gameVersion}
+            outerClass={`
+              block
+              text-center
+              pt-2.5
+            `}
+            class={`
+              btn
+              btn-primary
+              btn-sm
+              rounded-lg
+              text-white
+              disabled:bg-neutral
+            `}
+          >
+            Download All Marked Mods
+          </DownloadMarkedModsLink>
+        ) : null
+      }
+    </div>
     <div
       class={`
         pt-2 block
@@ -122,7 +147,7 @@ const coreMods = (await getCoreMods())[gameVersion];
       `}
     >
       Core Mods
-      <div>
+      <div class="hidden script-block">
         {
           coreMods && coreMods.mods.length > 0 ? (
             <DownloadCoreModsLink
