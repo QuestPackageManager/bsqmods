@@ -1,0 +1,14 @@
+{
+  "name": "Qosmetics Boxes",
+  "description": "Qosmetics module that adds Box capabilities",
+  "id": "qosmetics-walls",
+  "version": "0.2.1",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Qosmetics/Qosmetics-Walls/releases/download/v0.2.1/QosmeticsBoxes.qmod",
+  "source": "https://github.com/Qosmetics/Qosmetics-Walls/",
+  "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Walls/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Qosmetics/Qosmetics-Walls/"
+}
