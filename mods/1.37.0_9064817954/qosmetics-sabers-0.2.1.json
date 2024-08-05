@@ -1,0 +1,14 @@
+{
+  "name": "Qosmetics Whackers",
+  "description": "Qosmetics module that adds Whacker capabilities",
+  "id": "qosmetics-sabers",
+  "version": "0.2.1",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.2.1/QosmeticsWhackers.qmod",
+  "source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
+  "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Sabers/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Qosmetics/Qosmetics-Sabers/"
+}
