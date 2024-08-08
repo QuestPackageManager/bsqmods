@@ -4,6 +4,14 @@ import VersionSelector, { Props } from "./VersionSelector.astro";
 const { currentVersion } = Astro.props as Partial<Props>;
 ---
 
-<div class="text-center block pb-4 z-20 relative">
+<div
+  class={`
+    block
+    pb-4
+    relative
+    text-center
+    z-20
+  `}
+>
   <VersionSelector currentVersion={currentVersion || "Select a Version"} />
 </div>

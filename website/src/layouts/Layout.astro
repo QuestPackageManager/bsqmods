@@ -60,6 +60,7 @@ if (!baseUrl.endsWith("/")) {
         }
       })();
     </script>
+    <slot name="early-head" />
     <base href={baseUrl} />
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#0A0C11" />
@@ -69,6 +70,7 @@ if (!baseUrl.endsWith("/")) {
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title || headerTitle}</title>
+    <slot name="late-head" />
   </head>
   <body
     data-page-script-data={JSON.stringify(pageScriptData || {})}
@@ -113,6 +115,7 @@ if (!baseUrl.endsWith("/")) {
         document.head.appendChild(style);
       })(document.createElement("style"));
     </script>
+    <slot name="early-body" />
     <GithubCorner />
     <header
       class={`
@@ -199,6 +202,7 @@ if (!baseUrl.endsWith("/")) {
         </p>
       </footer>
     </BottomAnchor>
+    <slot name="late-body" />
   </body>
 </html>
 <style is:global lang="scss">
