@@ -1,24 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VersionSelector from "../components/VersionSelector.astro";
+import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
 ---
 
 <Layout linkHome={false} title="Quest Beat Saber Mods">
-  <div slot="header-post-title" class="text-center block pb-4">
-    <VersionSelector currentVersion="Select a Version" />
-  </div>
-  <div
+  <HeaderVersionSelector slot="header-post-title" />
+  <p
+    slot="padded"
     class={`
       block
-      pt-2
       text-center
       text-shadow
       text-white
       text-xl
     `}
   >
-    <p>To continue, please select a game version from the list above.</p>
-  </div>
+    To continue, please select a game version from the list above.
+  </p>
 </Layout>
 <style>
   .text-shadow {

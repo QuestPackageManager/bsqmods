@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props as Props;
+---
+
+<li
+  class={`
+    font-semibold
+    hover:bg-dropdown-menu-hover
+    rounded-md
+    text-sm
+    ${className}
+  `}
+>
+  <slot />
+</li>

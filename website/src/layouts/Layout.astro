@@ -166,7 +166,11 @@ if (!baseUrl.endsWith("/")) {
       `}
       f-client-nav="true"
     >
-      <slot />
+      <slot>
+        <div class="px-safe-offset-4 py-4">
+          <slot name="padded" />
+        </div>
+      </slot>
     </div>
     <BottomAnchor>
       <footer
@@ -276,7 +280,7 @@ if (!baseUrl.endsWith("/")) {
           location.href = result!;
         }
       },
-      5
+      5,
     );
   }
 </script>

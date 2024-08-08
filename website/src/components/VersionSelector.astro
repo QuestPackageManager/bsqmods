@@ -1,11 +1,13 @@
 ---
+import DropdownListMenu from "./DropdownListMenu.astro";
+import DropdownListMenuItem from "./DropdownListMenuItem.astro";
 import VersionLinks, { getVersions } from "./VersionLinks.astro";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 export interface Props {
   currentVersion?: string;
 }
 
-const { currentVersion } = Astro.props as Props;
+const { currentVersion = "Select A Version" } = Astro.props as Props;
 ---
 
 <details class="dropdown">
@@ -21,36 +23,14 @@ const { currentVersion } = Astro.props as Props;
       text-white
     `}
   >
-    {currentVersion ? `${currentVersion}` : "Select A Version"}
+    {currentVersion}
     <ChevronDownIcon className="size-4 text-white" />
   </summary>
-  <ul
-    class={`
-      -translate-x-1/2
-      backdrop-blur
-      bg-dropdown-menu-bg
-      dropdown-content
-      font-semibold
-      left-1/2
-      p-2
-      rounded-lg
-      shadow
-      text-dropdown-menu-text
-      text-sm
-      top-[100%]
-      w-52
-      z-20
-    `}
-  >
+  <DropdownListMenu class="text-left">
     {
       getVersions().then((versions) =>
         versions.map((version) => (
-          <li
-            class={`
-              hover:bg-dropdown-menu-hover
-              rounded-md
-            `}
-          >
+          <DropdownListMenuItem>
             <a
               class={`
                 block
@@ -62,9 +42,9 @@ const { currentVersion } = Astro.props as Props;
             >
               {version}
             </a>
-          </li>
-        ))
+          </DropdownListMenuItem>
+        )),
       )
     }
-  </ul>
+  </DropdownListMenu>
 </details>

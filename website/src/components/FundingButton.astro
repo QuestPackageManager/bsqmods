@@ -2,6 +2,8 @@
 import HeartIcon from "@heroicons/react/16/solid/HeartIcon";
 import { isValidUrl } from "../../../shared/isValidUrl";
 import { getDomainFromUrl } from "../../../shared/getDomainFromUrl";
+import DropdownListMenu from "./DropdownListMenu.astro";
+import DropdownListMenuItem from "./DropdownListMenuItem.astro";
 
 interface Props {
   funding: string[];
@@ -54,32 +56,9 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
       >
         <HeartIcon className="text-white size-4 inline-block" />
       </summary>
-      <ul
-        class={`
-          backdrop-blur
-          bg-dropdown-menu-bg
-          dropdown-content
-          font-semibold
-          mt-1
-          p-2
-          right-0
-          rounded-lg
-          shadow
-          text-dropdown-menu-text
-          text-sm
-          top-[100%]
-          w-52
-          z-[1]
-        `}
-      >
+      <DropdownListMenu>
         {filteredFunding.map((fund) => (
-          <li
-            class={`
-              hover:bg-dropdown-menu-hover
-              rounded-md
-
-            `}
-          >
+          <DropdownListMenuItem>
             <a
               href={fund}
               target="_blank"
@@ -102,9 +81,9 @@ const filteredFunding = funding.filter((url) => isValidUrl(url));
               />
               <span class="align-middle">{getDomainFromUrl(fund)}</span>
             </a>
-          </li>
+          </DropdownListMenuItem>
         ))}
-      </ul>
+      </DropdownListMenu>
     </details>
   ) : null
 }

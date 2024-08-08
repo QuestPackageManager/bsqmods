@@ -12,6 +12,7 @@ import { compareVersionDescending } from "../../../scripts/shared/semverComparis
 import { getCoreMods } from "../../../shared/CoreMods";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
 import DownloadMarkedModsLink from "../components/DownloadMarkedModsLink.astro";
+import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
 
 const modJson = readAllModsJson();
 
@@ -38,7 +39,7 @@ export interface Params {
  */
 function groupBy<T extends Record<string, any>>(
   array: T[],
-  key: string
+  key: string,
 ): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
@@ -63,7 +64,7 @@ for (const modList of Object.values(modGroups)) {
 const modList = Object.values(modGroups) as Mod[][];
 
 modList.sort((a, b) =>
-  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name)
+  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name),
 );
 
 const coreMods = (await getCoreMods())[gameVersion];
@@ -75,9 +76,10 @@ const coreMods = (await getCoreMods())[gameVersion];
   linkHome={true}
   clearLastVisited={true}
 >
-  <div slot="header-post-title" class="text-center block pb-4">
-    <VersionSelector currentVersion={gameVersion} />
-  </div>
+  <HeaderVersionSelector
+    slot="header-post-title"
+    currentVersion={gameVersion}
+  />
   <div
     class={`
       before:absolute
@@ -141,11 +143,12 @@ const coreMods = (await getCoreMods())[gameVersion];
   <div class="px-safe">
     <div
       class={`
-        pt-2 block
+        block
+        pt-4
         text-center
+        text-shadow
         text-white
         text-xl
-        text-shadow
       `}
     >
       Core Mods

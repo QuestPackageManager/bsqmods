@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import VersionSelector from "../components/VersionSelector.astro";
 import { getVersions } from "../components/VersionLinks.astro";
+import QavsMessage from "../components/QavsMessage.astro";
 
 export interface QavsScriptData {
   /** All versions with core mods ordered by newest to oldest. */
@@ -21,34 +22,8 @@ const allVersions = await getVersions(true);
   ,
   pageScriptData={{ versions, allVersions }}
 >
-  <div class="px-safe-offset-4">
-    <div
-      id="qavs-unsupported"
-      class={`
-        after:absolute
-        after:backdrop-blur
-        after:inset-0
-        after:rounded-lg
-        after:z-[-2]
-        before:absolute
-        before:bg-error
-        before:block
-        before:inset-0
-        before:opacity-[0.5]
-        before:rounded-lg
-        before:z-[-1]
-        hidden
-        max-w-screen-lg
-        mx-auto
-        my-4
-        p-4
-        qavs-unsupported
-        relative
-        rounded-lg
-        text-white
-        w-full
-      `}
-    >
+  <Fragment slot="padded">
+    <QavsMessage id="qavs-unsupported" type="error">
       <p class="mb-4">
         Your installed Beat Saber version
         <b>does not</b>
@@ -89,35 +64,8 @@ const allVersions = await getVersions(true);
       <div class="version-selector block my-[-0.25rem]">
         <VersionSelector />
       </div>
-    </div>
-    <div
-      id="qavs-unmodded"
-      class={`
-        after:absolute
-        after:backdrop-blur
-        after:bg-black-alpha-40
-        after:inset-0
-        after:rounded-lg
-        after:z-[-2]
-        before:absolute
-        before:bg-warning
-        before:block
-        before:inset-0
-        before:opacity-[0.5]
-        before:rounded-lg
-        before:z-[-1]
-        hidden
-        max-w-screen-lg
-        mx-auto
-        my-4
-        p-4
-        qavs-unsupported
-        relative
-        rounded-lg
-        text-white
-        w-full
-      `}
-    >
+    </QavsMessage>
+    <QavsMessage id="qavs-unmodded" type="warning">
       <p class="mb-4">
         Your Beat Saber game is not modded yet. To mod it press the button
         below.
@@ -155,8 +103,8 @@ const allVersions = await getVersions(true);
           href={`${versions[0]}/`}>View mods anyway</a
         >
       </p>
-    </div>
-  </div>
+    </QavsMessage>
+  </Fragment>
 </Layout>
 <script>
   // Import necessary functions and types
@@ -181,7 +129,7 @@ const allVersions = await getVersions(true);
 
   // Update the href attribute of all anchor elements with class "bs-current-mods-link"
   for (const element of document.querySelectorAll<HTMLAnchorElement>(
-    "a.bs-current-mods-link"
+    "a.bs-current-mods-link",
   )) {
     element.href = currentModsLink;
   }
@@ -189,7 +137,7 @@ const allVersions = await getVersions(true);
   if (queryString) {
     // Update the href attribute of all anchor elements to append the query string.
     for (const element of document.querySelectorAll<HTMLAnchorElement>(
-      ".version-selector a"
+      ".version-selector a",
     )) {
       element.href = `${element.href}?${queryString}`;
     }
