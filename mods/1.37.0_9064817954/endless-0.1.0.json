@@ -1,6 +1,6 @@
 {
   "name": "Endless",
-  "description": "Allows you to play endlessly, or at least until you fail.",
+  "description": "Allows you to play endlessly, or at least until you fail.\n\nIMPORTANT: This mod has issues with Replay; you will most likely encounter crashes with Replay enabled",
   "id": "endless",
   "version": "0.1.0",
   "author": "TheZipCreator",
