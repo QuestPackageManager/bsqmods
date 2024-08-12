@@ -16,7 +16,7 @@
     "@astrojs/ts-plugin": "^1.9.1",
     "@heroicons/react": "^2.1.5",
     "@playform/compress": "^0.1.1",
-    "@tailwindcss/typography": "github:tailwindcss/typography",
+    "@tailwindcss/typography": "^0.5.14",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",
