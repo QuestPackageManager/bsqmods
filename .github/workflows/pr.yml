@@ -11,9 +11,6 @@ on:
         description: "The PR number to check against"
         default: ""
 
-  repository_dispatch:
-    types: [trigger_deploy]
-
 jobs:
   # Single deploy job since we're just deploying
   test:
