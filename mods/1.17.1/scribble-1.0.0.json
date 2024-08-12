@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/Scribble/releases/download/v1.0.0/Scribble.qmod",
   "source": null,
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/RedBrumbler/Scribble/master/cover.gif",
   "funding": [],
   "website": null
 }
