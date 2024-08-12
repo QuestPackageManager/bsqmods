@@ -41,15 +41,12 @@ jobs:
 
       - name: Install npm modules
         run: |
-          cd scripts
-          npm install
-          cd ../website
-          npm install
+          (cd source/scripts && npm install)
 
       - name: Import the core mods
         if: (github.event.inputs.url == '')
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./import.ts 2>&1
           echo "COMMIT_MSG=Update core mods" >> $GITHUB_ENV
           echo "BRANCH_NAME=core-mods" >> $GITHUB_ENV
@@ -57,9 +54,9 @@ jobs:
       - name: Import the specified mod
         if: (github.event.inputs.url != '')
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
-          git add -A ../mods
+          git add -A ../../mods
           echo "COMMIT_MSG=Update $(git diff --name-only --cached)" >> $GITHUB_ENV
           echo "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" |
             tr A-Z a-z |

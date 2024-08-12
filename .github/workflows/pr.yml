@@ -11,7 +11,6 @@ on:
         description: "The PR number to check against"
         default: ""
 
-
   repository_dispatch:
     types: [trigger_deploy]
 
@@ -64,12 +63,9 @@ jobs:
 
       - name: Install npm modules
         run: |
-          cd scripts
-          npm install
-          cd ../website
-          npm install
+          (cd source/scripts && npm install)
 
       - name: Validate json
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./pr-check.ts

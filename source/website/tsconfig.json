@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "../tsconfig.json",
+    "astro/tsconfigs/strict"
+  ],
+  "include": [
+    "src/env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+  ],
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  }
+}

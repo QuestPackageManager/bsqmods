@@ -1,12 +1,10 @@
 {
   "name": "bsqmods",
   "version": "1.0.0",
-  "description": "A test repo for beat saber quest mods",
-  "main": "combine.js",
+  "description": "",
+  "main": "",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -15,10 +13,9 @@
     "json5": "^2.2.3",
     "jsonschema": "^1.4.1",
     "jszip": "^3.10.1",
-    "node-fetch": "^3.3.2",
     "semver": "^7.6.3",
-    "sharp": "^0.33.4",
     "tsx": "^4.17.0",
+    "url": "^0.11.4",
     "yaml": "^2.5.0"
   }
 }

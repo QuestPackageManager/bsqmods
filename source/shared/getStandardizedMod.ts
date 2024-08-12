@@ -1,4 +1,5 @@
 import { Mod, modKeys } from "./types/Mod";
+import { ModLoader } from "./types/ModLoader";
 
 /**
  * Returns the mod with empty values set to nulls and keys presented in a specific order.
@@ -18,6 +19,11 @@ export function getStandardizedMod(mod: Mod, keys: (keyof (Mod))[] = modKeys): M
         uniformMod[key] = [uniformMod[key]];
       }
 
+      continue;
+    }
+
+    if (key == "modloader") {
+      uniformMod[key] = mod[key]?.trim() as ModLoader || ModLoader.Scotland2
       continue;
     }
 

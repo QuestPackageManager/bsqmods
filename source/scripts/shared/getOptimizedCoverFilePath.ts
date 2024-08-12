@@ -1,6 +1,6 @@
 import path from "path";
 import { coversPath } from "../../shared/paths";
-import { ModImageMetadata, ModMetadata } from "../../shared/types/ModMetadata";
+import { ModImageMetadata } from "../../shared/types/ModMetadata";
 
 /**
 * Returns the file path to the optimized cover image.

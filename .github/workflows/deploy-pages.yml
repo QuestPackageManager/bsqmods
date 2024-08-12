@@ -79,31 +79,29 @@ jobs:
         if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
-          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O website/public/cache.txz
+          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O cache.txz
 
       - name: Extract cache
         if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
-          tar -xJvf website/public/cache.txz
+          tar -xJvf cache.txz
 
       - name: Delete cache
         if: (github.event.inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
-          rm website/public/cache.txz
+          rm cache.txz
 
       - name: Install npm modules
         run: |
-          cd scripts
-          npm install
-          cd ../website
-          npm install
+          (cd source/scripts && npm install)
+          (cd source/website && npm install)
 
       - name: Purge specified items from cache
         if: ((github.event.inputs.purgeCache != '') && (github.event.inputs.purgeCache != '--all'))
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
 
       - name: Update mirror
@@ -112,10 +110,10 @@ jobs:
         run: |
           mkdir -p mod-mirror
 
-          cd scripts
+          cd source/scripts
           npx tsx ./mirror-mods.ts 2>&1
 
-          cd ../mod-mirror
+          cd ../../mod-mirror
 
           find -type f | while read file; do
             gh release upload mod-mirror "$file" || true
@@ -130,7 +128,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" --updateFunding --recheckUrls 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: Process the json (normal)
@@ -138,24 +136,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
 
       - name: "Archive cache"
         run: |
           tar -cJvf cache.txz \
-            website/public/covers \
-            website/public/funding-info.json \
-            website/public/mod-metadata.json
+            source/website/public/covers \
+            source/website/public/funding-info.json \
+            source/website/public/mod-metadata.json
 
       - name: Build website
         run: |
-          cd website
+          cd source/website
           npx astro build --base "$PAGES_PATH"
 
       - name: Precompress assets
         run: |
-          find website/out -type f | while read -r file; do
+          find source/website/out -type f | while read -r file; do
             if [[ "$file" == *.html || "$file" == *.css || "$file" == *.js || "$file" == *.json ]]; then
               echo "$file"
               brotli -k -q 11 "$file"
@@ -166,7 +164,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: "./website/out"
+          path: "./source/website/out"
 
       - name: Push cache
         env:

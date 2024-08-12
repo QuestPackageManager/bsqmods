@@ -4,7 +4,7 @@
 changed-files.txt
 mod-mirror/
 qmods
-website/public/*.json
-website/public/covers
-website/public/deploy-log.txt
-website/public/mods
+source/website/public/*.json
+source/website/public/covers
+source/website/public/deploy-log.txt
+source/website/public/mods

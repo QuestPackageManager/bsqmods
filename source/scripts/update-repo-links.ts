@@ -1,7 +1,6 @@
 import { fetchRedirectedLocation } from "../shared/fetch";
-import { getGithubIconUrl } from "../shared/getGithubIconUrl";
-import { ghRawRegex, ghRawRegexAnywhere } from "../shared/ghRawRegex";
-import { ghRegex, ghRegexAnywhere } from "../shared/ghRegex";
+import { ghRawRegex } from "../shared/ghRawRegex";
+import { ghRegex } from "../shared/ghRegex";
 import { Mod } from "../shared/types/Mod";
 import { iterateSplitMods } from "./shared/iterateMods";
 

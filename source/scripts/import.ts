@@ -8,7 +8,7 @@ import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { getFilename } from "./shared/getFilename";
 import { ghRegex } from "../shared/ghRegex"
 import { dirname, resolve } from "path";
-import { Logger, ConsoleLogger, CapturingLogger, LogLevel } from "../shared/Logger"
+import { Logger, ConsoleLogger, CapturingLogger } from "../shared/Logger"
 import { argv } from "process";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"

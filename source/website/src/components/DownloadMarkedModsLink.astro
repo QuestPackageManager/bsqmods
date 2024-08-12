@@ -36,7 +36,6 @@ const {
   <button class={className} style={style} disabled><slot /></button>
 </download-marked-mods-link>
 <script>
-  import { generateCoresQmod } from "../../../shared/generateCoresQmod";
   import {
     type DependencyQmodArguments,
     generateDependencyQmod,
@@ -46,7 +45,6 @@ const {
   import { getModInfo, type ModObject } from "../getModInfo";
   import { saveAs } from "file-saver";
   import { semverDate } from "../../../shared/semverDate";
-  import { isQavs } from "../isQavs";
 
   class DownloadMarkedModsLink extends HTMLElement {
     buttonElement: HTMLButtonElement;

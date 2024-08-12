@@ -6,24 +6,25 @@
 
 version: 2
 updates:
- - package-ecosystem: "npm"
-   directories: 
-    - "/scripts/"
-    - "/website/"
-   schedule:
-     interval: weekly
-   groups:
-    minor-and-patch-updates:
-     applies-to: version-updates
-     patterns: 
-      - "*"
-     update-types:
-      - "patch"
-      - "minor"
-    security-updates:
-     applies-to: security-updates
-     patterns: 
-      - "*"
-     update-types:
-      - "patch"
-      - "minor"
+  - package-ecosystem: "npm"
+    directories:
+      - "/source"
+      - "/source/scripts"
+      - "/source/website"
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+          - "minor"
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+          - "minor"

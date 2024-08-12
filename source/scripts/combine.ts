@@ -17,7 +17,7 @@ import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod"
 import { validateMod } from "../shared/validateMod";
 import { iterateSplitMods } from "./shared/iterateMods";
-import { fetchBuffer, fetchHead, fetchJson } from "../shared/fetch";
+import { fetchBuffer, fetchHead } from "../shared/fetch";
 import { compareAlphabeticallyAscInsensitive, compareVersionAscending } from "../shared/comparisonFunctions";
 import { compareVersionDescending } from "./shared/semverComparison";
 import { getFundingCache } from "./shared/getFundingCache";

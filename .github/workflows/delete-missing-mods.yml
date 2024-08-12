@@ -30,14 +30,11 @@ jobs:
 
       - name: Install npm modules
         run: |
-          cd scripts
-          npm install
-          cd ../website
-          npm install
-          
+          (cd source/scripts && npm install)
+
       - name: Update the mods from known repos.
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./delete-missing-mods.ts 2>&1
 
       - name: Create Pull Request

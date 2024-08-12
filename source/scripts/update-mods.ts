@@ -4,7 +4,7 @@ import { getIndentedMessage as indent } from "../shared/getIndentedMessage";
 import { ghRegex } from "../shared/ghRegex";
 import { IndentedConsoleLogger } from "../shared/IndentedConsoleLogger";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
-import { Message, RateLimits, Release, Releases } from "../shared/types/GitHubAPI";
+import { Message, Release, Releases } from "../shared/types/GitHubAPI";
 import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { modBlacklistPath } from "../shared/paths";

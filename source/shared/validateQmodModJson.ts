@@ -1,5 +1,4 @@
 import { Schema, Validator } from "jsonschema";
-import ModSchema from "./schemas/Mod.schema.json";
 import { fetchJson } from "./fetch";
 
 let qmodSchema = null as Schema | null;

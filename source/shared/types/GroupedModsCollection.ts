@@ -1,6 +1,5 @@
 import { Dictionary } from "./Dictionary";
 import { GroupedMods } from "./GroupedMods";
-import { Mod } from "./Mod";
 
 /**
  * Represents a collection of mods indexed by game version and grouped by mod ID, then as verison.

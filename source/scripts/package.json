@@ -1,0 +1,16 @@
+{
+  "name": "bsqmods_scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "type": "module",
+  "scripts": {
+    "preinstall": "cd .. && npm i"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.33.4"
+  }
+}

@@ -2,10 +2,13 @@ import { join } from "path";
 import { cwd } from "process";
 
 /** The base path of the git repo */
-export const repoDir = join(cwd(), "..");
+export const repoDir = join(cwd(), "..", "..");
+
+/** The path to the `source` dir. */
+export const sourceCodeDir = join(repoDir, "source");
 
 /** Path to the website public directory */
-export const websiteBase = join(repoDir, "website", "public");
+export const websiteBase = join(sourceCodeDir, "website", "public");
 
 /** The path to the mods folder */
 export const modsPath = join(repoDir, "mods");
@@ -20,7 +23,7 @@ export const originalCoversPath = join(websiteBase, "covers", "originals");
 export const modMetadataPath = join(websiteBase, "mod-metadata.json");
 
 /** The path to the qmod download cache */
-export const qmodsPath = join(repoDir, "scripts", "qmods");
+export const qmodsPath = join(sourceCodeDir, "scripts", "qmods");
 
 /** The path to the combined mods.json file */
 export const allModsPath = join(websiteBase, "mods.json");

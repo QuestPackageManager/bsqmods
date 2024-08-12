@@ -28,14 +28,11 @@ jobs:
 
       - name: Install npm modules
         run: |
-          cd scripts
-          npm install
-          cd ../website
-          npm install
+          (cd source/scripts && npm install)
 
       - name: Update the repo data
         run: |
-          cd scripts
+          cd source/scripts
           npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-repo-links.ts 2>&1
 

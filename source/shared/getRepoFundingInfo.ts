@@ -1,4 +1,3 @@
-import { match } from "assert";
 import { cachedFetchJson } from "./cachedFetch";
 import { ghRegex } from "./ghRegex";
 import { Message, RepoContent, RepoContents } from "./types/GitHubAPI";
