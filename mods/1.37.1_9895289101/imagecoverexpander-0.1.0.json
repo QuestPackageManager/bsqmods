@@ -1,0 +1,14 @@
+{
+  "name": "ImageCoverExpander",
+  "description": "Expands the song artwork to cover the right side of the level select.",
+  "id": "imagecoverexpander",
+  "version": "0.1.0",
+  "author": "laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/ImageCoverExpander/releases/download/1.37.1/ImageCoverExpander1.37.1.qmod",
+  "source": "https://github.com/vcmikuu/ImageCoverExpander/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/vcmikuu/ImageCoverExpander/"
+}
