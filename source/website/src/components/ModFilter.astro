@@ -44,10 +44,10 @@ const {
 
       for (const mod of this.mods) {
         const shouldDisplay =
-          mod.id.includes(term) ||
-          mod.title.includes(term) ||
-          mod.author.includes(term) ||
-          mod.description.includes(term);
+          mod.id.toLowerCase().includes(term) ||
+          mod.title.toLowerCase().includes(term) ||
+          mod.author.toLowerCase().includes(term) ||
+          mod.description.toLowerCase().includes(term);
 
         mod.isVisible(shouldDisplay);
       }
