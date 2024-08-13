@@ -37,19 +37,19 @@ export function getModInfo(): ModObject[] {
   if (mods === null) {
     mods = ([...document.querySelectorAll<HTMLElement>("mod-card")].map(
       (card) => ({
-        id: (card.dataset.modId || "").toLowerCase(),
+        id: (card.dataset.modId || "").trim(),
         title: (
           card.querySelector<HTMLElement>("mod-name")?.innerText || ""
-        ).toLowerCase(),
+        ).trim(),
         version: (
           card.querySelector<HTMLElement>("mod-version")?.innerText || ""
-        ).toLowerCase(),
+        ).trim(),
         author: (
           card.querySelector<HTMLElement>("mod-author")?.innerText || ""
-        ).toLowerCase(),
+        ).trim(),
         description: (
           card.querySelector<HTMLElement>("mod-description")?.innerText || ""
-        ).toLowerCase(),
+        ).trim(),
         download: [...card.querySelectorAll<HTMLAnchorElement>("a.mod-download")].map(a => a.href),
         coreModInfo: card.querySelector<HTMLElement>("core-mod-info")?.dataset as unknown as CoreMod | undefined,
         source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
