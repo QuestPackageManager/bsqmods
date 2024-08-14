@@ -12,7 +12,9 @@ let qmodSchema = null as Schema | null;
  */
 export async function validateQmodModJson(json: any) {
   if (!qmodSchema) {
-    const result = await fetchJson<Schema>("https://raw.githubusercontent.com/Lauriethefish/QuestPatcher.QMod/main/QuestPatcher.QMod/Resources/qmod.schema.json");
+    const result = await fetchJson<Schema>(
+      "https://raw.githubusercontent.com/Lauriethefish/QuestPatcher.QMod/main/QuestPatcher.QMod/Resources/qmod.schema.json"
+    );
 
     if (!result.data) {
       throw new Error("Error fetching qmod schema");
@@ -25,7 +27,7 @@ export async function validateQmodModJson(json: any) {
   const result = validator.validate(json, qmodSchema);
 
   if (result.errors.length > 0) {
-    throw new Error(result.errors.map(err => err.toString()).join("\n\n"));
+    throw new Error(result.errors.map((err) => err.toString()).join("\n\n"));
   }
 
   return true;

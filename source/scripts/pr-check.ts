@@ -11,14 +11,17 @@ import { argv } from "process";
 
 const changeFilesExists = existsSync(changedFilesPath);
 const changedFiles = changeFilesExists
-  ? (await readTextFile(changedFilesPath, "")).replace(/\r/g, "").split("\n").filter(file => file.startsWith("mods/"))
+  ? (await readTextFile(changedFilesPath, ""))
+      .replace(/\r/g, "")
+      .split("\n")
+      .filter((file) => file.startsWith("mods/"))
   : [];
 const checkAll = argv.includes("--all");
 
 class ValidationError {
-  err: string
-  file: string
-  section: string
+  err: string;
+  file: string;
+  section: string;
 
   constructor(file: string, err: string, section: string) {
     this.err = err;
@@ -27,12 +30,12 @@ class ValidationError {
   }
 
   toString() {
-    return `${this.file}\n${getIndentedMessage(this.section, 1)}\n${getIndentedMessage(this.err, 2)}`
+    return `${this.file}\n${getIndentedMessage(this.section, 1)}\n${getIndentedMessage(this.err, 2)}`;
   }
 }
 
 let lastSection = "";
-async function section<T>(section: string, callback: (() => Promise<T>)) {
+async function section<T>(section: string, callback: () => Promise<T>) {
   lastSection = section;
   return await callback();
 }
@@ -41,17 +44,17 @@ const errors: ValidationError[] = [];
 
 for (const iteration of iterateSplitMods()) {
   try {
-    iteration.getModJson()
+    iteration.getModJson();
     if (checkAll || changedFiles.includes(iteration.shortModPath)) {
       const json = iteration.getModJson();
       console.log(`Checking ${iteration.shortModPath}`);
 
       await section("Mod info", async () => {
         validateMod(json);
-      })
+      });
 
       const zipModInfo = await section("Mod archive", async () => {
-        const qmod = await fetchBuffer(json.download as string)
+        const qmod = await fetchBuffer(json.download as string);
         if (!qmod.data) {
           throw new Error("Unable to fetch qmod");
         }
@@ -68,7 +71,7 @@ for (const iteration of iterateSplitMods()) {
 
       // Validate mod.json against the qmod schema
       await section("Qmod mod.json", async () => {
-        await validateQmodModJson(JSON.parse(await zipModInfo.async("string")))
+        await validateQmodModJson(JSON.parse(await zipModInfo.async("string")));
       });
     }
   } catch (err: any) {

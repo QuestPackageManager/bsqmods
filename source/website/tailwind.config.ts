@@ -1,8 +1,8 @@
 import { type Config } from "tailwindcss";
-import daisyui from "daisyui"
-import typography from "@tailwindcss/typography"
-import safeArea from "tailwindcss-safe-area"
-import { type Dictionary } from "../shared/types/Dictionary"
+import daisyui from "daisyui";
+import typography from "@tailwindcss/typography";
+import safeArea from "tailwindcss-safe-area";
+import { type Dictionary } from "../shared/types/Dictionary";
 
 const config: Config = {
   mode: "jit",
@@ -10,11 +10,11 @@ const config: Config = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     screens: {
-      "sm": "640px",
-      "md": "768px",
-      "lg": "1024px",
-      "xl": "1280px",
-      "xxl": "1536px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1536px",
       ...(() => {
         const output: Dictionary<string> = {};
         const cardSize = 372;
@@ -23,10 +23,10 @@ const config: Config = {
 
         for (let i = 0; i < 6; i++) {
           const breakpoint = `mcb-${i + 2}`;
-          output[breakpoint] = `${startSize + (cardSize * (i)) + (outerPad * 2)}px`
+          output[breakpoint] = `${startSize + cardSize * i + outerPad * 2}px`;
         }
 
-        return output
+        return output;
       })()
     },
     colors: {
@@ -49,7 +49,7 @@ const config: Config = {
       "dropzone-bg": "var(--dropzone-bg)",
       "dropzone-border": "var(--dropzone-border)",
       "dropzone-text": "var(--dropzone-text)",
-      "transparent": "rgba(0,0,0,0)",
+      transparent: "rgba(0,0,0,0)",
       "white-alpha-10": "rgba(255, 255, 255, 0.1)",
       "white-alpha-20": "rgba(255, 255, 255, 0.2)",
       "white-alpha-30": "rgba(255, 255, 255, 0.3)",
@@ -68,22 +68,18 @@ const config: Config = {
       "black-alpha-70": "rgba(0, 0, 0, 0.7)",
       "black-alpha-80": "rgba(0, 0, 0, 0.8)",
       "black-alpha-90": "rgba(0, 0, 0, 0.9)",
-      "black": "#000",
-      "white": "#fff"
+      black: "#000",
+      white: "#fff"
     },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "pixelguy": "url('/images/pixelguy.jpg')"
-      },
-    },
+        pixelguy: "url('/images/pixelguy.jpg')"
+      }
+    }
   },
-  plugins: [
-    daisyui,
-    typography,
-    safeArea
-  ],
+  plugins: [daisyui, typography, safeArea],
   daisyui: {
     themes: ["business"]
   }

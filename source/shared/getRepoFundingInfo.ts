@@ -25,9 +25,9 @@ async function checkFunding(contents: RepoContent[]) {
               break;
 
             case "github":
-              if (typeof (value) === "string") {
+              if (typeof value === "string") {
                 if (value) {
-                  links.push(`https://github.com/sponsors/${value}`);;
+                  links.push(`https://github.com/sponsors/${value}`);
                 }
               } else if (value instanceof Array) {
                 for (const user of value) {
@@ -87,9 +87,9 @@ async function checkFunding(contents: RepoContent[]) {
               break;
 
             case "custom":
-              if (typeof (value) === "string") {
+              if (typeof value === "string") {
                 if (value) {
-                  links.push(`${value}`);;
+                  links.push(`${value}`);
                 }
               } else if (value instanceof Array) {
                 for (const link of value) {
@@ -114,7 +114,9 @@ export async function getRepoFundingInfo(repoLink: string, subDirectory?: string
   const funding = [] as string[];
 
   if (match) {
-    const result = await cachedFetchJson<RepoContents>(`https://api.github.com/repos/${match[1]}/${match[2]}/contents${subDirectory ? `/${subDirectory}` : ""}`);
+    const result = await cachedFetchJson<RepoContents>(
+      `https://api.github.com/repos/${match[1]}/${match[2]}/contents${subDirectory ? `/${subDirectory}` : ""}`
+    );
 
     if (result.data == null) {
       return funding;
@@ -122,7 +124,7 @@ export async function getRepoFundingInfo(repoLink: string, subDirectory?: string
 
     checkGithubResponse(result.data as Message);
 
-    const dotGithub = (result.data as RepoContent[]).filter(entry => entry.type == "dir" && entry.path.toLowerCase() == ".github")?.at(0)?.path;
+    const dotGithub = (result.data as RepoContent[]).filter((entry) => entry.type == "dir" && entry.path.toLowerCase() == ".github")?.at(0)?.path;
 
     for (const link of await checkFunding(result.data as RepoContent[])) {
       funding.push(link);

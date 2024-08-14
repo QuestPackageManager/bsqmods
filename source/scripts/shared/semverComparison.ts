@@ -30,7 +30,7 @@ export function compareVersionAscending(a: string | null, b: string | null): num
     return -1;
   }
 
-  return semver.compare(a, b)
+  return semver.compare(a, b);
 }
 
 /**
@@ -63,5 +63,5 @@ export function compareVersionDescending(a: string | null, b: string | null): nu
     return -1;
   }
 
-  return semver.rcompare(a, b)
+  return semver.rcompare(a, b);
 }

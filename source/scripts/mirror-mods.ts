@@ -20,7 +20,7 @@ if (Object.keys(mirrorMetadata).length == 0 && !argv.includes("--allowEmpty")) {
 
 for (const iteration of iterateSplitMods()) {
   try {
-    let mod: Mod | null = null
+    let mod: Mod | null = null;
 
     if ((mod = iteration.getModJson()) != null && mod.download) {
       if (mirrorMetadata[mod.download]) {
@@ -80,7 +80,7 @@ for (const iteration of iterateSplitMods()) {
           }
         }
       } catch (err: any) {
-        console.log("  No mod json")
+        console.log("  No mod json");
       }
 
       if (mod.download.toLowerCase().endsWith(".qmod")) {
@@ -96,12 +96,12 @@ for (const iteration of iterateSplitMods()) {
 
       if (!existsSync(targetPath)) {
         mkdirSync(modMirrorPath, { recursive: true });
-        writeFileSync(targetPath, qmodBuffer)
+        writeFileSync(targetPath, qmodBuffer);
       }
 
       // Write the updated metadata
       mkdirSync(dirname(modMirrorMetadataPath), { recursive: true });
-      writeFileSync(modMirrorMetadataPath, JSON.stringify(mirrorMetadata, null, "  "))
+      writeFileSync(modMirrorMetadataPath, JSON.stringify(mirrorMetadata, null, "  "));
     }
   } catch (err: any) {
     console.error(err);

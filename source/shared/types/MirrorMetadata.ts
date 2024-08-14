@@ -2,7 +2,7 @@ import { fetchJson } from "../fetch";
 import { Dictionary } from "./Dictionary";
 import { isMirrorError, MirrorError } from "./MirrorError";
 
-export interface MirrorMetadata extends Dictionary<MirrorError | string> { }
+export interface MirrorMetadata extends Dictionary<MirrorError | string> {}
 export function hasMirrorUrl(value: string, metadata: MirrorMetadata): boolean {
   if (metadata[value] && !isMirrorError(metadata[value])) {
     return true;

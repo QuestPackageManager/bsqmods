@@ -23,7 +23,10 @@ const allVersions = await getVersions(true);
   pageScriptData={{ versions, allVersions }}
 >
   <Fragment slot="padded">
-    <QavsMessage id="qavs-unsupported" type="error">
+    <QavsMessage
+      id="qavs-unsupported"
+      type="error"
+    >
       <p class="mb-4">
         Your installed Beat Saber version
         <b>does not</b>
@@ -36,8 +39,7 @@ const allVersions = await getVersions(true);
       </p>
       <p class="mb-4">
         The latest supported gameversion is
-        <code id="bs-latestversion">{versions[0]}</code>. To get this version
-        press the button below.
+        <code id="bs-latestversion">{versions[0]}</code>. To get this version press the button below.
       </p>
       <p class="mb-4">
         <a
@@ -65,11 +67,11 @@ const allVersions = await getVersions(true);
         <VersionSelector />
       </div>
     </QavsMessage>
-    <QavsMessage id="qavs-unmodded" type="warning">
-      <p class="mb-4">
-        Your Beat Saber game is not modded yet. To mod it press the button
-        below.
-      </p>
+    <QavsMessage
+      id="qavs-unmodded"
+      type="warning"
+    >
+      <p class="mb-4">Your Beat Saber game is not modded yet. To mod it press the button below.</p>
       <p class="mb-4">
         <a
           id="qavs-mod-now"
@@ -100,8 +102,10 @@ const allVersions = await getVersions(true);
             btn-sm
             rounded-lg
           `}
-          href={`${versions[0]}/`}>View mods anyway</a
+          href={`${versions[0]}/`}
         >
+          View mods anyway
+        </a>
       </p>
     </QavsMessage>
   </Fragment>
@@ -128,17 +132,13 @@ const allVersions = await getVersions(true);
   const currentModsLink = `${version}/${queryString ? `?${queryString}` : ""}}`;
 
   // Update the href attribute of all anchor elements with class "bs-current-mods-link"
-  for (const element of document.querySelectorAll<HTMLAnchorElement>(
-    "a.bs-current-mods-link",
-  )) {
+  for (const element of document.querySelectorAll<HTMLAnchorElement>("a.bs-current-mods-link")) {
     element.href = currentModsLink;
   }
 
   if (queryString) {
     // Update the href attribute of all anchor elements to append the query string.
-    for (const element of document.querySelectorAll<HTMLAnchorElement>(
-      ".version-selector a",
-    )) {
+    for (const element of document.querySelectorAll<HTMLAnchorElement>(".version-selector a")) {
       element.href = `${element.href}?${queryString}`;
     }
   }
@@ -150,16 +150,13 @@ const allVersions = await getVersions(true);
   const qavsModNow = `http://127.0.0.1:${port}?package=com.beatgames.beatsaber&modnow=true`;
 
   // Update the href attribute of the anchor element with id "qavs-download-latest"
-  document.querySelector<HTMLAnchorElement>("a#qavs-download-latest")!.href =
-    qavsVersionDownload;
+  document.querySelector<HTMLAnchorElement>("a#qavs-download-latest")!.href = qavsVersionDownload;
 
   // Update the href attribute of the anchor element with id "qavs-mod-now"
-  document.querySelector<HTMLAnchorElement>("a#qavs-mod-now")!.href =
-    qavsModNow;
+  document.querySelector<HTMLAnchorElement>("a#qavs-mod-now")!.href = qavsModNow;
 
   // Update the inner text of the DOM element with id "bs-currentversion"
-  document.getElementById("bs-currentversion")!.innerText =
-    version ?? "Unknown";
+  document.getElementById("bs-currentversion")!.innerText = version || "Unknown";
 
   // Show or hide elements based on the modded status and version
   if (!isModded && versions.includes(version || "")) {

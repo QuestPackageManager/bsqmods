@@ -3,21 +3,16 @@ import { Validator } from "jsonschema";
 import CombinedModSchema from "./schemas/CombinedMod.schema.json";
 import ModSchemaBase from "./schemas/Mod.schema.base.json";
 import ModSchema from "./schemas/Mod.schema.json";
-import ModCollectionSchema from "./schemas/ModCollection.schema.json"
+import ModCollectionSchema from "./schemas/ModCollection.schema.json";
 
-let validator: Validator | null
+let validator: Validator | null;
 
 function getValidator(): Validator {
   if (!validator) {
     validator = new Validator();
-    validator
+    validator;
 
-    for (const schema of [
-      ModSchemaBase,
-      CombinedModSchema,
-      ModSchema,
-      ModCollectionSchema
-    ]) {
+    for (const schema of [ModSchemaBase, CombinedModSchema, ModSchema, ModCollectionSchema]) {
       validator.addSchema(schema);
     }
   }
@@ -37,7 +32,7 @@ export function validateMod(mod: Mod) {
   const result = validator.validate(mod, ModSchemaBase);
 
   if (result.errors.length > 0) {
-    throw new Error(result.errors.map(err => err.toString()).join("\n\n"));
+    throw new Error(result.errors.map((err) => err.toString()).join("\n\n"));
   }
 
   return true;

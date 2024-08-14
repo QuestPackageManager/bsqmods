@@ -19,8 +19,8 @@ export const getStaticPaths = (() => {
   const modJson = readAllModsJson();
   return Object.keys(modJson).map((key) => ({
     params: {
-      gameVersion: key,
-    },
+      gameVersion: key
+    }
   }));
 }) satisfies GetStaticPaths;
 
@@ -36,10 +36,7 @@ export interface Params {
  * @returns - An object where keys are unique values of the grouping key,
  *            and values are arrays of objects grouped by that key.
  */
-function groupBy<T extends Record<string, any>>(
-  array: T[],
-  key: string,
-): Record<string, T[]> {
+function groupBy<T extends Record<string, any>>(array: T[], key: string): Record<string, T[]> {
   return array.reduce((result: Record<string, T[]>, currentValue: T) => {
     const groupKey = currentValue[key];
 
@@ -62,9 +59,7 @@ for (const modList of Object.values(modGroups)) {
 
 const modList = Object.values(modGroups) as Mod[][];
 
-modList.sort((a, b) =>
-  compareAlphabeticallyAscInsensitive(a[0].name, b[0].name),
-);
+modList.sort((a, b) => compareAlphabeticallyAscInsensitive(a[0].name, b[0].name));
 
 const coreMods = (await getCoreMods())[gameVersion];
 ---

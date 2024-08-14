@@ -27,10 +27,7 @@ const coreModList = coreMods.map((mod) => mod.id);
 >
   {
     mods.map((mods: Mod[], index) => {
-      if (
-        (core && !coreModList.includes(mods[0].id || "")) ||
-        (!core && coreModList.includes(mods[0].id || ""))
-      ) {
+      if ((core && !coreModList.includes(mods[0].id || "")) || (!core && coreModList.includes(mods[0].id || ""))) {
         return null;
       }
 

@@ -3,7 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
 ---
 
-<Layout linkHome={false} title="Quest Beat Saber Mods">
+<Layout
+  linkHome={false}
+  title="Quest Beat Saber Mods"
+>
   <Fragment slot="early-head">
     <script is:inline type="text/javascript">
       if (localStorage && localStorage.lastVisitedModVersion) {

@@ -83,7 +83,7 @@ export interface DependencyQmodArguments extends Partial<DependencyQmodInfo> {
   /**
    * The resulting qmod filename.
    */
-  filename?: string
+  filename?: string;
 }
 
 /**
@@ -104,7 +104,9 @@ export async function generateDependencyQmod(info: Partial<DependencyQmodArgumen
     name: info.name || `Mod Bundle`,
     id: info.id || `ModBundle`,
     author: info.author || "QuestPackageManager",
-    description: isNullOrWhitespace(info.description) ? `Downloads the following mods: ${(info.dependencies || []).map((mod) => `${mod.id}@${mod.version}`).join(", ")}` : info.description!,
+    description: isNullOrWhitespace(info.description)
+      ? `Downloads the following mods: ${(info.dependencies || []).map((mod) => `${mod.id}@${mod.version}`).join(", ")}`
+      : info.description!,
     version: info.version || "1.0.0",
     packageId: info.packageId || "com.beatgames.beatsaber",
     packageVersion: info.packageVersion || "1.0.0",
@@ -117,7 +119,7 @@ export async function generateDependencyQmod(info: Partial<DependencyQmodArgumen
   };
 
   const zip = new JSZip();
-  zip.file("mod.json", JSON.stringify(json))
+  zip.file("mod.json", JSON.stringify(json));
 
   return {
     qmod: zip,

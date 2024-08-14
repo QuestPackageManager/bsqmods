@@ -10,6 +10,6 @@ export function getDomainFromUrl(urlString: string): string {
     const url = new URL(urlString);
     return url.hostname;
   } catch (error) {
-    throw new Error('Invalid URL');
+    throw new Error("Invalid URL");
   }
 }

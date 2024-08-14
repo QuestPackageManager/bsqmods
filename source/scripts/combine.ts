@@ -2,8 +2,8 @@ import { ModsCollection } from "../shared/types/ModsCollection";
 import { Mod } from "../shared/types/Mod";
 import JSZip from "jszip";
 import JSON5 from "json5";
-import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs"
-import { basename, dirname, join } from "path"
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
+import { basename, dirname, join } from "path";
 import sharp from "sharp";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { exitWithError } from "./shared/exitWithError";
@@ -11,10 +11,21 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import { modMetadataPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, qmodRepoDirPath, versionsModsPath, websiteBase, fundingInfoPath, groupedModsPath } from "../shared/paths";
+import {
+  modMetadataPath,
+  coversPath,
+  qmodsPath,
+  repoDir,
+  allModsPath,
+  modsPath,
+  versionsModsPath,
+  websiteBase,
+  fundingInfoPath,
+  groupedModsPath
+} from "../shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
-import { getStandardizedMod } from "../shared/getStandardizedMod"
+import { getStandardizedMod } from "../shared/getStandardizedMod";
 import { validateMod } from "../shared/validateMod";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { fetchBuffer, fetchHead } from "../shared/fetch";
@@ -74,14 +85,16 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     return output;
   }
 
-  const metadata = hashes[mod.download as string] || {
-    hash: null,
-    image: null,
-    useMirror: false
-  } as ModMetadata
+  const metadata =
+    hashes[mod.download as string] ||
+    ({
+      hash: null,
+      image: null,
+      useMirror: false
+    } as ModMetadata);
 
   if (!mod.download) {
-    throw new Error("Mod download not set.")
+    throw new Error("Mod download not set.");
   }
 
   let originalUrl = mod.download;
@@ -102,23 +115,22 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   mod.authorIcon = mod.authorIcon || (await getGithubIconUrl(mod.download)).data;
   output.hash = metadata.hash;
 
-  const coverFilename = getOptimizedCoverFilePath(metadata.image)
+  const coverFilename = getOptimizedCoverFilePath(metadata.image);
   if (coverFilename && existsSync(coverFilename)) {
     mod.cover = `${urlBase}/covers/${basename(coverFilename)}`;
   }
 
   if (!mod.id) {
-    throw new Error("Mod ID not set")
+    throw new Error("Mod ID not set");
   }
 
   if (!mod.version) {
-    throw new Error("Mod version not set")
+    throw new Error("Mod version not set");
   }
 
   if (!mod.download) {
-    throw new Error("Mod download not set")
+    throw new Error("Mod download not set");
   }
-
 
   let coverFile: JSZip.JSZipObject | null = null;
   let coverImageFilename = null as string | null;
@@ -173,7 +185,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
             if (coverFile == null) {
               output.warnings.push(`Cover file not found: ${join(qmodPath.substring(qmodsPath.length + 1), coverImageFilename)}`);
-              coverImageFilename = null
+              coverImageFilename = null;
             }
           }
         } catch (error) {
@@ -198,7 +210,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       if (coverFile) {
         coverBuffer = await coverFile.async("nodebuffer");
       } else if (mod.cover) {
-        const result = (await fetchBuffer(mod.cover));
+        const result = await fetchBuffer(mod.cover);
 
         if (result.data) {
           coverBuffer = Buffer.from(result.data);
@@ -215,7 +227,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       metadata.image = {
         hash: null,
         extension: coverImageFilename.split(".").at(-1) || null
-      }
+      };
 
       if (metadata.image.extension?.toLowerCase() === "png") {
         try {
@@ -239,10 +251,9 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       const coverFilename = getOptimizedCoverFilePath(metadata.image);
 
       if (originalCoverFilename && !existsSync(originalCoverFilename)) {
-        mkdirSync(dirname(originalCoverFilename), { recursive: true })
+        mkdirSync(dirname(originalCoverFilename), { recursive: true });
         writeFileSync(originalCoverFilename, coverBuffer);
       }
-
 
       try {
         if (coverFilename && !existsSync(coverFilename)) {
@@ -276,7 +287,7 @@ function sortMods(mods: ModsCollection): ModsCollection {
   const sortedMods: ModsCollection = {};
 
   for (const version of Object.keys(mods).sort(compareVersionAscending)) {
-    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id))
+    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id));
 
     sortedMods[version] = mods[version];
   }
@@ -299,7 +310,7 @@ for (const iteration of iterateSplitMods()) {
   try {
     validateMod(mod);
   } catch (err: any) {
-    exitWithError((err as Error).message)
+    exitWithError((err as Error).message);
   }
 
   // Process the mod file and generate a hash
@@ -341,9 +352,9 @@ for (const iteration of iterateSplitMods()) {
   if (qmodResult.warnings.length > 0 || qmodResult.errors.length > 0) {
     console.log(`${qmodResult.errors.length > 0 ? "Errors" : "Warnings"} when processing ${iteration.shortModPath}`);
 
-    qmodResult.messages.forEach(warning => console.log(`  Message: ${warning}`));
-    qmodResult.warnings.forEach(warning => console.warn(`  Warning: ${warning}`));
-    qmodResult.errors.forEach(error => console.error(`  Error: ${error}`));
+    qmodResult.messages.forEach((warning) => console.log(`  Message: ${warning}`));
+    qmodResult.warnings.forEach((warning) => console.warn(`  Warning: ${warning}`));
+    qmodResult.errors.forEach((error) => console.error(`  Error: ${error}`));
 
     console.log("");
   }
@@ -353,22 +364,16 @@ for (const iteration of iterateSplitMods()) {
 }
 
 // Make per-version json
-type GameVersionType = string
-
-type ModIdType = string
-type ModVersionType = string
-type ModObjectType = unknown
-
-const versionMap: GroupedModsCollection = {}
+const versionMap: GroupedModsCollection = {};
 const sortedMods = sortMods(allMods);
 
 // transform to structure
 for (const [game_ver, mods] of Object.entries(sortedMods)) {
-  const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {})
+  const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {});
 
   for (const mod of mods) {
     const modVersionMap = modMap[mod.id!] ?? (modMap[mod.id!] = {});
-    modVersionMap[mod.version!] = mod
+    modVersionMap[mod.version!] = mod;
   }
 }
 

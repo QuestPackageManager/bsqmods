@@ -35,7 +35,7 @@ for (const iteration of iterateSplitMods()) {
     }
 
     if (unlinkMod) {
-      unlinkSync(iteration.modPath)
+      unlinkSync(iteration.modPath);
     }
   } catch (err) {
     console.log(iteration.shortModPath);

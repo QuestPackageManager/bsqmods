@@ -2,10 +2,10 @@
  * Enum representing the log levels.
  */
 export enum LogLevel {
-  Log,  // Represents a general log message.
+  Log, // Represents a general log message.
   Debug, // Represents a debug log message.
-  Warn,  // Represents a warning log message.
-  Error  // Represents an error log message.
+  Warn, // Represents a warning log message.
+  Error // Represents an error log message.
 }
 
 /**
@@ -47,7 +47,7 @@ export interface ConsoleLoggerInterface extends Logger {
    * @param level - The log level to retrieve the logger for.
    * @returns A logger function that accepts variadic arguments.
    */
-  getLogger: (level: LogLevel) => ((...data: any[]) => void);
+  getLogger: (level: LogLevel) => (...data: any[]) => void;
 }
 
 /**
@@ -59,17 +59,24 @@ export const ConsoleLogger: ConsoleLoggerInterface = {
   debug: console.debug,
   warn: console.warn,
   error: console.error,
-  getLogger: function getLogger(level: LogLevel): ((...data: any[]) => void) {
+  getLogger: function getLogger(level: LogLevel): (...data: any[]) => void {
     switch (level) {
-      case LogLevel.Log: return console.log;
-      case LogLevel.Debug: return console.debug;
-      case LogLevel.Warn: return console.warn;
-      case LogLevel.Error: return console.error;
+      case LogLevel.Log:
+        return console.log;
+
+      case LogLevel.Debug:
+        return console.debug;
+
+      case LogLevel.Warn:
+        return console.warn;
+
+      case LogLevel.Error:
+        return console.error;
     }
 
     return console.log;
   }
-}
+};
 
 /**
  * Stub logger that does nothing.
@@ -80,14 +87,14 @@ export const StubLogger: Readonly<Logger> = {
   debug: () => undefined,
   warn: () => undefined,
   error: () => undefined
-}
+};
 
 /**
  * A captured message.
  */
 export interface CapturedMessage {
-  level: LogLevel,
-  data: any[]
+  level: LogLevel;
+  data: any[];
 }
 
 /**
@@ -151,7 +158,7 @@ export class CapturingLogger implements Logger {
    * @returns An array of log messages.
    */
   public getLogMessages(): CapturedMessage[] {
-    return this.messages.filter(msg => msg.level == LogLevel.Log)
+    return this.messages.filter((msg) => msg.level == LogLevel.Log);
   }
 
   /**
@@ -160,7 +167,7 @@ export class CapturingLogger implements Logger {
    * @returns An array of debug messages.
    */
   public getDebugMessages(): CapturedMessage[] {
-    return this.messages.filter(msg => msg.level == LogLevel.Debug)
+    return this.messages.filter((msg) => msg.level == LogLevel.Debug);
   }
 
   /**
@@ -169,7 +176,7 @@ export class CapturingLogger implements Logger {
    * @returns An array of warn messages.
    */
   public getWarnMessages(): CapturedMessage[] {
-    return this.messages.filter(msg => msg.level == LogLevel.Warn)
+    return this.messages.filter((msg) => msg.level == LogLevel.Warn);
   }
 
   /**
@@ -178,7 +185,7 @@ export class CapturingLogger implements Logger {
    * @returns An array of error messages.
    */
   public getErrorMessages(): CapturedMessage[] {
-    return this.messages.filter(msg => msg.level == LogLevel.Error)
+    return this.messages.filter((msg) => msg.level == LogLevel.Error);
   }
 
   /**

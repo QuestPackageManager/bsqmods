@@ -23,9 +23,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
     private collapseElement: HTMLElement;
 
     setSize() {
-      this.collapseElement.style.maxHeight = this.expandElement.checked
-        ? `${this.contentElement.offsetHeight}px`
-        : "";
+      this.collapseElement.style.maxHeight = this.expandElement.checked ? `${this.contentElement.offsetHeight}px` : "";
 
       if (this.expandElement.checked) {
         this.setAttribute("expanded", "");
@@ -83,12 +81,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
       & > div:first-of-type {
         display: block;
         overflow: hidden;
-        mask-image: linear-gradient(
-          180deg,
-          #fff 0%,
-          rgba(0, 0, 0, 1) calc(100% - 4rem),
-          transparent 100%
-        );
+        mask-image: linear-gradient(180deg, #fff 0%, rgba(0, 0, 0, 1) calc(100% - 4rem), transparent 100%);
 
         & {
           transition: max-height 200ms;

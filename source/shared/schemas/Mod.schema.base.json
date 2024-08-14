@@ -7,10 +7,7 @@
       "type": "string"
     },
     "description": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "id": {
       "type": "string"
@@ -21,26 +18,17 @@
       "flags": "i"
     },
     "author": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "authorIcon": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     },
     "modloader": {
       "type": "string",
-      "enum": [
-        "QuestLoader",
-        "Scotland2"
-      ]
+      "enum": ["QuestLoader", "Scotland2"]
     },
     "download": {
       "type": "string",
@@ -49,19 +37,13 @@
       "flags": "i"
     },
     "source": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     },
     "cover": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "format": "uri",
       "pattern": "^(http|https)://.*\\.(gif|jpg|jpeg|png)$",
       "flags": "i"
@@ -76,27 +58,11 @@
       }
     },
     "website": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     }
   },
-  "required": [
-    "name",
-    "description",
-    "id",
-    "version",
-    "author",
-    "authorIcon",
-    "modloader",
-    "download",
-    "source",
-    "cover",
-    "funding",
-    "website"
-  ]
+  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "source", "cover", "funding", "website"]
 }

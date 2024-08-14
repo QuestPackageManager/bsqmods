@@ -10,7 +10,6 @@ export enum MirrorError {
 
   /** The archive is not a valid ZIP file. */
   InvalidArchive = "Invalid Archive"
-
 }
 
 export function isMirrorError(value: string): boolean {

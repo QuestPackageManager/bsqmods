@@ -1,20 +1,20 @@
 import { mkdirSync, writeFileSync } from "fs";
-import { getCoreMods } from "../shared/CoreMods"
-import { importedCoreModsInfo } from "../shared/paths"
-import { readTextFile } from "./shared/readTextFile"
+import { getCoreMods } from "../shared/CoreMods";
+import { importedCoreModsInfo } from "../shared/paths";
+import { readTextFile } from "./shared/readTextFile";
 import JSZip from "jszip";
 import { Mod } from "../shared/types/Mod";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { getFilename } from "./shared/getFilename";
-import { ghRegex } from "../shared/ghRegex"
+import { ghRegex } from "../shared/ghRegex";
 import { dirname, resolve } from "path";
-import { Logger, ConsoleLogger, CapturingLogger } from "../shared/Logger"
+import { Logger, ConsoleLogger, CapturingLogger } from "../shared/Logger";
 import { argv } from "process";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
-import { getQmodCoverUrl } from "../shared/getQmodCoverUrl"
+import { getQmodCoverUrl } from "../shared/getQmodCoverUrl";
 import { validateMod } from "../shared/validateMod";
 import { fetchBuffer } from "../shared/fetch";
-import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage"
+import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage";
 import { CachableResult } from "../shared/cachedFetch";
 
 /**
@@ -25,7 +25,12 @@ import { CachableResult } from "../shared/cachedFetch";
  * @param logger - The logger to use.  Defaults to the console.
  * @returns The mod data if successful, or null.
  */
-export async function importRemoteQmod(url: string, gameVersion: string | null = null, writeFile = true, logger: Logger = ConsoleLogger): Promise<CachableResult<Mod | null>> {
+export async function importRemoteQmod(
+  url: string,
+  gameVersion: string | null = null,
+  writeFile = true,
+  logger: Logger = ConsoleLogger
+): Promise<CachableResult<Mod | null>> {
   const result = await fetchBuffer(url);
 
   if (!result.data) {
@@ -58,10 +63,10 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
           cover: coverResult.data,
           funding: [],
           website: json.website || null
-        }
+        };
 
         if (json.funding != null) {
-          if (typeof (json.funding) == "string" && !isNullOrWhitespace(json.funding)) {
+          if (typeof json.funding == "string" && !isNullOrWhitespace(json.funding)) {
             modInfo.funding = [json.funding];
           } else if (json.funding instanceof Array) {
             modInfo.funding = json.funding;
@@ -77,15 +82,15 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         }
 
         if (ghMatch && isNullOrWhitespace(modInfo.website)) {
-          modInfo.website = `https://github.com/${ghMatch[1]}/${ghMatch[2]}/`
+          modInfo.website = `https://github.com/${ghMatch[1]}/${ghMatch[2]}/`;
         }
 
-        for (const key of (Object.keys(modInfo) as (keyof (Mod))[])) {
+        for (const key of Object.keys(modInfo) as (keyof Mod)[]) {
           let value = modInfo[key];
 
           if (value instanceof Array) {
             for (var i = 0; i < value.length; i++) {
-              if (typeof (value[i]) == "string") {
+              if (typeof value[i] == "string") {
                 (value as string[])[i] = value[i].trim();
               }
             }
@@ -102,9 +107,9 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         }
 
         try {
-          validateMod(modInfo)
+          validateMod(modInfo);
         } catch (err: any) {
-          logger.error((err as Error).message)
+          logger.error((err as Error).message);
         }
 
         if (writeFile) {
@@ -119,6 +124,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
         };
       } catch (error: any) {
         logger.error(`Error processing ${infoFile.name}\n${error.message}`);
+
         return {
           data: null,
           fromCache: true
@@ -126,6 +132,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
       }
     } else {
       logger.warn("No info json");
+
       return {
         data: null,
         fromCache: true
@@ -133,6 +140,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
     }
   } catch (error) {
     logger.error("Invalid archive");
+
     return {
       data: null,
       fromCache: true
@@ -148,8 +156,7 @@ export async function importRemoteQmod(url: string, gameVersion: string | null =
 if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
   if (argv.length == 2) {
     const importCache = JSON.parse(readTextFile(importedCoreModsInfo, `["Do not manually modify this file."]`));
-
-    var cores = await getCoreMods()
+    const cores = await getCoreMods();
 
     for (const gameVersion in cores) {
       for (const mod of cores[gameVersion].mods || []) {
@@ -166,7 +173,8 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
                 writeIndentedLogMessage(message);
               }
             }
-            importCache.push(cacheString)
+
+            importCache.push(cacheString);
           }
         }
       }
@@ -177,7 +185,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     const [nodeProcess, script, url, gameVersion = null] = argv;
     const logger = new CapturingLogger();
 
-    if (!((await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger)).data)) {
+    if (!(await importRemoteQmod(url, isNullOrWhitespace(gameVersion) ? null : gameVersion, true, logger)).data) {
       if (logger.getErrorMessages().length > 0) {
         console.log(url);
 
@@ -185,6 +193,7 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
           writeIndentedLogMessage(message);
         }
       }
+
       process.exit(1);
     }
   }

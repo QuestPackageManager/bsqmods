@@ -21,15 +21,15 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
     const repoJson = result.data;
 
     if (!repoJson) {
-      throw new Error("Error fetching repo json")
+      throw new Error("Error fetching repo json");
     }
 
-    checkGithubResponse(repoJson as Message)
+    checkGithubResponse(repoJson as Message);
 
     const files = {} as Dictionary<RepoContent>;
     let defaultBranch = null as string | null;
 
-    for (const file of (repoJson as RepoContent[])) {
+    for (const file of repoJson as RepoContent[]) {
       files[file.path.toLowerCase()] = file;
 
       const match = ghRawRegex.exec(file.download_url || "");
@@ -48,9 +48,7 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
           const file = files[path];
 
           if (file.download_url) {
-            result = await fetchJson<any>(
-              `${file.download_url}?${new Date().getTime()}`,
-            );
+            result = await fetchJson<any>(`${file.download_url}?${new Date().getTime()}`);
             break;
           }
         }
@@ -58,11 +56,14 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
         if (result.data && !isNullOrWhitespace(result.data.coverImage || result.data.coverImageFilename)) {
           coverFilename = result.data.coverImage || result.data.coverImageFilename;
         }
-      } catch (err) { }
+      } catch (err) {}
 
-      const coverResponse = await fetch(`https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}?${new Date().getTime()}`, {
-        method: "HEAD",
-      });
+      const coverResponse = await fetch(
+        `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${defaultBranch}/${coverFilename}?${new Date().getTime()}`,
+        {
+          method: "HEAD"
+        }
+      );
 
       if (coverResponse.ok) {
         return {
@@ -70,7 +71,7 @@ export async function getQmodCoverUrl(url: string): Promise<CachableResult<strin
           fromCache: result.fromCache
         };
       }
-    } catch (err) { }
+    } catch (err) {}
   }
 
   return {

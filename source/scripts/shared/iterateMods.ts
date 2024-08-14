@@ -48,7 +48,7 @@ export class ModIterationData {
       return this.modData;
     }
 
-    const fileContent = readFileSync(this.modPath, 'utf8');
+    const fileContent = readFileSync(this.modPath, "utf8");
     return JSON.parse(fileContent);
   }
 
@@ -70,13 +70,14 @@ export class ModIterationData {
 
 export function* iterateSplitMods(): Generator<ModIterationData, void, unknown> {
   const gameVersions = readdirSync(modsPath)
-    .filter(versionPath => statSync(join(modsPath, versionPath)).isDirectory())
+    .filter((versionPath) => statSync(join(modsPath, versionPath)).isDirectory())
     .sort(compareVersionAscending);
 
   for (const version of gameVersions) {
     const versionPath = join(modsPath, version);
-    const modFilenames = readdirSync(versionPath)
-      .filter(modPath => modPath.toLowerCase().endsWith(".json") && statSync(join(versionPath, modPath)).isFile());
+    const modFilenames = readdirSync(versionPath).filter(
+      (modPath) => modPath.toLowerCase().endsWith(".json") && statSync(join(versionPath, modPath)).isFile()
+    );
 
     for (const modFilename of modFilenames) {
       const modPath = join(versionPath, modFilename);
@@ -98,7 +99,7 @@ export function* iterateCombinedMods(): Generator<ModIterationData, void, unknow
       const modPath = getFilename(mod.id, mod.version, version, modsPath);
       const modFilename = basename(modPath);
 
-      yield new ModIterationData(version, modPath, mod)
+      yield new ModIterationData(version, modPath, mod);
     }
   }
 }

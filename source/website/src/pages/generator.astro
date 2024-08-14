@@ -23,21 +23,33 @@ export interface GeneratorScriptData {
   linkHome={true}
   pageScriptData={{
     repo: (import.meta as any).env.GITHUB_REPOSITORY || "",
-    branch: (import.meta as any).env.REPO_BRANCH || "",
+    branch: (import.meta as any).env.REPO_BRANCH || ""
   }}
 >
   <GeneratorWrapper>
     <GeneratorColumn>
-      <GeneratorTextInput id="modName" placeholder="The name of the mod">
+      <GeneratorTextInput
+        id="modName"
+        placeholder="The name of the mod"
+      >
         Mod Name
       </GeneratorTextInput>
-      <GeneratorTextInput id="modId" placeholder="The ID of the mod">
+      <GeneratorTextInput
+        id="modId"
+        placeholder="The ID of the mod"
+      >
         Mod ID
       </GeneratorTextInput>
-      <GeneratorTextInput id="modCreators" placeholder="Who made this mod?">
+      <GeneratorTextInput
+        id="modCreators"
+        placeholder="Who made this mod?"
+      >
         Mod Creator(s)
       </GeneratorTextInput>
-      <GeneratorTextInput id="modVersion" placeholder="The mod version">
+      <GeneratorTextInput
+        id="modVersion"
+        placeholder="The mod version"
+      >
         Mod Version
       </GeneratorTextInput>
       <GeneratorTextArea
@@ -61,9 +73,7 @@ export interface GeneratorScriptData {
       >
         Mod Loader
       </GeneratorSelectMenu>
-      <GeneratorDropZone id="loadQmod">
-        Drag/drop .qmod file here, or click to select file.
-      </GeneratorDropZone>
+      <GeneratorDropZone id="loadQmod">Drag/drop .qmod file here, or click to select file.</GeneratorDropZone>
     </GeneratorColumn>
     <GeneratorColumn>
       <GeneratorTextInput
@@ -150,30 +160,18 @@ export interface GeneratorScriptData {
 
     const { repo, branch } = getPageScriptData<GeneratorScriptData>();
     const modNameElement = getElementById("modName") as HTMLInputElement,
-      modDescriptionElement = getElementById(
-        "modDescription"
-      ) as HTMLTextAreaElement,
+      modDescriptionElement = getElementById("modDescription") as HTMLTextAreaElement,
       modIdElement = getElementById("modId") as HTMLInputElement,
       loadQmodElement = getElementById("loadQmod") as HTMLInputElement,
-      modDownloadLinkElement = getElementById(
-        "modDownloadLink"
-      ) as HTMLInputElement,
-      modSourceLinkElement = getElementById(
-        "modSourceLink"
-      ) as HTMLInputElement,
-      modWebsiteLinkElement = getElementById(
-        "modWebsiteLink"
-      ) as HTMLInputElement,
-      modFundingLinkElement = getElementById(
-        "modFundingLink"
-      ) as HTMLInputElement,
+      modDownloadLinkElement = getElementById("modDownloadLink") as HTMLInputElement,
+      modSourceLinkElement = getElementById("modSourceLink") as HTMLInputElement,
+      modWebsiteLinkElement = getElementById("modWebsiteLink") as HTMLInputElement,
+      modFundingLinkElement = getElementById("modFundingLink") as HTMLInputElement,
       modCoverElement = getElementById("modCover") as HTMLInputElement,
       modCreatorsElement = getElementById("modCreators") as HTMLInputElement,
       authorIconElement = getElementById("authorIcon") as HTMLInputElement,
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
-      targetGameVersionElement = getElementById(
-        "targetGameVersion"
-      ) as HTMLInputElement,
+      targetGameVersionElement = getElementById("targetGameVersion") as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLSelectElement,
       qmodDropZoneElement = document.body,
       generateButtonElement = getElementById("generateJson");
@@ -204,9 +202,7 @@ export interface GeneratorScriptData {
     // Load the mod.json file
     (async function loadModJson() {
       try {
-        const result = await fetchJson<ModsCollection>(
-          `mods.json?${Math.floor(Date.now() / 1000)}`
-        );
+        const result = await fetchJson<ModsCollection>(`mods.json?${Math.floor(Date.now() / 1000)}`);
 
         if (result.data) {
           modJson = result.data;
@@ -233,11 +229,7 @@ export interface GeneratorScriptData {
      * @param gameVersion The version of the game.
      * @returns Returns true if the mod with the given id and version exists for the specified game version, false otherwise.
      */
-    function checkMod(
-      id: string,
-      version: string,
-      gameVersion: string
-    ): boolean {
+    function checkMod(id: string, version: string, gameVersion: string): boolean {
       /**
        * Array of mods for the specified game version.
        * @type {Mod[]|null}
@@ -310,39 +302,25 @@ export interface GeneratorScriptData {
             version: modVersionElement.value.trim(),
             author: modCreatorsElement.value.trim(),
             authorIcon: authorIconElement.value.trim(),
-            modloader: Object.keys(ModLoader).includes(
-              modLoaderElement.value.trim()
-            )
+            modloader: Object.keys(ModLoader).includes(modLoaderElement.value.trim())
               ? (modLoaderElement.value.trim() as ModLoader)
               : ModLoader.QuestLoader,
             download: modDownloadLinkElement.value.trim(),
             source: modSourceLinkElement.value.trim(),
             cover: modCoverElement.value.trim(),
             funding: isNullOrWhitespace(funding) ? [] : [funding],
-            website: modWebsiteLinkElement.value.trim(),
+            website: modWebsiteLinkElement.value.trim()
           },
           splitModKeys
         );
 
         validateMod(mod);
 
-        const modFilename = getFilename(
-          mod.id || "",
-          mod.version || "",
-          targetGameVersionElement.value
-        );
+        const modFilename = getFilename(mod.id || "", mod.version || "", targetGameVersionElement.value);
 
-        if (
-          checkMod(
-            mod.id || "",
-            mod.version || "",
-            targetGameVersionElement.value
-          )
-        ) {
+        if (checkMod(mod.id || "", mod.version || "", targetGameVersionElement.value)) {
           alert("This mod version already exists in the json");
-          window.open(
-            `https://github.com/${repo}/edit/${branch}/${modFilename}`
-          );
+          window.open(`https://github.com/${repo}/edit/${branch}/${modFilename}`);
         } else {
           window.open(
             `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(modFilename)}&value=${encodeURIComponent(`${JSON.stringify(mod, null, "  ")}\n`)}`
@@ -380,10 +358,7 @@ export interface GeneratorScriptData {
      * Function to handle loading of QMOD files.
      * @param ev - The event object.
      */
-    async function qmodLoadHandler(
-      this: FileReader,
-      ev: ProgressEvent<FileReader>
-    ) {
+    async function qmodLoadHandler(this: FileReader, ev: ProgressEvent<FileReader>) {
       const reader = this;
 
       if (reader.result) {
@@ -402,8 +377,7 @@ export interface GeneratorScriptData {
           modDescriptionElement.value = modInfo.description || "";
           modIdElement.value = modInfo.id || "";
           modVersionElement.value = modInfo.version || "";
-          modCreatorsElement.value =
-            (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
+          modCreatorsElement.value = (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
           targetGameVersionElement.value = modInfo.packageVersion || "";
           modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
           modFundingLinkElement.value = "";
@@ -427,9 +401,7 @@ export interface GeneratorScriptData {
       }
 
       const files = e.dataTransfer.items
-        ? [...e.dataTransfer.items]
-            .filter((item) => item.kind === "file")
-            .map((item) => item.getAsFile())
+        ? [...e.dataTransfer.items].filter((item) => item.kind === "file").map((item) => item.getAsFile())
         : [...e.dataTransfer.files];
 
       for (const file of files) {
@@ -441,10 +413,7 @@ export interface GeneratorScriptData {
      * Fills in the source code text input if the link is from GitHub.
      * @param e
      */
-    async function modDownloadLinkChangeHandler(
-      this: HTMLInputElement,
-      e: Event
-    ) {
+    async function modDownloadLinkChangeHandler(this: HTMLInputElement, e: Event) {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
       if (match) {
@@ -456,11 +425,7 @@ export interface GeneratorScriptData {
     }
 
     // Prevent default behavior for dragover event
-    qmodDropZoneElement.addEventListener(
-      "dragover",
-      (e) => e.preventDefault(),
-      false
-    );
+    qmodDropZoneElement.addEventListener("dragover", (e) => e.preventDefault(), false);
 
     // Event listener for dropping files into the qmodDropZone
     qmodDropZoneElement.addEventListener("drop", qmodDropHandler);
@@ -469,19 +434,10 @@ export interface GeneratorScriptData {
     loadQmodElement.addEventListener("click", loadQmod);
 
     // Event listener for onchange event of link input
-    modDownloadLinkElement.addEventListener(
-      "change",
-      modDownloadLinkChangeHandler
-    );
+    modDownloadLinkElement.addEventListener("change", modDownloadLinkChangeHandler);
 
     // Add url drop handlers to the following
-    for (const element of [
-      modDownloadLinkElement,
-      modSourceLinkElement,
-      modWebsiteLinkElement,
-      modFundingLinkElement,
-      modCoverElement,
-    ]) {
+    for (const element of [modDownloadLinkElement, modSourceLinkElement, modWebsiteLinkElement, modFundingLinkElement, modCoverElement]) {
       element.addEventListener("drop", urlDropHandler);
     }
 
@@ -490,8 +446,6 @@ export interface GeneratorScriptData {
   })().catch((error) => {
     console.error(error);
 
-    alert(
-      "An error has occurred during initialization, please see the console for more information."
-    );
+    alert("An error has occurred during initialization, please see the console for more information.");
   });
 </script>

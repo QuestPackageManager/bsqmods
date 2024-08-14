@@ -35,45 +35,35 @@ export interface ModObject {
  */
 export function getModInfo(): ModObject[] {
   if (mods === null) {
-    mods = ([...document.querySelectorAll<HTMLElement>("mod-card")].map(
-      (card) => ({
-        id: (card.dataset.modId || "").trim(),
-        title: (
-          card.querySelector<HTMLElement>("mod-name")?.innerText || ""
-        ).trim(),
-        version: (
-          card.querySelector<HTMLElement>("mod-version")?.innerText || ""
-        ).trim(),
-        author: (
-          card.querySelector<HTMLElement>("mod-author")?.innerText || ""
-        ).trim(),
-        description: (
-          card.querySelector<HTMLElement>("mod-description")?.innerText || ""
-        ).trim(),
-        download: [...card.querySelectorAll<HTMLAnchorElement>("a.mod-download")].map(a => a.href),
-        coreModInfo: card.querySelector<HTMLElement>("core-mod-info")?.dataset as unknown as CoreMod | undefined,
-        source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
-        funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map(link => link.href),
-        isMarked: (value) => {
-          var mark = card.querySelector<HTMLInputElement>("input.mod-checkbox")!;
+    mods = [...document.querySelectorAll<HTMLElement>("mod-card")].map((card) => ({
+      id: (card.dataset.modId || "").trim(),
+      title: (card.querySelector<HTMLElement>("mod-name")?.innerText || "").trim(),
+      version: (card.querySelector<HTMLElement>("mod-version")?.innerText || "").trim(),
+      author: (card.querySelector<HTMLElement>("mod-author")?.innerText || "").trim(),
+      description: (card.querySelector<HTMLElement>("mod-description")?.innerText || "").trim(),
+      download: [...card.querySelectorAll<HTMLAnchorElement>("a.mod-download")].map((a) => a.href),
+      coreModInfo: card.querySelector<HTMLElement>("core-mod-info")?.dataset as unknown as CoreMod | undefined,
+      source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
+      funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map((link) => link.href),
+      isMarked: (value) => {
+        var mark = card.querySelector<HTMLInputElement>("input.mod-checkbox")!;
 
-          if (value === true || value === false) {
-            mark.checked = value;
-          }
+        if (value === true || value === false) {
+          mark.checked = value;
+        }
 
-          return mark.checked;
-        },
-        isVisible(value) {
-          if (value === true) {
-            card.style.display = "";
-          } else if (value === false) {
-            card.style.display = "none";
-          }
+        return mark.checked;
+      },
+      isVisible(value) {
+        if (value === true) {
+          card.style.display = "";
+        } else if (value === false) {
+          card.style.display = "none";
+        }
 
-          return card.style.display != "none";
-        },
-      })
-    ));
+        return card.style.display != "none";
+      }
+    }));
   }
 
   return mods;

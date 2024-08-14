@@ -6,8 +6,8 @@ const githubMinimumDelay = 1000;
 let lastGithubRelease = 0;
 
 export interface FetchedData<T> {
-  data: T | null,
-  response: Response
+  data: T | null;
+  response: Response;
 }
 
 /**
@@ -23,7 +23,7 @@ export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Js
   const useToken = token && isGithub;
 
   if (isGithub) {
-    const delaySinceLast = (new Date()).getTime() - lastGithubRelease;
+    const delaySinceLast = new Date().getTime() - lastGithubRelease;
 
     if (delaySinceLast < githubMinimumDelay) {
       const delayMs = githubMinimumDelay - delaySinceLast;
@@ -31,34 +31,39 @@ export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Js
       await delay(delayMs);
     }
   }
-  const response = await fetch(url, useToken ? {
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'Authorization': `Bearer ${token}`
-    },
-  } : undefined);
+  const response = await fetch(
+    url,
+    useToken
+      ? {
+          headers: {
+            Accept: "application/vnd.github.v3+json",
+            Authorization: `Bearer ${token}`
+          }
+        }
+      : undefined
+  );
 
   if (isGithub) {
-    lastGithubRelease = (new Date()).getTime();
+    lastGithubRelease = new Date().getTime();
   }
 
   if (response.ok) {
     switch (type) {
       case FetchType.Json:
         return {
-          data: await response.json() as T,
+          data: (await response.json()) as T,
           response
         };
 
       case FetchType.Text:
         return {
-          data: await response.text() as T,
+          data: (await response.text()) as T,
           response
         };
 
       case FetchType.Buffer:
         return {
-          data: await response.arrayBuffer() as T,
+          data: (await response.arrayBuffer()) as T,
           response
         };
     }
@@ -76,8 +81,7 @@ export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Js
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched JSON data or null if not found.
  */
-export const fetchJson = async <T>(url: string): Promise<FetchedData<T>> =>
-  await fetchAsType<any>(url, FetchType.Json);
+export const fetchJson = async <T>(url: string): Promise<FetchedData<T>> => await fetchAsType<any>(url, FetchType.Json);
 
 /**
  * Cached fetch operation for text data.
@@ -85,8 +89,7 @@ export const fetchJson = async <T>(url: string): Promise<FetchedData<T>> =>
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched text data or null if not found.
  */
-export const fetchText = async (url: string): Promise<FetchedData<string>> =>
-  await fetchAsType<string>(url, FetchType.Text);
+export const fetchText = async (url: string): Promise<FetchedData<string>> => await fetchAsType<string>(url, FetchType.Text);
 
 /**
  * Cached fetch operation for ArrayBuffer data.
@@ -94,8 +97,7 @@ export const fetchText = async (url: string): Promise<FetchedData<string>> =>
  * @param force - Indicates whether to force refresh the cache (default: false).
  * @returns - A promise resolving to the fetched ArrayBuffer data or null if not found.
  */
-export const fetchBuffer = async (url: string): Promise<FetchedData<ArrayBuffer>> =>
-  await fetchAsType<ArrayBuffer>(url, FetchType.Buffer);
+export const fetchBuffer = async (url: string): Promise<FetchedData<ArrayBuffer>> => await fetchAsType<ArrayBuffer>(url, FetchType.Buffer);
 
 /**
  * Checks if the URL exists.
@@ -104,7 +106,7 @@ export const fetchBuffer = async (url: string): Promise<FetchedData<ArrayBuffer>
  */
 export async function fetchHead(url: string): Promise<boolean> {
   try {
-    const response = await fetch(url, { method: "HEAD", });
+    const response = await fetch(url, { method: "HEAD" });
 
     return response.ok;
   } catch (err) {
@@ -120,10 +122,13 @@ export async function fetchHead(url: string): Promise<boolean> {
  */
 export async function fetchRedirectedLocation(url: string): Promise<string> {
   try {
-    const response = await fetch(url, { method: 'HEAD', redirect: 'manual' });
+    const response = await fetch(url, {
+      method: "HEAD",
+      redirect: "manual"
+    });
 
-    if (response.status >= 300 && response.status < 400 && response.headers.get('location')) {
-      const redirectedUrl = new URL(response.headers.get('location') as string, url).href;
+    if (response.status >= 300 && response.status < 400 && response.headers.get("location")) {
+      const redirectedUrl = new URL(response.headers.get("location") as string, url).href;
       return redirectedUrl;
     } else {
       return url;

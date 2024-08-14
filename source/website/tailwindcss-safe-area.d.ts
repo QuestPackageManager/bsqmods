@@ -1,5 +1,5 @@
-declare module 'tailwindcss-safe-area' {
-  import { PluginCreator } from 'tailwindcss/types/config';
+declare module "tailwindcss-safe-area" {
+  import { PluginCreator } from "tailwindcss/types/config";
 
   const safeArea: PluginCreator;
 

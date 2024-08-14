@@ -7,7 +7,7 @@ import { ModLoader } from "./types/ModLoader";
  * @param keys - The keys to filter and process
  * @returns
  */
-export function getStandardizedMod(mod: Mod, keys: (keyof (Mod))[] = modKeys): Mod {
+export function getStandardizedMod(mod: Mod, keys: (keyof Mod)[] = modKeys): Mod {
   const uniformMod: Partial<Mod> = {};
 
   // Normalize the mod object by trimming and setting empty strings to null
@@ -23,7 +23,7 @@ export function getStandardizedMod(mod: Mod, keys: (keyof (Mod))[] = modKeys): M
     }
 
     if (key == "modloader") {
-      uniformMod[key] = mod[key]?.trim() as ModLoader || ModLoader.Scotland2
+      uniformMod[key] = (mod[key]?.trim() as ModLoader) || ModLoader.Scotland2;
       continue;
     }
 

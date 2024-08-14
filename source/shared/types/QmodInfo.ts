@@ -12,5 +12,5 @@ export interface QmodInfo extends Mod {
    */
   packageVersion: GameVersion | null;
 
-  website: never
+  website: never;
 }

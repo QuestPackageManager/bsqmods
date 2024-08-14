@@ -110,8 +110,18 @@ export interface Mod {
  * A list of mod keys for the split json files.
  */
 export const splitModKeys: (keyof Mod)[] = [
-  "name", "description", "id", "version", "author", "authorIcon", "modloader",
-  "download", "source", "cover", "funding", "website"
+  "name",
+  "description",
+  "id",
+  "version",
+  "author",
+  "authorIcon",
+  "modloader",
+  "download",
+  "source",
+  "cover",
+  "funding",
+  "website"
 ];
 
 /**

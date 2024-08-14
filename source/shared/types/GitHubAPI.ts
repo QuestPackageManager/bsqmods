@@ -3,11 +3,11 @@
  *
  * https://api.github.com/repos/[owner]/[repo]/releases
  */
-export type Releases = Release[] | Message
+export type Releases = Release[] | Message;
 
 export interface Message {
-  message?: string,
-  documentation_url?: string
+  message?: string;
+  documentation_url?: string;
 }
 
 /** Represents the information for a release. */
@@ -248,7 +248,7 @@ export interface RepoContent {
   _links: Links;
 }
 
-export type RepoContents = RepoContent[] | Message
+export type RepoContents = RepoContent[] | Message;
 
 export interface Links {
   self: string;

@@ -6,7 +6,7 @@
  */
 export function parseQueryString<T>(url?: string): Partial<T> {
   const currentUrl = url || window.location.href;
-  const queryString = currentUrl.split('?')[1] || '';
+  const queryString = currentUrl.split("?")[1] || "";
   const params = new URLSearchParams(queryString);
   const result: any = {};
 

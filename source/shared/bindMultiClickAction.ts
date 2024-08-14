@@ -23,16 +23,13 @@ export function bindMultiClickAction(element: HTMLElement, callback: () => Promi
   let clickCount = 0;
   let clickTimer: ReturnType<typeof setTimeout> | null = null;
 
-  // Function to handle the click event
-
-
   // Function to reset the click count
   function resetClickCount() {
     clickCount = 0;
   }
 
   // Add the click event listener to the element
-  element.addEventListener('click', async () => {
+  element.addEventListener("click", async () => {
     clickCount++;
 
     // If the element is clicked the specified number of times, perform the desired action

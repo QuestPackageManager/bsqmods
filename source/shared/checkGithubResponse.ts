@@ -6,6 +6,6 @@ import { Message } from "./types/GitHubAPI";
  */
 export function checkGithubResponse(data: Message) {
   if (data && data.message) {
-    throw new Error([data.message, data.documentation_url].join("\n\n").trim())
+    throw new Error([data.message, data.documentation_url].join("\n\n").trim());
   }
 }

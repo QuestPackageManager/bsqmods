@@ -27,4 +27,4 @@ import { Mod } from "./Mod";
  * }
  * ```
  */
-export interface ModsCollection extends Dictionary<Mod[]> { }
+export interface ModsCollection extends Dictionary<Mod[]> {}

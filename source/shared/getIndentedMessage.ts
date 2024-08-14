@@ -14,6 +14,6 @@ export function getIndentedMessage(message: string, level = 0, indentation = "  
   return message
     .replace(/\r/g, "")
     .split("\n")
-    .map(line => `${indent}${line}`)
+    .map((line) => `${indent}${line}`)
     .join("\n");
 }

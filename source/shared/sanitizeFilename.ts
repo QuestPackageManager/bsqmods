@@ -10,5 +10,5 @@ export function sanitizeFilename(input: string): string {
   const invalidChars = /[<>:"\/\\|?*\x00-\x1F]+/g;
 
   // Replace invalid characters with underscore
-  return input.replace(invalidChars, '_');
+  return input.replace(invalidChars, "_");
 }

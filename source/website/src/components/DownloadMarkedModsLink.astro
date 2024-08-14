@@ -15,12 +15,14 @@ export interface Props {
   /** CSS styles to apply to the inner `a` element. */
   outerStyle?: string;
 }
+
+// prettier-ignore
 const {
   version,
   class: className,
   style,
   outerClass,
-  outerStyle,
+  outerStyle
 } = Astro.props as Props;
 ---
 
@@ -33,14 +35,16 @@ const {
   `}
   data-version={version}
 >
-  <button class={className} style={style} disabled><slot /></button>
+  <button
+    class={className}
+    style={style}
+    disabled
+  >
+    <slot />
+  </button>
 </download-marked-mods-link>
 <script>
-  import {
-    type DependencyQmodArguments,
-    generateDependencyQmod,
-    type QmodDependency,
-  } from "../../../shared/generateDependencyQmod";
+  import { type DependencyQmodArguments, generateDependencyQmod, type QmodDependency } from "../../../shared/generateDependencyQmod";
   import { ModLoader } from "../../../shared/types/ModLoader";
   import { getModInfo, type ModObject } from "../getModInfo";
   import { saveAs } from "file-saver";
@@ -58,14 +62,14 @@ const {
             return {
               id: mod.id,
               version: `^${mod.coreModInfo.version}`,
-              downloadIfMissing: mod.coreModInfo.downloadLink,
+              downloadIfMissing: mod.coreModInfo.downloadLink
             };
           }
 
           return {
             id: mod.id,
             version: `^${mod.version}`,
-            downloadIfMissing: mod.download[0],
+            downloadIfMissing: mod.download[0]
           };
         });
 
@@ -77,11 +81,8 @@ const {
         version: semverDate(),
         packageId: "com.beatgames.beatsaber",
         packageVersion: version,
-        modloader:
-          version > "1.28.0_4124311467"
-            ? ModLoader.Scotland2
-            : ModLoader.QuestLoader,
-        dependencies: dependencies,
+        modloader: version > "1.28.0_4124311467" ? ModLoader.Scotland2 : ModLoader.QuestLoader,
+        dependencies: dependencies
       };
 
       info.filename = `ModBundle_${info.version}.qmod`;
@@ -91,16 +92,14 @@ const {
       saveAs(
         await data.qmod.generateAsync({
           type: "blob",
-          mimeType: "application/qmod",
+          mimeType: "application/qmod"
         }),
         data.filename
       );
     }
 
     async setDisabledState() {
-      this.buttonElement.disabled =
-        this.mods.filter((mod) => mod.isMarked() && mod.coreModInfo == null)
-          .length == 0;
+      this.buttonElement.disabled = this.mods.filter((mod) => mod.isMarked() && mod.coreModInfo == null).length == 0;
     }
 
     constructor() {
@@ -109,9 +108,7 @@ const {
       this.mods = getModInfo();
       this.buttonElement.addEventListener("click", () => this.generateQmod());
 
-      for (const input of document.querySelectorAll<HTMLInputElement>(
-        "mod-card input.mod-checkbox"
-      )) {
+      for (const input of document.querySelectorAll<HTMLInputElement>("mod-card input.mod-checkbox")) {
         input.addEventListener("change", () => this.setDisabledState());
       }
 

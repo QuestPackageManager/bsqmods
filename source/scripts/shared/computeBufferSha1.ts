@@ -7,9 +7,9 @@ import crypto from "crypto";
  * @returns - The SHA-1 hash of the buffer.
  */
 export function computeBufferSha1(buffer: Buffer): string {
-  const hash = crypto.createHash('sha1');
+  const hash = crypto.createHash("sha1");
 
   hash.update(buffer);
 
-  return hash.digest('hex');
+  return hash.digest("hex");
 }

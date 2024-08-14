@@ -19,20 +19,20 @@ export async function downloadFile(url: string, dest: string): Promise<string | 
     }
 
     const fileStream = fs.createWriteStream(dest);
-    const hash = crypto.createHash('sha1');
+    const hash = crypto.createHash("sha1");
     const writableStream = res.body.pipe(fileStream);
 
-    res.body.on('data', (chunk: Buffer) => {
+    res.body.on("data", (chunk: Buffer) => {
       hash.update(chunk);
     });
 
     return new Promise((resolve, reject) => {
-      writableStream.on('finish', () => {
-        const sha1 = hash.digest('hex');
+      writableStream.on("finish", () => {
+        const sha1 = hash.digest("hex");
         resolve(sha1);
       });
 
-      writableStream.on('error', (err: any) => {
+      writableStream.on("error", (err: any) => {
         fs.unlink(dest, () => reject(err)); // Delete the file if there's an error
       });
     });

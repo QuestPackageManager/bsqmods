@@ -3,10 +3,10 @@ import { originalCoversPath } from "../../shared/paths";
 import { ModImageMetadata } from "../../shared/types/ModMetadata";
 
 /**
-* Returns the file path to the optimized cover image.
-* @param hash The hash of the image file
-* @returns
-*/
+ * Returns the file path to the optimized cover image.
+ * @param hash The hash of the image file
+ * @returns
+ */
 export function getOriginalCoverFilePath(info: ModImageMetadata | null): string | null {
   if (info == null) {
     return null;

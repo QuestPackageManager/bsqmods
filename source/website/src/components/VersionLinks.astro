@@ -16,7 +16,10 @@ export async function getVersions(allVersions = false) {
 
 {
   (await getVersions()).map((version) => (
-    <a href={`${version}/`} class={Astro.props.class}>
+    <a
+      href={`${version}/`}
+      class={Astro.props.class}
+    >
       {version}
     </a>
   ))

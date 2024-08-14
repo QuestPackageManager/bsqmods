@@ -23,6 +23,7 @@ export function getFilename(
   version = version || "";
   gameVersion = gameVersion || "";
 
+  // prettier-ignore
   return path.join(
     basePath,
     sanitizeFilename(gameVersion.trim()),

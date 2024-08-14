@@ -25,4 +25,4 @@ import { Mod } from "./Mod";
  * }
  * ```
  */
-export interface GroupedMod extends Dictionary<Mod> { }
+export interface GroupedMod extends Dictionary<Mod> {}

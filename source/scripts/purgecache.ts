@@ -26,16 +26,13 @@ export function purgeCache(urls: string[]) {
       console.log(`Removing hash for ${url}`);
 
       if (metadata.image?.hash) {
-        const referenceCount = Object.values(saveMetadata).filter(meta => meta.image?.hash && meta.image.hash == metadata.image?.hash).length;
+        const referenceCount = Object.values(saveMetadata).filter((meta) => meta.image?.hash && meta.image.hash == metadata.image?.hash).length;
 
-        console.log(indent(`Cover reference count: ${referenceCount}`, 1))
+        console.log(indent(`Cover reference count: ${referenceCount}`, 1));
 
         // If the cached image exists, and only one entry is referencing it, delete it
         if (referenceCount == 1) {
-          for (const path of [
-            getOptimizedCoverFilePath(metadata.image),
-            getOriginalCoverFilePath(metadata.image)
-          ]) {
+          for (const path of [getOptimizedCoverFilePath(metadata.image), getOriginalCoverFilePath(metadata.image)]) {
             if (path && existsSync(path)) {
               console.log(indent(`Deleting ${basename(path)}`, 1));
               unlinkSync(path);
@@ -72,20 +69,22 @@ if (argv.length > 1 && resolve(import.meta.filename) == resolve(argv[1])) {
     }
   } else {
     // If no arguments are provided, display the usage information
-    console.log([
-      `Usage: ${scriptName} [--all] [urls]`,
-      '',
-      'This script purges the cached images and saved hashes.',
-      '',
-      'Options:',
-      '  --all        Clear the entire cache.',
-      '',
-      'Arguments:',
-      '  urls         A list of URLs to purge, separated by \'|\'.',
-      '',
-      'Examples:',
-      `  node ${scriptName} --all`,
-      `  node ${scriptName} "http://example.com/mod1.qmod|http://example.com/mod2.qmod"`
-    ].join('\n'));
+    console.log(
+      [
+        `Usage: ${scriptName} [--all] [urls]`,
+        "",
+        "This script purges the cached images and saved hashes.",
+        "",
+        "Options:",
+        "  --all        Clear the entire cache.",
+        "",
+        "Arguments:",
+        "  urls         A list of URLs to purge, separated by '|'.",
+        "",
+        "Examples:",
+        `  node ${scriptName} --all`,
+        `  node ${scriptName} "http://example.com/mod1.qmod|http://example.com/mod2.qmod"`
+      ].join("\n")
+    );
   }
 }

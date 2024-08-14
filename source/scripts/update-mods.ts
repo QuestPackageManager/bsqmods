@@ -14,17 +14,17 @@ import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 const repoBlacklist = (await readTextFile(modBlacklistPath, ""))
   .replace(/\r/g, "")
   .split("\n")
-  .filter(line => !isNullOrWhitespace(line) && !line.trim().startsWith("#"))
-  .map(line => line.trim().toLowerCase());
+  .filter((line) => !isNullOrWhitespace(line) && !line.trim().startsWith("#"))
+  .map((line) => line.trim().toLowerCase());
 
 await logGithubApiUsage();
 
-const mods = [...iterateSplitMods()].map(mod => mod.getModJson());
+const mods = [...iterateSplitMods()].map((mod) => mod.getModJson());
 const repos = mods
-  .map(mod => mod.download)
-  .filter(link => link?.match(ghRegex))
-  .map(link => {
-    const match = ghRegex.exec(link as string) as RegExpExecArray
+  .map((mod) => mod.download)
+  .filter((link) => link?.match(ghRegex))
+  .map((link) => {
+    const match = ghRegex.exec(link as string) as RegExpExecArray;
 
     return `${match[1]}/${match[2]}`.toLowerCase();
   })
@@ -32,17 +32,16 @@ const repos = mods
   .sort();
 
 const links = mods
-  .map(mod => mod.download)
-  .filter(link => link?.match(ghRegex))
-  .map(link => link?.toLowerCase())
+  .map((mod) => mod.download)
+  .filter((link) => link?.match(ghRegex))
+  .map((link) => link?.toLowerCase())
   .filter((value, index, array) => array.indexOf(value) === index)
   .sort();
 
 console.log("Running mod updater...\n");
 
-repo_loop:
-for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
-  console.log(`Processing ${owner}/${repo}`)
+repo_loop: for (const [owner, repo] of repos.map((repo) => repo.split("/"))) {
+  console.log(`Processing ${owner}/${repo}`);
 
   if (repoBlacklist.includes(`${owner}/${repo}`.toLowerCase())) {
     console.log(indent("Skipping due to blacklist\n", 1));
@@ -62,14 +61,14 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
 
   let assetFound = false;
 
-  release_loop:
-  for (const release of (releases as Release[]).filter(release => !release.draft && !release.prerelease).sort((a, b) => compareAlphabeticallyDesc(a?.published_at, b?.published_at))) {
-    console.log(indent(`Processing tag: ${release.tag_name}`, 1))
+  release_loop: for (const release of (releases as Release[])
+    .filter((release) => !release.draft && !release.prerelease)
+    .sort((a, b) => compareAlphabeticallyDesc(a?.published_at, b?.published_at))) {
+    console.log(indent(`Processing tag: ${release.tag_name}`, 1));
 
     let newLine = true;
 
-    asset_loop:
-    for (const asset of release.assets) {
+    asset_loop: for (const asset of release.assets) {
       const url = asset.browser_download_url;
 
       if (!url.endsWith(".qmod")) {
@@ -81,10 +80,10 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
       }
 
       if (asset.name.toLowerCase().endsWith(".qmod") && !links.includes(url.toLowerCase())) {
-        console.log(indent(`Processing asset: ${asset.name}\n`, 2))
+        console.log(indent(`Processing asset: ${asset.name}\n`, 2));
         newLine = false;
         await importRemoteQmod(url, null, true, new IndentedConsoleLogger(3));
-        links.push(url.toLowerCase())
+        links.push(url.toLowerCase());
       }
     }
 
@@ -93,7 +92,7 @@ for (const [owner, repo] of repos.map(repo => repo.split("/"))) {
     }
 
     if (assetFound) {
-      console.log(indent(`Moving to next repo.\n`, 2))
+      console.log(indent(`Moving to next repo.\n`, 2));
       break;
     }
   }

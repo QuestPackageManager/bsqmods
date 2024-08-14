@@ -16,7 +16,7 @@ const iconCache: Dictionary<string | null> = {};
  * @returns A promise that resolves to the redirected URL or null if no redirection occurs.
  */
 async function fetchIconLink(url: string): Promise<string | null> {
-  const redirected = await fetchRedirectedLocation(url)
+  const redirected = await fetchRedirectedLocation(url);
 
   if (url == redirected) {
     return null;
@@ -60,8 +60,8 @@ export async function getGithubIconUrl(link: string): Promise<CachableResult<str
         return {
           data: iconCache[ghMatch[1]],
           fromCache: result.fromCache
-        }
-      } catch (err) { }
+        };
+      } catch (err) {}
     }
   }
 

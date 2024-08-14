@@ -26,9 +26,7 @@
           "pattern": "^[a-fA-F0-9]{40}$"
         }
       },
-      "required": [
-        "hash"
-      ],
+      "required": ["hash"],
       "additionalProperties": false
     }
   ]

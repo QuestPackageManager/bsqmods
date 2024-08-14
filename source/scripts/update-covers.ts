@@ -1,6 +1,6 @@
 import { fetchHead } from "../shared/fetch";
 import { getQmodCoverUrl } from "../shared/getQmodCoverUrl";
-import { delay } from "../shared/delay"
+import { delay } from "../shared/delay";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 

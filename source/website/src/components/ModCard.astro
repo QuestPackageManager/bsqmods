@@ -145,9 +145,7 @@ const { mods, core = false } = Astro.props as Props;
                     text-sm
                     whitespace-pre-line
                 `}
-                  set:html={encode(mod.description)
-                    .replace(/\n/g, "&#10;")
-                    .replace(/\r/g, "")}
+                  set:html={encode(mod.description).replace(/\n/g, "&#10;").replace(/\r/g, "")}
                 />
               ) : null}
             </ExpandableLongText>
@@ -210,7 +208,7 @@ const { mods, core = false } = Astro.props as Props;
                       </DropdownListMenu>
                     </details>
                   ) : null}
-                </div>,
+                </div>
               );
             }
 
@@ -232,7 +230,7 @@ const { mods, core = false } = Astro.props as Props;
                   `}
                 >
                   Source Code
-                </a>,
+                </a>
               );
             }
 
@@ -256,11 +254,7 @@ const { mods, core = false } = Astro.props as Props;
                     `}
                   >
                     <AddCheckbox
-                      title={
-                        core
-                          ? "Core mods are always included"
-                          : "Mark mods to batch download them"
-                      }
+                      title={core ? "Core mods are always included" : "Mark mods to batch download them"}
                       class={`
                         checkbox-lg
                         checkbox-primary

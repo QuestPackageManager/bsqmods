@@ -5,8 +5,6 @@ import { semverDate } from "./semverDate";
 import { parseUTCDate } from "./parseUTCDate";
 import { DependencyQmodArguments, DependencyQmodInfo, generateDependencyQmod } from "./generateDependencyQmod";
 
-
-
 /**
  * Generates the CoreQmodJSON object for the specified version.
  *
@@ -23,7 +21,7 @@ async function generateCoreQmodInfo(version: string): Promise<DependencyQmodInfo
     packageId: "com.beatgames.beatsaber",
     packageVersion: version,
     modloader: version > "1.28.0_4124311467" ? ModLoader.Scotland2 : ModLoader.QuestLoader,
-    dependencies: [],
+    dependencies: []
   };
 
   const cores = await getCoreMods();
@@ -33,14 +31,14 @@ async function generateCoreQmodInfo(version: string): Promise<DependencyQmodInfo
 
     try {
       json.version = semverDate(parseUTCDate(lastUpdated));
-    } catch (_: any) { }
+    } catch (_: any) {}
 
     for (const mod of cores[version].mods) {
       json.dependencies!.push({
         id: mod.id,
         version: `^${mod.version}`,
         downloadIfMissing: mod.downloadLink
-      })
+      });
     }
   }
 
@@ -53,11 +51,11 @@ async function generateCoreQmodInfo(version: string): Promise<DependencyQmodInfo
  * @param version - The version of Beat Saber.
  * @returns A promise that resolves to the JSZip object.
  */
-export async function generateCoresQmod(version: string): Promise<{ qmod: JSZip; filename: string; }> {
+export async function generateCoresQmod(version: string): Promise<{ qmod: JSZip; filename: string }> {
   const info = await generateCoreQmodInfo(version);
 
   return await generateDependencyQmod({
     ...info,
     filename: `CoreMods_${version}.qmod`
-  })
+  });
 }

@@ -1,5 +1,5 @@
 import { FetchType } from "./types/FetchType";
-import { fetchAsType } from "./fetch"
+import { fetchAsType } from "./fetch";
 import { Dictionary } from "./types/Dictionary";
 
 /**
@@ -32,10 +32,10 @@ function getCacheType(type: FetchType): keyof FetchCache {
 
 export interface CachableResult<T> {
   /** The requested data. */
-  data: T
+  data: T;
 
   /** If the result was from the cache. */
-  fromCache: boolean
+  fromCache: boolean;
 }
 
 /**

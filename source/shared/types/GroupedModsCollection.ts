@@ -29,4 +29,4 @@ import { GroupedMods } from "./GroupedMods";
  * }
  * ```
  */
-export interface GroupedModsCollection extends Dictionary<GroupedMods> { }
+export interface GroupedModsCollection extends Dictionary<GroupedMods> {}
