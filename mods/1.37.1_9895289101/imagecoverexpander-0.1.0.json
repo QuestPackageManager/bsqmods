@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/vcmikuu/ImageCoverExpander/releases/download/1.37.1/ImageCoverExpander1.37.1.qmod",
   "source": "https://github.com/vcmikuu/ImageCoverExpander/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/vcmikuu/ImageCoverExpander/main/cover.jpg",
   "funding": [],
   "website": "https://github.com/vcmikuu/ImageCoverExpander/"
 }
