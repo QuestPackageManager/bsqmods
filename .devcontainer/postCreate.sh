@@ -1,6 +1,7 @@
 #!/bin/bash
 cd "$(readlink -f "$(dirname "$0")/..")"
 
+(npm i)
 (cd "source" && npm i)
 (cd "source/scripts" && npm i)
 (cd "source/website" && npm i)

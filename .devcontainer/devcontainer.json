@@ -1,3 +1,12 @@
 {
-  "postCreateCommand": ".devcontainer/postCreate.sh"
+  "postCreateCommand": ".devcontainer/postCreate.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Tyriar.sort-lines",
+        "astro-build.astro-vscode",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
 }

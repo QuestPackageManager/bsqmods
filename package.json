@@ -1,0 +1,14 @@
+{
+  "name": "bsqmods",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "type": "module",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}

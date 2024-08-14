@@ -1,10 +1,12 @@
 {
-  "name": "bsqmods",
+  "name": "bsqmods_source",
   "version": "1.0.0",
   "description": "",
   "main": "",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "preinstall": "cd .. && npm i"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
