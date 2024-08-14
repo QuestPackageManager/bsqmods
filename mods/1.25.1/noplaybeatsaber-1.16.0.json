@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/skyewontmiss/No-Play-Beat-Saber/releases/download/v10/noplaybeatsaberV1.qmod",
   "source": "https://github.com/skyewontmiss/No-Play-Beat-Saber/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/skyewontmiss/No-Play-Beat-Saber/main/cover.png",
   "funding": [],
   "website": null
 }
