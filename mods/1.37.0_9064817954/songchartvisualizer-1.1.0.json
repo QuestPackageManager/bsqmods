@@ -1,0 +1,14 @@
+{
+  "name": "SongChartVisualizer",
+  "description": null,
+  "id": "songchartvisualizer",
+  "version": "1.1.0",
+  "author": "KodenameKRAK, Eris",
+  "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/kodenamekrak/SongChartVisualizer/releases/download/v1.1.0/SongChartVisualizer.qmod",
+  "source": "https://github.com/kodenamekrak/SongChartVisualizer/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/kodenamekrak/SongChartVisualizer/"
+}
