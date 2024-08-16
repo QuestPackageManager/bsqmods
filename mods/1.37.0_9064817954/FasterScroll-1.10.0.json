@@ -1,0 +1,14 @@
+{
+  "name": "Faster Scroll",
+  "description": "FasterScroll, version 1.10.0!",
+  "id": "FasterScroll",
+  "version": "1.10.0",
+  "author": "Christoffyw",
+  "authorIcon": "https://avatars.githubusercontent.com/u/55860414?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Christoffyw/FasterScrollQuest/releases/download/v1.10.0/FasterScroll.qmod",
+  "source": "https://github.com/Christoffyw/FasterScrollQuest/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Christoffyw/FasterScrollQuest/"
+}
