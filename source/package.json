@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.3.0",
+    "@types/node": "^22.4.1",
     "@types/semver": "^7.5.8",
     "json5": "^2.2.3",
     "jsonschema": "^1.4.1",
