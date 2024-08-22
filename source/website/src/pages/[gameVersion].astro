@@ -2,7 +2,6 @@
 import DownloadCoreModsLink from "../components/DownloadCoreModsLink.astro";
 import Layout from "../layouts/Layout.astro";
 import ModList from "../components/ModList.astro";
-import ModFilter from "../components/ModFilter.astro";
 import type { GetStaticPaths } from "astro";
 import { Mod } from "../../../shared/types/Mod";
 import { ModsCollection } from "../../../shared/types/ModsCollection";
@@ -10,8 +9,8 @@ import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonF
 import { compareVersionDescending } from "../../../scripts/shared/semverComparison";
 import { getCoreMods } from "../../../shared/CoreMods";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
-import DownloadMarkedModsLink from "../components/DownloadMarkedModsLink.astro";
 import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
+import StickyBar from "../components/StickyBar.astro";
 
 const modJson = readAllModsJson();
 
@@ -74,66 +73,7 @@ const coreMods = (await getCoreMods())[gameVersion];
     slot="header-post-title"
     currentVersion={gameVersion}
   />
-  <div
-    class={`
-      before:absolute
-      before:backdrop-blur
-      before:content['']
-      before:inset-0
-      before:z-[-1]
-      bg-header-footer-bg
-      mx-auto
-      p-4
-      sticky
-      text-center
-      top-0
-      w-full
-      z-10
-      hidden
-      script-block
-    `}
-  >
-    <ModFilter
-      class={`
-        backdrop-blur
-        bg-header-input-bg
-        border
-        border-white-alpha-20
-        max-w-full
-        mx-auto
-        p-2
-        placeholder-header-input-placeholder
-        placeholder:text-center
-        rounded-md
-        text-header-input-text
-        w-[444px]
-      `}
-      placeholder="Search mods"
-    />
-    {
-      coreMods && coreMods.mods.length > 0 ? (
-        <div class="text-center qavs-none pt-4">
-          <DownloadMarkedModsLink
-            version={gameVersion}
-            outerClass={`
-              block
-              text-center
-            `}
-            class={`
-              btn
-              btn-primary
-              btn-sm
-              rounded-lg
-              text-white
-              disabled:bg-neutral
-            `}
-          >
-            Download All Marked Mods
-          </DownloadMarkedModsLink>
-        </div>
-      ) : null
-    }
-  </div>
+  <StickyBar gameVersion={gameVersion} />
   <div class="px-safe">
     <div
       class={`

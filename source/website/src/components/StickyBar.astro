@@ -1,0 +1,102 @@
+---
+import ModFilter from "../components/ModFilter.astro";
+import DownloadMarkedModsLink from "../components/DownloadMarkedModsLink.astro";
+
+const { gameVersion } = Astro.props as {
+  gameVersion: string;
+};
+---
+
+<div
+  class={`
+    before:absolute
+    before:backdrop-blur
+    before:content['']
+    before:inset-0
+    before:z-[-1]
+    bg-header-footer-bg
+    hidden
+    mx-auto
+    p-4
+    script-block
+    sticky
+    text-[0]
+    text-center
+    top-0
+    w-full
+    z-10
+  `}
+>
+  <ModFilter
+    class={`
+      align-middle
+      backdrop-blur
+      bg-header-input-bg
+      border
+      border-white-alpha-20
+      max-w-full
+      mx-auto
+      p-1
+      placeholder-header-input-placeholder
+      placeholder:text-center
+      rounded-md
+      text-[1rem]
+      text-header-input-text
+      w-[435px]
+    `}
+    placeholder="Search mods"
+  />
+  <div
+    class={`
+      block
+      download-marked-mods-wrapper
+      pt-4
+      qavs-none
+      text-center
+    `}
+  >
+    <DownloadMarkedModsLink
+      version={gameVersion}
+      outerClass={`
+
+        align-middle
+        block
+        text-center
+      `}
+      class={`
+        btn
+        btn-primary
+        btn-sm
+        h-[34px]
+        disabled:bg-neutral
+        rounded-lg
+        text-white
+      `}
+    >
+      Download All Marked Mods
+    </DownloadMarkedModsLink>
+  </div>
+</div>
+<script>
+  const stickyElement = document.querySelector(".sticky");
+
+  if (stickyElement) {
+    function checkStuck() {
+      const stuck = stickyElement!.getBoundingClientRect().top < 5;
+      stickyElement!.toggleAttribute("stuck", stuck);
+      stickyElement!.toggleAttribute("unstuck", !stuck);
+    }
+
+    window.addEventListener("scroll", checkStuck);
+    checkStuck();
+  }
+</script>
+<style lang="scss">
+  @media (min-width: 768px) {
+    [stuck] .download-marked-mods-wrapper {
+      display: inline-block !important;
+      padding-top: 0 !important;
+      padding-left: 0.625rem !important;
+    }
+  }
+</style>
