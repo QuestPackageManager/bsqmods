@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/vcmikuu/U-ChatUI/releases/download/0.1.0/ChatUI-0.1.0.qmod",
   "source": "https://github.com/vcmikuu/U-ChatUI/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/vcmikuu/U-ChatUI/main/cover.jpg",
   "funding": [],
   "website": "https://github.com/vcmikuu/U-ChatUI/"
 }
