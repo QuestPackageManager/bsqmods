@@ -1,0 +1,14 @@
+{
+  "name": "BetterHaptics",
+  "description": "Reverts haptic feedback changes without breaking arc and chain notes.",
+  "id": "BetterHaptics",
+  "version": "0.1.0",
+  "author": "Crunkle",
+  "authorIcon": "https://avatars.githubusercontent.com/u/1208758?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Crunkle/BetterHaptics/releases/download/v0.1.0/BetterHaptics.qmod",
+  "source": "https://github.com/Crunkle/BetterHaptics/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Crunkle/BetterHaptics/"
+}
