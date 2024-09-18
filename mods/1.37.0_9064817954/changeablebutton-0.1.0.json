@@ -1,0 +1,14 @@
+{
+  "name": "ChangeableButton",
+  "description": "Changes the text of the button",
+  "id": "changeablebutton",
+  "version": "0.1.0",
+  "author": "Anta",
+  "authorIcon": "https://avatars.githubusercontent.com/u/177252947?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Anota-B/ChangeableButton/releases/download/0.1.0/ChangeableButton.qmod",
+  "source": "https://github.com/Anota-B/ChangeableButton/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Anota-B/ChangeableButton/"
+}
