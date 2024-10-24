@@ -1,0 +1,14 @@
+{
+  "name": "AwesomeOldQosmeticsModelInstaller",
+  "description": "Allows you to install .qsaber, .qwall and .qbloq files using ModsBeforeFriday and other modding tools\n\nNOTE: These formats are outdated. Instead you should use .whacker, .cyoob and .box files if possible instead.",
+  "id": "qinst",
+  "version": "1.0.24",
+  "author": "jxnxsdev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/qInstaller/releases/download/1.37.0_9064817954/1.37.0_9064817954.qmod",
+  "source": "https://github.com/jxnxsdev/qInstaller/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/qInstaller/main/cover.png",
+  "funding": [],
+  "website": null
+}
