@@ -30,5 +30,18 @@ import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
     >
       <Flamingo />
     </span>
+    <div
+      class={`
+      after:bg-error
+      after:bg-warning
+      before:bg-error
+      before:bg-warning
+      bg-error
+      bg-warning
+      hidden
+    `}
+    >
+      This element only exists so that tailwind sees these classes and doesn't strip them.
+    </div>
   </div>
 </Layout>
