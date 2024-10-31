@@ -5,7 +5,7 @@
  * @returns - The parsed Date object in UTC.
  */
 export function parseUTCDate(dateString: string): Date {
-  const dateMatch = dateString.match(/^(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)(?:\.(\d{1,3}))?\d*Z$/);
+  const dateMatch = dateString.match(/^(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)(?:\.(\d{1,3}))?\d*Z?$/);
 
   if (!dateMatch) {
     throw new Error("Invalid date format");
