@@ -1,0 +1,14 @@
+{
+  "name": "MultiplayerCore",
+  "description": "Adds custom songs to Beat Saber Multiplayer.",
+  "id": "multiplayer-core",
+  "version": "1.5.2",
+  "author": "Goobie, LookAtHippo, EnderdracheLP, cubic, EnderdracheLP, cubic, RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/releases/download/1.5.2/MultiplayerCore_1.5.2.qmod",
+  "source": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/MultiplayerCore.Quest/master/Cover.png",
+  "funding": [],
+  "website": null
+}
