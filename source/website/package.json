@@ -21,7 +21,7 @@
     "@types/file-saver": "^2.0.7",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "astro": "^4.16.10",
+    "astro": "^4.16.13",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.14",
     "file-saver": "^2.0.5",
@@ -30,8 +30,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "reset-css": "^5.0.2",
-    "sass": "^1.80.6",
-    "tailwindcss": "^3.4.14",
+    "sass": "^1.81.0",
+    "tailwindcss": "^3.4.15",
     "tailwindcss-safe-area": "^0.6.0"
   }
 }
