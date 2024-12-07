@@ -1,0 +1,14 @@
+{
+  "name": "Replay",
+  "description": "Watch back your best scores!",
+  "id": "replay",
+  "version": "0.6.1",
+  "author": "Henwill8",
+  "authorIcon": null,
+  "modloader": "QuestLoader",
+  "download": "https://henwill8.itch.io/replay",
+  "source": null,
+  "cover": null,
+  "funding": [],
+  "website": null
+}
