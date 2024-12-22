@@ -1,0 +1,67 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Test build the website
+
+on:
+  # Runs on pull requests
+  pull_request:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Get username and repository
+        run: |
+          echo "REPO_USERNAME=${GITHUB_REPOSITORY%%/*}" >> $GITHUB_ENV
+          echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+          echo "REPO_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
+
+      - name: Set pages url
+        run: |
+          HOMEPAGE_URL="$(curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/$GITHUB_REPOSITORY/pages" | jq -r '.html_url' | sed 's/\/$//')"
+          if [ "$HOMEPAGE_URL" == "null" ]; then
+            echo "PAGES_URL=https://$REPO_USERNAME.github.io/$REPO_NAME" >> $GITHUB_ENV
+          else
+            echo "PAGES_URL=$HOMEPAGE_URL" >> $GITHUB_ENV
+          fi
+
+      - name: Set page path
+        run: |
+          echo "PAGES_PATH=$(echo "$PAGES_URL" | awk -F/ -v OFS="/" '{$1=$2=$3=""; print $0}' | sed 's/\/\+/\//')" >> $GITHUB_ENV
+
+      - name: Download cache
+        continue-on-error: true
+        run: |
+          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?$(date +%s)" -O cache.txz
+
+      - name: Extract cache
+        continue-on-error: true
+        run: |
+          tar -xJvf cache.txz
+
+      - name: Install npm modules
+        run: |
+          (cd source/scripts && npm install)
+          (cd source/website && npm install)
+
+      - name: Process the json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd source/scripts
+          npx tsx ./combine.ts "--baseHref=$PAGES_URL" 2>&1 | tee ../website/public/deploy-log.txt
+
+      - name: Build website
+        run: |
+          cd source/website
+          npx astro build --base "$PAGES_PATH"
