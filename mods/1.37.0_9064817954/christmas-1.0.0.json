@@ -1,0 +1,14 @@
+{
+  "name": "ChristmasTheme",
+  "description": "Turn your Beat Saber into a christmas wonderland!",
+  "id": "christmas",
+  "version": "1.0.0",
+  "author": "Furzz, laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/ChristmasTheme/releases/download/v1.0.0/Christmas.qmod",
+  "source": "https://github.com/vcmikuu/ChristmasTheme/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/ChristmasTheme/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/ChristmasTheme/"
+}
