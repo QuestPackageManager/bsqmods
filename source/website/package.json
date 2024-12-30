@@ -23,7 +23,7 @@
     "@types/react-dom": "^19.0.2",
     "astro": "^5.1.1",
     "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.22",
+    "daisyui": "^4.12.23",
     "file-saver": "^2.0.5",
     "html-entities": "^2.5.2",
     "lightningcss": "^1.28.2",
