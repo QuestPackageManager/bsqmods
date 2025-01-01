@@ -1,0 +1,14 @@
+{
+  "name": "SelfCompete",
+  "description": "Displays a ranking of how you're doing on the map you're playing compared to all other times you played that map.",
+  "id": "selfcompete",
+  "version": "0.1.1",
+  "author": "TheZipCreator",
+  "authorIcon": null,
+  "modloader": "Scotland2",
+  "download": "https://git.sr.ht/~thezipcreator/selfcompete-qmod/refs/download/v0.1.1/SelfCompete.qmod",
+  "source": "https://sr.ht/~thezipcreator/selfcompete-qmod/",
+  "cover": "https://git.sr.ht/~thezipcreator/selfcompete-qmod/blob/main/cover.png",
+  "funding": [],
+  "website": "https://sr.ht/~thezipcreator/selfcompete-qmod/"
+}
