@@ -1,0 +1,14 @@
+{
+  "name": "SimpleSabers",
+  "description": "Tweak the default saber and trail",
+  "id": "simplesabers",
+  "version": "0.1.0",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/SimpleSabers/releases/download/v0.1.0/SimpleSabers.qmod",
+  "source": "https://github.com/Metalit/SimpleSabers/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Metalit/SimpleSabers/"
+}
