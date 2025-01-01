@@ -1,14 +1,14 @@
 {
   "name": "MoreButtons",
-  "description": "Use all the special characters you could possibly want, now accessible through the keyboard's number pad!",
+  "description": "Overloads your keyboard!",
   "id": "morebuttons",
   "version": "1.0.0",
   "author": "Metalit",
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/MoreButtons/releases/download/v1.0.0/MoreButtons.qmod",
-  "source": "https://github.com/Metalit/MoreButtons",
+  "source": "https://github.com/Metalit/MoreButtons/",
   "cover": null,
   "funding": [],
-  "website": null
+  "website": "https://github.com/Metalit/MoreButtons/"
 }
