@@ -67,6 +67,28 @@ jobs:
             md5sum |
             awk '{ print "BRANCH_NAME=" $1 }' >> $GITHUB_ENV
 
+      - name: Reset the staging area
+        run: |
+          git reset
+
+      - name: Configure git user
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Make commits for the new mods.
+        run: |
+          cd source/scripts
+          npx tsx ./commit-new-mods.ts 2>&1 | tee new-mods.txt
+          if grep -q '^Added mod:' new-mods.txt; then
+            echo "MODS_UPDATED=yes" >> "$GITHUB_ENV"
+          fi
+          rm new-mods.txt
+
+      - name: Reset the repository working directory.
+        run: |
+          git reset --hard
+
       - name: Create PR
         if: (github.event.inputs.createPr == 'true')
         uses: peter-evans/create-pull-request@v6
@@ -75,31 +97,14 @@ jobs:
           commit-message: ${{ env.COMMIT_MSG }}
           branch: import/${{ env.BRANCH_NAME }}
 
-      - name: Configure git user
-        if: (github.event.inputs.createPr != 'true')
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Commit the updated files
-        if: (github.event.inputs.createPr != 'true')
-        run: |
-          git add -A mods
-          (
-            git commit -m "$COMMIT_MSG" &&
-            (
-              echo "MODS_UPDATED=yes" >> $GITHUB_ENV
-            )
-          ) || true
-
       - name: Push the updated files
-        if: (env.MODS_UPDATED == 'yes')
+        if: ((github.event.inputs.createPr != 'true') && (env.MODS_UPDATED == 'yes'))
         run: |
           git pull --rebase
           git push
 
       - name: Trigger deploy
-        if: (env.MODS_UPDATED == 'yes')
+        if: ((github.event.inputs.createPr != 'true') && (env.MODS_UPDATED == 'yes'))
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \

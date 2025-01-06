@@ -39,11 +39,19 @@ jobs:
           cd source/scripts
           npx tsx ./update-mods.ts 2>&1
 
-      - name: Only keep new files.
+      - name: Configure git user
         run: |
-          git add $(git ls-files --others --exclude-standard mods)
-          git checkout .
-          git reset
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Make commits for the new mods.
+        run: |
+          cd source/scripts
+          npx tsx ./commit-new-mods.ts 2>&1
+
+      - name: Reset the repository working directory.
+        run: |
+          git reset --hard
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -51,35 +59,3 @@ jobs:
           title: Update Mods
           commit-message: Update mods
           branch: update-mods
-
-      - name: Configure git user
-        if: (false)
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Commit the new files
-        if: (false)
-        run: |
-          git add $(git ls-files --others --exclude-standard mods)
-          (
-            git commit -m "Update mods" &&
-            (
-              echo "MODS_UPDATED=yes" >> $GITHUB_ENV
-            )
-          ) || true
-
-      - name: Push the updated files
-        if: (false)
-        run: |
-          git pull --rebase
-          git push
-
-      - name: Trigger deploy
-        if: (env.MODS_UPDATED == 'yes')
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"trigger_deploy"}'
