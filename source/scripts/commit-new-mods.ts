@@ -1,14 +1,5 @@
 import { getNewFilesAsync } from "./shared/getNewFiles";
-import { readTextFile } from "./shared/readTextFile";
-import { changedFilesPath } from "../shared/paths";
 import { iterateSplitMods } from "./shared/iterateMods";
-import { validateMod } from "../shared/validateMod";
-import { fetchBuffer } from "../shared/fetch";
-import JSZip from "jszip";
-import { existsSync } from "fs";
-import { validateQmodModJson } from "../shared/validateQmodModJson";
-import { getIndentedMessage } from "../shared/getIndentedMessage";
-import { argv, chdir } from "process";
 import { repoDir } from "../shared/paths";
 import { executeCommand } from "./shared/executeCommand";
 
@@ -22,8 +13,32 @@ for (const iteration of iterateSplitMods()) {
     await executeCommand("git", ["add", iteration.shortModPath], false, repoDir);
     await executeCommand("git", [
       "commit",
+      "--cleanup=verbatim",
       "-m",
-      `${mod.name} v${mod.version}\n\nID: ${mod.id}\nAuthor: ${mod.author}\nMod Loader: ${mod.modloader}\nGame Version: ${iteration.version}\n\n${mod.description}`.trim()
+      [
+        // Make our commit message
+        `${mod.name} ${mod.version?.trim() && `v${mod.version.trim()}`}`,
+        ``,
+        ...(() => {
+          return [
+            ["ID", mod.id?.trim()],
+            ["Author", mod.author?.trim()],
+            ["Mod Loader", mod.modloader?.trim()],
+            ["Game Version", iteration.version?.trim()]
+          ]
+            .filter((line) => line[1])
+            .map((line) => `${line.join(": ")}  `);
+        })(),
+        (mod.description?.trim() &&
+          `\n${"-".repeat(50)}\n\n` +
+            mod.description
+              .split("\n")
+              .map((line) => line.trimEnd() + "  ")
+              .join("\n")) ||
+          ""
+      ]
+        .join("\n")
+        .trim()
     ]);
 
     console.log(`Added mod: ${iteration.shortModPath}`);
