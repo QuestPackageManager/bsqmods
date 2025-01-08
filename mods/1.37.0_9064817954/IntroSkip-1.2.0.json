@@ -1,0 +1,14 @@
+{
+  "name": "Intro Skip",
+  "description": "Skip the intro and outro of maps",
+  "id": "IntroSkip",
+  "version": "1.2.0",
+  "author": "Polly51104",
+  "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Royston1999/IntroSkip-Quest/releases/download/v1.2.0/IntroSkip_v1.2.0.qmod",
+  "source": "https://github.com/Royston1999/IntroSkip-Quest/",
+  "cover": "https://raw.githubusercontent.com/Royston1999/IntroSkip-Quest/main/Cover.png",
+  "funding": [],
+  "website": "https://github.com/Royston1999/IntroSkip-Quest/"
+}
