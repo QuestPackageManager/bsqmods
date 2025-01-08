@@ -1,0 +1,14 @@
+{
+  "name": "Saber Tailor",
+  "description": "Edit controller settings for each saber independently. Also includes Kinsi's Controller Settings Helper mod",
+  "id": "sabertailor",
+  "version": "2.1.1",
+  "author": "Polly51104",
+  "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Royston1999/Saber-Tailor-quest/releases/download/v2.1.1/SaberTailor_v2.1.1.qmod",
+  "source": "https://github.com/Royston1999/Saber-Tailor-quest/",
+  "cover": "https://raw.githubusercontent.com/Royston1999/Saber-Tailor-quest/main/Cover.png",
+  "funding": [],
+  "website": "https://github.com/Royston1999/Saber-Tailor-quest/"
+}
