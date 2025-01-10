@@ -1,0 +1,14 @@
+{
+  "name": "GaySabers",
+  "description": "Makes your sabers gay (i mean glow in rainbow colors)",
+  "id": "gaysabers",
+  "version": "1.0.4",
+  "author": "jxnxsdev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/GaySabers/releases/download/1.0.6/GaySabers.qmod",
+  "source": "https://github.com/jxnxsdev/GaySabers/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/GaySabers/master/logo.gif",
+  "funding": [],
+  "website": "https://jxnxsdev.me"
+}
