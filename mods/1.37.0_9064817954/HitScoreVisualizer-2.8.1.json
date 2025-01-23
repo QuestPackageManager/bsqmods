@@ -6,9 +6,9 @@
   "author": "Christoffyw, Metalit",
   "authorIcon": "https://avatars.githubusercontent.com/u/55860414?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/Christoffyw/HitScoreVisualizer/releases/download/v2.8.1/HitScoreVisualizer.qmod",
-  "source": "https://github.com/Christoffyw/HitScoreVisualizer/",
-  "cover": "https://raw.githubusercontent.com/Christoffyw/HitScoreVisualizer/master/Cover.jpg",
+  "download": "https://github.com/christopherweinhardt/HitScoreVisualizer/releases/download/v2.8.1/HitScoreVisualizer.qmod",
+  "source": "https://github.com/christopherweinhardt/HitScoreVisualizer/",
+  "cover": "https://raw.githubusercontent.com/christopherweinhardt/HitScoreVisualizer/master/Cover.jpg",
   "funding": [],
-  "website": "https://github.com/Christoffyw/HitScoreVisualizer/"
+  "website": "https://github.com/christopherweinhardt/HitScoreVisualizer/"
 }

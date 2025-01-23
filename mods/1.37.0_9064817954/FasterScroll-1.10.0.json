@@ -6,9 +6,9 @@
   "author": "Christoffyw",
   "authorIcon": "https://avatars.githubusercontent.com/u/55860414?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/Christoffyw/FasterScrollQuest/releases/download/v1.10.0/FasterScroll.qmod",
-  "source": "https://github.com/Christoffyw/FasterScrollQuest/",
-  "cover": "https://raw.githubusercontent.com/Christoffyw/FasterScrollQuest/main/Cover.jpg",
+  "download": "https://github.com/christopherweinhardt/FasterScrollQuest/releases/download/v1.10.0/FasterScroll.qmod",
+  "source": "https://github.com/christopherweinhardt/FasterScrollQuest/",
+  "cover": "https://raw.githubusercontent.com/christopherweinhardt/FasterScrollQuest/main/Cover.jpg",
   "funding": [],
-  "website": "https://github.com/Christoffyw/FasterScrollQuest/"
+  "website": "https://github.com/christopherweinhardt/FasterScrollQuest/"
 }

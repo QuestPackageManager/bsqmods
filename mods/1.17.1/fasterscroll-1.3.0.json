@@ -6,9 +6,9 @@
   "author": "Christoffyw",
   "authorIcon": "https://avatars.githubusercontent.com/u/55860414?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/Christoffyw/FasterScrollQuest/releases/download/v1.3.0/fasterscroll_v1.3.0.qmod",
-  "source": "https://github.com/Christoffyw/FasterScrollQuest/",
-  "cover": "https://raw.githubusercontent.com/Christoffyw/FasterScrollQuest/master/Cover.jpg",
+  "download": "https://github.com/christopherweinhardt/FasterScrollQuest/releases/download/v1.3.0/fasterscroll_v1.3.0.qmod",
+  "source": "https://github.com/christopherweinhardt/FasterScrollQuest/",
+  "cover": "https://raw.githubusercontent.com/christopherweinhardt/FasterScrollQuest/master/Cover.jpg",
   "funding": [],
   "website": null
 }
