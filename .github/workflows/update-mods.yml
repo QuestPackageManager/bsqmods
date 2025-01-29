@@ -45,7 +45,7 @@ jobs:
         id: get-urls
         run: |
           cd source/scripts
-          echo "urls=$(npx tsx ./get-new-mod-urls.ts | jq -Rsc 'split("\n") | map(select(length > 0))')" | tee -a "GITHUB_OUTPUT"
+          echo "urls=$(npx tsx ./get-new-mod-urls.ts | jq -sc 'split("\n") | map(select(length > 0))')" | tee -a "GITHUB_OUTPUT"
 
   process-urls:
     needs: update-mods
