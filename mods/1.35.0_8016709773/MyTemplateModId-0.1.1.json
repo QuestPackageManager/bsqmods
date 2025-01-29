@@ -1,0 +1,14 @@
+{
+  "name": "MyTemplateModName",
+  "description": "MyTemplateModDescription",
+  "id": "MyTemplateModId",
+  "version": "0.1.1",
+  "author": "MyTemplateModAuthor",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/test/releases/download/v0.1.1/MyTemplateModName.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/test/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/test/"
+}
