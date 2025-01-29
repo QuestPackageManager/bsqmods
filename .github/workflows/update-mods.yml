@@ -44,8 +44,12 @@ jobs:
       - name: Get URLs for new mods
         id: get-urls
         run: |
+          set -x
           cd source/scripts
-          urls="$(npx tsx ./get-new-mod-urls.ts | jq -sc 'split("\n") | map(select(length > 0))')"
+          urls="$(npx tsx ./get-new-mod-urls.ts)"
+          echo "$urls"
+          urls="$(echo "$urls" | jq -sc 'split("\n") | map(select(length > 0))')"
+          echo "$urls"
           echo "$urls" | jq .
           echo "urls=$urls" >> $GITHUB_OUTPUT
 
