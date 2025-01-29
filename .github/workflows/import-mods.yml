@@ -50,8 +50,8 @@ jobs:
         run: |
           cd source/scripts
           npx tsx ./import.ts 2>&1
-          echo "COMMIT_SUBJECT=$(echo "Update core mods" | jq -Rsc '@json')" | tee -a "$GITHUB_ENV"
-          echo "COMMIT_BODY=$(echo "Updated new core mods from https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json" | jq -Rsc '@json')" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_SUBJECT=$(echo "Update core mods" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_BODY=$(echo "Updated new core mods from https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
           echo "BRANCH_NAME=core-mods" | tee -a "$GITHUB_ENV"
 
       - name: Import the specified mod
@@ -88,8 +88,8 @@ jobs:
       - name: Update PR info from last commit
         if: (github.event.inputs.url != '')
         run: |
-          echo "COMMIT_SUBJECT=$(git log -1 --pretty=%s | jq -Rsc '@json')" | tee -a "$GITHUB_ENV"
-          echo "COMMIT_BODY=$(git log -1 --pretty=%b | jq -Rsc '@json')" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_SUBJECT=$(git log -1 --pretty=%s | jq -R -s)" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_BODY=$(git log -1 --pretty=%b | jq -R -s)" | tee -a "$GITHUB_ENV"
 
       - name: Reset the repository working directory.
         run: |
