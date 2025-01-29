@@ -9,17 +9,19 @@ on:
     - cron: "24 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow push and requesting PRs
-permissions:
-  pull-requests: write
-  contents: write
+concurrency:
+  group: update-mods-${{ github.ref }}
 
 jobs:
   # Single deploy job since we're just deploying
   update-mods:
-    concurrency:
-      group: update-mods-${{ github.ref }}
-
     runs-on: ubuntu-latest
+    outputs:
+      mod-urls: ${{ steps.get-urls.outputs.urls }}
+
+    permissions:
+      contents: read
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,23 +41,24 @@ jobs:
           cd source/scripts
           npx tsx ./update-mods.ts 2>&1
 
-      - name: Configure git user
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Make commits for the new mods.
+      - name: Get URLs for new mods
+        id: get-urls
         run: |
           cd source/scripts
-          npx tsx ./commit-new-mods.ts 2>&1
+          urls="$(npx tsx ./get-new-mod-urls.ts | jq -Rsc 'split("\n") | map(select(length > 0))')"
+          echo "$urls" | jq .
+          echo "urls=$urls" >> $GITHUB_OUTPUT
 
-      - name: Reset the repository working directory.
-        run: |
-          git reset --hard
+  process-urls:
+    needs: update-mods
+    permissions:
+      contents: write
+      pull-requests: write
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          title: Update Mods
-          commit-message: Update mods
-          branch: update-mods
+    strategy:
+      matrix:
+        url: ${{ fromJson(needs.update-mods.outputs.mod-urls) }}
+      
+    uses: ./.github/workflows/import-mods.yml
+    with:
+      url: ${{ matrix.url }}

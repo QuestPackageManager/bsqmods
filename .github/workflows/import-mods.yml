@@ -17,6 +17,24 @@ on:
         description: "Should a PR be created? If false, the result will be committed automatically."
         type: boolean
         default: true
+        
+  # Allows you to run this workflow as an embedded workflow
+  workflow_call:
+    inputs:
+      url:
+        description: "A url to a qmod that should be imported. If not specified, core mods are imported."
+        type: string
+        default: ""
+
+      targetVersion:
+        description: "The target game version of the qmod.  If not specified, it will be read from the qmod itself."
+        type: string
+        default: ""
+
+      createPr:
+        description: "Should a PR be created? If false, the result will be committed automatically."
+        type: boolean
+        default: true
 
   # Every 30 minutes
   schedule:
@@ -44,28 +62,28 @@ jobs:
           (cd source/scripts && npm install)
 
       - name: Import the core mods
-        if: (github.event.inputs.url == '')
+        if: (inputs.url == '')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd source/scripts
           npx tsx ./import.ts 2>&1
-          echo "COMMIT_MSG=Update core mods" >> $GITHUB_ENV
-          echo "BRANCH_NAME=core-mods" >> $GITHUB_ENV
+          echo "COMMIT_SUBJECT=$(echo "Update core mods" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_BODY=$(echo "Updated new core mods from https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
+          echo "BRANCH_NAME=core-mods" | tee -a "$GITHUB_ENV"
 
       - name: Import the specified mod
-        if: (github.event.inputs.url != '')
+        if: (inputs.url != '')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd source/scripts
-          npx tsx ./import.ts "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" 2>&1
+          npx tsx ./import.ts "${{ inputs.url }}" "${{ inputs.targetVersion }}" 2>&1
           git add -A ../../mods
-          echo "COMMIT_MSG=Update $(git diff --name-only --cached)" >> $GITHUB_ENV
-          echo "${{ github.event.inputs.url }}" "${{ github.event.inputs.targetVersion }}" |
+          echo "${{ inputs.url }}" "${{ inputs.targetVersion }}" |
             tr A-Z a-z |
             md5sum |
-            awk '{ print "BRANCH_NAME=" $1 }' >> $GITHUB_ENV
+            awk '{ print "BRANCH_NAME=" $1 }' | tee -a "$GITHUB_ENV"
 
       - name: Reset the staging area
         run: |
@@ -81,30 +99,36 @@ jobs:
           cd source/scripts
           npx tsx ./commit-new-mods.ts 2>&1 | tee new-mods.txt
           if grep -q '^Added mod:' new-mods.txt; then
-            echo "MODS_UPDATED=yes" >> "$GITHUB_ENV"
+            echo "MODS_UPDATED=yes" | tee -a "$GITHUB_ENV"
           fi
           rm new-mods.txt
+
+      - name: Update PR info from last commit
+        if: (inputs.url != '')
+        run: |
+          echo "COMMIT_SUBJECT=$(git log -1 --pretty=%s | jq -R -s)" | tee -a "$GITHUB_ENV"
+          echo "COMMIT_BODY=$(git log -1 --pretty=%b | jq -R -s)" | tee -a "$GITHUB_ENV"
 
       - name: Reset the repository working directory.
         run: |
           git reset --hard
 
       - name: Create PR
-        if: (github.event.inputs.createPr == 'true')
+        if: (inputs.createPr == true)
         uses: peter-evans/create-pull-request@v6
         with:
-          title: ${{ env.COMMIT_MSG }}
-          commit-message: ${{ env.COMMIT_MSG }}
+          title: ${{ fromJson(env.COMMIT_SUBJECT) }}
+          body: ${{ fromJson(env.COMMIT_BODY) }}
           branch: import/${{ env.BRANCH_NAME }}
 
       - name: Push the updated files
-        if: ((github.event.inputs.createPr != 'true') && (env.MODS_UPDATED == 'yes'))
+        if: ((inputs.createPr != true) && (env.MODS_UPDATED == 'yes'))
         run: |
           git pull --rebase
           git push
 
       - name: Trigger deploy
-        if: ((github.event.inputs.createPr != 'true') && (env.MODS_UPDATED == 'yes'))
+        if: ((inputs.createPr != true) && (env.MODS_UPDATED == 'yes'))
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
