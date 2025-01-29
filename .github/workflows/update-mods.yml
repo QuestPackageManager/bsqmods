@@ -10,8 +10,8 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow push and requesting PRs
 permissions:
-  pull-requests: write
-  contents: write
+  contents: read
+  actions: write
 
 jobs:
   # Single deploy job since we're just deploying
