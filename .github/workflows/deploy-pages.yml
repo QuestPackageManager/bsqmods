@@ -86,19 +86,19 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Download cache
-        if: (github.event.inputs.purgeCache != '--all')
+        if: (inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O cache.txz
 
       - name: Extract cache
-        if: (github.event.inputs.purgeCache != '--all')
+        if: (inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           tar -xJvf cache.txz
 
       - name: Delete cache
-        if: (github.event.inputs.purgeCache != '--all')
+        if: (inputs.purgeCache != '--all')
         continue-on-error: true
         run: |
           rm cache.txz
@@ -109,10 +109,10 @@ jobs:
           (cd source/website && npm install)
 
       - name: Purge specified items from cache
-        if: ((github.event.inputs.purgeCache != '') && (github.event.inputs.purgeCache != '--all'))
+        if: ((inputs.purgeCache != '') && (inputs.purgeCache != '--all'))
         run: |
           cd source/scripts
-          npx tsx ./purgecache.ts "${{ github.event.inputs.purgeCache }}"
+          npx tsx ./purgecache.ts "${{ inputs.purgeCache }}"
 
       - name: Update mirror
         env:
@@ -134,7 +134,7 @@ jobs:
           fi
 
       - name: Process the json (schedule)
-        if: (github.event_name == 'schedule' || github.event.inputs.recheckUrls == 'true')
+        if: (github.event_name == 'schedule' || inputs.recheckUrls == 'true')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
