@@ -99,8 +99,8 @@ jobs:
         if: (github.event.inputs.createPr == 'true')
         uses: peter-evans/create-pull-request@v6
         with:
-          title: ${{ fromJSON(env.COMMIT_SUBJECT) }}
-          body: ${{ fromJSON(env.COMMIT_BODY) }}
+          title: ${{ fromJson(env.COMMIT_SUBJECT) }}
+          body: ${{ fromJson(env.COMMIT_BODY) }}
           branch: import/${{ env.BRANCH_NAME }}
 
       - name: Push the updated files
