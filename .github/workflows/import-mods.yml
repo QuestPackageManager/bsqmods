@@ -17,6 +17,24 @@ on:
         description: "Should a PR be created? If false, the result will be committed automatically."
         type: boolean
         default: true
+        
+  # Allows you to run this workflow as an embedded workflow
+  workflow_call:
+    inputs:
+      url:
+        description: "A url to a qmod that should be imported. If not specified, core mods are imported."
+        type: string
+        default: ""
+
+      targetVersion:
+        description: "The target game version of the qmod.  If not specified, it will be read from the qmod itself."
+        type: string
+        default: ""
+
+      createPr:
+        description: "Should a PR be created? If false, the result will be committed automatically."
+        type: boolean
+        default: true
 
   # Every 30 minutes
   schedule:
