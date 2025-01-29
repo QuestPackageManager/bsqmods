@@ -44,26 +44,19 @@ jobs:
       - name: Get URLs for new mods
         id: get-urls
         run: |
+          cd source/scripts
           echo "urls=$(npx tsx ./get-new-mod-urls.ts | jq -R -s 'split("\n") | map(select(length > 0))')" | tee -a "GITHUB_OUTPUT"
 
   process-urls:
     needs: update-mods
-    runs-on: ubuntu-latest
     permissions:
-      contents: read
-      actions: write
+      contents: write
+      pull-requests: write
 
     strategy:
       matrix:
         url: ${{ fromJson(needs.update-mods.outputs.mod-urls) }}
       
-    steps:
-      - name: Run import workflow for new mods
-        run: |
-          set +x
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d "{\"ref\":\"${{ github.ref }}\",\"inputs\":{\"url\":$(echo -n "${{ matrix.url }}" | jq -R -s)}}" \
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/import-mods.yml/dispatches
-            
+    uses: ./.github/workflows/import-mods.yml
+    with:
+      url: ${{ matrix.url }}
