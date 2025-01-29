@@ -134,7 +134,7 @@ jobs:
           fi
 
       - name: Process the json (schedule)
-        if: (github.event_name == 'schedule' || inputs.recheckUrls == 'true')
+        if: (github.event_name == 'schedule' || inputs.recheckUrls == true)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
