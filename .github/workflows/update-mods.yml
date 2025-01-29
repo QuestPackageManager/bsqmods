@@ -44,18 +44,15 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Make commits for the new mods.
+      - name: Run import workflow for new mods
         run: |
+          set +x
           cd source/scripts
-          npx tsx ./commit-new-mods.ts 2>&1
-
-      - name: Reset the repository working directory.
-        run: |
-          git reset --hard
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          title: Update Mods
-          commit-message: Update mods
-          branch: update-mods
+          npx tsx ./get-new-mod-urls.ts | while read url; do
+            curl -X POST \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -d "{\"ref\":\"${{ github.ref }}\",\"inputs\":{\"url\":$(echo -n "$url" | jq -R -s)}}" \
+              https://api.github.com/repos/${{ github.repository }}/actions/workflows/import-mods.yml/dispatches
+          done
+            
