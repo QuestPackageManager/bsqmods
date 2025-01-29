@@ -18,6 +18,18 @@ on:
         type: boolean
         default: false
 
+  workflow_call:
+    inputs:
+      purgeCache:
+        type: string
+        description: "A list of URLs to purge from the cache, separated by \"|\".\n\nTo clear the entire cache, use \"--all\"."
+        default: ""
+
+      recheckUrls:
+        description: "Should the existing URLs be re-checked to determine if there are any missing?"
+        type: boolean
+        default: false
+
   schedule:
     - cron: "48 0 * * *"
 
