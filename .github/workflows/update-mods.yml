@@ -51,6 +51,7 @@ jobs:
 
   process-urls:
     needs: update-mods
+    if: ${{ needs.update-mods.outputs.mod-urls != '[]' }}
     permissions:
       contents: write
       pull-requests: write
