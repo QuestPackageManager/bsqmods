@@ -83,6 +83,7 @@ repo_loop: for (const [owner, repo] of repos.map((repo) => repo.split("/"))) {
         console.log(indent(`Processing asset: ${asset.name}\n`, 2));
         newLine = false;
         await importRemoteQmod(url, null, true, new IndentedConsoleLogger(3));
+        console.log(indent(`New mod: ${url}\n`, 3));
         links.push(url.toLowerCase());
       }
     }
