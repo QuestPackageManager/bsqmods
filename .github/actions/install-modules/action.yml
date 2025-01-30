@@ -32,25 +32,25 @@ runs:
   using: 'composite'
   steps:
     - name: Install npm modules for ./
-      if: ${{ inputs.root == true || inputs.source == true || inputs.website == true || inputs.scripts == true || inputs.discord == true }}
+      if: (inputs.root || inputs.source || inputs.website || inputs.scripts || inputs.discord)
       uses: ./.github/actions/npm-install
       with:
         working-directory: ''
 
     - name: Install npm modules for ./source/
-      if: ${{ inputs.source == true || inputs.website == true || inputs.scripts == true || inputs.discord == true }}
+      if: (inputs.source || inputs.website || inputs.scripts || inputs.discord)
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/'
 
     - name: Install npm modules for ./source/website/
-      if: ${{ inputs.website == true }}
+      if: (inputs.website)
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/website/'
 
     - name: Install npm modules for ./source/scripts/
-      if: ${{ inputs.scripts == true || inputs.discord == true }}
+      if: (inputs.scripts || inputs.discord)
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/scripts/'
