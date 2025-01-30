@@ -32,31 +32,31 @@ runs:
   using: 'composite'
   steps:
     - name: Install npm modules for ./
-      if: ${{ inputs.root || inputs.source || inputs.website || inputs.scripts || inputs.discord }}
+      if: ${{ inputs.root == true || inputs.source == true || inputs.website == true || inputs.scripts == true || inputs.discord == true }}
       uses: ./.github/actions/npm-install
       with:
         working-directory: ''
 
     - name: Install npm modules for ./source/
-      if: ${{ inputs.source || inputs.website || inputs.scripts || inputs.discord }}
+      if: ${{ inputs.source == true || inputs.website == true || inputs.scripts == true || inputs.discord == true }}
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/'
 
     - name: Install npm modules for ./source/website/
-      if: ${{ inputs.website }}
+      if: ${{ inputs.website == true }}
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/website/'
 
     - name: Install npm modules for ./source/scripts/
-      if: ${{ inputs.scripts || inputs.discord }}
+      if: ${{ inputs.scripts == true || inputs.discord == true }}
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/scripts/'
 
     - name: Install npm modules for ./source/scripts/discord/
-      if: ${{ inputs.discord }}
+      if: ${{ inputs.discord == true }}
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/scripts/discord/'
