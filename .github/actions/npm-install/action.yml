@@ -14,10 +14,12 @@ runs:
       shell: bash
       run: |
         pathHash="$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')"
-        lockHash="$(shasum -a 256 "${{ inputs.working-directory }}package-lock.json" | awk '{ print $1 }'))"
+        lockHash="$(shasum -a 256 "${{ inputs.working-directory }}package-lock.json" | awk '{ print $1 }')"
         modulesPath="${{ inputs.working-directory }}node_modules"
+        restoreKey="${{ runner.os }} — $modulesPath — "
 
-        echo "cache-key=${{ runner.os }} — $modulesPath — $lockHash" | tee -a "$GITHUB_OUTPUT"
+        echo "cache-restore-key=$restoreKey" | tee -a "$GITHUB_OUTPUT"
+        echo "cache-key=$restoreKey$lockHash" | tee -a "$GITHUB_OUTPUT"
         echo "modules-path=$modulesPath" | tee -a "$GITHUB_OUTPUT"
   
     - name: Restore cache
@@ -26,6 +28,7 @@ runs:
       with:
         path: ${{ steps.vars.outputs.modules-path }}
         key: ${{ steps.vars.outputs.cache-key }}
+        restore-keys: ${{ steps.vars.outputs.cache-restore-key }}
 
     - name: Install dependencies
       if: steps.restore-cache.outputs.cache-hit != 'true'
