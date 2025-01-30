@@ -14,10 +14,11 @@ runs:
       shell: bash
       run: |
         pathHash="$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')"
-        lockHash="$(shasum -a 256 "${{ inputs.working-directory }}package-lock.json")"
+        lockHash="$(shasum -a 256 "${{ inputs.working-directory }}package-lock.json" | awk '{ print $1 }'))"
+        modulesPath="${{ inputs.working-directory }}node_modules"
 
-        echo "cache-key=${{ runner.os }}-node_modules-$pathHash-$lockHash" | tee -a "$GITHUB_OUTPUT"
-        echo "modules-path=${{ inputs.working-directory }}node_modules" | tee -a "$GITHUB_OUTPUT"
+        echo "cache-key=${{ runner.os }} — $modulesPath — $lockHash" | tee -a "$GITHUB_OUTPUT"
+        echo "modules-path=$modulesPath" | tee -a "$GITHUB_OUTPUT"
   
     - name: Restore cache
       id: restore-cache
@@ -27,11 +28,9 @@ runs:
         key: ${{ steps.vars.outputs.cache-key }}
 
     - name: Install dependencies
-      if: steps.restore.cache.outputs.cache-hit != 'true'
+      if: steps.restore-cache.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        echo "Installing modules for ${{ inputs.working-directory }}"
-
         if [ ! -z "${{ inputs.working-directory }}" ]; then
           cd "${{ inputs.working-directory }}"
         fi
@@ -39,7 +38,7 @@ runs:
         npm install
 
     - name: Save cache
-      if: steps.restore.cache.outputs.cache-hit != 'true'
+      if: steps.restore-cache.outputs.cache-hit != 'true'
       uses: actions/cache/save@v4
       with:
         path: ${{ steps.vars.outputs.modules-path }}
