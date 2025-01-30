@@ -128,8 +128,8 @@ jobs:
       - name: Install npm modules
         uses: ./.github/actions/install-modules
         with:
-          website: true
           scripts: true
+          website: true
 
       - name: Purge specified items from cache
         if: ((inputs.purgeCache != '') && (inputs.purgeCache != '--all'))
