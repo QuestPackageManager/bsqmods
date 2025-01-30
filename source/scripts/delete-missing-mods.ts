@@ -8,6 +8,11 @@ const mirrorMetadata = await getMirrorMetadata();
 
 console.log(mirrorMetadata);
 
+if (Object.entries(mirrorMetadata).length == 0) {
+  console.error("Metadata empty, something isn't right");
+  process.exit(1);
+}
+
 for (const iteration of iterateSplitMods()) {
   console.log(iteration.shortModPath);
   const json = iteration.getModJson();
