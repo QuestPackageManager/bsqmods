@@ -31,7 +31,7 @@ jobs:
           node-version: 20
 
       - name: Install npm modules
-        uses: ./.github/actions/install-modules.yml
+        uses: ./.github/actions/install-modules
         with:
           scripts: true
 
