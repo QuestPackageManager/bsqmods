@@ -9,33 +9,38 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Hash working directory
-      id: hash-working-directory
+    - name: Setup variables for action
+      id: vars
       shell: bash
       run: |
-        echo "hash=$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
+        pathHash="$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')"
+        lockHash="$(shasum -a 256 "${{ inputs.working-directory }}package-lock.json")"
 
-    - name: Log cache key
-      shell: bash
-      run: |
-        echo "Using cache key: ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}"
+        echo "cache-key=${{ runner.os }}-node_modules-$pathHash-$lockHash" | tee -a "$GITHUB_OUTPUT"
+        echo "modules-path=${{ inputs.working-directory }}node_modules" | tee -a "$GITHUB_OUTPUT"
   
-    - name: Cache node_modules
-      id: cache-node-modules
-      uses: actions/cache@v4
+    - name: Restore cache
+      id: restore-cache
+      uses: actions/cache/restore@v4
       with:
-        path: ${{ inputs.working-directory }}node_modules
-        key: ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}
-        restore-keys: |
-          ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-
+        path: ${{ steps.vars.outputs.modules-path }}
+        key: ${{ steps.vars.outputs.cache-key }}
 
     - name: Install dependencies
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      if: steps.restore.cache.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo "Installing modules for ${{ inputs.working-directory }}"
+
         if [ ! -z "${{ inputs.working-directory }}" ]; then
           cd "${{ inputs.working-directory }}"
         fi
 
         npm install
+
+    - name: Save cache
+      if: steps.restore.cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: ${{ steps.vars.outputs.modules-path }}
+        key: ${{ steps.vars.outputs.cache-key }}
