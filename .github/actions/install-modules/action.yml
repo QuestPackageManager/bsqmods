@@ -35,28 +35,28 @@ runs:
       if: ${{ inputs.root || inputs.source || inputs.website || inputs.scripts || inputs.discord }}
       uses: ./.github/actions/npm-install
       with:
-        working-directory: './'
+        working-directory: ''
 
     - name: Install npm modules for ./source/
       if: ${{ inputs.source || inputs.website || inputs.scripts || inputs.discord }}
       uses: ./.github/actions/npm-install
       with:
-        working-directory: './source'
+        working-directory: 'source/'
 
     - name: Install npm modules for ./source/website/
       if: ${{ inputs.website }}
       uses: ./.github/actions/npm-install
       with:
-        working-directory: './source/website'
+        working-directory: 'source/website/'
 
     - name: Install npm modules for ./source/scripts/
       if: ${{ inputs.scripts || inputs.discord }}
       uses: ./.github/actions/npm-install
       with:
-        working-directory: './source/scripts'
+        working-directory: 'source/scripts/'
 
     - name: Install npm modules for ./source/scripts/discord/
       if: ${{ inputs.discord }}
       uses: ./.github/actions/npm-install
       with:
-        working-directory: './source/scripts/discord/'
+        working-directory: 'source/scripts/discord/'
