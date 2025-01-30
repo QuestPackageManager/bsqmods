@@ -91,6 +91,29 @@ jobs:
         run: |
           wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O cache.txz
 
+      - name: Download cache and mirror metadata
+        run: |
+          mkdir -p downloaded_files
+          wget -O downloaded_files/cache.txz https://github.com/QuestPackageManager/bsqmods/releases/download/cache/cache.txz || true
+          wget -O downloaded_files/metadata.json https://github.com/QuestPackageManager/bsqmods/releases/download/mod-mirror/metadata.json
+
+      - name: Upload cache.txz
+        uses: actions/upload-artifact@v4
+        with:
+          name: cache-backup
+          path: cache.txz
+
+      - name: Upload metadata.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: mirror-metadata-backup
+          path: metadata.json
+          if-no-files-found: error
+
+      - name: Delete metadata.json
+        run: |
+          rm metadata.json
+
       - name: Extract cache
         if: (inputs.purgeCache != '--all')
         continue-on-error: true
