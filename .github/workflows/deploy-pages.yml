@@ -94,8 +94,7 @@ jobs:
       - name: Download cache and mirror metadata
         run: |
           mkdir -p downloaded_files
-          wget -O downloaded_files/cache.txz https://github.com/QuestPackageManager/bsqmods/releases/download/cache/cache.txz || true
-          wget -O downloaded_files/metadata.json https://github.com/QuestPackageManager/bsqmods/releases/download/mod-mirror/metadata.json
+          wget -O metadata.json https://github.com/$GITHUB_REPOSITORY/releases/download/mod-mirror/metadata.json
 
       - name: Upload cache.txz
         uses: actions/upload-artifact@v4
