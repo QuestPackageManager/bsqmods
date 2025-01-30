@@ -63,8 +63,9 @@ jobs:
           wget "https://api.github.com/repos/$GITHUB_REPOSITORY/tarball/pull/$PR_NUMBER/head" -qO - | tar -xzvf - --strip-components=1 --wildcards '*/mods/'
 
       - name: Install npm modules
-        run: |
-          (cd source/scripts && npm install)
+        uses: ./.github/actions/install-modules.yml
+        with:
+          scripts: true
 
       - name: Validate json
         run: |
