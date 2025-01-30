@@ -11,7 +11,7 @@ runs:
   steps:
     - name: Hash working directory
       run: |
-        echo "hash=$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')" | tee -a "$GITHUB_ENV"
+        echo "hash=$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')" >> "$GITHUB_ENV"
 
     - name: Log cache key
       run: |
@@ -28,6 +28,8 @@ runs:
 
     - name: Install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
-      run: npm install
+      run: |
+        echo "Installing modules for ${{ inputs.working-directory }}"
+        npm install
       shell: bash
       working-directory: ${{ inputs.working-directory }}
