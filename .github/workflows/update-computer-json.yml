@@ -29,8 +29,9 @@ jobs:
           node-version: 20
 
       - name: Install npm modules
-        run: |
-          (cd source/scripts && npm install)
+        uses: ./.github/actions/install-modules
+        with:
+          scripts: true
 
       - name: Update the mods.json from ComputerElite
         env:

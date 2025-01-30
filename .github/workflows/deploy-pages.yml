@@ -126,9 +126,10 @@ jobs:
           rm cache.txz
 
       - name: Install npm modules
-        run: |
-          (cd source/scripts && npm install)
-          (cd source/website && npm install)
+        uses: ./.github/actions/install-modules
+        with:
+          scripts: true
+          website: true
 
       - name: Purge specified items from cache
         if: ((inputs.purgeCache != '') && (inputs.purgeCache != '--all'))

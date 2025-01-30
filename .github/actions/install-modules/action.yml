@@ -1,0 +1,66 @@
+name: 'Install npm modules'
+description: 'Runs npm install for multiple paths with steps enabled via inputs'
+
+inputs:
+  root:
+    description: 'Enable npm install for ./'
+    required: false
+    default: false
+    type: boolean
+
+  source:
+    description: 'Enable npm install for ./source/'
+    required: false
+    default: false
+    type: boolean
+
+  scripts:
+    description: 'Enable npm install for ./source/scripts/'
+    required: false
+    default: false
+    type: boolean
+
+  website:
+    description: 'Enable npm install for ./source/website/'
+    required: false
+    default: false
+    type: boolean
+
+  discord:
+    description: 'Enable npm install for ./source/scripts/discord/'
+    required: false
+    default: false
+    type: boolean
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install npm modules for ./
+      if: (inputs.root || inputs.source || inputs.website || inputs.scripts || inputs.discord)
+      uses: ./.github/actions/npm-install
+      with:
+        working-directory: ''
+
+    - name: Install npm modules for ./source/
+      if: (inputs.source || inputs.website || inputs.scripts || inputs.discord)
+      uses: ./.github/actions/npm-install
+      with:
+        working-directory: 'source/'
+
+    - name: Install npm modules for ./source/website/
+      if: (inputs.website)
+      uses: ./.github/actions/npm-install
+      with:
+        working-directory: 'source/website/'
+
+    - name: Install npm modules for ./source/scripts/
+      if: (inputs.scripts || inputs.discord)
+      uses: ./.github/actions/npm-install
+      with:
+        working-directory: 'source/scripts/'
+
+    - name: Install npm modules for ./source/scripts/discord/
+      if: (inputs.discord)
+      uses: ./.github/actions/npm-install
+      with:
+        working-directory: 'source/scripts/discord/'

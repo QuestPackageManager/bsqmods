@@ -50,9 +50,10 @@ jobs:
           tar -xJvf cache.txz
 
       - name: Install npm modules
-        run: |
-          (cd source/scripts && npm install)
-          (cd source/website && npm install)
+        uses: ./.github/actions/install-modules
+        with:
+          scripts: true
+          website: true
 
       - name: Process the json
         env:
