@@ -10,23 +10,24 @@ runs:
   using: 'composite'
   steps:
     - name: Hash working directory
+      id: hash-working-directory
       shell: bash
       run: |
-        echo "hash=$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')" >> "$GITHUB_ENV"
+        echo "hash=$(echo -n "${{ inputs.working-directory }}" | shasum -a 256 | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
 
     - name: Log cache key
       shell: bash
       run: |
-        echo "Using cache key: ${{ runner.os }}-node_modules-${{ env.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}"
+        echo "Using cache key: ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}"
   
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v4
       with:
         path: ${{ inputs.working-directory }}node_modules
-        key: ${{ runner.os }}-node_modules-${{ env.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}
+        key: ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-${{ hashFiles(format('{0}{1}', inputs.working-directory, 'package-lock.json')) }}
         restore-keys: |
-          ${{ runner.os }}-node_modules-${{ env.hash }}-
+          ${{ runner.os }}-node_modules-${{ steps.hash-working-directory.outputs.hash }}-
 
     - name: Install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
