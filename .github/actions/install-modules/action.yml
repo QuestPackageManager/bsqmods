@@ -7,21 +7,25 @@ inputs:
     required: false
     default: false
     type: boolean
+
   source:
     description: 'Enable npm install for ./source/'
     required: false
     default: false
     type: boolean
-  website:
-    description: 'Enable npm install for ./source/website/'
-    required: false
-    default: false
-    type: boolean
+
   scripts:
     description: 'Enable npm install for ./source/scripts/'
     required: false
     default: false
     type: boolean
+
+  website:
+    description: 'Enable npm install for ./source/website/'
+    required: false
+    default: false
+    type: boolean
+
   discord:
     description: 'Enable npm install for ./source/scripts/discord/'
     required: false
@@ -56,7 +60,7 @@ runs:
         working-directory: 'source/scripts/'
 
     - name: Install npm modules for ./source/scripts/discord/
-      if: ${{ inputs.discord == true }}
+      if: (inputs.discord)
       uses: ./.github/actions/npm-install
       with:
         working-directory: 'source/scripts/discord/'
