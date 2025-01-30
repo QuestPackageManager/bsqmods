@@ -4,9 +4,7 @@
   "description": "",
   "main": "",
   "type": "module",
-  "scripts": {
-    "preinstall": "cd .. && npm i"
-  },
+  "scripts": { },
   "author": "",
   "license": "ISC",
   "dependencies": {}
