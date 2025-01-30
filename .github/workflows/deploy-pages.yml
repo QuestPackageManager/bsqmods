@@ -91,10 +91,10 @@ jobs:
         run: |
           wget "https://github.com/$GITHUB_REPOSITORY/releases/download/cache/cache.txz?`date +%s`" -O cache.txz
 
-      - name: Download cache and mirror metadata
+      - name: Download mirror metadata
         run: |
           mkdir -p downloaded_files
-          wget -O metadata.json https://github.com/$GITHUB_REPOSITORY/releases/download/mod-mirror/metadata.json
+          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/mod-mirror/metadata.json?`date +%s`" -O downloaded_files/metadata.json
 
       - name: Upload cache.txz
         uses: actions/upload-artifact@v4
@@ -106,12 +106,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mirror-metadata-backup
-          path: metadata.json
+          path: downloaded_files/metadata.json
           if-no-files-found: error
 
-      - name: Delete metadata.json
+      - name: Delete downloaded_files
         run: |
-          rm metadata.json
+          rm -r downloaded_files/
 
       - name: Extract cache
         if: (inputs.purgeCache != '--all')
