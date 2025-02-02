@@ -38,6 +38,7 @@ runs:
           cd "${{ inputs.working-directory }}"
         fi
 
+        mkdir -p "${{ steps.vars.outputs.modules-path }}node_modules"
         npm install
 
     - name: Save cache
