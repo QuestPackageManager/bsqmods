@@ -8,12 +8,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.10.10",
+    "@types/node": "^22.13.0",
     "@types/semver": "^7.5.8",
     "json5": "^2.2.3",
     "jsonschema": "^1.5.0",
     "jszip": "^3.10.1",
-    "semver": "^7.6.3",
+    "semver": "^7.7.0",
     "tsx": "^4.19.2",
     "url": "^0.11.4",
     "yaml": "^2.7.0"
