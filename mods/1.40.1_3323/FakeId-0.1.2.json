@@ -1,0 +1,14 @@
+{
+  "name": "Fake ID",
+  "description": "Sets the player age to an adult.",
+  "id": "FakeId",
+  "version": "0.1.2",
+  "author": "DanTheMan827",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/bsq-fake-id/releases/download/v0.1.2/Fake.ID.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/bsq-fake-id/",
+  "cover": "https://raw.githubusercontent.com/DanTheMan827-BeatSaber/bsq-fake-id/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/bsq-fake-id/"
+}
