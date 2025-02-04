@@ -1,0 +1,14 @@
+{
+  "name": "NoPromo",
+  "description": "Hides the promo banner on the main screen.",
+  "id": "NoPromo",
+  "version": "0.1.6",
+  "author": "DanTheMan827",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/bsq-no-promo/releases/download/v0.1.6/NoPromo.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/bsq-no-promo/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/bsq-no-promo/"
+}
