@@ -1,0 +1,14 @@
+{
+  "name": "NoodleExtensions",
+  "description": "This adds a host of new things you can do with your maps. Original mod for PC by Aeroluna. Contributions by Fern and Sc2ad.",
+  "id": "NoodleExtensions",
+  "version": "1.5.4",
+  "author": "StackDoubleFlow",
+  "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.5.4/NoodleExtensions.qmod",
+  "source": "https://github.com/StackDoubleFlow/NoodleExtensions/",
+  "cover": "https://raw.githubusercontent.com/StackDoubleFlow/NoodleExtensions/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/StackDoubleFlow/NoodleExtensions/"
+}
