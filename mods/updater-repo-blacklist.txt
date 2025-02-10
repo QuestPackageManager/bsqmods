@@ -4,3 +4,4 @@
 Futuremappermydud/HapticRevert
 Futuremappermydud/IForgor-quest
 bsq-ports/Chroma
+DanTheMan827-BeatSaber/mod-template
