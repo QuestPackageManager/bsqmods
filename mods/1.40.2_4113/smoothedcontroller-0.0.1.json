@@ -1,0 +1,14 @@
+{
+  "name": "Smoothed Controller",
+  "description": "Smoothes your Controller position while in menus to make it less shaky, making the UI easier to use, etc.",
+  "id": "smoothedcontroller",
+  "version": "0.0.1",
+  "author": "Kaitlyn, Kinsi55",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/bsq-SmoothedController/releases/download/v0.0.1/Smoothed.Controller.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/bsq-SmoothedController/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/bsq-SmoothedController/"
+}
