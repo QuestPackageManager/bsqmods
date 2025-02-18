@@ -1,0 +1,14 @@
+{
+  "name": "Qounters++",
+  "description": "Add endlessly customizable counters to your ingame UI!",
+  "id": "qounters++",
+  "version": "1.0.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/Qounters/releases/download/v1.0.1/Qounters%2B%2B.qmod",
+  "source": "https://github.com/Metalit/Qounters/",
+  "cover": "https://raw.githubusercontent.com/Metalit/Qounters/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Metalit/Qounters/"
+}
