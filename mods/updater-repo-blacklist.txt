@@ -4,5 +4,6 @@
 Futuremappermydud/HapticRevert
 Futuremappermydud/IForgor-quest
 bsq-ports/Chroma
+DanTheMan827-BeatSaber/Quest.FakeID
 DanTheMan827-BeatSaber/Quest.DlcSorter
 DanTheMan827-BeatSaber/Quest.NoPromo
