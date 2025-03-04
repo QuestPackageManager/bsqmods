@@ -1,6 +1,7 @@
 import { readTextFile } from "./shared/readTextFile";
-import { changedFilesPath } from "../shared/paths";
+import { changedFilesPath, modsPath } from "../shared/paths";
 import { iterateSplitMods } from "./shared/iterateMods";
+import { getFilename } from "./shared/getFilename";
 import { validateMod } from "../shared/validateMod";
 import { fetchBuffer } from "../shared/fetch";
 import JSZip from "jszip";
@@ -45,9 +46,17 @@ const errors: ValidationError[] = [];
 for (const iteration of iterateSplitMods()) {
   try {
     iteration.getModJson();
+    
     if (checkAll || changedFiles.includes(iteration.shortModPath)) {
       const json = iteration.getModJson();
       console.log(`Checking ${iteration.shortModPath}`);
+
+      const requiredFilename = getFilename(json.id || "", json.version || "", iteration.version, modsPath, "json");
+      
+      // Verify if the mod file is named correctly
+      if (iteration.shortModPath !== requiredFilename.substring(repoDir.length + 1)) {
+        throw new Error(`Mod filename is not what it should be.  ${iteration.shortModPath} should be ${requiredFilename.substring(repoDir.length + 1)}`);
+      }
 
       await section("Mod info", async () => {
         validateMod(json);
