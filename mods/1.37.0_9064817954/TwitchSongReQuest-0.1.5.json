@@ -1,0 +1,14 @@
+{
+  "name": "TwitchSongReQuest",
+  "description": "Let your viewers suggest maps",
+  "id": "TwitchSongReQuest",
+  "version": "0.1.5",
+  "author": "hdgamer1404Jonas",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/Twitch-Song-ReQuest-Mod/releases/download/0.1.15/TwitchSongReQuest.qmod",
+  "source": "https://github.com/jxnxsdev/Twitch-Song-ReQuest-Mod/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/Twitch-Song-ReQuest-Mod/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/jxnxsdev/Twitch-Song-ReQuest-Mod/"
+}
