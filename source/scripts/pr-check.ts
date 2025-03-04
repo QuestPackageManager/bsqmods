@@ -1,5 +1,5 @@
 import { readTextFile } from "./shared/readTextFile";
-import { changedFilesPath, modsPath } from "../shared/paths";
+import { changedFilesPath, modsPath, repoDir } from "../shared/paths";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { getFilename } from "./shared/getFilename";
 import { validateMod } from "../shared/validateMod";
