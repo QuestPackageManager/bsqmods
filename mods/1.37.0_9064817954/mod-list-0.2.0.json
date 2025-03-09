@@ -1,0 +1,14 @@
+{
+  "name": "ModList",
+  "description": "Displays your installed mods inside the game and gives you a warning prompt upon starting the game to tell you if a mod failed to load.",
+  "id": "mod-list",
+  "version": "0.2.0",
+  "author": "Lauriethefish",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/releases/download/v0.2.0/ModList.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/"
+}
