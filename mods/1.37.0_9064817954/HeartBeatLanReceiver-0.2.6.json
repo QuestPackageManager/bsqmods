@@ -1,0 +1,14 @@
+{
+  "name": "HeartBeatQuest",
+  "description": "This mod displays your heart rate in the quest game. Supported multiple data sources and Bluetooth data source requires a permission patch via ModsBeforeFriday.",
+  "id": "HeartBeatLanReceiver",
+  "version": "0.2.6",
+  "author": "frto027",
+  "authorIcon": "https://avatars.githubusercontent.com/u/20887940?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.2.6/HeartBeatQuest.qmod",
+  "source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
+  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/frto027/HeartBeatLanClientBSQuest/"
+}
