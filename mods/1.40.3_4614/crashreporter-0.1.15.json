@@ -1,0 +1,14 @@
+{
+  "name": "CrashReporter",
+  "description": "Automatically upload crashes.",
+  "id": "crashreporter",
+  "version": "0.1.15",
+  "author": "darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/darknight1050/CrashReporter/releases/download/v0.1.15/CrashReporter.qmod",
+  "source": "https://github.com/darknight1050/CrashReporter/",
+  "cover": "https://raw.githubusercontent.com/darknight1050/CrashReporter/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/darknight1050/CrashReporter/"
+}
