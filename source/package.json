@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.13.8",
+    "@types/node": "^22.13.10",
     "@types/semver": "^7.5.8",
     "json5": "^2.2.3",
     "jsonschema": "^1.5.0",
