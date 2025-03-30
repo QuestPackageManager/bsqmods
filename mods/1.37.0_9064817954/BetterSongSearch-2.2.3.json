@@ -1,0 +1,14 @@
+{
+  "name": "BetterSongSearch",
+  "description": "Search and download songs with a lot of filtering and sorting options and without frustration!",
+  "id": "BetterSongSearch",
+  "version": "2.2.3",
+  "author": "FrozenAlex, FernTheDev, FutureMapper, and Christoffyw",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/BetterSongSearchQuest/releases/download/v2.2.3-bs-1.37.0/BetterSongSearch.qmod",
+  "source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/BetterSongSearchQuest/"
+}
