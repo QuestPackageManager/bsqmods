@@ -1,0 +1,14 @@
+{
+  "name": "qInstaller",
+  "description": "THIS IS NOT THE QOSMETICS MOD! It's literally just a json file which allows you to install .qsaber, .qwall and .qbloq files using ModsBeforeFriday. NOTE: These are outdated formats. New models should be compiled to the newer formats!",
+  "id": "qinst",
+  "version": "1.0.0",
+  "author": "jxnxsdev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/qInstaller/releases/download/1.40.4_5283/1.40.4_5283.qmod",
+  "source": "https://github.com/jxnxsdev/qInstaller/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/qInstaller/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/jxnxsdev/qInstaller/"
+}
