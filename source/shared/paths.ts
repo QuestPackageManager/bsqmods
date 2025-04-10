@@ -13,6 +13,9 @@ export const websiteBase = join(sourceCodeDir, "website", "public");
 /** The path to the mods folder */
 export const modsPath = join(repoDir, "mods");
 
+/** The path to the so-info.json file */
+export const soInfoPath = join(websiteBase, "so-info.json");
+
 /** The path to the covers folder */
 export const coversPath = join(websiteBase, "covers");
 
