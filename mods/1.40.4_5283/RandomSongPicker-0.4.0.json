@@ -1,0 +1,14 @@
+{
+  "name": "RandomSongPicker",
+  "description": "Adds a button, that picks a random song out of the current list",
+  "id": "RandomSongPicker",
+  "version": "0.4.0",
+  "author": "Tatenshi",
+  "authorIcon": "https://avatars.githubusercontent.com/u/56436476?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/ev44/RandomSongPicker/raw/refs/heads/main/RandomSongPicker_1.40.4_5283.qmod",
+  "source": "https://github.com/ev44/RandomSongPicker/",
+  "cover": "https://raw.githubusercontent.com/ev44/RandomSongPicker/main/cover.jpg",
+  "funding": [],
+  "website": "https://github.com/ev44/RandomSongPicker/"
+}
