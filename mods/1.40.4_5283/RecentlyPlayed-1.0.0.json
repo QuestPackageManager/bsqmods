@@ -1,0 +1,14 @@
+{
+  "name": "RecentlyPlayed",
+  "description": "Adds a history tab that displays the most recently played maps",
+  "id": "RecentlyPlayed",
+  "version": "1.0.0",
+  "author": "Tatenshi",
+  "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Tatenshi/RecentlyPlayed/releases/download/v1.0.0/RecentlyPlayed_1_40_4.qmod",
+  "source": "https://github.com/Tatenshi/RecentlyPlayed/",
+  "cover": "https://raw.githubusercontent.com/Tatenshi/RecentlyPlayed/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Tatenshi/RecentlyPlayed/"
+}
