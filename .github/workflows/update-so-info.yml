@@ -66,8 +66,20 @@ jobs:
             echo "updated=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Update so-info.json
+        id: update-info-check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          if [[ "${{ hashFiles('./source/website/public/so-info.json') }}" != "${{ steps.info-hash.outputs.hash }}" ]]; then
+            echo "updated=true" >> $GITHUB_OUTPUT
+          else
+            echo "updated=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Trigger deploy if changed
-        if: (steps.update-info.outputs.updated == 'true')
+        if: (steps.update-info-check.outputs.updated == 'true')
         id: redeploy
         shell: bash
         run: |
@@ -78,7 +90,7 @@ jobs:
               -d '{"event_type":"trigger_deploy"}'
 
       - name: Save cache
-        if: (steps.update-info.outputs.updated == 'true')
+        if: (steps.update-info-check.outputs.updated == 'true')
         uses: actions/cache/save@v4
         with:
           path: ./source/website/public/so-info.json
