@@ -49,7 +49,7 @@ jobs:
         id: info-hash
         shell: bash
         run: |
-          echo "hash=${{ hashFiles('./source/website/public/so-info.josn') }}" >> $GITHUB_OUTPUT
+          echo "hash=${{ hashFiles('./source/website/public/so-info.json') }}" >> $GITHUB_OUTPUT
 
       - name: Update so-info.json
         id: update-info
@@ -60,7 +60,7 @@ jobs:
           cd source/scripts
           npx tsx ./update-so-info.ts
 
-          if [[ "${{ hashFiles('./source/website/public/so-info.josn') }}" != "${{ steps.info-hash.outputs.hash }}" ]]; then
+          if [[ "${{ hashFiles('./source/website/public/so-info.json') }}" != "${{ steps.info-hash.outputs.hash }}" ]]; then
             echo "updated=true" >> $GITHUB_OUTPUT
           else
             echo "updated=false" >> $GITHUB_OUTPUT
