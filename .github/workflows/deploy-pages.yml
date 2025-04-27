@@ -156,12 +156,11 @@ jobs:
             gh release upload mod-mirror --clobber "metadata.json"
           fi
 
-      - name: Update so-info.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd source/scripts
-          npx tsx ./update-so-info.ts
+      - name: Restore so-info.json cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ./source/website/public/so-info.json
+          restore-keys: so-info-
 
       - name: Process the json (schedule)
         if: (github.event_name == 'schedule' || inputs.recheckUrls == true)
