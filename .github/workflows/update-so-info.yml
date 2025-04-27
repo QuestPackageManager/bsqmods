@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Update .so info
+name: Update so-info.json
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -42,6 +42,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ./source/website/public/so-info.json
+          key: so-info-
           restore-keys: so-info-
 
       - name: Hash so-info.json
