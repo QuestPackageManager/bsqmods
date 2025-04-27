@@ -1,0 +1,80 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Update .so info
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  workflow_call:
+  schedule:
+    - cron: "30 * * * *"
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+
+concurrency:
+  group: "so-info"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install npm modules
+        uses: ./.github/actions/install-modules
+        with:
+          scripts: true
+
+      - name: Ensure website public exists
+        shell: bash
+        run: |
+          mkdir -p ./source/website/public
+
+      - name: Restore cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ./source/website/public/so-info.json
+          restore-keys: so-info-
+
+      - name: Hash so-info.json
+        id: info-hash
+        shell: bash
+        run: |
+          if [[ ! -e "./source/website/public/so-info.json" ]]; then
+            echo '{}' > ./source/website/public/so-info.json
+          fi
+
+          echo "hash=$(md5sum ./source/website/public/so-info.json)" >> $GITHUB_OUTPUT
+
+      - name: Update so-info.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          cd source/scripts
+          npx tsx ./update-so-info.ts
+
+      - name: Save cache
+        uses: actions/cache/save@v4
+        with:
+          path: ./source/website/public/so-info.json
+          key: so-info-${{ hashFiles('./source/website/public/so-info.json') }}
+
+      - name: Trigger deploy if changed
+        shell: bash
+        run: |
+          if [[ "$(md5sum ./source/website/public/so-info.json)" != "${{ steps.info-hash.outputs.hash }}" ]]; then
+            curl -X POST \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d '{"event_type":"trigger_deploy"}'
+          fi
