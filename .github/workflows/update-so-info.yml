@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: "so-info"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   # Single deploy job since we're just deploying
