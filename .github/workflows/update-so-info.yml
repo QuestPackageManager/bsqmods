@@ -71,7 +71,7 @@ jobs:
           fi
 
       - name: Trigger deploy if changed
-        if: steps.update-info.outputs.updated == "true"
+        if: (steps.update-info.outputs.updated == 'true')
         id: redeploy
         shell: bash
         run: |
@@ -82,7 +82,7 @@ jobs:
               -d '{"event_type":"trigger_deploy"}'
 
       - name: Save cache
-        if: steps.update-info.outputs.updated == "true"
+        if: (steps.update-info.outputs.updated == 'true')
         uses: actions/cache/save@v4
         with:
           path: ./source/website/public/so-info.json
