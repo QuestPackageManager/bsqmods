@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  deploy:
+  update-so-info:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
