@@ -156,6 +156,20 @@ jobs:
             gh release upload mod-mirror --clobber "metadata.json"
           fi
 
+      - name: Trigger so-info.json update if needed
+        run: |
+          if ls ./mod-mirror/* 1> /dev/null 2>&1; then
+            response=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{ secrets.METRICS_TOKEN }}" \
+              https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-so-info.yml/dispatches \
+              -d '{"ref":"${{ github.ref }}"}')
+            if [ $response -ne 204 ]; then
+              echo "Workflow dispatch failed with response code $response"
+              exit 1
+            fi
+          fi
+
       - name: Restore so-info.json cache
         uses: actions/cache/restore@v4
         with:
@@ -184,7 +198,6 @@ jobs:
             source/website/public/covers \
             source/website/public/funding-info.json \
             source/website/public/mod-metadata.json \
-            source/website/public/so-info.json
 
       - name: Build website
         run: |
