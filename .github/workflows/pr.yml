@@ -59,7 +59,11 @@ jobs:
               "name": "${{ github.workflow }}",
               "head_sha": "${{ steps.get_head_sha.outputs.head_sha }}",
               "status": "in_progress",
-              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "output": {
+                "title": "${{ github.workflow }}",
+                "summary": "[View action run details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" 
+              }
             }')
           check_id=$(echo "$response" | jq -r .id)
           echo "check_id=$check_id" >> $GITHUB_OUTPUT
@@ -115,8 +119,7 @@ jobs:
             ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
             -d '{
               "status": "completed",
-              "conclusion": "success",
-              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              "conclusion": "success"
             }'
       
       - name: Mark check run as failure
@@ -128,7 +131,6 @@ jobs:
             ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
             -d '{
               "status": "completed",
-              "conclusion": "failure",
-              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              "conclusion": "failure"
             }'
 
