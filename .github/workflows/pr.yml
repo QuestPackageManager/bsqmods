@@ -115,7 +115,8 @@ jobs:
             ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
             -d '{
               "status": "completed",
-              "conclusion": "success"
+              "conclusion": "success",
+              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }'
       
       - name: Mark check run as failure
@@ -127,6 +128,7 @@ jobs:
             ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
             -d '{
               "status": "completed",
-              "conclusion": "failure"
+              "conclusion": "failure",
+              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }'
 
