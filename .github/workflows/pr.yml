@@ -43,6 +43,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "${{ github.api_url }}/repos/$repo/pulls/$pr_number" | jq -r .head.sha)
           echo "head_sha=$sha" >> $GITHUB_OUTPUT
+          echo "$sha"
         env:
           GH_TOKEN: ${{ github.token }}
       
@@ -61,6 +62,7 @@ jobs:
             }')
           check_id=$(echo "$response" | jq -r .id)
           echo "check_id=$check_id" >> $GITHUB_OUTPUT
+          echo "$response"
 
       - name: Check PR number
         run: |
