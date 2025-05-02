@@ -35,6 +35,13 @@ jobs:
             echo "PR_NUMBER=${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
           fi
 
+      - name: Check PR number
+        run: |
+          if [ "$PR_NUMBER" == "" ]; then
+            echo "PR number not set"
+            false
+          fi
+
       - name: Get PR head SHA
         id: get_head_sha
         run: |
@@ -67,14 +74,6 @@ jobs:
             }')
           check_id=$(echo "$response" | jq -r .id)
           echo "check_id=$check_id" >> $GITHUB_OUTPUT
-          echo "$response"
-
-      - name: Check PR number
-        run: |
-          if [ "$PR_NUMBER" == "" ]; then
-            echo "PR number not set"
-            false
-          fi
 
       - name: Checkout
         uses: actions/checkout@v4
