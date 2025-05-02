@@ -131,7 +131,7 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             ${{ github.api_url }}/repos/${{ github.repository }}/actions/workflows/pr.yml/dispatches \
-            -d '{ "ref": "${{ github.ref }}", inputs: { pr_number: "${{ steps.create-pr.outputs.pull-request-number }}" }')
+            -d '{ "ref": "${{ github.ref }}", "inputs": { "pr_number": "${{ steps.create-pr.outputs.pull-request-number }}" }')
           if [ $response -ne 204 ]; then
             echo "Workflow dispatch failed with response code $response"
             exit 1
