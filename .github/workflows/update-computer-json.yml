@@ -12,6 +12,7 @@ on:
 permissions:
   pull-requests: write
   contents: write
+  actions: write
 
 jobs:
   # Single deploy job since we're just deploying
@@ -59,8 +60,21 @@ jobs:
           git reset --hard
 
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v6
         with:
           title: Update Mods from ComputerElite
           commit-message: Update mods
           branch: update-mods-computer
+
+      - name: Trigger checks
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            ${{ github.api_url }}/repos/${{ github.repository }}/actions/workflows/pr.yml/dispatches \
+            -d '{ "ref": "${{ github.ref }}", "inputs": { "pr_number": "${{ steps.create-pr.outputs.pull-request-number }}" }')
+          if [ $response -ne 204 ]; then
+            echo "Workflow dispatch failed with response code $response"
+            exit 1
+          fi
