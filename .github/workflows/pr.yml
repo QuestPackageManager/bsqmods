@@ -17,7 +17,8 @@ jobs:
     name: pr-check-mods
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
+      checks: write
 
     steps:
       - name: Set PR number
