@@ -44,6 +44,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  checks: write
 
 jobs:
   # Single deploy job since we're just deploying
