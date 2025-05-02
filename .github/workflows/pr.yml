@@ -16,6 +16,9 @@ jobs:
   test:
     name: pr-check-mods
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
     steps:
       - name: Set PR number
         run: |
@@ -30,6 +33,34 @@ jobs:
           if [ "${{ github.event.inputs.pr_number }}" != "" ]; then
             echo "PR_NUMBER=${{ github.event.inputs.pr_number }}" >> $GITHUB_ENV
           fi
+
+      - name: Get PR head SHA
+        id: get_head_sha
+        run: |
+          pr_number="${{ env.PR_NUMBER }}"
+          repo="${{ github.repository }}"
+          sha=$(curl -s -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "${{ github.api_url }}/repos/$repo/pulls/$pr_number" | jq -r .head.sha)
+          echo "head_sha=$sha" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+      
+      - name: Create check run
+        id: create_check
+        run: |
+          response=$(curl -s -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            ${{ github.api_url }}/repos/${{ github.repository }}/check-runs \
+            -d '{
+              "name": "${{ github.workflow }}",
+              "head_sha": "${{ steps.get_head_sha.outputs.head_sha }}",
+              "status": "in_progress",
+              "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }')
+          check_id=$(echo "$response" | jq -r .id)
+          echo "check_id=$check_id" >> $GITHUB_OUTPUT
 
       - name: Check PR number
         run: |
@@ -71,3 +102,28 @@ jobs:
         run: |
           cd source/scripts
           npx tsx ./pr-check.ts
+
+      - name: Mark check run as success
+        if: ${{ success() }}
+        run: |
+          curl -X PATCH \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
+            -d '{
+              "status": "completed",
+              "conclusion": "success"
+            }'
+      
+      - name: Mark check run as failure
+        if: ${{ failure() }}
+        run: |
+          curl -X PATCH \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            ${{ github.api_url }}/repos/${{ github.repository }}/check-runs/${{ steps.create_check.outputs.check_id }} \
+            -d '{
+              "status": "completed",
+              "conclusion": "failure"
+            }'
+
