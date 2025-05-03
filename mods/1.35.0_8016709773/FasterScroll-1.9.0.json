@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/christopherweinhardt/FasterScrollQuest/releases/download/v1.9.0/FasterScroll.qmod",
   "source": "https://github.com/christopherweinhardt/FasterScrollQuest/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/christopherweinhardt/FasterScrollQuest/main/Cover.jpg",
   "funding": [],
   "website": null
 }

@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.FakeID/releases/download/v0.1.4/Fake.ID.qmod",
   "source": "https://github.com/DanTheMan827-BeatSaber/Quest.FakeID/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/DanTheMan827-BeatSaber/Quest.FakeID/main/cover.png",
   "funding": [],
   "website": "https://github.com/DanTheMan827-BeatSaber/Quest.FakeID/"
 }

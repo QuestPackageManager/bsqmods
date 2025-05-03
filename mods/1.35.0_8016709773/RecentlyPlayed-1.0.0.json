@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/Tatenshi/RecentlyPlayed/releases/download/v1.0.0/RecentlyPlayed_1_35_0.qmod",
   "source": "https://github.com/Tatenshi/RecentlyPlayed/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/Tatenshi/RecentlyPlayed/main/cover.png",
   "funding": [],
   "website": null
 }
