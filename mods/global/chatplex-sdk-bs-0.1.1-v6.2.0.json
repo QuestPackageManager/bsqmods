@@ -1,0 +1,14 @@
+{
+  "name": "ChatPlexSDK-BS",
+  "description": "chatplex-sdk-bs, version 0.1.1-v6.2.0!",
+  "id": "chatplex-sdk-bs",
+  "version": "0.1.1-v6.2.0",
+  "author": "HardCPP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/hardcpp/QuestChatPlexSDK-BS/releases/download/v0.1.1-v6.2.0/ChatPlexSDK-BS.qmod",
+  "source": "https://github.com/hardcpp/QuestChatPlexSDK-BS/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QuestChatPlexSDK-BS/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/hardcpp/QuestChatPlexSDK-BS/"
+}
