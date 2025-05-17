@@ -1,0 +1,14 @@
+{
+  "name": "ChatPlexSDK-BS",
+  "description": "ChatPlex BeatSaber modding SDK (Dependence for other mods)",
+  "id": "chatplex-sdk-bs",
+  "version": "1.0.0-v6.2.0",
+  "author": "HardCPP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/hardcpp/QuestChatPlexSDK-BS/releases/download/v1.0.0-v6.2.0/ChatPlexSDK-BS.qmod",
+  "source": "https://github.com/hardcpp/QuestChatPlexSDK-BS/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QuestChatPlexSDK-BS/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/hardcpp/QuestChatPlexSDK-BS/"
+}
