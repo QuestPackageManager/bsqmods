@@ -1,0 +1,14 @@
+{
+  "name": "tinyxml2",
+  "description": "tinyxml2",
+  "id": "tinyxml2",
+  "version": "9.0.3",
+  "author": "Millzy, leethompson",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64277238?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/MillzyDev/NDK-tinyxml2/releases/download/v9.0.3/tinyxml2.qmod",
+  "source": "https://github.com/MillzyDev/NDK-tinyxml2/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/MillzyDev/NDK-tinyxml2/"
+}
