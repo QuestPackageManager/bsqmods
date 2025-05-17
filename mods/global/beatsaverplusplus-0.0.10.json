@@ -1,0 +1,14 @@
+{
+  "name": "BeatSaverPlusPlus",
+  "description": "C++ library to interact with beatsaver",
+  "id": "beatsaverplusplus",
+  "version": "0.0.10",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RedBrumbler/BeatSaverPlusPlus/releases/download/v0.0.10/BeatSaverPlusPlus.qmod",
+  "source": "https://github.com/RedBrumbler/BeatSaverPlusPlus/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/RedBrumbler/BeatSaverPlusPlus/"
+}
