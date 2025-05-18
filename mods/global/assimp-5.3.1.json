@@ -1,0 +1,14 @@
+{
+  "name": "assimp",
+  "description": "assimp, version 5.3.1!",
+  "id": "assimp",
+  "version": "5.3.1",
+  "author": "assimp, FutureMapper",
+  "authorIcon": "https://avatars.githubusercontent.com/u/149850851?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/BSQ-VRM/Assimp-QPM/releases/download/5.3.1/assimp.qmod",
+  "source": "https://github.com/BSQ-VRM/Assimp-QPM/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/BSQ-VRM/Assimp-QPM/"
+}
