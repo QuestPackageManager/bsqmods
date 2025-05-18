@@ -1,0 +1,14 @@
+{
+  "name": "Overswing",
+  "description": "Library to find overswings",
+  "id": "overswing",
+  "version": "0.1.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Metalit/Overswing/releases/download/0.1.1/Overswing.qmod",
+  "source": "https://github.com/Metalit/Overswing/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Metalit/Overswing/"
+}
