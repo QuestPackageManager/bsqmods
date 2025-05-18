@@ -1,0 +1,14 @@
+{
+  "name": "SafeStorage",
+  "description": "Allows for safe storage and encryption of strings to prevent users from accidentally doxxing themselfs",
+  "id": "safestorage",
+  "version": "1.0.0",
+  "author": "hdgamer1404Jonas",
+  "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/jxnxsdev/SafeStorage/releases/download/v0.1.3/SafeStorage.qmod",
+  "source": "https://github.com/jxnxsdev/SafeStorage/",
+  "cover": "https://raw.githubusercontent.com/jxnxsdev/SafeStorage/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/jxnxsdev/SafeStorage/"
+}

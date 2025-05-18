@@ -1,0 +1,14 @@
+{
+  "name": "Qosmetics Core",
+  "description": "Qosmetics Core module that handles menu placement and generic utils for other modules",
+  "id": "qosmetics-core",
+  "version": "2.1.1",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Qosmetics/Qosmetics-Core/releases/download/v2.1.1/QosmeticsCore.qmod",
+  "source": "https://github.com/Qosmetics/Qosmetics-Core/",
+  "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Core/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Qosmetics/Qosmetics-Core/"
+}

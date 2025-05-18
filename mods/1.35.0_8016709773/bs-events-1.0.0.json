@@ -1,0 +1,14 @@
+{
+  "name": "BSEvents",
+  "description": "Adds various events for mods to subscribe to",
+  "id": "bs-events",
+  "version": "1.0.0",
+  "author": "kodenamekrak",
+  "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/kodenamekrak/BSEvents/releases/download/v1.0.0/BSEvents.qmod",
+  "source": "https://github.com/kodenamekrak/BSEvents/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/kodenamekrak/BSEvents/"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Hollywood",
+  "description": "Record videos on your quest!",
+  "id": "hollywood",
+  "version": "1.0.1",
+  "author": "Metalit, Fernthedev, Henwill8",
+  "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Fernthedev/HollywoodQuest/releases/download/v1.0.1/Hollywood.qmod",
+  "source": "https://github.com/Fernthedev/HollywoodQuest/",
+  "cover": "https://raw.githubusercontent.com/Fernthedev/HollywoodQuest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Fernthedev/HollywoodQuest/"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "SocketLib",
+  "description": "socket_lib, version 0.5.1!",
+  "id": "socket_lib",
+  "version": "0.5.1",
+  "author": "Fernthedev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Fernthedev/SocketLibLinux/releases/download/v0.5.1/socket_lib.qmod",
+  "source": "https://github.com/Fernthedev/SocketLibLinux/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Fernthedev/SocketLibLinux/"
+}

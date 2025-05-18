@@ -1,0 +1,14 @@
+{
+  "name": "LeaderboardCore",
+  "description": "Adds the capability to add custom leaderboards to Beat Saber with relative ease!",
+  "id": "leaderboardcore",
+  "version": "0.0.4-rc1",
+  "author": "Raine, RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/raineaeternal/LeaderboardCore/releases/download/v0.0.4-rc1/LeaderboardCore.qmod",
+  "source": "https://github.com/raineaeternal/LeaderboardCore/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/raineaeternal/LeaderboardCore/"
+}

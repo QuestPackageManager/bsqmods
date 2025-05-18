@@ -1,0 +1,14 @@
+{
+  "name": "Diglett",
+  "description": "library that allows you to easily add localisation for your quest mods - v1.0.0!",
+  "id": "diglett",
+  "version": "1.0.0",
+  "author": "Millzy",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64277238?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/MillzyDev/bsq-Diglett/releases/download/v1.0.0/Diglett.qmod",
+  "source": "https://github.com/MillzyDev/bsq-Diglett/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/MillzyDev/bsq-Diglett/"
+}

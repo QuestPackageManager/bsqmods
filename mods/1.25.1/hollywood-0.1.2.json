@@ -1,0 +1,14 @@
+{
+  "name": "Hollywood",
+  "description": "hollywood, version 0.1.2!",
+  "id": "hollywood",
+  "version": "0.1.2",
+  "author": "Fernthedev, Henwill8",
+  "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Fernthedev/HollywoodQuest/releases/download/0.1.2/hollywood.qmod",
+  "source": "https://github.com/Fernthedev/HollywoodQuest/",
+  "cover": "https://raw.githubusercontent.com/Fernthedev/HollywoodQuest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Fernthedev/HollywoodQuest/"
+}

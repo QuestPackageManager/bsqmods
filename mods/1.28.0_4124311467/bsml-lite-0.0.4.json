@@ -1,0 +1,14 @@
+{
+  "name": "bsml-lite",
+  "description": "Library that provides access to BSML items through programming instead of bsml files",
+  "id": "bsml-lite",
+  "version": "0.0.4",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/RedBrumbler/Quest-BSML-lite/releases/download/v0.0.4/BSMLlite.qmod",
+  "source": "https://github.com/RedBrumbler/Quest-BSML-lite/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/RedBrumbler/Quest-BSML-lite/"
+}

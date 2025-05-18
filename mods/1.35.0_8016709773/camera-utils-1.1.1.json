@@ -1,0 +1,14 @@
+{
+  "name": "CameraUtils",
+  "description": "Modding library that standardizes the use of GameObject layers and provides tools for easier rendering pipeline modifications",
+  "id": "camera-utils",
+  "version": "1.1.1",
+  "author": "Reezonate",
+  "authorIcon": "https://avatars.githubusercontent.com/u/91229110?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Reezonate/CameraUtils-Quest/releases/download/v1.1.1/CameraUtils.qmod",
+  "source": "https://github.com/Reezonate/CameraUtils-Quest/",
+  "cover": "https://raw.githubusercontent.com/Reezonate/CameraUtils-Quest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Reezonate/CameraUtils-Quest/"
+}
