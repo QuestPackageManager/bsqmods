@@ -1,0 +1,14 @@
+{
+  "name": "SongDetails",
+  "description": "Library that provides details about songs from BeatSaver",
+  "id": "song-details",
+  "version": "0.3.7",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/SongDetails/releases/download/v0.3.7/SongDetails.qmod",
+  "source": "https://github.com/bsq-ports/SongDetails/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/bsq-ports/SongDetails/"
+}
