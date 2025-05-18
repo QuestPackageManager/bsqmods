@@ -1,0 +1,14 @@
+{
+  "name": "PythonLib",
+  "description": "Run Python at Runtime",
+  "id": "pythonlib",
+  "version": "0.3.0",
+  "author": "darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/darknight1050/PythonLib/releases/download/v0.3.0/PythonLib.qmod",
+  "source": "https://github.com/darknight1050/PythonLib/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/darknight1050/PythonLib/"
+}
