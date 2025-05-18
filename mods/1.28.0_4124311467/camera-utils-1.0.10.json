@@ -1,0 +1,14 @@
+{
+  "name": "CameraUtils",
+  "description": null,
+  "id": "camera-utils",
+  "version": "1.0.10",
+  "author": "Reezonate",
+  "authorIcon": "https://avatars.githubusercontent.com/u/91229110?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Reezonate/CameraUtils-Quest/releases/download/v1.0.10/CameraUtils.qmod",
+  "source": "https://github.com/Reezonate/CameraUtils-Quest/",
+  "cover": "https://raw.githubusercontent.com/Reezonate/CameraUtils-Quest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Reezonate/CameraUtils-Quest/"
+}
