@@ -104,12 +104,19 @@ export interface Mod {
    * {@inheritDoc Sha1Hash}
    */
   hash?: Sha1Hash | null;
+
+  /**
+   * A {@link Url direct link} to the original cover image.
+   *
+   * {@inheritDoc Url}
+   */
+  ogCover?: Url | null;
 }
 
 /**
- * A list of mod keys for the split json files.
+ * A list of mod keys for the combined json file.
  */
-export const splitModKeys: (keyof Mod)[] = [
+export const modKeys: (keyof Mod)[] = [
   "name",
   "description",
   "id",
@@ -120,11 +127,18 @@ export const splitModKeys: (keyof Mod)[] = [
   "download",
   "source",
   "cover",
+  "ogCover",
   "funding",
-  "website"
+  "website",
+  "hash"
 ];
 
 /**
- * A list of mod keys for the combined json file.
+ * A list of mod keys to be excluded from the split json files.
  */
-export const modKeys: (keyof Mod)[] = [...splitModKeys, "hash"];
+const splitModExcludedKeys: (keyof Mod)[] = ["ogCover", "hash"];
+
+/**
+ * A list of mod keys for the split json files.
+ */
+export const splitModKeys: (keyof Mod)[] = modKeys.filter((key) => !splitModExcludedKeys.includes(key));

@@ -11,6 +11,7 @@ import AddCheckbox from "./AddCheckbox.astro";
 import { CoreMod } from "../../../shared/CoreMods";
 import DropdownListMenu from "./DropdownListMenu.astro";
 import DropdownListMenuItem from "./DropdownListMenuItem.astro";
+import LazyImage from "./LazyImage.astro";
 
 export interface Props {
   /**
@@ -85,7 +86,7 @@ const { mods, core = false } = Astro.props as Props;
               w-full
             `}
           >
-            <img
+            <LazyImage
               class={`
                 h-screen
                 inline-block
@@ -94,6 +95,7 @@ const { mods, core = false } = Astro.props as Props;
               `}
               alt={`${mod.name} v${mod.version}`}
               src={mod.cover != null ? mod.cover : `images/image-missing.svg`}
+              src-hq={mod.ogCover || undefined}
             />
           </div>
         </div>
