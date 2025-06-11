@@ -1,0 +1,14 @@
+{
+  "name": "PlaylistCore",
+  "description": "Loads playlists and provides lots of functionality to other mods.",
+  "id": "playlistcore",
+  "version": "1.5.2",
+  "author": "Metalit, darknight1050",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/PlaylistCore/releases/download/v1.5.2/PlaylistCore.qmod",
+  "source": "https://github.com/Metalit/PlaylistCore/",
+  "cover": "https://raw.githubusercontent.com/Metalit/PlaylistCore/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Metalit/PlaylistCore/"
+}
