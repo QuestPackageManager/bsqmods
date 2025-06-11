@@ -120,11 +120,6 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
     mod.cover = `${urlBase}/covers/${basename(coverFilename)}`;
   }
 
-  const ogCoverFilename = getOriginalCoverFilePath(metadata.image);
-  if (ogCoverFilename && existsSync(ogCoverFilename)) {
-    mod.ogCover = `${urlBase}/covers/originals/${basename(ogCoverFilename)}`;
-  }
-
   if (!mod.id) {
     throw new Error("Mod ID not set");
   }
@@ -283,6 +278,11 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
         output.warnings.push(`${(error as any).message}`);
       }
     }
+  }
+
+  const ogCoverFilename = getOriginalCoverFilePath(metadata.image);
+  if (ogCoverFilename && existsSync(ogCoverFilename)) {
+    mod.ogCover = `${urlBase}/covers/originals/${basename(ogCoverFilename)}`;
   }
 
   return output;
