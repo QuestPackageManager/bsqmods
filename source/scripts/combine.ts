@@ -11,26 +11,13 @@ import { downloadFile } from "./shared/downloadFile";
 import { getFilename } from "./shared/getFilename";
 import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { QmodResult } from "./shared/QmodResult";
-import {
-  modMetadataPath,
-  coversPath,
-  qmodsPath,
-  repoDir,
-  allModsPath,
-  modsPath,
-  versionsModsPath,
-  websiteBase,
-  fundingInfoPath,
-  groupedModsPath
-} from "../shared/paths";
+import { modMetadataPath, coversPath, qmodsPath, repoDir, allModsPath, modsPath, fundingInfoPath } from "../shared/paths";
 import { getQmodHashes } from "./shared/getQmodHashes";
 import { getGithubIconUrl } from "../shared/getGithubIconUrl";
 import { getStandardizedMod } from "../shared/getStandardizedMod";
 import { validateMod } from "../shared/validateMod";
 import { iterateSplitMods } from "./shared/iterateMods";
 import { fetchBuffer, fetchHead } from "../shared/fetch";
-import { compareAlphabeticallyAscInsensitive, compareVersionAscending } from "../shared/comparisonFunctions";
-import { compareVersionDescending } from "./shared/semverComparison";
 import { getFundingCache } from "./shared/getFundingCache";
 import { ghRegex } from "../shared/ghRegex";
 import { getRepoFundingInfo } from "../shared/getRepoFundingInfo";
@@ -39,8 +26,8 @@ import { logGithubApiUsage } from "../shared/logGithubApiUsage";
 import { ModMetadata } from "../shared/types/ModMetadata";
 import { getOptimizedCoverFilePath } from "./shared/getOptimizedCoverFilePath";
 import { getOriginalCoverFilePath } from "./shared/getOriginalCoverFilePath";
-import { GroupedModsCollection } from "../shared/types/GroupedModsCollection";
 import { getMirrorMetadata, hasMirrorUrl, mirrorBase, MirrorMetadata } from "../shared/types/MirrorMetadata";
+import { getModGroups } from "../shared/getModGroups";
 
 /** All of the mods after combine the individual files */
 const allMods: ModsCollection = {};
@@ -288,18 +275,6 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   return output;
 }
 
-function sortMods(mods: ModsCollection): ModsCollection {
-  const sortedMods: ModsCollection = {};
-
-  for (const version of Object.keys(mods).sort(compareVersionAscending)) {
-    mods[version].sort((a, b) => compareVersionAscending(a.version, b.version)).sort((a, b) => compareAlphabeticallyAscInsensitive(a.id, b.id));
-
-    sortedMods[version] = mods[version];
-  }
-
-  return sortedMods;
-}
-
 await logGithubApiUsage();
 
 for (const iteration of iterateSplitMods()) {
@@ -368,36 +343,10 @@ for (const iteration of iterateSplitMods()) {
   writeFileSync(modMetadataPath, JSON.stringify(hashes));
 }
 
-// Make per-version json
-const versionMap: GroupedModsCollection = {};
-const sortedMods = sortMods(allMods);
-
-// transform to structure
-for (const [game_ver, mods] of Object.entries(sortedMods)) {
-  const modMap = versionMap[game_ver] ?? (versionMap[game_ver] = {});
-
-  for (const mod of mods) {
-    const modVersionMap = modMap[mod.id!] ?? (modMap[mod.id!] = {});
-    modVersionMap[mod.version!] = mod;
-  }
-}
-
-// now write
-for (const [game_ver, qmodRepo] of Object.entries(versionMap)) {
-  const versionFile = join(websiteBase, game_ver);
-  writeFileSync(`${versionFile}.json`, JSON.stringify(qmodRepo));
-}
+const { mappedMods: versionMap, mods: sortedMods, gameVersions } = getModGroups(allMods);
 
 // Create the directory for the combined JSON file if it doesn't exist and save the combined mods data
 mkdirSync(dirname(allModsPath), { recursive: true });
 writeFileSync(allModsPath, JSON.stringify(sortedMods));
-
-// Create the directory for the grouped mods JSON file if it doesn't exist and save the data
-mkdirSync(dirname(groupedModsPath), { recursive: true });
-writeFileSync(groupedModsPath, JSON.stringify(versionMap));
-
-// Create the directory for the versions JSON file if it doesn't exist and save the data
-mkdirSync(dirname(versionsModsPath), { recursive: true });
-writeFileSync(versionsModsPath, JSON.stringify(Object.keys(allMods).sort(compareVersionDescending)));
 
 await logGithubApiUsage();
