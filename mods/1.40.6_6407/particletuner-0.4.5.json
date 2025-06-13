@@ -1,0 +1,14 @@
+{
+  "name": "ParticleTuner",
+  "description": "Lets you tweak individual particle settings! And has rainbow particles!",
+  "id": "particletuner",
+  "version": "0.4.5",
+  "author": "KodenameKRAK",
+  "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/kodenamekrak/ParticleTuner/releases/download/v0.4.5/ParticleTuner.qmod",
+  "source": "https://github.com/kodenamekrak/ParticleTuner/",
+  "cover": "https://raw.githubusercontent.com/kodenamekrak/ParticleTuner/master/cover.gif",
+  "funding": [],
+  "website": "https://github.com/kodenamekrak/ParticleTuner/"
+}
