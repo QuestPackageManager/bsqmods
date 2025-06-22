@@ -1,0 +1,14 @@
+{
+  "name": "Transitions",
+  "description": "Speed up or remove boring transitions in the game",
+  "id": "transitions",
+  "version": "1.2.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/Transitions/releases/download/v1.2.1/Transitions.qmod",
+  "source": "https://github.com/Metalit/Transitions/",
+  "cover": "https://raw.githubusercontent.com/Metalit/Transitions/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Metalit/Transitions/"
+}
