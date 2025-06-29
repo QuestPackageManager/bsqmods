@@ -1,0 +1,14 @@
+{
+  "name": "TrickSaber Lite",
+  "description": "This mod is not that stable like it seems, improvements will be rolling out soon!\nPerform spins and throws with your sabers!",
+  "id": "tricksaberlite",
+  "version": "0.1.0",
+  "author": "laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/TrickSaber-Lite/releases/download/v0.1.0/TrickSaber.Lite.qmod",
+  "source": "https://github.com/vcmikuu/TrickSaber-Lite/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/TrickSaber-Lite/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/TrickSaber-Lite/"
+}
