@@ -6,9 +6,9 @@
   "author": "StackDoubleFlow",
   "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/StackDoubleFlow/NoodleExtensions/releases/download/v1.2.4/noodle_extensions.qmod",
-  "source": "https://github.com/StackDoubleFlow/NoodleExtensions/",
-  "cover": "https://raw.githubusercontent.com/StackDoubleFlow/NoodleExtensions/master/cover.png",
+  "download": "https://github.com/bsq-ports/NoodleExtensions/releases/download/v1.2.4/noodle_extensions.qmod",
+  "source": "https://github.com/bsq-ports/NoodleExtensions/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/NoodleExtensions/master/cover.png",
   "funding": [],
   "website": null
 }
