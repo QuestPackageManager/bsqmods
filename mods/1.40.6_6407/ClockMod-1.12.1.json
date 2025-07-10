@@ -1,0 +1,14 @@
+{
+  "name": "Clock Mod",
+  "description": "Displays the time in game. Alternatively also the Battery Percentage",
+  "id": "ClockMod",
+  "version": "1.12.1",
+  "author": "BoopetyDoopety, EnderdracheLP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/EnderdracheLP/ClockMod/releases/download/1.12.1/ClockMod_1.12.1.qmod",
+  "source": "https://github.com/EnderdracheLP/ClockMod/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/ClockMod/main/Cover.jpg",
+  "funding": [],
+  "website": "https://github.com/EnderdracheLP/ClockMod/"
+}
