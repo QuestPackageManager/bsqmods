@@ -60,6 +60,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set mod mirror environment variables
+        uses: ./.github/actions/set-mirror-env
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -95,7 +98,7 @@ jobs:
       - name: Download mirror metadata
         run: |
           mkdir -p downloaded_files
-          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/mod-mirror/metadata.json?`date +%s`" -O downloaded_files/metadata.json
+          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/mirror-metadata/metadata.json?`date +%s`" -O downloaded_files/metadata.json
 
       - name: Upload cache.txz
         uses: actions/upload-artifact@v4
@@ -150,11 +153,11 @@ jobs:
           cd ../../mod-mirror
 
           find -type f | while read file; do
-            gh release upload mod-mirror "$file" || true
+            gh release upload "${{ env.MIRROR_RELEASE }}" "$file" || true
           done
 
           if [ -f "metadata.json" ]; then
-            gh release upload mod-mirror --clobber "metadata.json"
+            gh release upload "${{ env.MIRROR_METADATA_RELEASE }}" --clobber "metadata.json"
           fi
 
       - name: Trigger so-info.json update if needed

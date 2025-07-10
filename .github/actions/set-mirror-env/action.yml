@@ -1,0 +1,11 @@
+name: "Set Mod Mirror Environment Variables"
+description: "Sets environment variables for mod mirror"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set environment variables
+      shell: bash
+      run: |
+        echo "MIRROR_METADATA_RELEASE=mirror-metadata" >> $GITHUB_ENV
+        echo "MIRROR_RELEASE=mod-mirror-2" >> $GITHUB_ENV

@@ -54,7 +54,7 @@ jobs:
           echo "$sha"
         env:
           GH_TOKEN: ${{ github.token }}
-      
+
       - name: Create check run
         id: create_check
         run: |
@@ -69,7 +69,7 @@ jobs:
               "details_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
               "output": {
                 "title": "${{ github.workflow }}",
-                "summary": "[View action run details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" 
+                "summary": "[View action run details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
               }
             }')
           check_id=$(echo "$response" | jq -r .id)
@@ -79,6 +79,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+
+      - name: Set mod mirror environment variables
+        uses: ./.github/actions/set-mirror-env
 
       - uses: actions/setup-node@v4
         with:
@@ -120,7 +123,7 @@ jobs:
               "status": "completed",
               "conclusion": "success"
             }'
-      
+
       - name: Mark check run as failure
         if: ${{ failure() }}
         run: |
@@ -132,4 +135,3 @@ jobs:
               "status": "completed",
               "conclusion": "failure"
             }'
-

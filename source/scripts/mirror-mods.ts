@@ -9,7 +9,7 @@ import { computeBufferSha1 } from "./shared/computeBufferSha1";
 import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { Dictionary } from "../shared/types/Dictionary";
 import { MirrorError } from "../shared/types/MirrorError";
-import { getMirrorMetadata } from "../shared/types/MirrorMetadata";
+import { getMirrorMetadata, mirrorRelease } from "../shared/types/MirrorMetadata";
 import { argv } from "process";
 
 const mirrorMetadata: Dictionary<MirrorError | string> = await getMirrorMetadata();
@@ -92,7 +92,7 @@ for (const iteration of iterateSplitMods()) {
       const mirrorFilename = `${filenameParts.join("-")}.${mirrorExtension}`.replace(/[^\.a-zA-Z0-9_-]+/g, "_").replace(/_+/g, "_");
       const targetPath = join(modMirrorPath, mirrorFilename);
 
-      mirrorMetadata[mod.download] = mirrorFilename;
+      mirrorMetadata[mod.download] = `${mirrorRelease}/${mirrorFilename}`;
 
       if (!existsSync(targetPath)) {
         mkdirSync(modMirrorPath, { recursive: true });

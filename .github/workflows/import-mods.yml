@@ -17,7 +17,7 @@ on:
         description: "Should a PR be created? If false, the result will be committed automatically."
         type: boolean
         default: true
-        
+
   # Allows you to run this workflow as an embedded workflow
   workflow_call:
     inputs:
@@ -53,6 +53,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set mod mirror environment variables
+        uses: ./.github/actions/set-mirror-env
 
       - uses: actions/setup-node@v4
         with:
