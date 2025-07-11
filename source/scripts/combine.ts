@@ -85,6 +85,18 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   }
 
   let originalUrl = mod.download;
+  const originalHash = hashes[originalUrl]?.hash;
+  const mirrorHash = (() => {
+    if (hasMirrorUrl(originalUrl, mirrorMetadata)) {
+      const hash = mirrorMetadata[originalUrl].split("-").pop().split(".").shift();
+
+      if (hash.length == 40) {
+        return hash;
+      }
+    }
+
+    return null;
+  })();
 
   if (process.argv.indexOf("--recheckUrls") !== -1 && metadata.hash != null && !(await fetchHead(mod.download))) {
     metadata.hash = null;
@@ -130,22 +142,25 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       metadata.hash = await downloadFile(mod.download, qmodPath);
     }
 
-    metadata.useMirror = (!metadata.hash) && hasMirrorUrl(originalUrl, mirrorMetadata);
+    metadata.useMirror = hasMirrorUrl(originalUrl, mirrorMetadata) && (!metadata.hash || metadata.hash != mirrorHash);
+
+    // If both hashes exist and there's a mismatch, log it
+    if (metadata.hash && mirrorHash && metadata.hash != mirrorHash) {
+      output.warnings.push(`Hash mismatch - New: ${metadata.hash} - Old: ${originalHash}`);
+    }
+    
+    if (metadata.useMirror) {
+      metadata.hash = null;
+      hashes[originalUrl] = metadata;
+      mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
+
+      return await processQmod(mod, gameVersion);
+    }
 
     if (!metadata.hash) {
-      if (metadata.useMirror != true && hasMirrorUrl(originalUrl, mirrorMetadata)) {
-        metadata.useMirror = true;
-        hashes[originalUrl] = metadata;
-        mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
-
-        return await processQmod(mod, gameVersion);
-        process.exit(0);
-      }
-
       // File not found.
       output.errors.push("Not found");
       return output;
-      // process.exit(1);
     }
 
     hashes[originalUrl] = metadata;
