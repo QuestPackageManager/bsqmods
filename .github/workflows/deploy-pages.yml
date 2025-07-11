@@ -153,7 +153,9 @@ jobs:
           cd ../../mod-mirror
 
           find -type f | while read file; do
-            gh release upload "${{ env.MIRROR_RELEASE }}" "$file" || true
+            if [[ "$file" != "metadata.json" ]] && [[ "$file" != "./metadata.json" ]]; then
+              gh release upload "${{ env.MIRROR_RELEASE }}" "$file" || true
+            fi
           done
 
           if [ -f "metadata.json" ]; then
