@@ -86,10 +86,6 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
 
   let originalUrl = mod.download;
 
-  if (metadata.useMirror && hasMirrorUrl(originalUrl, mirrorMetadata)) {
-    mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
-  }
-
   if (process.argv.indexOf("--recheckUrls") !== -1 && metadata.hash != null && !(await fetchHead(mod.download))) {
     metadata.hash = null;
     metadata.image = null;
@@ -190,6 +186,10 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       unlinkSync(qmodPath);
       return output;
     }
+  }
+
+  if (metadata.useMirror && hasMirrorUrl(originalUrl, mirrorMetadata)) {
+    mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
   }
 
   if (!metadata.image?.hash) {
