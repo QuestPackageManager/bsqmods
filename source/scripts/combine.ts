@@ -136,6 +136,7 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
       if (metadata.useMirror != true && hasMirrorUrl(originalUrl, mirrorMetadata)) {
         metadata.useMirror = true;
         hashes[originalUrl] = metadata;
+        mod.download = `${mirrorBase}/${mirrorMetadata[originalUrl]}`;
 
         return await processQmod(mod, gameVersion);
         process.exit(0);
