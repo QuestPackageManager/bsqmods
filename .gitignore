@@ -8,3 +8,4 @@ source/website/public/*.json
 source/website/public/covers
 source/website/public/deploy-log.txt
 source/website/public/mods
+mods/imported.json

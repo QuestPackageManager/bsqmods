@@ -66,6 +66,15 @@ jobs:
         with:
           scripts: true
 
+      - name: Restore core mods import cache
+        if: (inputs.url == '')
+        uses: actions/cache/restore@v4
+        with:
+          path: mods/imported.json
+          key: core-mods-import-${{ hashFiles('mods/imported.json') }}
+          restore-keys: |
+            core-mods-import-
+
       - name: Import the core mods
         if: (inputs.url == '')
         env:
@@ -76,6 +85,18 @@ jobs:
           echo "COMMIT_SUBJECT=$(echo "Update core mods" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
           echo "COMMIT_BODY=$(echo "Updated new core mods from https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
           echo "BRANCH_NAME=core-mods" | tee -a "$GITHUB_ENV"
+
+      - name: Show imported.json
+        if: (inputs.url == '')
+        run: |
+          jq . mods/imported.json
+
+      - name: Save core mods import cache
+        if: (inputs.url == '')
+        uses: actions/cache/save@v4
+        with:
+          path: mods/imported.json
+          key: core-mods-import-${{ hashFiles('mods/imported.json') }}
 
       - name: Import the specified mod
         if: (inputs.url != '')
