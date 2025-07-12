@@ -1,0 +1,14 @@
+{
+  "name": "HitsoundTweaqs",
+  "description": "Adds a slider to change default cubes size",
+  "id": "HitsoundTweaqs",
+  "version": "1.0.2",
+  "author": "GalaxyMaster2 (ported by NSGolova using Gemini 2.5)",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8793817?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/NSGolova/HitsoundTweaqs/releases/download/v1.0.2/HitsoundTweaqs.qmod",
+  "source": "https://github.com/NSGolova/HitsoundTweaqs/",
+  "cover": "https://raw.githubusercontent.com/NSGolova/HitsoundTweaqs/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/NSGolova/HitsoundTweaqs/"
+}
