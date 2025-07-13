@@ -1,0 +1,14 @@
+{
+  "name": "Audica Hook",
+  "description": "A significantly stripped down version of the beatsaber-hook library for Audica on the Quest.",
+  "id": "audica-hook",
+  "version": "0.1.2",
+  "author": "sc2ad / DanTheMan827",
+  "authorIcon": "https://avatars.githubusercontent.com/u/212013760?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-QPM/audica-hook/releases/download/v0.1.2/AudicaHook.qmod",
+  "source": "https://github.com/DanTheMan827-QPM/audica-hook/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-QPM/audica-hook/"
+}
