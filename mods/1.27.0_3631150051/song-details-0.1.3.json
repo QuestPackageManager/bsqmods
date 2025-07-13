@@ -1,0 +1,14 @@
+{
+  "name": "SongDetails",
+  "description": "Library that provides details about songs from BeatSaver",
+  "id": "song-details",
+  "version": "0.1.3",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/RedBrumbler/SongDetails/releases/download/v0.1.3/SongDetails.qmod",
+  "source": "https://github.com/RedBrumbler/SongDetails/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/RedBrumbler/SongDetails/"
+}
