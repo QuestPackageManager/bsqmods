@@ -6,9 +6,9 @@
   "author": "StackDoubleFlow, Fernthedev",
   "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/StackDoubleFlow/CustomJSONData/releases/download/v0.19.2/custom-json-data.qmod",
-  "source": "https://github.com/StackDoubleFlow/CustomJSONData/",
+  "download": "https://github.com/bsq-ports/CustomJSONData/releases/download/v0.19.2/custom-json-data.qmod",
+  "source": "https://github.com/bsq-ports/CustomJSONData/",
   "cover": null,
   "funding": [],
-  "website": "https://github.com/StackDoubleFlow/CustomJSONData/"
+  "website": "https://github.com/bsq-ports/CustomJSONData/"
 }

@@ -6,9 +6,9 @@
   "author": "StackDoubleFlow, Fernthedev",
   "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/StackDoubleFlow/Tracks/releases/download/v0.6.2/tracks.qmod",
-  "source": "https://github.com/StackDoubleFlow/Tracks/",
-  "cover": "https://raw.githubusercontent.com/StackDoubleFlow/Tracks/master/cover.png",
+  "download": "https://github.com/bsq-ports/Tracks/releases/download/v0.6.2/tracks.qmod",
+  "source": "https://github.com/bsq-ports/Tracks/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/Tracks/master/cover.png",
   "funding": [],
-  "website": "https://github.com/StackDoubleFlow/Tracks/"
+  "website": "https://github.com/bsq-ports/Tracks/"
 }
