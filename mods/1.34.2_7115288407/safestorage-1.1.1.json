@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/jxnxsdev/SafeStorage/releases/download/v1.1.1/SafeStorage.qmod",
   "source": "https://github.com/jxnxsdev/SafeStorage/",
-  "cover": "https://raw.githubusercontent.com/jxnxsdev/SafeStorage/main/cover.png",
+  "cover": null,
   "funding": [],
   "website": "https://github.com/jxnxsdev/SafeStorage/"
 }

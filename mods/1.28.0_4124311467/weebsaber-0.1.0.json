@@ -8,7 +8,7 @@
   "modloader": "QuestLoader",
   "download": "https://github.com/jxnxsdev/WeebSaber/releases/download/0.1.0/Weeb.Saber.qmod",
   "source": "https://github.com/jxnxsdev/WeebSaber/",
-  "cover": "https://raw.githubusercontent.com/jxnxsdev/WeebSaber/main/logo.png",
+  "cover": null,
   "funding": [],
   "website": "https://github.com/jxnxsdev/WeebSaber/"
 }

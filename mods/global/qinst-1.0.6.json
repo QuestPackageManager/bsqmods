@@ -8,7 +8,7 @@
   "modloader": "Scotland2",
   "download": "https://github.com/jxnxsdev/qInstaller/releases/download/global/global.qmod",
   "source": "https://github.com/jxnxsdev/qInstaller/",
-  "cover": "https://raw.githubusercontent.com/jxnxsdev/qInstaller/main/cover.png",
+  "cover": null,
   "funding": [],
   "website": "https://github.com/jxnxsdev/qInstaller/"
 }
