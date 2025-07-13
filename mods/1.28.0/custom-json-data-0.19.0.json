@@ -1,0 +1,14 @@
+{
+  "name": "CustomJSONData",
+  "description": "Funny maps go brrr",
+  "id": "custom-json-data",
+  "version": "0.19.0",
+  "author": "StackDoubleFlow, Fernthedev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/StackDoubleFlow/CustomJSONData/releases/download/v0.19.2/custom-json-data.qmod",
+  "source": "https://github.com/StackDoubleFlow/CustomJSONData/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/StackDoubleFlow/CustomJSONData/"
+}
