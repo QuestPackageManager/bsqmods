@@ -1,0 +1,14 @@
+{
+  "name": "bs-utils",
+  "description": "Utils library",
+  "id": "bs-utils",
+  "version": "0.8.1",
+  "author": "Sc2ad",
+  "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RedBrumbler/QuestBS-Utils/releases/download/v0.8.1/BS-Utils.qmod",
+  "source": "https://github.com/RedBrumbler/QuestBS-Utils/",
+  "cover": "https://raw.githubusercontent.com/RedBrumbler/QuestBS-Utils/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/RedBrumbler/QuestBS-Utils/"
+}
