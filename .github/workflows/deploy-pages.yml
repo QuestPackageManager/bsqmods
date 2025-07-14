@@ -154,7 +154,7 @@ jobs:
 
           find -type f | while read file; do
             if [[ "$file" != "metadata.json" ]] && [[ "$file" != "./metadata.json" ]]; then
-              gh release upload "${{ env.MIRROR_RELEASE }}" "$file" || true
+              gh release upload "${{ env.MIRROR_RELEASE }}" "$file"
             fi
           done
 
