@@ -3,19 +3,13 @@ import { fetchJson } from "../shared/fetch";
 import { getIndentedMessage as indent } from "../shared/getIndentedMessage";
 import { ghRegex } from "../shared/ghRegex";
 import { IndentedConsoleLogger } from "../shared/IndentedConsoleLogger";
-import { isNullOrWhitespace } from "../shared/isNullOrWhitespace";
 import { Message, Release, Releases } from "../shared/types/GitHubAPI";
 import { importRemoteQmod } from "./import";
 import { iterateSplitMods } from "./shared/iterateMods";
-import { modBlacklistPath } from "../shared/paths";
-import { readTextFile } from "./shared/readTextFile";
 import { logGithubApiUsage } from "../shared/logGithubApiUsage";
+import { getRepoBlacklist } from "./shared/getRepoBlacklist";
 
-const repoBlacklist = (await readTextFile(modBlacklistPath, ""))
-  .replace(/\r/g, "")
-  .split("\n")
-  .filter((line) => !isNullOrWhitespace(line) && !line.trim().startsWith("#"))
-  .map((line) => line.trim().toLowerCase());
+const repoBlacklist = await getRepoBlacklist();
 
 await logGithubApiUsage();
 

@@ -8,6 +8,7 @@ import { getStandardizedMod } from "../../shared/getStandardizedMod";
 import { ModsCollection } from "../../shared/types/ModsCollection";
 import { getFilename } from "./getFilename";
 import { compareVersionAscending } from "../../shared/comparisonFunctions";
+import { isLibrary } from "../../shared/getLibraryList";
 
 /**
  * Class representing mod iteration data.
@@ -44,12 +45,17 @@ export class ModIterationData {
    * @returns {any} The parsed JSON content of the mod file.
    */
   public getModJson(): Mod {
+    var data: Mod;
     if (this.modData) {
-      return this.modData;
+      data = this.modData;
+    } else {
+      const fileContent = readFileSync(this.modPath, "utf8");
+      data = JSON.parse(fileContent);
     }
 
-    const fileContent = readFileSync(this.modPath, "utf8");
-    return JSON.parse(fileContent);
+    data.isLibrary = isLibrary(data.id || "");
+
+    return data;
   }
 
   /**

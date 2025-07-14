@@ -61,6 +61,9 @@ const modList = Object.values(modGroups) as Mod[][];
 modList.sort((a, b) => compareAlphabeticallyAscInsensitive(a[0].name, b[0].name));
 
 const coreMods = (await getCoreMods())[gameVersion];
+
+const libraryMods = modList.filter((mod) => mod[0].isLibrary);
+const nonLibraryMods = modList.filter((mod) => !mod[0].isLibrary);
 ---
 
 <Layout
@@ -75,8 +78,11 @@ const coreMods = (await getCoreMods())[gameVersion];
   />
   <StickyBar gameVersion={gameVersion} />
   <div class="px-safe">
-    <div
-      class={`
+    {
+      coreMods && (
+        <>
+          <div
+            class={`
         block
         pt-4
         text-center
@@ -84,60 +90,91 @@ const coreMods = (await getCoreMods())[gameVersion];
         text-white
         text-xl
       `}
-    >
-      Core Mods
-      <div class="hidden script-block">
-        {
-          coreMods && coreMods.mods.length > 0 ? (
-            <DownloadCoreModsLink
-              version={gameVersion}
-              outerClass={`
+          >
+            Core Mods
+            <div class="hidden script-block">
+              {coreMods && coreMods.mods.length > 0 ? (
+                <DownloadCoreModsLink
+                  version={gameVersion}
+                  outerClass={`
                 block
                 text-center
                 pt-2.5
               `}
-              class={`
-                btn
-                btn-primary
-                btn-sm
-                rounded-lg
-                text-white
-                disabled:bg-neutral
-              `}
-            >
-              Download All Core Mods
-            </DownloadCoreModsLink>
-          ) : null
-        }
-      </div>
-    </div>
+                  class={`
+                    btn
+                    btn-primary
+                    btn-sm
+                    rounded-lg
+                    text-white
+                    disabled:bg-neutral
+                  `}
+                >
+                  Download All Core Mods
+                </DownloadCoreModsLink>
+              ) : null}
+            </div>
+          </div>
 
-    <ModList
-      mods={modList}
-      core={true}
-      coreMods={coreMods ? coreMods.mods : []}
-    />
-    <div
-      class={`
-        block
-        pt-2
-        text-center
-        text-white
-        text-xl
-        text-shadow
-      `}
-    >
-      Other Mods
-    </div>
-    <ModList
-      mods={modList}
-      core={false}
-      coreMods={coreMods ? coreMods.mods : []}
-    />
+          <ModList
+            mods={modList}
+            core={true}
+            coreMods={coreMods ? coreMods.mods : []}
+          />
+        </>
+      )
+    }
+    {
+      nonLibraryMods && (
+        <>
+          <div
+            class={`
+              block
+              pt-2
+              text-center
+              text-white
+              text-xl
+              text-shadow
+            `}
+          >
+            Other Mods
+          </div>
+          <ModList
+            mods={nonLibraryMods}
+            core={false}
+            coreMods={coreMods ? coreMods.mods : []}
+          />
+        </>
+      )
+    }
+    {
+      libraryMods && (
+        <>
+          <div
+            class={`
+              block
+              pt-2
+              text-center
+              text-white
+              text-xl
+              text-shadow
+            `}
+          >
+            Libraries
+          </div>
+          <ModList
+            mods={libraryMods}
+            core={false}
+            coreMods={coreMods ? coreMods.mods : []}
+          />
+        </>
+      )
+    }
   </div>
+
+  <style>
+    .text-shadow {
+      text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+    }
+  </style>
 </Layout>
-<style>
-  .text-shadow {
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
-  }
-</style>

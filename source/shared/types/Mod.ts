@@ -111,6 +111,11 @@ export interface Mod {
    * {@inheritDoc Url}
    */
   ogCover?: Url | null;
+
+  /**
+   * If the mod is a library.
+   */
+  isLibrary?: boolean;
 }
 
 /**
@@ -125,6 +130,7 @@ export const modKeys: (keyof Mod)[] = [
   "authorIcon",
   "modloader",
   "download",
+  "isLibrary",
   "source",
   "cover",
   "ogCover",
@@ -136,7 +142,7 @@ export const modKeys: (keyof Mod)[] = [
 /**
  * A list of mod keys to be excluded from the split json files.
  */
-const splitModExcludedKeys: (keyof Mod)[] = ["ogCover", "hash"];
+const splitModExcludedKeys: (keyof Mod)[] = ["ogCover", "hash", "isLibrary"];
 
 /**
  * A list of mod keys for the split json files.

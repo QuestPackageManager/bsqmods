@@ -27,7 +27,14 @@ export function getStandardizedMod(mod: Mod, keys: (keyof Mod)[] = modKeys): Mod
       continue;
     }
 
-    uniformMod[key] = (mod[key] || "").trim();
+    switch (key) {
+      case "isLibrary":
+        uniformMod[key] = mod[key] === true;
+        break;
+
+      default:
+        uniformMod[key] = (mod[key] || "").trim();
+    }
 
     if (uniformMod[key] === "") {
       uniformMod[key] = null;
