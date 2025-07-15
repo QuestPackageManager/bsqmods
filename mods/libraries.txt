@@ -12,6 +12,7 @@ chatplex-sdk-bs
 Codegen
 codegen
 custom-json-data
+custom-types
 CustomTypes
 diglett
 flamingo
