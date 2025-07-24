@@ -1,0 +1,26 @@
+name: Ensure release exists
+description: Ensure that a GitHub release exists for the specified tag.
+inputs:
+  title:
+    description: "Title for the release."
+    required: false
+    default: ""
+  tag:
+    description: "The tag for which to ensure a release exists."
+    required: true
+  notes:
+    description: "Notes for the release."
+    required: false
+    default: " "
+
+runs:
+  using: "composite"
+  steps:
+    - name: Ensure release exists
+      shell: bash
+      run: |
+        if ! gh release view "${{ inputs.tag }}" &> /dev/null; then
+          gh release create "${{ inputs.tag }}" --title "${{ inputs.title || inputs.tag }}" --notes "${{ inputs.notes }}"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ github.token }}

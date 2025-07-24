@@ -11,8 +11,7 @@ export function hasMirrorUrl(value: string, metadata: MirrorMetadata): boolean {
   return false;
 }
 
-export const mirrorMetadataRelease = process.env.MIRROR_METADATA_RELEASE || "mirror-metadata";
-export const mirrorRelease = process.env.MIRROR_RELEASE || "mod-mirror";
+export const mirrorMetadataRelease = "mirror-metadata";
 
 export const mirrorBase = `https://github.com/${process.env.GITHUB_REPOSITORY}/releases/download`;
 export const mirrorMetadataUrl = `${mirrorBase}/${mirrorMetadataRelease}/metadata.json`;

@@ -80,9 +80,6 @@ jobs:
         with:
           ref: main
 
-      - name: Set mod mirror environment variables
-        uses: ./.github/actions/set-mirror-env
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
