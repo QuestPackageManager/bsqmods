@@ -60,8 +60,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set mod mirror environment variables
-        uses: ./.github/actions/set-mirror-env
+      - name: Ensure mirror-metadata release exists
+        uses: ./.github/actions/ensure-release
+        with:
+          title: "Mirror Metadata"
+          tag: "mirror-metadata"
+          notes: "This is used to hold metadata for the mirrored mods."
 
       - uses: actions/setup-node@v4
         with:
@@ -98,7 +102,13 @@ jobs:
       - name: Download mirror metadata
         run: |
           mkdir -p downloaded_files
-          wget "https://github.com/$GITHUB_REPOSITORY/releases/download/mirror-metadata/metadata.json?`date +%s`" -O downloaded_files/metadata.json
+          wget --spider "https://github.com/$GITHUB_REPOSITORY/releases/download/mirror-metadata/metadata.json?$(date +%s)" 2>&1 | tee wget.log
+          if grep -q "404 Not Found" wget.log; then
+            echo '{}' > downloaded_files/metadata.json
+          else
+            wget "https://github.com/$GITHUB_REPOSITORY/releases/download/mirror-metadata/metadata.json?$(date +%s)" -O downloaded_files/metadata.json
+          fi
+          rm wget.log
 
       - name: Upload cache.txz
         uses: actions/upload-artifact@v4
@@ -148,18 +158,34 @@ jobs:
           mkdir -p mod-mirror
 
           cd source/scripts
-          npx tsx ./mirror-mods.ts 2>&1
+          if gh release view "mirror-metadata" --json assets --jq '.assets[].name' | grep -q "metadata.json"; then
+            npx tsx ./mirror-mods.ts 2>&1
+          else
+            npx tsx ./mirror-mods.ts --allowEmpty 2>&1
+          fi
 
           cd ../../mod-mirror
 
-          find -type f | while read file; do
-            if [[ "$file" != "metadata.json" ]] && [[ "$file" != "./metadata.json" ]]; then
-              gh release upload "${{ env.MIRROR_RELEASE }}" "$file"
+          # Loop through the folders in the current directory
+          for dir in *; do
+            if [ ! -d "$dir" ]; then
+              continue
             fi
+
+            # Check if the current directory exists as a GitHub release, else create it.
+            if ! gh release view "$dir" &> /dev/null; then
+              gh release create "$dir" -t "$dir" -p --notes "A release to hold mirrored mods."
+            fi
+
+            find "$dir" -type f | while read file; do
+              echo "Uploading $file"
+              gh release upload "$dir" "$file"
+            done
           done
 
           if [ -f "metadata.json" ]; then
-            gh release upload "${{ env.MIRROR_METADATA_RELEASE }}" --clobber "metadata.json"
+            echo "Uploading metadata.json"
+            gh release upload "mirror-metadata" --clobber "metadata.json"
           fi
 
       - name: Trigger so-info.json update if needed
@@ -225,6 +251,13 @@ jobs:
         with:
           # Upload entire repository
           path: "./source/website/out"
+
+      - name: Ensure cache release exists
+        uses: ./.github/actions/ensure-release
+        with:
+          title: "Deployment Cache"
+          tag: "cache"
+          notes: "This is used to hold data between page deployments."
 
       - name: Push cache
         env:
