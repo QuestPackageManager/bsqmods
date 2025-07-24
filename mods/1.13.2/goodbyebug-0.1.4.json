@@ -1,0 +1,14 @@
+{
+  "name": "GoodbyeBug",
+  "description": "Fixes playlist scrolling in the wrong direction when you got more than 8 playlists",
+  "id": "goodbyebug",
+  "version": "0.1.4",
+  "author": "Rugtveit",
+  "authorIcon": null,
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Rugtveit/GoodbyeBug/releases/download/0.1.4/GoodbyeBug.zip",
+  "source": "https://github.com/Rugtveit/GoodbyeBug",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Rugtveit/GoodbyeBug"
+}

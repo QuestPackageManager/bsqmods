@@ -1,0 +1,14 @@
+{
+  "name": "Replay Lite",
+  "description": null,
+  "id": "replay",
+  "version": "0.3.0",
+  "author": "Henwill8",
+  "authorIcon": null,
+  "modloader": "QuestLoader",
+  "download": "https://github.com/henwill8/ReplayDownload/releases/download/v0.3.0/ReplayLite.zip",
+  "source": "https://github.com/henwill8/ReplayDownload",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/henwill8/ReplayDownload"
+}
