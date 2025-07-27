@@ -1,0 +1,14 @@
+{
+  "name": "PlaylistDownloader",
+  "description": "Download playlists from websites directly in game",
+  "id": "playlistdownloader",
+  "version": "0.3.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/PlaylistDownloader/releases/download/v0.3.1/PlaylistDownloader.qmod",
+  "source": "https://github.com/Metalit/PlaylistDownloader/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Metalit/PlaylistDownloader/"
+}
