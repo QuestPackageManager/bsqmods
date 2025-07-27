@@ -1,0 +1,14 @@
+{
+  "name": "Custom Models",
+  "description": "Lets you play with custom models for sabers, notes, and walls!",
+  "id": "custommodels",
+  "version": "1.2.0",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/CustomModels/releases/download/v1.2.0/CustomModels.qmod",
+  "source": "https://github.com/Metalit/CustomModels/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Metalit/CustomModels/"
+}
