@@ -1,0 +1,14 @@
+{
+  "name": "PlaylistManager",
+  "description": "Manage all your songs and playlists!",
+  "id": "playlistmanager",
+  "version": "1.4.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/PlaylistManager/releases/download/v1.4.1/PlaylistManager.qmod",
+  "source": "https://github.com/Metalit/PlaylistManager/",
+  "cover": "https://raw.githubusercontent.com/Metalit/PlaylistManager/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Metalit/PlaylistManager/"
+}
