@@ -1,0 +1,14 @@
+{
+  "name": "Third Person Mod",
+  "description": "Play in 3rd Person!",
+  "id": "Play3rdPer",
+  "version": "0.14.8",
+  "author": "ComputerElite",
+  "authorIcon": "https://avatars.githubusercontent.com/u/202559910?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Epic17plyz/3rd-Person-Mod/releases/download/0.14.8/Play3rdPer.qmod",
+  "source": "https://github.com/Epic17plyz/3rd-Person-Mod/",
+  "cover": "https://raw.githubusercontent.com/Epic17plyz/3rd-Person-Mod/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Epic17plyz/3rd-Person-Mod/"
+}
