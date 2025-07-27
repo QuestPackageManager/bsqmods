@@ -1,0 +1,14 @@
+{
+  "name": "Score Percentage",
+  "description": "shows extra information after completing a level",
+  "id": "scorepercentage",
+  "version": "3.3.4",
+  "author": "Polly51104",
+  "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Royston1999/ScorePercentage-Quest/releases/download/v3.3.4/ScorePercentage_v3.3.4.qmod",
+  "source": "https://github.com/Royston1999/ScorePercentage-Quest/",
+  "cover": "https://raw.githubusercontent.com/Royston1999/ScorePercentage-Quest/main/Cover.jpg",
+  "funding": [],
+  "website": "https://github.com/Royston1999/ScorePercentage-Quest/"
+}
