@@ -15,7 +15,7 @@ const iconCache: Dictionary<string | null> = {};
  * @param url - The URL to fetch and check for redirection.
  * @returns A promise that resolves to the redirected URL or null if no redirection occurs.
  */
-async function fetchIconLink(url: string): Promise<string | null> {
+export async function fetchIconLink(url: string): Promise<string | null> {
   const redirected = await fetchRedirectedLocation(url);
 
   if (url == redirected) {

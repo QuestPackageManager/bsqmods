@@ -155,23 +155,58 @@ export interface Repository extends Message {
 
 /** User info provided in other objects */
 export interface User {
+  /** The user's GitHub login (username). */
   login: string;
+
+  /** The user's unique GitHub ID. */
   id: number;
+
+  /** The user's GraphQL node ID. */
   node_id: string;
+
+  /** URL to the user's avatar image. */
   avatar_url: string;
+
+  /** Deprecated gravatar ID (usually empty). */
   gravatar_id: string;
+
+  /** API URL to the user's profile resource. */
   url: string;
+
+  /** Public URL to the user's GitHub profile page. */
   html_url: string;
+
+  /** API URL to the user's followers. */
   followers_url: string;
+
+  /** API URL template for users the user is following. */
   following_url: string;
+
+  /** API URL template for the user's gists. */
   gists_url: string;
+
+  /** API URL template for repositories the user has starred. */
   starred_url: string;
+
+  /** API URL to the user's subscriptions. */
   subscriptions_url: string;
+
+  /** API URL to the user's organizations. */
   organizations_url: string;
+
+  /** API URL to the user's public repositories. */
   repos_url: string;
+
+  /** API URL to the user's public events. */
   events_url: string;
+
+  /** API URL to the events the user has received. */
   received_events_url: string;
+
+  /** Type of user (e.g., "User" or "Organization"). */
   type: string;
+
+  /** Whether the user is a GitHub site administrator. */
   site_admin: boolean;
 }
 
@@ -181,19 +216,46 @@ export interface User {
  * https://api.github.com/users/[user]
  */
 export interface FullUser extends User, Message {
-  name: string;
-  company: null;
-  blog: string;
-  location: null;
-  email: null;
-  hireable: null;
-  bio: string;
-  twitter_username: null;
+  /** The user's full name (if provided). */
+  name: string | null;
+
+  /** The user's company affiliation (may be null). */
+  company: string | null;
+
+  /** The user's blog URL (may be empty or null). */
+  blog: string | null;
+
+  /** The user's location (if provided). */
+  location: string | null;
+
+  /** The user's public email (if available). */
+  email: string | null;
+
+  /** Whether the user is available for hire. */
+  hireable: boolean | null;
+
+  /** The user's biography or profile description. */
+  bio: string | null;
+
+  /** The user's Twitter handle (if linked). */
+  twitter_username: string | null;
+
+  /** Number of public repositories the user owns. */
   public_repos: number;
+
+  /** Number of public gists the user owns. */
   public_gists: number;
+
+  /** Number of followers the user has. */
   followers: number;
+
+  /** Number of users the user is following. */
   following: number;
+
+  /** ISO 8601 date string of when the account was created. */
   created_at: string;
+
+  /** ISO 8601 date string of the last profile update. */
   updated_at: string;
 }
 
