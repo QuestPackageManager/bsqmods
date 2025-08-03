@@ -1,0 +1,14 @@
+{
+  "name": "Bomb Qolorer",
+  "description": "Allows you to override the default bomb color",
+  "id": "bomb-qolorer",
+  "version": "0.2.1",
+  "author": "TheZipCreator",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/bomb-qolorer/releases/download/v0.2.1/BombQolorer.qmod",
+  "source": "https://github.com/FrozenAlex/bomb-qolorer/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/bomb-qolorer/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/FrozenAlex/bomb-qolorer/"
+}
