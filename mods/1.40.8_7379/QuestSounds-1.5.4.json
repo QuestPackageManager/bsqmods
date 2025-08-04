@@ -1,0 +1,14 @@
+{
+  "name": "QuestSounds",
+  "description": "Allows users to change their sfx sounds and in-game music easily!",
+  "id": "QuestSounds",
+  "version": "1.5.4",
+  "author": "Rugtveit, EnderdracheLP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/EnderdracheLP/QuestSounds/releases/download/1.5.4/QuestSounds_1.5.4.qmod",
+  "source": "https://github.com/EnderdracheLP/QuestSounds/",
+  "cover": "https://raw.githubusercontent.com/EnderdracheLP/QuestSounds/master/Cover.jpg",
+  "funding": [],
+  "website": "https://github.com/EnderdracheLP/QuestSounds/"
+}
