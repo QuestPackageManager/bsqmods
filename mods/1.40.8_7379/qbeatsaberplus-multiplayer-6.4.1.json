@@ -1,0 +1,16 @@
+{
+  "name": "QBeatSaberPlus-Multiplayer",
+  "description": "Feel good!",
+  "id": "qbeatsaberplus-multiplayer",
+  "version": "6.4.1",
+  "author": "HardCPP#1985",
+  "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/releases/download/v6.4.1/QBeatSaberPlus-Multiplayer.qmod",
+  "source": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/main/cover.png",
+  "funding": [
+    "https://patreon.com/BeatSaberPlus"
+  ],
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/"
+}
