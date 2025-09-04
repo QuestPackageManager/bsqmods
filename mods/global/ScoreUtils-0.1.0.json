@@ -1,0 +1,14 @@
+{
+  "name": "Score Utils",
+  "description": "retrieves score information about the selected map",
+  "id": "ScoreUtils",
+  "version": "0.1.0",
+  "author": "Polly51104",
+  "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
+  "modloader": "QuestLoader",
+  "download": "https://github.com/Royston1999/ScoreUtils/releases/download/v0.1.0/ScoreUtils.qmod",
+  "source": "https://github.com/Royston1999/ScoreUtils/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Royston1999/ScoreUtils/"
+}
