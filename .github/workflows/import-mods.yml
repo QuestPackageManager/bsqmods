@@ -79,6 +79,7 @@ jobs:
         run: |
           cd source/scripts
           npx tsx ./import.ts 2>&1
+          npx tsx add-dependencies.ts 2>&1
           echo "COMMIT_SUBJECT=$(echo "Update core mods" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
           echo "COMMIT_BODY=$(echo "Updated new core mods from https://raw.githubusercontent.com/QuestPackageManager/bs-coremods/main/core_mods.json" | jq -R -s '@json')" | tee -a "$GITHUB_ENV"
           echo "BRANCH_NAME=core-mods" | tee -a "$GITHUB_ENV"
@@ -102,6 +103,7 @@ jobs:
         run: |
           cd source/scripts
           npx tsx ./import.ts "${{ inputs.url }}" "${{ inputs.targetVersion }}" 2>&1
+          npx tsx add-dependencies.ts 2>&1
           git add -A ../../mods
           echo "${{ inputs.url }}" "${{ inputs.targetVersion }}" |
             tr A-Z a-z |

@@ -2,19 +2,8 @@ import { fetchRedirectedLocation } from "../shared/fetch";
 import { ghRawRegex } from "../shared/ghRawRegex";
 import { ghRegex } from "../shared/ghRegex";
 import { Mod } from "../shared/types/Mod";
+import { doWithRegexMatch } from "../shared/doWithRegexMatch";
 import { iterateSplitMods } from "./shared/iterateMods";
-
-async function doWithRegexMatch(input: string | null | undefined, regex: RegExp, callback: (match: RegExpExecArray) => Promise<void>) {
-  if (input == null) {
-    return;
-  }
-
-  const match = regex.exec(input);
-
-  if (match) {
-    await callback(match);
-  }
-}
 
 for (const iteration of iterateSplitMods()) {
   console.log(iteration.shortModPath);

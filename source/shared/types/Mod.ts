@@ -1,4 +1,5 @@
 import { ModId, ModVersion, Sha1Hash, Url } from "./Aliases";
+import { Dependency } from "./Dependency";
 import { ModLoader } from "./ModLoader";
 
 /**
@@ -66,6 +67,11 @@ export interface Mod {
   modloader: ModLoader | null;
 
   /**
+   * The dependencies of the mod.
+   */
+  dependencies?: Dependency[];
+
+  /**
    * A {@link Url direct link} to the .qmod file.
    *
    * {@inheritDoc Url}
@@ -130,6 +136,7 @@ export const modKeys: (keyof Mod)[] = [
   "authorIcon",
   "modloader",
   "download",
+  "dependencies",
   "isLibrary",
   "source",
   "cover",

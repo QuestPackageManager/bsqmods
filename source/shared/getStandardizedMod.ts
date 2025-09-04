@@ -12,22 +12,24 @@ export function getStandardizedMod(mod: Mod, keys: (keyof Mod)[] = modKeys): Mod
 
   // Normalize the mod object by trimming and setting empty strings to null
   for (const key of keys) {
-    if (key == "funding") {
-      uniformMod[key] = mod[key] || [];
-
-      if (!(uniformMod[key] instanceof Array)) {
-        uniformMod[key] = [uniformMod[key]];
-      }
-
-      continue;
-    }
-
-    if (key == "modloader") {
-      uniformMod[key] = (mod[key]?.trim() as ModLoader) || ModLoader.Scotland2;
-      continue;
-    }
-
     switch (key) {
+      case "dependencies":
+        uniformMod[key] = mod[key]?.toSorted((a, b) => a.id.localeCompare(b.id, undefined, { sensitivity: "base" })) || [];
+        break;
+
+      case "funding":
+        uniformMod[key] = mod[key] || [];
+
+        if (!(uniformMod[key] instanceof Array)) {
+          uniformMod[key] = [uniformMod[key]];
+        }
+
+        break;
+
+      case "modloader":
+        uniformMod[key] = (mod[key]?.trim() as ModLoader) || ModLoader.Scotland2;
+        break;
+
       case "isLibrary":
         uniformMod[key] = mod[key] === true;
         break;

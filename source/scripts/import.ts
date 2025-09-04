@@ -29,7 +29,7 @@ export async function importRemoteQmod(
   url: string,
   gameVersion: string | null = null,
   writeFile = true,
-  logger: Logger = ConsoleLogger
+  logger: Logger = new ConsoleLogger()
 ): Promise<CachableResult<Mod | null>> {
   const result = await fetchBuffer(url);
 
