@@ -31,11 +31,19 @@ jobs:
         with:
           scripts: true
 
-      - name: Update the repo data
+      - name: Update GitHub icons
         run: |
           cd source/scripts
           npx tsx ./update-github-icons.ts 2>&1
+
+      - name: Update repo links
+        run: |
+          cd source/scripts
           npx tsx ./update-repo-links.ts 2>&1
+
+      - name: Add missing dependencies
+        run: |
+          cd source/scripts
           npx tsx ./add-dependencies.ts 2>&1
 
       - name: Configure git user
