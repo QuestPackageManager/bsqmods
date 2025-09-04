@@ -82,7 +82,10 @@ jobs:
         run: |
           cd source/scripts
           npx tsx ./add-dependencies.ts 2>&1
-          git add -A mods
+
+      - name: Commit and push changes
+        run: |
+          git add -A mods || exit 0
           git commit -m "Add missing mod dependencies" || exit 0
           git push
 
