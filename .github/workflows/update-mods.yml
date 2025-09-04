@@ -50,47 +50,8 @@ jobs:
           echo "$urls" | jq .
           echo "urls=$urls" >> $GITHUB_OUTPUT
 
-  add-dependencies:
-    runs-on: ubuntu-latest
-    outputs:
-      mod-urls: ${{ steps.get-urls.outputs.urls }}
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Configure git user
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: latest
-
-      - name: Install npm modules
-        uses: ./.github/actions/install-modules
-        with:
-          scripts: true
-
-      - name: Add missing mod dependencies
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd source/scripts
-          npx tsx ./add-dependencies.ts 2>&1
-
-      - name: Commit and push changes
-        run: |
-          git add -A mods || exit 0
-          git commit -m "Add missing mod dependencies" || exit 0
-          git push
-
   process-urls:
-    needs: [update-mods, add-dependencies]
+    needs: update-mods
     if: ${{ needs.update-mods.outputs.mod-urls != '[]' }}
     permissions:
       contents: write
