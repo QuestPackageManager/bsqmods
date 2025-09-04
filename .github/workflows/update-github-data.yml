@@ -36,6 +36,7 @@ jobs:
           cd source/scripts
           npx tsx ./update-github-icons.ts 2>&1
           npx tsx ./update-repo-links.ts 2>&1
+          npx tsx ./add-dependencies.ts 2>&1
 
       - name: Configure git user
         run: |
