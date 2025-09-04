@@ -36,6 +36,18 @@
       "pattern": "^(http|https)://.*$",
       "flags": "i"
     },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" }
+        },
+        "required": ["id", "version"],
+        "additionalProperties": false
+      }
+    },
     "source": {
       "type": ["string", "null"],
       "format": "uri",
@@ -64,5 +76,5 @@
       "flags": "i"
     }
   },
-  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "source", "cover", "funding", "website"]
+  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "dependencies", "source", "cover", "funding", "website"]
 }
