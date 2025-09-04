@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/1208758?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Crunkle/BetterHaptics/releases/download/v0.1.0/BetterHaptics.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    }
+  ],
   "source": "https://github.com/Crunkle/BetterHaptics/",
   "cover": null,
   "funding": [],

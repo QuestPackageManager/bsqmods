@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/90689870?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/BroYouReallyPaused/releases/download/v0.1.0/Bro.You.Really.Paused.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.4"
+    }
+  ],
   "source": "https://github.com/speecil/BroYouReallyPaused/",
   "cover": null,
   "funding": [],

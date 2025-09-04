@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/jxnxsdev/WeebSaber/releases/download/0.1.2/Weeb.Saber.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.3.1"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.12"
+    }
+  ],
   "source": "https://github.com/jxnxsdev/WeebSaber/",
   "cover": null,
   "funding": [],

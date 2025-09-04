@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/98843512?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.8.3/BeatLeader_1.35.0.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.8.0"
+    },
+    {
+      "id": "bsml",
+      "version": "=0.4.24"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.0"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.1"
+    }
+  ],
   "source": "https://github.com/BeatLeader/beatleader-qmod/",
   "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
   "funding": [],

@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/Quest-BSML/releases/download/v0.4.50/BSML.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.2.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    },
+    {
+      "id": "tinyxml2",
+      "version": "^10.0.0"
+    }
+  ],
   "source": "https://github.com/bsq-ports/Quest-BSML/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/Quest-BSML/master/cover.png",
   "funding": [],

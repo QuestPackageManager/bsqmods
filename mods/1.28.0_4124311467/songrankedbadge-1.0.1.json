@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/SongRankedBadge/releases/download/1.0.1/SongRankedBadge.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.12"
+    },
+    {
+      "id": "song-details",
+      "version": "^0.3.1"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/SongRankedBadge/",
   "cover": null,
   "funding": [],

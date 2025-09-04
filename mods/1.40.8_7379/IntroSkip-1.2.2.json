@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Royston1999/IntroSkip-Quest/releases/download/v1.2.2/IntroSkip_v1.2.2.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.23"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/Royston1999/IntroSkip-Quest/",
   "cover": "https://raw.githubusercontent.com/Royston1999/IntroSkip-Quest/main/Cover.png",
   "funding": [],

@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/155121307?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/CatsaCode/AnyText/releases/download/v1.0.1-bs-1.40.4/AnyText.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.1"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.51"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    }
+  ],
   "source": "https://github.com/CatsaCode/AnyText/",
   "cover": "https://raw.githubusercontent.com/CatsaCode/AnyText/main/cover.png",
   "funding": [],

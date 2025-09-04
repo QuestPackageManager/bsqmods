@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/releases/download/v1.0.2-v6.2.0/QBeatSaberPlus-MenuMusic.qmod",
+  "dependencies": [
+    {
+      "id": "chatplex-sdk-bs",
+      "version": "^1.0.2-v6.2.0"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.15"
+    }
+  ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
   "funding": [],

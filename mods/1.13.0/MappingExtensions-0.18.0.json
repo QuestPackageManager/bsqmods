@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/StackDoubleFlow/QuestMods/releases/download/0.18.0/MappingExtensions_v0.18.0.zip",
+  "dependencies": [],
   "source": "https://github.com/StackDoubleFlow/QuestMods/",
   "cover": null,
   "funding": [],

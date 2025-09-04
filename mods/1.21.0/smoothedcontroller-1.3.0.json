@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/87990853?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/whatdahopper/SmoothedController/releases/download/v1.3.0/smoothedcontroller_v1.3.0.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.22.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.9"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.5"
+    }
+  ],
   "source": "https://github.com/whatdahopper/SmoothedController/",
   "cover": null,
   "funding": [],

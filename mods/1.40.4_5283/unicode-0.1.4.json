@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/UnicodeQuest/releases/download/v0.1.4/Unicode.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.0"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.0.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.5.0"
+    }
+  ],
   "source": "https://github.com/Metalit/UnicodeQuest/",
   "cover": "https://raw.githubusercontent.com/Metalit/UnicodeQuest/main/cover.png",
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlayerDataKeeper/releases/download/v0.2.2/PlayerDataKeeper.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.5.0"
+    }
+  ],
   "source": "https://github.com/Metalit/PlayerDataKeeper/",
   "cover": null,
   "funding": [],

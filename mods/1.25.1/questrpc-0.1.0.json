@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/83958883?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Core-Quest/Quest-RPC/releases/download/v0.1.0/QuestDiscordRPC.qmod",
+  "dependencies": [],
   "source": "https://github.com/Core-Quest/Quest-RPC/",
   "cover": null,
   "funding": [],

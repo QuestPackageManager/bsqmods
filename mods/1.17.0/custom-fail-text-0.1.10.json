@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/44222319?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/CustomFailText/releases/download/0.1.10/custom-fail-text_v0.1.10.qmod",
+  "dependencies": [],
   "source": "https://github.com/Lauriethefish/CustomFailText/",
   "cover": "https://raw.githubusercontent.com/Lauriethefish/CustomFailText/master/cover.png",
   "funding": [],

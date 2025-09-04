@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/44222319?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/Technicolour/releases/download/1.0.0/Technicolour.qmod",
+  "dependencies": [
+    {
+      "id": "chroma",
+      "version": "^2.5.7"
+    }
+  ],
   "source": "https://github.com/Lauriethefish/Technicolour/",
   "cover": "https://raw.githubusercontent.com/Lauriethefish/Technicolour/master/cover.jpg",
   "funding": [],

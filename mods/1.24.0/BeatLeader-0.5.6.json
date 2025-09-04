@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/98843512?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/BeatLeader/beatleader-qmod/releases/download/v0.5.6/BeatLeader_1_24_0.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "=0.7.1"
+    },
+    {
+      "id": "codegen",
+      "version": "=0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "=0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "=0.16.4"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.1"
+    }
+  ],
   "source": "https://github.com/BeatLeader/beatleader-qmod/",
   "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
   "funding": [],

@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/7273813?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/SuperMarcus/RumbleRumbleQuest/releases/download/1.0.0/RumbleRumbleQuest.zip",
+  "dependencies": [],
   "source": "https://github.com/SuperMarcus/RumbleRumbleQuest/",
   "cover": "https://raw.githubusercontent.com/SuperMarcus/RumbleRumbleQuest/master/cover.gif",
   "funding": [],

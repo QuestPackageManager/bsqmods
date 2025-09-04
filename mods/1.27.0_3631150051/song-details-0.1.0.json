@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/SongDetails/releases/download/v0.1.0/SongDetails.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^1.2.9"
+    }
+  ],
   "source": "https://github.com/RedBrumbler/SongDetails/",
   "cover": null,
   "funding": [],

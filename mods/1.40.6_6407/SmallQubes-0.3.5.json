@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8793817?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.3.5/SmallQubes.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.1"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.51"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    }
+  ],
   "source": "https://github.com/NSGolova/SmallQubes/",
   "cover": "https://raw.githubusercontent.com/NSGolova/SmallQubes/master/cover.png",
   "funding": [],

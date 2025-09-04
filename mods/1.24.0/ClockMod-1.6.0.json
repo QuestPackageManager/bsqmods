@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/ClockMod/releases/download/1.6.0/ClockMod.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.4"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/ClockMod/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/ClockMod/master/Cover.jpg",
   "funding": [],

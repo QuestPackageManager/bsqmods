@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlayerDataKeeper/releases/download/v0.1.9/PlayerDataKeeper.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/Metalit/PlayerDataKeeper/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/kodenamekrak/BSEvents/releases/download/v1.0.0/BSEvents.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.17.3"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/BSEvents/",
   "cover": null,
   "funding": [],

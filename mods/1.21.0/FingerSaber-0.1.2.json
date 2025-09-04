@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/38835729?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.2/fingersaber_0.1.2.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.22.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.9"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.5"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.3"
+    }
+  ],
   "source": "https://github.com/im-henri/FingerSaber/",
   "cover": "https://raw.githubusercontent.com/im-henri/FingerSaber/main/cover.jpg",
   "funding": [],

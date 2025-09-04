@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/27882876?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/FrozenAlex/bomb-qolorer/releases/download/v0.2.0/BombQolorer.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/bomb-qolorer/",
   "cover": "https://raw.githubusercontent.com/FrozenAlex/bomb-qolorer/main/cover.png",
   "funding": [],

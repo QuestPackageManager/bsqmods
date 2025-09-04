@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlaylistCore/releases/download/v1.3.1/PlaylistCore.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.18"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.2"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.1"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.0.1"
+    }
+  ],
   "source": "https://github.com/Metalit/PlaylistCore/",
   "cover": "https://raw.githubusercontent.com/Metalit/PlaylistCore/main/cover.png",
   "funding": [],

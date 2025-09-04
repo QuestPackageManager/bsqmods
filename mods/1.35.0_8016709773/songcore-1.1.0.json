@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/raineaeternal/Quest-SongCore/releases/download/v1.1.0/SongCore.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.17"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    }
+  ],
   "source": "https://github.com/raineaeternal/Quest-SongCore/",
   "cover": "https://raw.githubusercontent.com/raineaeternal/Quest-SongCore/main/cover.jpg",
   "funding": [],

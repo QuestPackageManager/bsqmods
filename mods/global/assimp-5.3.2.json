@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/149850851?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/BSQ-VRM/Assimp-QPM/releases/download/5.3.2/assimp.qmod",
+  "dependencies": [],
   "source": "https://github.com/BSQ-VRM/Assimp-QPM/",
   "cover": null,
   "funding": [],

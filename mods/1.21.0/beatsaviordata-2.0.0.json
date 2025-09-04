@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/QuestBeatSaviourData/releases/download/v2.0.0/BeatSaviorData.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.22.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.0"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.0"
+    }
+  ],
   "source": "https://github.com/Metalit/QuestBeatSaviourData/",
   "cover": "https://raw.githubusercontent.com/Metalit/QuestBeatSaviourData/master/cover.png",
   "funding": [],

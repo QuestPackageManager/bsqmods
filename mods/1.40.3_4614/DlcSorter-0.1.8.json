@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.DlcSorter/releases/download/v0.1.8/DlcSorter.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    }
+  ],
   "source": "https://github.com/DanTheMan827-BeatSaber/Quest.DlcSorter/",
   "cover": "https://raw.githubusercontent.com/DanTheMan827-BeatSaber/Quest.DlcSorter/master/cover.png",
   "funding": [],

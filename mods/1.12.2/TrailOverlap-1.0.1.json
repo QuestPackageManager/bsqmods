@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/QuestTrailOverlap/releases/download/1.0.1/QuestTrailOverlap.zip",
+  "dependencies": [],
   "source": "https://github.com/RedBrumbler/QuestTrailOverlap/",
   "cover": null,
   "funding": [],

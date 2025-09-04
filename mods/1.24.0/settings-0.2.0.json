@@ -7,6 +7,12 @@
   "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://cdn.discordapp.com/attachments/971885016219025518/1008590591199809586/StopForgettingMySettings.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    }
+  ],
   "source": null,
   "cover": null,
   "funding": [],

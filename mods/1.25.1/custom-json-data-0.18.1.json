@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/bsq-ports/CustomJSONData/releases/download/v0.18.1/custom-json-data.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.2"
+    }
+  ],
   "source": "https://github.com/bsq-ports/CustomJSONData/",
   "cover": null,
   "funding": [],

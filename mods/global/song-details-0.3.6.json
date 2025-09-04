@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/FrozenAlex/SongDetails/releases/download/v0.3.6/SongDetails.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/SongDetails/",
   "cover": null,
   "funding": [],

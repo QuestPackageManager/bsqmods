@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/Chroma/releases/download/v2.9.0/Chroma.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.8"
+    },
+    {
+      "id": "custom-json-data",
+      "version": "^0.21.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.0"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.0.0"
+    },
+    {
+      "id": "tracks",
+      "version": "^1.0.0"
+    }
+  ],
   "source": "https://github.com/bsq-ports/Chroma/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/Chroma/main/cover.png",
   "funding": [],

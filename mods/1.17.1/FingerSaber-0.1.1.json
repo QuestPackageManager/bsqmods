@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/38835729?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.1/FingerSaber_v0.1.1.qmod",
+  "dependencies": [],
   "source": "https://github.com/im-henri/FingerSaber/",
   "cover": "https://raw.githubusercontent.com/im-henri/FingerSaber/main/cover.jpg",
   "funding": [],

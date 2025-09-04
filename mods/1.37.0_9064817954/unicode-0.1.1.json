@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/UnicodeQuest/releases/download/v0.1.1/Unicode.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/Metalit/UnicodeQuest/",
   "cover": "https://raw.githubusercontent.com/Metalit/UnicodeQuest/main/cover.png",
   "funding": [],

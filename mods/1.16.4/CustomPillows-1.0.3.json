@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/CustomPillowsQuest/releases/download/v1.0.3/CustomPillows.qmod",
+  "dependencies": [],
   "source": "https://github.com/RedBrumbler/CustomPillowsQuest/",
   "cover": "https://raw.githubusercontent.com/RedBrumbler/CustomPillowsQuest/master/cover.png",
   "funding": [],

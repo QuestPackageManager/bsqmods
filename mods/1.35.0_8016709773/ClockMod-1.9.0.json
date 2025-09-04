@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/EnderdracheLP/ClockMod/releases/download/1.9.0/ClockMod.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.31"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.7"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/ClockMod/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/ClockMod/master/Cover.jpg",
   "funding": [],

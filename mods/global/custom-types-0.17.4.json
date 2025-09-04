@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/110287845?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.17.4/CustomTypes.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.6.1"
+    }
+  ],
   "source": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/",
   "cover": "https://raw.githubusercontent.com/QuestPackageManager/Il2CppQuestTypePatching/master/cover.png",
   "funding": [],

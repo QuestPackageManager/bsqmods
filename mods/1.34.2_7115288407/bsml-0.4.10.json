@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/RedBrumbler/Quest-BSML/releases/download/v0.4.10/BSML.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.16.14"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    },
+    {
+      "id": "tinyxml2",
+      "version": "^9.0.7"
+    }
+  ],
   "source": "https://github.com/RedBrumbler/Quest-BSML/",
   "cover": "https://raw.githubusercontent.com/RedBrumbler/Quest-BSML/master/cover.png",
   "funding": [],

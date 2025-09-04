@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/43818215?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/henwill8/SongDifficultyChart/releases/download/0.2.0/songDifficultyChart_v0.2.0.qmod",
+  "dependencies": [],
   "source": "https://github.com/henwill8/SongDifficultyChart/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/46038462?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/77Z/CustomMainMenu/releases/download/v0.1.0/CustomMainMenu.qmod",
+  "dependencies": [],
   "source": "https://github.com/77Z/CustomMainMenu/",
   "cover": null,
   "funding": [],

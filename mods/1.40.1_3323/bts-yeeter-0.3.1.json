@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.BtsYeeter/releases/download/v0.3.1/BTS.Yeeter.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.3.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.5.0"
+    }
+  ],
   "source": "https://github.com/DanTheMan827-BeatSaber/Quest.BtsYeeter/",
   "cover": "https://raw.githubusercontent.com/DanTheMan827-BeatSaber/Quest.BtsYeeter/master/cover.png",
   "funding": [],

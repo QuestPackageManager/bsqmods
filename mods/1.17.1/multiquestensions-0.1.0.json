@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/47616186?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Goobwabber/MultiQuestensions/releases/download/v0.1.0/MultiQuestensions.qmod",
+  "dependencies": [
+    {
+      "id": "BeatTogether",
+      "version": "1.3.0"
+    }
+  ],
   "source": "https://github.com/Goobwabber/MultiQuestensions/",
   "cover": null,
   "funding": [],

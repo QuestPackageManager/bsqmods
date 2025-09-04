@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/79868211?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/AllyPallyUK/NoParticles/releases/download/v0.1.1/noParticles_v0.1.1.qmod",
+  "dependencies": [],
   "source": "https://github.com/AllyPallyUK/NoParticles/",
   "cover": null,
   "funding": [],

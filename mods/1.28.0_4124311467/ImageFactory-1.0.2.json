@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/69561711?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/OptimusChen/ImageFactory-Quest/releases/download/v1.0.2/ImageFactory.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^1.2.9"
+    }
+  ],
   "source": "https://github.com/OptimusChen/ImageFactory-Quest/",
   "cover": "https://raw.githubusercontent.com/OptimusChen/ImageFactory-Quest/master/cover.png",
   "funding": [],

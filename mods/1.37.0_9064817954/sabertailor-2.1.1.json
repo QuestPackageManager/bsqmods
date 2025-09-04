@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Royston1999/Saber-Tailor-quest/releases/download/v2.1.1/SaberTailor_v2.1.1.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.8.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.24"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.0"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/Royston1999/Saber-Tailor-quest/",
   "cover": "https://raw.githubusercontent.com/Royston1999/Saber-Tailor-quest/main/Cover.png",
   "funding": [],

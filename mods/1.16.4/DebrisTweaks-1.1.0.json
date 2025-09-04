@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/39755457?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Raemien/DebrisTweaksQuest/releases/download/v1.1.0/DebrisTweaks.qmod",
+  "dependencies": [],
   "source": "https://github.com/Raemien/DebrisTweaksQuest/",
   "cover": "https://raw.githubusercontent.com/Raemien/DebrisTweaksQuest/master/cover.png",
   "funding": [],

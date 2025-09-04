@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/87990853?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/whatdahopper/AnyTweaks/releases/download/v3.0.0/aikatweaks_v3.0.0.qmod",
+  "dependencies": [],
   "source": "https://github.com/whatdahopper/AnyTweaks/",
   "cover": "https://raw.githubusercontent.com/whatdahopper/AnyTweaks/master/cover.png",
   "funding": [],

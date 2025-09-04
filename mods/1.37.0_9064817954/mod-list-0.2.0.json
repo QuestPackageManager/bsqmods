@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/releases/download/v0.2.0/ModList.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.7.0"
+    }
+  ],
   "source": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/",
   "cover": "https://raw.githubusercontent.com/DanTheMan827-BeatSaber/Quest.ModList/main/cover.jpg",
   "funding": [],

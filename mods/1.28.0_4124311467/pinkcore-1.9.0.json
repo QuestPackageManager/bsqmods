@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/62712899?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/ModdingPink/PinkCore/releases/download/v1.9.0/PinkCore.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.16.0"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.11.0"
+    }
+  ],
   "source": "https://github.com/ModdingPink/PinkCore/",
   "cover": "https://raw.githubusercontent.com/ModdingPink/PinkCore/master/cover.png",
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/93472213?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/IMB11/Colorama/releases/download/1.0.0/Colorama-1.0.0%2B1200.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.21.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.8"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.4"
+    }
+  ],
   "source": "https://github.com/IMB11/Colorama/",
   "cover": "https://raw.githubusercontent.com/IMB11/Colorama/master/cover.png",
   "funding": [],

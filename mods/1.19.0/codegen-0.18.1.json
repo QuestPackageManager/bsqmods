@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/10663758?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.18.1/Codegen.qmod",
+  "dependencies": [],
   "source": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/",
   "cover": "https://raw.githubusercontent.com/sc2ad/BeatSaber-Quest-Codegen/master/cover.png",
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.1.0/BSNightcoreQuest_1_25_1.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "=0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.4"
+    }
+  ],
   "source": "https://github.com/Tatenshi/BSNightcoreQuest/",
   "cover": null,
   "funding": [],

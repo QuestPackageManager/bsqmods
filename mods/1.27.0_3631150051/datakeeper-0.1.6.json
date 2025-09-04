@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/PlayerDataKeeper/releases/download/v0.1.6/PlayerDataKeeper.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    }
+  ],
   "source": "https://github.com/Metalit/PlayerDataKeeper/",
   "cover": null,
   "funding": [],

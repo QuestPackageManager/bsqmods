@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.2.1/QosmeticsWhackers.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.19"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.5"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    },
+    {
+      "id": "qosmetics-core",
+      "version": "^2.3.0"
+    }
+  ],
   "source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
   "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Sabers/master/cover.png",
   "funding": [],

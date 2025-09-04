@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.2.0/BSNightcoreQuest_1_37_0.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.4"
+    }
+  ],
   "source": "https://github.com/Tatenshi/BSNightcoreQuest/",
   "cover": null,
   "funding": [],

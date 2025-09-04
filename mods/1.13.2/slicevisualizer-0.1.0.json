@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/43818215?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/henwill8/SliceVisualizer/releases/download/0.1.0/slicevisualizer_v0.1.0.zip",
+  "dependencies": [],
   "source": "https://github.com/henwill8/SliceVisualizer/",
   "cover": "https://raw.githubusercontent.com/henwill8/SliceVisualizer/master/cover.png",
   "funding": [],

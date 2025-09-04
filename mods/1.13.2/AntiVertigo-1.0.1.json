@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/AntiVertigo/releases/download/1.0.1/AntiVertigo.zip",
+  "dependencies": [],
   "source": "https://github.com/RedBrumbler/AntiVertigo/",
   "cover": "https://raw.githubusercontent.com/RedBrumbler/AntiVertigo/master/cover.png",
   "funding": [],

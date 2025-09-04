@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/darknight1050/QuestUI/releases/download/v0.17.7/QuestUI.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.2.5"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.29.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    }
+  ],
   "source": "https://github.com/darknight1050/QuestUI/",
   "cover": "https://raw.githubusercontent.com/darknight1050/QuestUI/master/cover.png",
   "funding": [],

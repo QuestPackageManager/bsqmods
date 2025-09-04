@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/16144471?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/esheltone/SongBrowser/releases/download/v1.0.3/SongBrowser.qmod",
+  "dependencies": [],
   "source": "https://github.com/esheltone/SongBrowser/",
   "cover": null,
   "funding": [],

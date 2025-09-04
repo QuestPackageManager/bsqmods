@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/25163630?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/rcelyte/MappingExtensions/releases/download/0.22.4/MappingExtensions.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "pinkcore",
+      "version": "^1.8.9"
+    }
+  ],
   "source": "https://github.com/rcelyte/MappingExtensions/",
   "cover": "https://raw.githubusercontent.com/rcelyte/MappingExtensions/master/cover.png",
   "funding": [],

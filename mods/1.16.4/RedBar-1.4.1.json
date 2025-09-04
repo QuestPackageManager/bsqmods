@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/71177995?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/ComputerElite/RedBar/releases/download/1.4.1/RedBar.qmod",
+  "dependencies": [],
   "source": "https://github.com/ComputerElite/RedBar/",
   "cover": "https://raw.githubusercontent.com/ComputerElite/RedBar/master/cover.png",
   "funding": [],

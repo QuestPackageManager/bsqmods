@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/6181929?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest/releases/download/v0.2.1/BeatmapPlayCount.v0.2.1.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.1.5"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.5"
+    }
+  ],
   "source": "https://github.com/netux/BeatSaber-BeatmapPlayCount-Quest",
   "cover": null,
   "funding": [],

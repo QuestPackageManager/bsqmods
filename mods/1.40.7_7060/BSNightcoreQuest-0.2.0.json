@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.2.0/BSNightcoreQuest_1_40_7.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.1"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.51"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    }
+  ],
   "source": "https://github.com/Tatenshi/BSNightcoreQuest/",
   "cover": null,
   "funding": [],

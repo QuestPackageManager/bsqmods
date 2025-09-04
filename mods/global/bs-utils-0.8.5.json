@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/QuestBS-Utils/releases/download/v0.8.5/BS-Utils.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.1"
+    }
+  ],
   "source": "https://github.com/bsq-ports/QuestBS-Utils/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/QuestBS-Utils/master/cover.png",
   "funding": [],

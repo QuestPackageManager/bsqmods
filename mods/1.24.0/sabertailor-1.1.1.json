@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Royston1999/Saber-Tailor-quest/releases/download/1.1.1/Saber.Tailor.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.4"
+    }
+  ],
   "source": "https://github.com/Royston1999/Saber-Tailor-quest/",
   "cover": "https://raw.githubusercontent.com/Royston1999/Saber-Tailor-quest/main/Cover.png",
   "funding": [],

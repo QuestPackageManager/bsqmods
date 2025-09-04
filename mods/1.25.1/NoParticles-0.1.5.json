@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/NoParticles/releases/download/0.1.5/NoParticles-1.25.1-2.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.3"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/NoParticles/",
   "cover": "https://raw.githubusercontent.com/kodenamekrak/NoParticles/master/cover.png",
   "funding": [],

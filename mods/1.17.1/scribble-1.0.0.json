@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/Scribble/releases/download/v1.0.0/Scribble.qmod",
+  "dependencies": [],
   "source": null,
   "cover": "https://raw.githubusercontent.com/RedBrumbler/Scribble/master/cover.gif",
   "funding": [],

@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/155121307?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/CatsaCode/TooManyFireworks/releases/download/v1.2.3/TooManyFireworks.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.53"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/CatsaCode/TooManyFireworks/",
   "cover": "https://raw.githubusercontent.com/CatsaCode/TooManyFireworks/main/cover.png",
   "funding": [],

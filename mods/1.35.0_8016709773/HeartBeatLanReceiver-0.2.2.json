@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/20887940?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.2.2/HeartBeatQuest.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.22"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
   "cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
   "funding": [],

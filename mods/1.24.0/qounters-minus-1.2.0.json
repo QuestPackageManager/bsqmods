@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/bsq-qounters-minus/releases/download/v1.2.0/Qounters-.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.13"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.2"
+    }
+  ],
   "source": "https://github.com/Metalit/bsq-qounters-minus/",
   "cover": "https://raw.githubusercontent.com/Metalit/bsq-qounters-minus/master/cover.png",
   "funding": [],

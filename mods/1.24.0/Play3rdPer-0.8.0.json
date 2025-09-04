@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/71177995?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/ComputerElite/play3rdper/releases/download/0.8.0/Play3rdPer.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.2"
+    }
+  ],
   "source": "https://github.com/ComputerElite/play3rdper/",
   "cover": "https://raw.githubusercontent.com/ComputerElite/play3rdper/master/cover.png",
   "funding": [],

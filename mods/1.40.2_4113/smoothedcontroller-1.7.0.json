@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/FrozenAlex/SmoothedController/releases/download/v1.7.0/Smoothed.Controller.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.49"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.5.0"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/SmoothedController/",
   "cover": null,
   "funding": [],

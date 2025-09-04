@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/88561317?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v2.2.4/BeatTogether_v2.2.4.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.23"
+    },
+    {
+      "id": "multiplayer-core",
+      "version": "^1.6.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
   "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
   "funding": [],

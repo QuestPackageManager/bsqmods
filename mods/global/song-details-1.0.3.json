@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.3/SongDetails.qmod",
+  "dependencies": [
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/bsq-ports/SongDetails/",
   "cover": null,
   "funding": [],

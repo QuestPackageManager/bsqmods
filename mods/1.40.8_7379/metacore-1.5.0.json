@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/MetaCore/releases/download/v1.5.0/MetaCore.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "song-details",
+      "version": "^1.0.3"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.7"
+    }
+  ],
   "source": "https://github.com/Metalit/MetaCore/",
   "cover": null,
   "funding": [],

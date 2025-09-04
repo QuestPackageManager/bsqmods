@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/releases/download/v6.3.2/QBeatSaberPlus-GameTweaker.qmod",
+  "dependencies": [
+    {
+      "id": "chatplex-sdk-bs",
+      "version": "^6.3.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.8"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-GameTweaker/master/cover.png",
   "funding": [],

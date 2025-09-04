@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/90689870?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/SpeecilTweaks-Quest/releases/download/v0.2.2/SpeecilTweaks.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.7.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.3.1"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.11"
+    }
+  ],
   "source": "https://github.com/speecil/SpeecilTweaks-Quest/",
   "cover": "https://raw.githubusercontent.com/speecil/SpeecilTweaks-Quest/master/cover.png",
   "funding": [],

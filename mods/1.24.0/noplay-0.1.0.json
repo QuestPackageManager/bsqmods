@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/90689870?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/No-Play/releases/download/v0.1.0/No.Play.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    }
+  ],
   "source": "https://github.com/speecil/No-Play/",
   "cover": "https://raw.githubusercontent.com/speecil/No-Play/master/cover.png",
   "funding": [],

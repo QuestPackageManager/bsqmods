@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.8.3/SongDownloader.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.4"
+    },
+    {
+      "id": "playlistcore",
+      "version": "^1.4.2"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.15"
+    }
+  ],
   "source": "https://github.com/darknight1050/SongDownloader/",
   "cover": "https://raw.githubusercontent.com/darknight1050/SongDownloader/master/cover.png",
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/kodenamekrak/QonsistentSaberColors/releases/download/v0.2.2/QonsistentSaberColors.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.42"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/QonsistentSaberColors/",
   "cover": "https://raw.githubusercontent.com/kodenamekrak/QonsistentSaberColors/master/cover.jpg",
   "funding": [],

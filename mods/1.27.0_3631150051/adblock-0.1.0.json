@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/47473249?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NotHiiragi/Adblock/releases/download/1.27.0_3631150051/Adblock.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    }
+  ],
   "source": "https://github.com/NotHiiragi/Adblock/",
   "cover": null,
   "funding": [],

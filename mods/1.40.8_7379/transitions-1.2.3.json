@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/Transitions/releases/download/v1.2.3/Transitions.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.53"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/Metalit/Transitions/",
   "cover": "https://raw.githubusercontent.com/Metalit/Transitions/master/cover.png",
   "funding": [],

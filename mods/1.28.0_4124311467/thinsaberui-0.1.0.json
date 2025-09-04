@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/91820572?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NuggoDev/ThinSaberUI/releases/download/v0.1.0/ThinSaberUI.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.3.1"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "thinsabercore",
+      "version": "1.0.0-alpha1"
+    }
+  ],
   "source": "https://github.com/NuggoDev/ThinSaberUI/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/38835729?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/im-henri/FingerSaber/releases/download/v0.1.8/FingerSaber018.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/im-henri/FingerSaber/",
   "cover": "https://raw.githubusercontent.com/im-henri/FingerSaber/main/cover.jpg",
   "funding": [],

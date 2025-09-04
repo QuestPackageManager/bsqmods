@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/6430169?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/pikipirs/simply-max-fps/releases/download/v0.1.0/SimplyMaxFPS.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    }
+  ],
   "source": "https://github.com/pikipirs/simply-max-fps/",
   "cover": "https://raw.githubusercontent.com/pikipirs/simply-max-fps/master/cover.png",
   "funding": [],

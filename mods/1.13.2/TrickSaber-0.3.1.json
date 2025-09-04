@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Fernthedev/Quest-Trick-Saber/releases/download/0.3.1/TrickSaber_v0.3.1.zip",
+  "dependencies": [],
   "source": "https://github.com/Fernthedev/Quest-Trick-Saber/",
   "cover": null,
   "funding": [],

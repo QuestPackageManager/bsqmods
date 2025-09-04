@@ -7,6 +7,36 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/bsq-ports/BetterSongSearchQuest/releases/download/v2.1.0-bs-1.37.0/BetterSongSearch.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.1.3"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.42"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.6"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    },
+    {
+      "id": "song-details",
+      "version": "^0.3.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.13"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.6"
+    }
+  ],
   "source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/master/cover.png",
   "funding": [],

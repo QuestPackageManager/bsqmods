@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/88561317?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v1.8.0/BeatTogether_v1.8.0.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "multiplayer-core",
+      "version": "^1.4.0"
+    }
+  ],
   "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
   "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
   "funding": [],

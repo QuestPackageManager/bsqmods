@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/QosmeticsWhackers.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "diglett",
+      "version": "^2.0.2"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.4"
+    },
+    {
+      "id": "qosmetics-core",
+      "version": "^2.0.0"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.4"
+    }
+  ],
   "source": "https://github.com/Qosmetics/Qosmetics-Sabers/",
   "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Sabers/master/cover.png",
   "funding": [],

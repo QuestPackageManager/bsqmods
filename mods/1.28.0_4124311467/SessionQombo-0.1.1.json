@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/88791447?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/oli-ctrl/SessionQombo/releases/download/v0.1.2/SessionQombo.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.10"
+    }
+  ],
   "source": "https://github.com/oli-ctrl/SessionQombo/",
   "cover": "https://raw.githubusercontent.com/oli-ctrl/SessionQombo/master/cover.png",
   "funding": [],

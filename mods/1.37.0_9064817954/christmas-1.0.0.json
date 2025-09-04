@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/vcmikuu/ChristmasTheme/releases/download/v1.0.0/Christmas.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.4"
+    }
+  ],
   "source": "https://github.com/vcmikuu/ChristmasTheme/",
   "cover": "https://raw.githubusercontent.com/vcmikuu/ChristmasTheme/main/cover.png",
   "funding": [],

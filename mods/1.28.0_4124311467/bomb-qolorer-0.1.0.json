@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/27882876?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/TheZipCreator/bomb-qolorer/releases/download/v0.1.0/Bomb.Qolorer.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.12"
+    }
+  ],
   "source": "https://github.com/TheZipCreator/bomb-qolorer/",
   "cover": "https://raw.githubusercontent.com/TheZipCreator/bomb-qolorer/master/cover.png",
   "funding": [],

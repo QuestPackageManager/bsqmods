@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Fernthedev/SocketLibLinux/releases/download/v0.9.0/socket_lib.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "<1.3.0"
+    }
+  ],
   "source": "https://github.com/Fernthedev/SocketLibLinux/",
   "cover": null,
   "funding": [],

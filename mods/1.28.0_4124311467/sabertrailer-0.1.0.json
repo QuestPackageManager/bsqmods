@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/SaberTrailer/releases/download/v0.1.1/SaberTrailer.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.10"
+    }
+  ],
   "source": "https://github.com/Metalit/SaberTrailer/",
   "cover": "https://raw.githubusercontent.com/Metalit/SaberTrailer/master/cover.png",
   "funding": [],

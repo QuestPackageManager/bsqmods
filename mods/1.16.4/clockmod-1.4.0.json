@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/ClockMod/releases/download/1.4.0/Clockmod.qmod",
+  "dependencies": [],
   "source": "https://github.com/EnderdracheLP/ClockMod/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/ClockMod/main/Cover.jpg",
   "funding": [],

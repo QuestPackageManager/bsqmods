@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/47473249?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NotHiiragi/CustomMainMenu/releases/download/v0.1.1/CustomMainMenu.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "*"
+    },
+    {
+      "id": "custom-types",
+      "version": "*"
+    },
+    {
+      "id": "questui",
+      "version": "*"
+    }
+  ],
   "source": "https://github.com/NotHiiragi/CustomMainMenu/",
   "cover": null,
   "funding": [],

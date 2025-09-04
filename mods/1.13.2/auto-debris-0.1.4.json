@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/44222319?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/AutoDebris/releases/download/0.1.4/auto-debris_v0.1.4.zip",
+  "dependencies": [],
   "source": "https://github.com/Lauriethefish/AutoDebris/",
   "cover": null,
   "funding": [],

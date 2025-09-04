@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/raineaeternal/LeaderboardCore/releases/download/v0.0.1/LeaderboardCore.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "=0.3.0"
+    },
+    {
+      "id": "codegen",
+      "version": "=0.32.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "=0.15.22"
+    },
+    {
+      "id": "lapiz",
+      "version": "=0.1.9"
+    },
+    {
+      "id": "paper",
+      "version": "=1.2.9"
+    }
+  ],
   "source": "https://github.com/raineaeternal/LeaderboardCore/",
   "cover": null,
   "funding": [],

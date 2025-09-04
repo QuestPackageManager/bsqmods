@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/15705566?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/releases/download/v1.1.0/SearchFixes.qmod",
+  "dependencies": [],
   "source": "https://github.com/FranciscoRibeiro03/SearchFixesQuest/",
   "cover": "https://raw.githubusercontent.com/FranciscoRibeiro03/SearchFixesQuest/master/cover.png",
   "funding": [],

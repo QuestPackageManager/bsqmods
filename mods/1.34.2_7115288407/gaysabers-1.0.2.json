@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/jxnxsdev/GaySabers/releases/download/1.0.2/GaySabers.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.4"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.16.14"
+    }
+  ],
   "source": "https://github.com/jxnxsdev/GaySabers/",
   "cover": "https://raw.githubusercontent.com/jxnxsdev/GaySabers/master/logo.gif",
   "funding": [],

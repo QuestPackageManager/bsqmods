@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/vcmikuu/U-ChatUI/releases/download/0.1.0/ChatUI-0.1.0.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.29"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.7"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/vcmikuu/U-ChatUI/",
   "cover": "https://raw.githubusercontent.com/vcmikuu/U-ChatUI/main/cover.jpg",
   "funding": [],

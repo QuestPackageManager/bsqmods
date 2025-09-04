@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/16081973?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/lixiangwuxian/Quest-Discord-Presence/releases/download/0.5.0/discord-presence.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    }
+  ],
   "source": "https://github.com/lixiangwuxian/Quest-Discord-Presence/",
   "cover": "https://raw.githubusercontent.com/lixiangwuxian/Quest-Discord-Presence/main/cover.png",
   "funding": [],

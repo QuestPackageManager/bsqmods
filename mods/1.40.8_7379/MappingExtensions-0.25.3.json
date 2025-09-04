@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/25163630?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/rcelyte/MappingExtensions/releases/download/0.25.3/MappingExtensions.qmod?R2",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.24"
+    }
+  ],
   "source": "https://github.com/rcelyte/MappingExtensions/",
   "cover": "https://raw.githubusercontent.com/rcelyte/MappingExtensions/master/cover.png",
   "funding": [],

@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/bsq-ports/Tracks/releases/download/v0.8.1/tracks.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-json-data",
+      "version": "^0.19.3"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15"
+    },
+    {
+      "id": "paper",
+      "version": "^1.0.5"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.0"
+    }
+  ],
   "source": "https://github.com/bsq-ports/Tracks/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/Tracks/master/cover.png",
   "funding": [],

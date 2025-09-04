@@ -7,6 +7,20 @@
   "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://cdn.discordapp.com/attachments/950844650808311878/951174851937312798/qounters-minus.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.20.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.7"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.2"
+    }
+  ],
   "source": null,
   "cover": null,
   "funding": [],

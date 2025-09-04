@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/CrashInfo/releases/download/0.1.0/CrashInfo-1.25.1.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.5"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/CrashInfo/",
   "cover": null,
   "funding": [],

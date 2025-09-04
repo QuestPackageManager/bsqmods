@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/54294576?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Futuremappermydud/IForgor-quest/releases/download/0.1.0/IForgor_v0.1.0.qmod",
+  "dependencies": [],
   "source": "https://github.com/Futuremappermydud/IForgor-quest/",
   "cover": null,
   "funding": [],

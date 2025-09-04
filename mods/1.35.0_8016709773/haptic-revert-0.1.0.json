@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/54294576?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Futuremappermydud/HapticRevert/releases/download/0.1.0/Haptic.Revert.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    }
+  ],
   "source": "https://github.com/Futuremappermydud/HapticRevert/",
   "cover": null,
   "funding": [],

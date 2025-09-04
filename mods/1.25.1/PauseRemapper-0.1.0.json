@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/90689870?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/speecil/PauseRemapper/releases/download/v0.2.0/Pause.Remapper.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.7.1"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.3"
+    }
+  ],
   "source": "https://github.com/speecil/PauseRemapper/",
   "cover": "https://raw.githubusercontent.com/speecil/PauseRemapper/main/PauseRemapper.gif",
   "funding": [],

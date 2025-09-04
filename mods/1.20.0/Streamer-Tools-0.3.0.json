@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/streamer-tools/releases/download/0.4.0/Streamer-Tools.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.21.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.7"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.2"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/streamer-tools/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/streamer-tools/master/cover.png",
   "funding": [],

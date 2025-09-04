@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/91820572?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NuggoDEV/ScoreQolour/releases/download/v1.0.0/ScoreQolour.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.2.1"
+    },
+    {
+      "id": "codegen",
+      "version": "=0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    }
+  ],
   "source": "https://github.com/NuggoDEV/ScoreQolour/",
   "cover": null,
   "funding": [],

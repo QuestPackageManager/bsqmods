@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/QonsistentSaberColors/releases/download/0.1.1/QonsistentSaberColors.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.11"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/QonsistentSaberColors/",
   "cover": "https://raw.githubusercontent.com/kodenamekrak/QonsistentSaberColors/master/cover.jpg",
   "funding": [],

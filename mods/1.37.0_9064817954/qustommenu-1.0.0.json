@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/jxnxsdev/QustomMenu/releases/download/1.0.0/Qustom.Menu.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.42"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.8"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/jxnxsdev/QustomMenu/",
   "cover": "https://raw.githubusercontent.com/jxnxsdev/QustomMenu/master/cover.png",
   "funding": [],

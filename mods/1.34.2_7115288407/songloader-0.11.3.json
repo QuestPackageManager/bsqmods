@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/darknight1050/SongLoader/releases/download/v0.11.3/SongLoader.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.16.9"
+    }
+  ],
   "source": "https://github.com/darknight1050/SongLoader/",
   "cover": "https://raw.githubusercontent.com/darknight1050/SongLoader/main/cover.png",
   "funding": [],

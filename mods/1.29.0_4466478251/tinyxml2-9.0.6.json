@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/64277238?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/MillzyDev/NDK-tinyxml2/releases/download/v9.0.6/tinyxml2.qmod",
+  "dependencies": [],
   "source": "https://github.com/MillzyDev/NDK-tinyxml2/",
   "cover": null,
   "funding": [],

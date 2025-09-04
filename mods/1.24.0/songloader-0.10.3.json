@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/darknight1050/SongLoader/releases/download/v0.10.3/SongLoader.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.3"
+    }
+  ],
   "source": "https://github.com/darknight1050/SongLoader/",
   "cover": "https://raw.githubusercontent.com/darknight1050/SongLoader/main/cover.png",
   "funding": [],

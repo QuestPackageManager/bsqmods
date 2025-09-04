@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.NoPromo/releases/download/v0.1.7/NoPromo.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.3.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.5.0"
+    }
+  ],
   "source": "https://github.com/DanTheMan827-BeatSaber/Quest.NoPromo/",
   "cover": null,
   "funding": [],

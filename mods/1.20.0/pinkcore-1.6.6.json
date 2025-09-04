@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/62712899?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/ModdingPink/PinkCore/releases/download/v1.6.6/PinkCore.qmod",
+  "dependencies": [],
   "source": "https://github.com/ModdingPink/PinkCore/",
   "cover": "https://raw.githubusercontent.com/ModdingPink/PinkCore/master/cover.png",
   "funding": [],

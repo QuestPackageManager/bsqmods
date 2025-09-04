@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/98164508?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Qosmetics/Qosmetics-Walls/releases/download/v0.1.4/QosmeticsBoxes.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.3.2"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.1.11"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.9"
+    },
+    {
+      "id": "qosmetics-core",
+      "version": "^2.2.0"
+    }
+  ],
   "source": "https://github.com/Qosmetics/Qosmetics-Walls/",
   "cover": "https://raw.githubusercontent.com/Qosmetics/Qosmetics-Walls/master/cover.png",
   "funding": [],

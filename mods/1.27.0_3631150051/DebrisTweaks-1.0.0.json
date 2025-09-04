@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/91820572?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NuggoDEV/DebrisTweaks/releases/download/v1.0.0/DebrisTweaks.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.2.10"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    }
+  ],
   "source": "https://github.com/NuggoDEV/DebrisTweaks/",
   "cover": null,
   "funding": [],

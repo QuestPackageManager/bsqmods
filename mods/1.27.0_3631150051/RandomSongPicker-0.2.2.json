@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Tatenshi/RandomSongPicker/releases/download/v0.2.2/RandomSongPicker_1_27_0.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.10"
+    }
+  ],
   "source": "https://github.com/Tatenshi/RandomSongPicker/",
   "cover": "https://raw.githubusercontent.com/Tatenshi/RandomSongPicker/master/cover.jpg",
   "funding": [],

@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/79868211?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/AllyPallyUK/NoteVortex/releases/download/v1.0.1/noteVortex_v0.1.1.qmod",
+  "dependencies": [],
   "source": "https://github.com/AllyPallyUK/NoteVortex/",
   "cover": "https://raw.githubusercontent.com/AllyPallyUK/NoteVortex/main/cover.png",
   "funding": [],

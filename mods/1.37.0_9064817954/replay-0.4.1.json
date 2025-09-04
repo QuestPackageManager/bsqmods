@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/Replay/releases/download/v0.4.1/Replay.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.8.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.36"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "hollywood",
+      "version": "^1.0.1"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.15"
+    }
+  ],
   "source": "https://github.com/Metalit/Replay/",
   "cover": "https://raw.githubusercontent.com/Metalit/Replay/master/cover.png",
   "funding": [],

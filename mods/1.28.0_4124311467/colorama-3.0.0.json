@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/93472213?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/IMB11/Colorama/releases/download/v3.0.1/Colorama-3.0.1%2B1.28.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "*"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "*"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.1.11"
+    },
+    {
+      "id": "paper",
+      "version": "*"
+    },
+    {
+      "id": "questui",
+      "version": "*"
+    }
+  ],
   "source": "https://github.com/IMB11/Colorama/",
   "cover": "https://raw.githubusercontent.com/IMB11/Colorama/master/cover.png",
   "funding": [],

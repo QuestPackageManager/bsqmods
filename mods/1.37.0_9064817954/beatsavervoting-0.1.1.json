@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/RedBrumbler/BeatSaverVoting.Quest/releases/download/v0.1.1/BeatSaverVoting.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.1.1"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.37"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.8"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.11"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.3"
+    }
+  ],
   "source": "https://github.com/RedBrumbler/BeatSaverVoting.Quest/",
   "cover": null,
   "funding": [],

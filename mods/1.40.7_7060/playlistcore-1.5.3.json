@@ -7,6 +7,40 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Metalit/PlaylistCore/releases/download/v1.5.3/PlaylistCore.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.2.1"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.54"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.3.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.23"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.7"
+    }
+  ],
   "source": "https://github.com/Metalit/PlaylistCore/",
   "cover": "https://raw.githubusercontent.com/Metalit/PlaylistCore/main/cover.png",
   "funding": [],

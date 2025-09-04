@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/88791447?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/oli-ctrl/acculight/releases/download/v0.1.3/Acculight.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.10"
+    }
+  ],
   "source": "https://github.com/oli-ctrl/acculight/",
   "cover": "https://raw.githubusercontent.com/oli-ctrl/acculight/master/cover.png",
   "funding": [],

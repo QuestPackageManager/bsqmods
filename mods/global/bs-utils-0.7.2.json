@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/10663758?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/sc2ad/QuestBS-Utils/releases/download/v0.7.2/BS-Utils.qmod",
+  "dependencies": [],
   "source": "https://github.com/sc2ad/QuestBS-Utils/",
   "cover": "https://raw.githubusercontent.com/sc2ad/QuestBS-Utils/master/cover.png",
   "funding": [],

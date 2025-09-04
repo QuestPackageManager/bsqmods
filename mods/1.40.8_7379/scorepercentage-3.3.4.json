@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Royston1999/ScorePercentage-Quest/releases/download/v3.3.4/ScorePercentage_v3.3.4.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.4.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/Royston1999/ScorePercentage-Quest/",
   "cover": "https://raw.githubusercontent.com/Royston1999/ScorePercentage-Quest/main/Cover.jpg",
   "funding": [],

@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/106346717?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/kodenamekrak/SongChartVisualizer/releases/download/1.0.0/SongChartVisualizer.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.3.2"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.1.11"
+    }
+  ],
   "source": "https://github.com/kodenamekrak/SongChartVisualizer/",
   "cover": null,
   "funding": [],

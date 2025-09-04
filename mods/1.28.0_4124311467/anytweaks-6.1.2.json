@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/87990853?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/whatdahopper/AnyTweaks/releases/download/v6.1.2/anytweaks_v6.1.2.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.11"
+    }
+  ],
   "source": "https://github.com/whatdahopper/AnyTweaks/",
   "cover": "https://raw.githubusercontent.com/whatdahopper/AnyTweaks/master/cover.png",
   "funding": [],

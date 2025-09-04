@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/FrozenAlex/AntiVertigo/releases/download/v1.0.8/AntiVertigo.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.53"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.21"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/AntiVertigo/",
   "cover": "https://raw.githubusercontent.com/FrozenAlex/AntiVertigo/master/cover.png",
   "funding": [],

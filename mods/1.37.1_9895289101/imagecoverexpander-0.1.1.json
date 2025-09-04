@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/vcmikuu/ImageCoverExpander/releases/download/0.1.1-1.37.1/ImageCoverExpander0.1.1-1.37.1.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.44"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.4"
+    }
+  ],
   "source": "https://github.com/vcmikuu/ImageCoverExpander/",
   "cover": "https://raw.githubusercontent.com/vcmikuu/ImageCoverExpander/main/cover.jpg",
   "funding": [],

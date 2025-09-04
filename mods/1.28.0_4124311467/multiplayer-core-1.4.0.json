@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/releases/download/1.4.0/MultiplayerCore_1.4.0.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "pinkcore",
+      "version": "^1.8.9"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.11"
+    },
+    {
+      "id": "songdownloader",
+      "version": "^0.5.6"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.15"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/MultiplayerCore.Quest/master/Cover.png",
   "funding": [],

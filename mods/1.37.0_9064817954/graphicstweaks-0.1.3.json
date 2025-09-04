@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/FrozenAlex/GraphicsTweaks/releases/download/v0.1.3/GraphicsTweaks.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/GraphicsTweaks/",
   "cover": "https://raw.githubusercontent.com/FrozenAlex/GraphicsTweaks/master/image.png",
   "funding": [],

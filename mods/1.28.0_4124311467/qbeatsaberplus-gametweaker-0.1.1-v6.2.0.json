@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/releases/download/v0.1.1-v6.2.0/QBeatSaberPlus-GameTweaker.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.24"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.15"
+    }
+  ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-GameTweaker/master/cover.png",
   "funding": [],

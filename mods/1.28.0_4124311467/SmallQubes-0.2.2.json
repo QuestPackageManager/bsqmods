@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8793817?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NSGolova/SmallQubes/releases/download/v0.2.2/SmallQubes.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.23"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.11"
+    }
+  ],
   "source": "https://github.com/NSGolova/SmallQubes/",
   "cover": "https://raw.githubusercontent.com/NSGolova/SmallQubes/master/cover.png",
   "funding": [],

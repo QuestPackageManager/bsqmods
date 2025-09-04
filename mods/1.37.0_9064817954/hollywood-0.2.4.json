@@ -7,6 +7,16 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/15272073?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Fernthedev/HollywoodQuest/releases/download/v0.2.4/Hollywood.qmod",
+  "dependencies": [
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/Fernthedev/HollywoodQuest/",
   "cover": "https://raw.githubusercontent.com/Fernthedev/HollywoodQuest/master/cover.png",
   "funding": [],

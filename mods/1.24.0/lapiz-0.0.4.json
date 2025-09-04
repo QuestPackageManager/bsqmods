@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/raineaeternal/Lapiz/releases/download/v0.0.4/Lapiz.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.18"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.8"
+    }
+  ],
   "source": "https://github.com/raineaeternal/Lapiz/",
   "cover": null,
   "funding": [],

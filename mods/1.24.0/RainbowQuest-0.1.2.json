@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/154956593?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/releases/download/v0.1.2/RainbowQuest.qmod",
+  "dependencies": [],
   "source": "https://github.com/Unifox-BeatSaberThings/RainbowQuest/",
   "cover": "https://raw.githubusercontent.com/Unifox-BeatSaberThings/RainbowQuest/master/cover.png",
   "funding": [],

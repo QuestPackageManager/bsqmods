@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/darknight1050/CrashReporter/releases/download/v0.1.19/CrashReporter.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.54"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/darknight1050/CrashReporter/",
   "cover": "https://raw.githubusercontent.com/darknight1050/CrashReporter/master/cover.png",
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/44222319?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Lauriethefish/ModList/releases/download/v0.1.5/ModList.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.21.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.8"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.4"
+    }
+  ],
   "source": "https://github.com/Lauriethefish/ModList/",
   "cover": "https://raw.githubusercontent.com/Lauriethefish/ModList/main/cover.png",
   "funding": [],

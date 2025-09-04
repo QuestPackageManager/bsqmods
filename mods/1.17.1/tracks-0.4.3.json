@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/bsq-ports/Tracks/releases/download/v0.4.3/tracks.qmod",
+  "dependencies": [
+    {
+      "id": "custom-json-data",
+      "version": ">=0.14.1"
+    }
+  ],
   "source": "https://github.com/bsq-ports/Tracks/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/Tracks/master/cover.png",
   "funding": [],

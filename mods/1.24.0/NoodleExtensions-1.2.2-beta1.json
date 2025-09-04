@@ -7,6 +7,28 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/22183359?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/bsq-ports/NoodleExtensions/releases/download/v1.2.2/noodle_extensions.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "custom-json-data",
+      "version": "^0.17.0"
+    },
+    {
+      "id": "paper",
+      "version": "^1.0.5"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.0"
+    },
+    {
+      "id": "tracks",
+      "version": "^0.6.1"
+    }
+  ],
   "source": "https://github.com/bsq-ports/NoodleExtensions/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/NoodleExtensions/master/cover.png",
   "funding": [],

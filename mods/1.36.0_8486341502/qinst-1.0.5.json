@@ -7,6 +7,7 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/65252066?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/jxnxsdev/qInstaller/releases/download/1.36.0_8486341502/1.36.0_8486341502.qmod",
+  "dependencies": [],
   "source": "https://github.com/jxnxsdev/qInstaller/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,40 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/releases/download/1.6.3/MultiplayerCore_1.6.3.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.2.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.54"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.22"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.23"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.8"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/MultiplayerCore.Quest/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/MultiplayerCore.Quest/master/Cover.png",
   "funding": [],

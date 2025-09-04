@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/EnderdracheLP/QuestSounds/releases/download/1.0.0/Bandoot-SoundPack.qmod",
+  "dependencies": [
+    {
+      "id": "QuestSounds",
+      "version": "1.*"
+    }
+  ],
   "source": "https://github.com/EnderdracheLP/QuestSounds/",
   "cover": "https://raw.githubusercontent.com/EnderdracheLP/QuestSounds/master/Cover.jpg",
   "funding": [],

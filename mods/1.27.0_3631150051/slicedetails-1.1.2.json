@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/56835953?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Royston1999/SliceDetails-Quest/releases/download/v1.1.2/SliceDetails_v1.1.2.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.32.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.10"
+    }
+  ],
   "source": "https://github.com/Royston1999/SliceDetails-Quest/",
   "cover": "https://raw.githubusercontent.com/Royston1999/SliceDetails-Quest/master/Cover.jpg",
   "funding": [],

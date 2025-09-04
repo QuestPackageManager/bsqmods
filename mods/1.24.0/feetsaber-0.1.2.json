@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/47473249?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/NotHiiragi/feetsaber/releases/download/v0.1.2/feetsaber.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "=0.25.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "=0.15.18"
+    },
+    {
+      "id": "questui",
+      "version": "^0.16.1"
+    }
+  ],
   "source": "https://github.com/NotHiiragi/feetsaber/",
   "cover": null,
   "funding": [],

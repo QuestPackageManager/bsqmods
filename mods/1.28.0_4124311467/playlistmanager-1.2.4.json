@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/PlaylistManager/releases/download/v1.2.4/PlaylistManager.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "playlistcore",
+      "version": "^1.1.0"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.3"
+    },
+    {
+      "id": "songdownloader",
+      "version": "^0.5.0"
+    },
+    {
+      "id": "songloader",
+      "version": "^0.10.9"
+    }
+  ],
   "source": "https://github.com/Metalit/PlaylistManager/",
   "cover": "https://raw.githubusercontent.com/Metalit/PlaylistManager/master/cover.png",
   "funding": [],

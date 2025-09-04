@@ -7,6 +7,20 @@
   "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://cdn.discordapp.com/attachments/889894037304274995/954725857627373608/PressJToPlay.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.21.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.8"
+    },
+    {
+      "id": "questui",
+      "version": "^0.13.4"
+    }
+  ],
   "source": null,
   "cover": null,
   "funding": [],

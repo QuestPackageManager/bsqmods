@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/Metalit/AccMiss/releases/download/v0.1.1/AccMiss.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.33.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.0"
+    }
+  ],
   "source": "https://github.com/Metalit/AccMiss/",
   "cover": "https://raw.githubusercontent.com/Metalit/AccMiss/master/cover.png",
   "funding": [],

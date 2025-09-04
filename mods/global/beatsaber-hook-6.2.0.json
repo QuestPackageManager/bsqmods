@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/110287845?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v6.2.0/beatsaber-hook.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.7.0"
+    }
+  ],
   "source": "https://github.com/QuestPackageManager/beatsaber-hook/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/54294576?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Futuremappermydud/IForgor-quest/releases/download/v1.1.0/IForgor.qmod",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.42"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.0"
+    },
+    {
+      "id": "paper",
+      "version": "^3.6.3"
+    }
+  ],
   "source": "https://github.com/Futuremappermydud/IForgor-quest/",
   "cover": null,
   "funding": [],

@@ -7,6 +7,24 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/FrozenAlex/Nya-quest/releases/download/v0.2.7-bs-1.24.0/Nya.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "*"
+    },
+    {
+      "id": "custom-types",
+      "version": "*"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.9"
+    },
+    {
+      "id": "questui",
+      "version": "*"
+    }
+  ],
   "source": "https://github.com/FrozenAlex/Nya-quest/",
   "cover": "https://raw.githubusercontent.com/FrozenAlex/Nya-quest/master/cover.jpg",
   "funding": [],

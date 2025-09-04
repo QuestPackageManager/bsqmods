@@ -7,6 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/RedBrumbler/SongDetails/releases/download/v0.3.3/SongDetails.qmod",
+  "dependencies": [
+    {
+      "id": "paper",
+      "version": "^3.3.1"
+    }
+  ],
   "source": "https://github.com/RedBrumbler/SongDetails/",
   "cover": null,
   "funding": [],

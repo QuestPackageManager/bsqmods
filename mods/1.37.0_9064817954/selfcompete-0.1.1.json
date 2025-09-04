@@ -7,6 +7,32 @@
   "authorIcon": null,
   "modloader": "Scotland2",
   "download": "https://git.sr.ht/~thezipcreator/selfcompete-qmod/refs/download/v0.1.1/SelfCompete.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.8.4"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.43"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.10"
+    },
+    {
+      "id": "paper",
+      "version": "^3.0.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.15"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.7"
+    }
+  ],
   "source": "https://sr.ht/~thezipcreator/selfcompete-qmod/",
   "cover": "https://git.sr.ht/~thezipcreator/selfcompete-qmod/blob/main/cover.png",
   "funding": [],

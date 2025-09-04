@@ -7,6 +7,32 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/51795403?v=4",
   "modloader": "QuestLoader",
   "download": "https://github.com/RedBrumbler/TrickSaber/releases/download/v0.1.0/TrickSaber.qmod",
+  "dependencies": [
+    {
+      "id": "bs-utils",
+      "version": "^0.7.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.2.2"
+    },
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.21"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.1.4"
+    },
+    {
+      "id": "paper",
+      "version": "^1.2.9"
+    }
+  ],
   "source": "https://github.com/RedBrumbler/TrickSaber/",
   "cover": "https://raw.githubusercontent.com/RedBrumbler/TrickSaber/master/cover.png",
   "funding": [],

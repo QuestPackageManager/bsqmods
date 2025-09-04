@@ -7,6 +7,20 @@
   "authorIcon": null,
   "modloader": "QuestLoader",
   "download": "https://cdn.discordapp.com/attachments/1015346189828374528/1047677092554342520/Saber_Tailor.qmod",
+  "dependencies": [
+    {
+      "id": "codegen",
+      "version": "^0.28.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.15.22"
+    },
+    {
+      "id": "questui",
+      "version": "^0.17.5"
+    }
+  ],
   "source": null,
   "cover": null,
   "funding": [],

@@ -7,6 +7,20 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/91229110?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Reezonate/CameraUtils-Quest/releases/download/v1.1.8/CameraUtils.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
   "source": "https://github.com/Reezonate/CameraUtils-Quest/",
   "cover": "https://raw.githubusercontent.com/Reezonate/CameraUtils-Quest/master/cover.png",
   "funding": [],
