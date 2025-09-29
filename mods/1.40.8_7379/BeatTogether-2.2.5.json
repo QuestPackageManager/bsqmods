@@ -1,0 +1,40 @@
+{
+  "name": "BeatTogether",
+  "description": "A multiplayer private server for the modding community. Supports crossplay between PC and Quest.",
+  "id": "BeatTogether",
+  "version": "2.2.5",
+  "author": "BeatTogether Team",
+  "authorIcon": "https://avatars.githubusercontent.com/u/88561317?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/BeatTogether/BeatTogether.Quest/releases/download/v2.2.5/BeatTogether_v2.2.5.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.2.23"
+    },
+    {
+      "id": "multiplayer-core",
+      "version": "^1.6.5"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
+  "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
+  "funding": [],
+  "website": "https://github.com/BeatTogether/BeatTogether.Quest/"
+}
