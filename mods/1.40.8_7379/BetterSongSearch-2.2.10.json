@@ -1,0 +1,48 @@
+{
+  "name": "BetterSongSearch",
+  "description": "Search and download songs with a lot of filtering and sorting options and without frustration!",
+  "id": "BetterSongSearch",
+  "version": "2.2.10",
+  "author": "FrozenAlex, FernTheDev, FutureMapper, and Christoffyw",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/BetterSongSearchQuest/releases/download/v2.2.10-bs-1.40.8/BetterSongSearch.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.2.3"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    },
+    {
+      "id": "song-details",
+      "version": "^1.0.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.25"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.8"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/BetterSongSearchQuest/"
+}
