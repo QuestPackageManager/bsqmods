@@ -1,0 +1,48 @@
+{
+  "name": "Spotify Search",
+  "description": "Access your Spotify playlists and quickly search for matching custom maps",
+  "id": "spotify-search",
+  "version": "1.0.3",
+  "author": "Tycho Bellers",
+  "authorIcon": "https://avatars.githubusercontent.com/u/25378263?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/TychoTheTaco/Beat-Saber-Spotify-Search/releases/download/v1.0.3/spotify-search-v1.0.3.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.2.3"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    },
+    {
+      "id": "song-details",
+      "version": "^1.0.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.25"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.8"
+    }
+  ],
+  "source": "https://github.com/TychoTheTaco/Beat-Saber-Spotify-Search/",
+  "cover": "https://raw.githubusercontent.com/TychoTheTaco/Beat-Saber-Spotify-Search/main/cover.jpg",
+  "funding": [],
+  "website": "https://github.com/TychoTheTaco/Beat-Saber-Spotify-Search/"
+}
