@@ -1,0 +1,32 @@
+{
+  "name": "PracticeTweaqs",
+  "description": "Various improvements to the practice gamemode",
+  "id": "PracticeTweaqs",
+  "version": "0.1.0",
+  "author": "NSGolova",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8793817?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/NSGolova/PracticeTweaqs/releases/download/v0.1.0/PracticeTweaqs.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/NSGolova/PracticeTweaqs/",
+  "cover": "https://raw.githubusercontent.com/NSGolova/PracticeTweaqs/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/NSGolova/PracticeTweaqs/"
+}
