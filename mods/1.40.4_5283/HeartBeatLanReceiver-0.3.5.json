@@ -6,7 +6,7 @@
   "author": "frto027",
   "authorIcon": "https://avatars.githubusercontent.com/u/20887940?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/frto027/HeartBeatLanClientBSQuest/releases/download/v0.3.5/HeartBeatQuest.1_40_4.qmod",
+  "download": "https://github.com/frto027/HeartBeatQuest/releases/download/v0.3.5/HeartBeatQuest.1_40_4.qmod",
   "dependencies": [
     {
       "id": "beatsaber-hook",
@@ -29,8 +29,8 @@
       "version": "^4.6.4"
     }
   ],
-  "source": "https://github.com/frto027/HeartBeatLanClientBSQuest/",
-  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatLanClientBSQuest/master/cover.png",
+  "source": "https://github.com/frto027/HeartBeatQuest/",
+  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatQuest/master/cover.png",
   "funding": [],
-  "website": "https://github.com/frto027/HeartBeatLanClientBSQuest/"
+  "website": "https://github.com/frto027/HeartBeatQuest/"
 }
