@@ -20,7 +20,7 @@
     "@types/file-saver": "^2.0.7",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "astro": "^5.15.4",
+    "astro": "^5.15.6",
     "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.24",
     "file-saver": "^2.0.5",
