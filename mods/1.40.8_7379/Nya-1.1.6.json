@@ -1,0 +1,36 @@
+{
+  "name": "Nya",
+  "description": "Beat Saber mod for displaying nya-tastic images from various anime themed web APIs!",
+  "id": "Nya",
+  "version": "1.1.6",
+  "author": "FrozenAlex",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/Nya-quest/releases/download/v1.1.6-bs-1.40.8/Nya.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.7"
+    }
+  ],
+  "source": "https://github.com/FrozenAlex/Nya-quest/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/Nya-quest/main/cover.jpg",
+  "funding": [],
+  "website": "https://github.com/FrozenAlex/Nya-quest/"
+}
