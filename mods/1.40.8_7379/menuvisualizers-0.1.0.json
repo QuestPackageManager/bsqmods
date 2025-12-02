@@ -1,0 +1,15 @@
+{
+  "name": "MenuVisualizer",
+  "description": "Adds a visualizer to the menu",
+  "id": "menuvisualizers",
+  "version": "0.1.0",
+  "author": "laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/menuvisualizer/releases/download/v0.1.0/MenuVisualizer.qmod",
+  "dependencies": [],
+  "source": "https://github.com/vcmikuu/menuvisualizer/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/menuvisualizer/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/menuvisualizer/"
+}
