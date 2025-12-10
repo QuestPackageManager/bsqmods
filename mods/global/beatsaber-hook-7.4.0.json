@@ -1,0 +1,24 @@
+{
+  "name": "beatsaber-hook",
+  "description": "Provides modding utilities for unity il2cpp games",
+  "id": "beatsaber-hook",
+  "version": "7.4.0",
+  "author": "sc2ad",
+  "authorIcon": "https://avatars.githubusercontent.com/u/110287845?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v7.4.0/beatsaber-hook.qmod",
+  "dependencies": [
+    {
+      "id": "flamingo",
+      "version": "^1.1.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.4.0"
+    }
+  ],
+  "source": "https://github.com/QuestPackageManager/beatsaber-hook/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/QuestPackageManager/beatsaber-hook/"
+}
