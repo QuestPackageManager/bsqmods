@@ -52,7 +52,6 @@ for (let gameVersion in modJson) {
     if (mod.id == null || mod.id == undefined) continue;
     let nameRecord = modIdToModName.get(mod.id);
     if (nameRecord == undefined) continue;
-    if (nameRecord.oldName) console.log(nameRecord);
     let name = nameRecord.name;
     // if (nameRecord.oldName != undefined) name += "(" + nameRecord.oldName + ")";
     let version = mod.version;
