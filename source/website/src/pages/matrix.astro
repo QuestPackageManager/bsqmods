@@ -119,6 +119,14 @@ modToGameVersionMaps.forEach((value, key) => {
 let avaliable_game_versions: string[] = Array.from(avaliable_game_versions_set);
 avaliable_game_versions.sort((a, b) => (a < b ? 1 : -1));
 
+modToGameVersions.sort((a, b) => {
+  if (a.modName.toLocaleLowerCase() > b.modName.toLocaleLowerCase()) return 1;
+  if (a.modName.toLocaleLowerCase() < b.modName.toLocaleLowerCase()) return -1;
+  if (a.modName > b.modName) return 1;
+  if (a.modName < b.modName) return -1;
+  return 0;
+});
+
 // console.log(modToGameVersions);
 ---
 
