@@ -5,12 +5,13 @@ import { readAllModsJson } from "../../../shared/readAllModsJson";
 const modJson = readAllModsJson();
 
 function shouldCutoffGameVersion(ver: string): boolean {
-  return ver < "1.27.0" || ver == "global" || ver == "undefined";
+  return ver < "1.27.0"; // || ver == "global" || ver == "undefined";
 }
 
 function versionCompare(a, b) {
-  let aarr = a.split(".");
-  let barr = b.split(".");
+  if (a == b) return 0;
+  let aarr = a.split("-")[0].split(".");
+  let barr = b.split("-")[0].split(".");
   for (let i = 0; i < Math.max(aarr.length, barr.length); i++) {
     if (aarr.length <= i) return 1; //b large
     if (barr.length <= i) return -1; //a large
@@ -18,15 +19,43 @@ function versionCompare(a, b) {
       return +aarr[i] > +barr[i] ? -1 : 1;
     }
   }
-  return 0;
+  return a > b ? -1 : 1;
 }
 const modToGameVersionMaps = new Map<string /*modName*/, Map<string /* gameVersion */, string>>();
 
+interface ModNameRecord {
+  name: string;
+  oldName: string | undefined;
+}
+const modIdToModName = new Map<string, ModNameRecord>();
 for (let gameVersion in modJson) {
   for (let mod of modJson[gameVersion]) {
-    let name = mod.name;
+    if (mod.id == null) continue;
+    if (mod.name == null) continue;
+    if (modIdToModName.has(mod.id)) {
+      if (modIdToModName.get(mod.id)!.name != mod.name) {
+        let rec = modIdToModName.get(mod.id);
+        rec!.oldName = rec!.name;
+        rec!.name = mod.name;
+      }
+    } else {
+      modIdToModName.set(mod.id, {
+        name: mod.name,
+        oldName: undefined
+      });
+    }
+  }
+}
+
+for (let gameVersion in modJson) {
+  for (let mod of modJson[gameVersion]) {
+    if (mod.id == null || mod.id == undefined) continue;
+    let nameRecord = modIdToModName.get(mod.id);
+    if (nameRecord == undefined) continue;
+    if (nameRecord.oldName) console.log(nameRecord);
+    let name = nameRecord.name;
+    // if (nameRecord.oldName != undefined) name += "(" + nameRecord.oldName + ")";
     let version = mod.version;
-    if (name == null || name == undefined) continue;
     if (version == null || version == undefined) continue;
     if (!modToGameVersionMaps.has(name)) modToGameVersionMaps.set(name, new Map());
     let gameVersionMap = modToGameVersionMaps.get(name);
@@ -88,14 +117,8 @@ modToGameVersionMaps.forEach((value, key) => {
   });
 });
 
-let avaliable_game_versions: string[] = [];
-
-for (let ver of avaliable_game_versions_set) {
-  avaliable_game_versions.push(ver);
-}
+let avaliable_game_versions: string[] = Array.from(avaliable_game_versions_set);
 avaliable_game_versions.sort((a, b) => (a < b ? 1 : -1));
-
-// console.log(modToGameVersions);
 
 // console.log(modToGameVersions);
 ---
@@ -108,27 +131,8 @@ avaliable_game_versions.sort((a, b) => (a < b ? 1 : -1));
     <thead>
       <th style="text-align: right; padding-right: 10px">Name</th>
       <th style="text-align: left; padding-left:10px">Supported Game Version</th>
-      <!-- {avaliable_game_versions.map((v) => <th style="border-width: 1px;">{v.split("_")[0]}</th>)} -->
     </thead>
     <tbody>
-      <!-- {
-        modToGameVersions.map((mods) => {
-          return (
-            <tr>
-              <td>{mods.modName}</td>
-              {avaliable_game_versions.map((gameVer) => {
-                return mods.itemsByGameVersion.has(gameVer) ? (
-                  <td class={"modver_td " + (mods.itemsByGameVersion.get(gameVer)!.isLatest ? "modver_latest" : "")}>
-                    {mods.itemsByGameVersion.get(gameVer)?.modVersion}
-                  </td>
-                ) : (
-                  <td class="modver_td" />
-                );
-              })}
-            </tr>
-          );
-        })
-      } -->
       {
         modToGameVersions.map((mod) => (
           <tr>
@@ -138,7 +142,6 @@ avaliable_game_versions.sort((a, b) => (a < b ? 1 : -1));
               </td>
               <td>
                 <div class="tablerow">
-                  {" "}
                   {mod.items.map((info) => (
                     <span class={"modver" + (info.isLatest ? " latest" : "")}>
                       {info.gameVersion.split("_")[0]} / [{info.modVersion}]
