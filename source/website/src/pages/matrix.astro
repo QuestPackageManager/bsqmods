@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HeaderVersionSelector from "../components/HeaderVersionSelector.astro";
 import { readAllModsJson } from "../../../shared/readAllModsJson";
 const modJson = readAllModsJson();
 
@@ -134,46 +133,64 @@ modToGameVersions.sort((a, b) => {
   linkHome={false}
   title="Quest Mod Version Lists"
 >
-  <table class="table-auto">
-    <thead>
-      <th style="text-align: right; padding-right: 10px">Name</th>
-      <th style="text-align: left; padding-left:10px">Supported Game Version / [Latest Mod Version]</th>
-    </thead>
-    <tbody>
-      {
-        modToGameVersions.map((mod) => (
-          <tr>
-            <>
-              <td>
-                <div class="tablename">{mod.modName}</div>
-              </td>
-              <td>
-                <div class="tablerow">
-                  {mod.items.map((info) => (
-                    <span class={"modver" + (info.isLatest ? " latest" : "")}>
-                      {info.gameVersion.split("_")[0]} / [{info.modVersion}]
-                    </span>
-                  ))}
-                </div>
-              </td>
-            </>
-          </tr>
-        ))
-      }
-    </tbody>
-  </table>
+    {
+      modToGameVersions.map((mod) => (
+        <div class="matrix_row">
+          <div class="matrix_name">{mod.modName}</div>
+          <div class="matrix_versions">
+            {
+              ()=>{
+                let ret = []
+                if(mod.itemsByGameVersion.has("global"))return null;
+                for(let version of avaliable_game_versions){
+                  if(version == "undefined" || version == "global")
+                    continue;
+                  if(mod.itemsByGameVersion.has(version))
+                    break;
+                  ret.push(<span class="version_missing_hint"></span>)
+                }
+                return ret
+              }
+            }
+            {mod.items.map((info) => (
+              <span class={"modver" + (info.isLatest ? " latest" : "")}>
+                {info.gameVersion.split("_")[0]} / [{info.modVersion}]
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
 </Layout>
 <style>
-  .tablename {
-    text-align: right;
+  .matrix_row{
+    padding: 5px 10px;
+    margin:10px 20px;
+    background-color: rgba(0, 0, 0, 0.511);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
-  .tablerow {
+  .matrix_name {
+    display: inline-block;
+    /* width: 200px; */
+    /* padding: 2px; */
+    flex-basis: 210px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: fit-content;
+  }
+  .matrix_versions {
+    display: inline-block;
     background: rgba(128, 128, 128, 0.411);
-    margin: 4px;
-    width: fit-content;
+    /* margin: 4px; */
+    /* width: fit-content; */
     padding: 4px 8px;
     border-radius: 20px;
+    flex-basis: 0px;
+    flex-grow: 1;
   }
+
   .modver {
     display: inline-block;
     margin: 2px;
@@ -188,4 +205,27 @@ modToGameVersions.sort((a, b) => {
   .latest {
     background: #659700 !important;
   }
+
+  /* this hint only shows before the first avaliable game version */
+  .version_missing_hint {
+    margin: 2px;
+    display: inline-block;
+    background-color: rgb(94, 94, 94);
+    width: 110px;
+    height: 8px;
+    border-radius: 4px;
+  }
+
+@media screen and (width < 700px) {
+  .matrix_row {
+    display: block;
+  }
+  .matrix_name {
+    display: block;
+  }
+  .matrix_versions {
+    border-radius: 0;
+  }
+
+}
 </style>
