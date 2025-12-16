@@ -6,10 +6,10 @@
   "author": "Metalit,  danrouse",
   "authorIcon": "https://avatars.githubusercontent.com/u/128349?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/danrouse/bsq-qounters-minus/releases/download/1.1.0/qounters-minus_v1.1.0.qmod",
+  "download": "https://github.com/dannytheliar/bsq-qounters-minus/releases/download/1.1.0/qounters-minus_v1.1.0.qmod",
   "dependencies": [],
-  "source": "https://github.com/danrouse/bsq-qounters-minus/",
-  "cover": "https://raw.githubusercontent.com/danrouse/bsq-qounters-minus/master/cover.png",
+  "source": "https://github.com/dannytheliar/bsq-qounters-minus/",
+  "cover": "https://raw.githubusercontent.com/dannytheliar/bsq-qounters-minus/master/cover.png",
   "funding": [],
   "website": null
 }

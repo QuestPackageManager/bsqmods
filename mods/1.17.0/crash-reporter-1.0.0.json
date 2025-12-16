@@ -6,9 +6,9 @@
   "author": "danrouse#0214",
   "authorIcon": "https://avatars.githubusercontent.com/u/128349?v=4",
   "modloader": "QuestLoader",
-  "download": "https://github.com/danrouse/bsq-crash-reporter/releases/download/v1.0.0/crash-reporter_v1.0.0.qmod",
+  "download": "https://github.com/dannytheliar/bsq-crash-reporter/releases/download/v1.0.0/crash-reporter_v1.0.0.qmod",
   "dependencies": [],
-  "source": "https://github.com/danrouse/bsq-crash-reporter/",
+  "source": "https://github.com/dannytheliar/bsq-crash-reporter/",
   "cover": null,
   "funding": [],
   "website": null
