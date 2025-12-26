@@ -1,0 +1,15 @@
+{
+  "name": "MultiplayerExtensions",
+  "description": "Port of MultiplayerExtensions, the PC mod that adds extra features to multiplayer",
+  "id": "multiplayer-extensions",
+  "version": "1.1.0",
+  "author": "RedBrumbler, Goobie, EnderdracheLP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/81266776?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/EnderdracheLP/MultiplayerExtensions.Quest/releases/download/v1.1.0/MultiplayerExtensions.qmod",
+  "dependencies": [],
+  "source": "https://github.com/EnderdracheLP/MultiplayerExtensions.Quest/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/EnderdracheLP/MultiplayerExtensions.Quest/"
+}
