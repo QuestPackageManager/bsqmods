@@ -27,6 +27,18 @@ const { currentVersion = "Select A Version" } = Astro.props as Props;
     <ChevronDownIcon className="size-4 text-white" />
   </summary>
   <DropdownListMenu class="text-left">
+    <DropdownListMenuItem>
+      <a
+        class={`
+          block
+          px-4
+          py-2
+        `}
+        href="/matrix"
+      >
+        Version Matrix
+      </a>
+    </DropdownListMenuItem>
     {
       getVersions().then((versions) =>
         versions.map((version) => (
