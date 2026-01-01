@@ -1,0 +1,231 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { readAllModsJson } from "../../../shared/readAllModsJson";
+const modJson = readAllModsJson();
+
+function shouldCutoffGameVersion(ver: string): boolean {
+  return ver < "1.27.0"; // || ver == "global" || ver == "undefined";
+}
+
+function versionCompare(a, b) {
+  if (a == b) return 0;
+  let aarr = a.split("-")[0].split(".");
+  let barr = b.split("-")[0].split(".");
+  for (let i = 0; i < Math.max(aarr.length, barr.length); i++) {
+    if (aarr.length <= i) return 1; //b large
+    if (barr.length <= i) return -1; //a large
+    if (aarr[i] != barr[i]) {
+      return +aarr[i] > +barr[i] ? -1 : 1;
+    }
+  }
+  return a > b ? -1 : 1;
+}
+const modToGameVersionMaps = new Map<string /*modName*/, Map<string /* gameVersion */, string>>();
+
+interface ModNameRecord {
+  name: string;
+  oldName: string | undefined;
+}
+const modIdToModName = new Map<string, ModNameRecord>();
+for (let gameVersion in modJson) {
+  for (let mod of modJson[gameVersion]) {
+    if (mod.id == null) continue;
+    if (mod.name == null) continue;
+    if (modIdToModName.has(mod.id)) {
+      if (modIdToModName.get(mod.id)!.name != mod.name) {
+        let rec = modIdToModName.get(mod.id);
+        rec!.oldName = rec!.name;
+        rec!.name = mod.name;
+      }
+    } else {
+      modIdToModName.set(mod.id, {
+        name: mod.name,
+        oldName: undefined
+      });
+    }
+  }
+}
+
+for (let gameVersion in modJson) {
+  for (let mod of modJson[gameVersion]) {
+    if (mod.id == null || mod.id == undefined) continue;
+    let nameRecord = modIdToModName.get(mod.id);
+    if (nameRecord == undefined) continue;
+    let name = nameRecord.name;
+    // if (nameRecord.oldName != undefined) name += "(" + nameRecord.oldName + ")";
+    let version = mod.version;
+    if (version == null || version == undefined) continue;
+    if (!modToGameVersionMaps.has(name)) modToGameVersionMaps.set(name, new Map());
+    let gameVersionMap = modToGameVersionMaps.get(name);
+    if (!gameVersionMap) continue;
+    if (gameVersionMap.has(gameVersion)) {
+      if (gameVersionMap.get(gameVersion)! < version) gameVersionMap.set(gameVersion, version);
+    } else gameVersionMap.set(gameVersion, version);
+  }
+}
+
+interface ModGameVersionInformationItem {
+  gameVersion: string;
+  modVersion: string;
+  isLatest: boolean;
+}
+
+interface ModGameVersionInformation {
+  modName: string;
+  items: ModGameVersionInformationItem[];
+  itemsByGameVersion: Map<string, ModGameVersionInformationItem>;
+}
+
+const avaliable_game_versions_set = new Set<string>();
+
+const modToGameVersions: ModGameVersionInformation[] = [];
+modToGameVersionMaps.forEach((value, key) => {
+  let items: ModGameVersionInformationItem[] = [];
+
+  let latestModVersion: string | undefined = undefined;
+  value.forEach((modVersion, gameVersion) => {
+    if (shouldCutoffGameVersion(gameVersion)) return;
+    if (latestModVersion == undefined) latestModVersion = modVersion;
+    else if (versionCompare(latestModVersion, modVersion) == 1) latestModVersion = modVersion;
+  });
+  if (latestModVersion == undefined) return;
+  value.forEach((modVersion, gameVersion) => {
+    if (shouldCutoffGameVersion(gameVersion)) return;
+    avaliable_game_versions_set.add(gameVersion);
+    items.push({
+      gameVersion: gameVersion,
+      modVersion: modVersion,
+      isLatest: modVersion == latestModVersion
+    });
+  });
+  if (items.length == 0) return;
+  items.sort((a, b) => {
+    return a.gameVersion > b.gameVersion ? -1 : a.gameVersion == b.gameVersion ? 0 : 1;
+  });
+
+  let itemsByGameVersion = new Map<string, ModGameVersionInformationItem>();
+  for (let item of items) {
+    itemsByGameVersion.set(item.gameVersion, item);
+  }
+
+  modToGameVersions.push({
+    modName: key,
+    items: items,
+    itemsByGameVersion: itemsByGameVersion
+  });
+});
+
+let avaliable_game_versions: string[] = Array.from(avaliable_game_versions_set);
+avaliable_game_versions.sort((a, b) => (a < b ? 1 : -1));
+
+modToGameVersions.sort((a, b) => {
+  if (a.modName.toLocaleLowerCase() > b.modName.toLocaleLowerCase()) return 1;
+  if (a.modName.toLocaleLowerCase() < b.modName.toLocaleLowerCase()) return -1;
+  if (a.modName > b.modName) return 1;
+  if (a.modName < b.modName) return -1;
+  return 0;
+});
+
+// console.log(modToGameVersions);
+---
+
+<Layout
+  linkHome={false}
+  title="Quest Mod Version Lists"
+>
+    {
+      modToGameVersions.map((mod) => (
+        <div class="matrix_row">
+          <div class="matrix_name">{mod.modName}</div>
+          <div class="matrix_versions">
+            {
+              ()=>{
+                let ret = []
+                if(mod.itemsByGameVersion.has("global"))return null;
+                for(let version of avaliable_game_versions){
+                  if(version == "undefined" || version == "global")
+                    continue;
+                  if(mod.itemsByGameVersion.has(version))
+                    break;
+                  ret.push(<span class="version_missing_hint"></span>)
+                }
+                return ret
+              }
+            }
+            {mod.items.map((info) => (
+              <span class={"modver" + (info.isLatest ? " latest" : "")}>
+                {info.gameVersion.split("_")[0]} / [{info.modVersion}]
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+</Layout>
+<style>
+  .matrix_row{
+    padding: 5px 10px;
+    margin:10px 20px;
+    background-color: rgba(0, 0, 0, 0.511);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .matrix_name {
+    display: inline-block;
+    /* width: 200px; */
+    /* padding: 2px; */
+    flex-basis: 210px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: fit-content;
+  }
+  .matrix_versions {
+    display: inline-block;
+    background: rgba(128, 128, 128, 0.411);
+    /* margin: 4px; */
+    /* width: fit-content; */
+    padding: 4px 8px;
+    border-radius: 20px;
+    flex-basis: 0px;
+    flex-grow: 1;
+  }
+
+  .modver {
+    display: inline-block;
+    margin: 2px;
+    background: #61635d;
+    border-radius: 8px;
+    padding: 2px 4px;
+    font-size: xx-small;
+    font-weight: bolder;
+    min-width: 110px;
+    text-align: center;
+  }
+  .latest {
+    background: #659700 !important;
+  }
+
+  /* this hint only shows before the first avaliable game version */
+  .version_missing_hint {
+    margin: 2px;
+    display: inline-block;
+    background-color: rgb(94, 94, 94);
+    width: 110px;
+    height: 8px;
+    border-radius: 4px;
+  }
+
+@media screen and (width < 700px) {
+  .matrix_row {
+    display: block;
+  }
+  .matrix_name {
+    display: block;
+  }
+  .matrix_versions {
+    border-radius: 0;
+  }
+
+}
+</style>

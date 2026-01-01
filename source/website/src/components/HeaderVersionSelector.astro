@@ -14,4 +14,10 @@ const { currentVersion } = Astro.props as Partial<Props>;
   `}
 >
   <VersionSelector currentVersion={currentVersion || "Select a Version"} />
+  <a
+    class="btn btn-sm btn-link"
+    href="/matrix"
+  >
+    Version Matrix
+  </a>
 </div>
