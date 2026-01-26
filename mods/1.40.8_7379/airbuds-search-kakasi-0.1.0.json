@@ -1,0 +1,28 @@
+{
+  "name": "Airbuds Search Kakasi",
+  "description": "Kakasi-based romaji adapter for Airbuds Search.",
+  "id": "airbuds-search-kakasi",
+  "version": "0.1.0",
+  "author": "DDC",
+  "authorIcon": "https://avatars.githubusercontent.com/u/58734081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search-Kakasi/releases/download/v0.1.0/Airbuds.Search.Kakasi.v0.1.0.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "scotland2",
+      "version": "^0.1.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    }
+  ],
+  "source": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search-Kakasi/",
+  "cover": "https://raw.githubusercontent.com/zilewang7/Beat-Saber-Airbuds-Search-Kakasi/main/cover.png",
+  "funding": [],
+  "website": null
+}
