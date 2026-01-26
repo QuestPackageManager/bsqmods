@@ -6,7 +6,7 @@
   "author": "DDC forked from Tycho Bellers (original author)",
   "authorIcon": "https://avatars.githubusercontent.com/u/58734081?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search",
+  "download": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search/releases/download/v2.0.1/Airbuds.Search.v2.0.1.qmod",
   "dependencies": [
     {
       "id": "beatsaber-hook",
