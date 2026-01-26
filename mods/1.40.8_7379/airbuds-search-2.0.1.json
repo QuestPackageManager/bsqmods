@@ -1,0 +1,60 @@
+{
+  "name": "Airbuds Search",
+  "description": "Use your Airbuds (support Spotify, Apple Music, SoundCloud, Deezer, Amazon Music, Audiomack) listening history to quickly search BeatSaver maps!\nFor better Japanese search results,      
+  install the 'Airbuds Search Kakasi' mod.\nForked from Tycho Bellers' original Spotify Search.","id": "airbuds-search",
+  "version": "2.0.1",
+  "author": "DDC forked from Tycho Bellers (original author)",
+  "authorIcon": "https://avatars.githubusercontent.com/u/58734081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "scotland2",
+      "version": "^0.1.4"
+    },
+    {
+      "id": "bs-cordl",
+      "version": "^4008.0.0"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.8"
+    },
+    {
+      "id": "song-details",
+      "version": "^1.0.4"
+    },
+    {
+      "id": "beatsaverplusplus",
+      "version": "^0.2.3"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.25"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.6.2"
+    }
+  ],
+  "source": "https://github.com/zilewang7/Beat-Saber-Airbuds-Search/",
+  "cover": "https://raw.githubusercontent.com/zilewang7/Beat-Saber-Airbuds-Search/main/cover.jpg",
+  "funding": [],
+  "website": null
+}
