@@ -14,7 +14,7 @@
     }
   ],
   "source": "https://github.com/bsq-ports/CustomJSONData/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/bsq-ports/CustomJSONData/main/cover.png",
   "funding": [],
   "website": "https://github.com/bsq-ports/CustomJSONData/"
 }

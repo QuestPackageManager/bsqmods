@@ -9,7 +9,7 @@
   "download": "https://github.com/bsq-ports/CustomJSONData/releases/download/v0.14.2/custom-json-data.qmod",
   "dependencies": [],
   "source": "https://github.com/bsq-ports/CustomJSONData/",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/bsq-ports/CustomJSONData/main/cover.png",
   "funding": [],
   "website": "https://github.com/bsq-ports/CustomJSONData/"
 }

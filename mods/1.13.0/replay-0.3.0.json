@@ -9,7 +9,7 @@
   "download": "https://github.com/henwill8/ReplayDownload/releases/download/v0.3.0/ReplayLite.zip",
   "dependencies": [],
   "source": "https://github.com/henwill8/ReplayDownload",
-  "cover": null,
+  "cover": "https://raw.githubusercontent.com/henwill8/ReplayDownload/main/cover.png",
   "funding": [],
   "website": "https://github.com/henwill8/ReplayDownload"
 }
