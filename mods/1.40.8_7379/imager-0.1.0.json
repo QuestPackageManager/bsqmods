@@ -1,0 +1,15 @@
+{
+  "name": "Imager",
+  "description": "Create images & move them around | .jpg / .png / .gif files are all supported. You can either put them in: ModData/com.beatgames.beatsaber/Mods/Imager/Images or you can use the mod’s download feature!",
+  "id": "imager",
+  "version": "0.1.0",
+  "author": "laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/imager/releases/download/v0.1.0/Imager.qmod",
+  "dependencies": [],
+  "source": "https://github.com/vcmikuu/imager/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/imager/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/imager/"
+}
