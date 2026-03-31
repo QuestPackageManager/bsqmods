@@ -1,0 +1,12 @@
+{
+  "name": "NoodleWrapper",
+  "id": "noodlewrapper",
+  "author": "Misticenea",
+  "authorIcon": "https://avatars.githubusercontent.com/u/198346406?v=4",
+  "version": "0.1.0",
+  "description": "Noodle Extensions compatibility layer for Mapping Extensions users. Registers \"Noodle Extensions\" as an available capability in SongCore, allowing maps that require Noodle Extensions to be unlocked and played without installing the full Noodle Extensions mod.",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Misticenea/NoodleWrapper/releases/download/v0.1.0/NoodleWrapper.qmod",
+  "source": "https://github.com/Misticenea/NoodleWrapper",
+  "website": "https://github.com/Misticenea/NoodleWrapper"
+}
