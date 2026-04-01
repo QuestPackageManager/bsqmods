@@ -1,0 +1,32 @@
+{
+  "name": "CustomJSONData",
+  "description": "Funny maps go brrr",
+  "id": "custom-json-data",
+  "version": "0.24.4",
+  "author": "StackDoubleFlow, Fernthedev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/CustomJSONData/releases/download/v0.24.4/custom-json-data.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.25"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/CustomJSONData/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/CustomJSONData/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/CustomJSONData/"
+}
