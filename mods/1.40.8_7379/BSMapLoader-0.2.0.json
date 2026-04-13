@@ -1,0 +1,15 @@
+{
+  "name": "BSMapLoader",
+  "description": "\"A human-readable alternative to Beat Saber's v4 .dat format. Instead of editing raw JSON, write maps in plain .bsmap text files with simple keywords like NOTE, WALL, and LIGHT. Automatically converts to v4 .dat and lightshow files at startup. See https://github.com/VoidNachos/BSMapLoader for the full format guide. Requires SongCore.",
+  "id": "BSMapLoader",
+  "version": "0.2.0",
+  "author": "VoidNachos",
+  "authorIcon": "https://avatars.githubusercontent.com/u/225590723?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/VoidNachos/BSMapLoader/releases/download/v0.2.0/BSMapLoader.qmod",
+  "dependencies": [],
+  "source": "https://github.com/VoidNachos/BSMapLoader/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/VoidNachos/BSMapLoader/"
+}
