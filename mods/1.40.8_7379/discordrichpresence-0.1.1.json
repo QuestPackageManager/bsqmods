@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "version": "1.0.4*",
-      "id": "morebuttons",
+      "id": "morebuttons"
     }
   ],
   "source": "https://github.com/RainzDev/BSQ_DiscordRichPresence/",
