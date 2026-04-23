@@ -6,7 +6,7 @@
   "author": "Jess",
   "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/0.1.3/DiscordRichPresence.qmod",
+  "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/v0.1.3/DiscordRichPresence.qmod",
   "dependencies": [
     {
       "id": "beatsaber-hook",
