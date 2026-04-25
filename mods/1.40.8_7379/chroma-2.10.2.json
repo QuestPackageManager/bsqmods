@@ -1,0 +1,44 @@
+{
+  "name": "Chroma",
+  "description": "Colors!",
+  "id": "chroma",
+  "version": "2.10.2",
+  "author": "FernTheDev, nyamimi~(Kaitlyn), Catsacode, Futurmapper, Aeroluna",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/Chroma/releases/download/v2.10.2/Chroma.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.54"
+    },
+    {
+      "id": "custom-json-data",
+      "version": "^0.24.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.23"
+    },
+    {
+      "id": "tracks",
+      "version": "^2.5.2"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/Chroma/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/Chroma/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/Chroma/"
+}
