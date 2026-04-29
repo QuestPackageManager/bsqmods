@@ -1,0 +1,32 @@
+{
+  "name": "SimpleSabers",
+  "description": "Tweak the default saber and trail",
+  "id": "simplesabers",
+  "version": "0.1.3",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8864329?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RusJJ/SimpleSabers/releases/download/v0.1.3/SimpleSabers.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "4.*"
+    }
+  ],
+  "source": "https://github.com/RusJJ/SimpleSabers/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/RusJJ/SimpleSabers/"
+}
