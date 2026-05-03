@@ -7,7 +7,12 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/v0.1.5/DiscordRichPresence.qmod",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "version": "*",
+      "id": "morebuttons"
+    }
+  ],
   "source": "https://github.com/RainzDev/BSQ_DiscordRichPresence/",
   "cover": "https://raw.githubusercontent.com/RainzDev/BSQ_DiscordRichPresence/main/cover.jpg",
   "funding": [],
