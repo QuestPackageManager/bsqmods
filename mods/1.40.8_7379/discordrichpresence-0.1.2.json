@@ -2,11 +2,11 @@
   "name": "Discord Rich Presence",
   "description": "A Beat Saber Quest mod for displaying stats on Discord",
   "id": "discordrichpresence",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Jess",
   "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/0.1.1/DiscordRichPresence.qmod",
+  "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/0.1.2/DiscordRichPresence.qmod",
   "dependencies": [
     {
       "id": "beatsaber-hook",
@@ -19,6 +19,10 @@
     {
       "id": "custom-types",
       "version": "^0.18.4"
+    },
+    {
+      "id": "morebuttons",
+      "version": "=1.0.4"
     },
     {
       "id": "paper2_scotland2",

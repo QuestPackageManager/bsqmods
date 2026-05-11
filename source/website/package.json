@@ -10,9 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^5.0.4",
     "@astrojs/ts-plugin": "^1.10.7",
     "@heroicons/react": "^2.2.0",
     "@playform/compress": "^0.2.3",
@@ -20,8 +19,8 @@
     "@types/file-saver": "^2.0.7",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.18.1",
-    "autoprefixer": "^10.4.27",
+    "astro": "^6.2.2",
+    "autoprefixer": "^10.5.0",
     "daisyui": "^4.12.24",
     "file-saver": "^2.0.5",
     "html-entities": "^2.6.0",

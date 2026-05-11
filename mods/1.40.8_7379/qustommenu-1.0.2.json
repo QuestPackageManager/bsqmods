@@ -1,0 +1,32 @@
+{
+  "name": "Qustom Menu",
+  "description": "Customise the Beat Saber menu",
+  "id": "qustommenu",
+  "version": "1.0.2",
+  "author": "jxnxsdev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/QustomMenu/releases/download/v1.0.2/QustomMenu.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    }
+  ],
+  "source": "https://github.com/FrozenAlex/QustomMenu/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/QustomMenu/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/FrozenAlex/QustomMenu/"
+}
