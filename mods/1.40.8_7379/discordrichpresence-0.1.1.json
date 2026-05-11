@@ -10,27 +10,27 @@
   "dependencies": [
     {
       "version": "=1.0.4",
-      "id": "morebuttons",
+      "id": "morebuttons"
     },
     {
       "version": "^4.7.0",
-      "id": "paper2_scotland2",
+      "id": "paper2_scotland2"
     },
     {
       "version": "^6.4.2",
-      "id": "beatsaber-hook",
+      "id": "beatsaber-hook"
     },
     {
       "version": "^0.6.8",
-      "id": "web-utils",
+      "id": "web-utils"
     },
     {
       "version": "^0.4.9",
-      "id": "bsml",
+      "id": "bsml"
     },
     {
       "version": "^0.18.4",
-      "id": "custom-types",
+      "id": "custom-types"
     }
   ],
   "source": "https://github.com/RainzDev/BSQ_DiscordRichPresence/",
