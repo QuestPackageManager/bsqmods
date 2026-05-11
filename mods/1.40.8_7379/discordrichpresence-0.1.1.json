@@ -9,24 +9,28 @@
   "download": "https://github.com/RainzDev/BSQ_DiscordRichPresence/releases/download/0.1.1/DiscordRichPresence.qmod",
   "dependencies": [
     {
-      "id": "beatsaber-hook",
-      "version": "^6.4.2"
+      "version": "=1.0.4",
+      "id": "morebuttons",
     },
     {
-      "id": "bsml",
-      "version": "^0.4.9"
-    },
-    {
-      "id": "custom-types",
-      "version": "^0.18.4"
-    },
-    {
+      "version": "^4.7.0",
       "id": "paper2_scotland2",
-      "version": "^4.7.0"
     },
     {
+      "version": "^6.4.2",
+      "id": "beatsaber-hook",
+    },
+    {
+      "version": "^0.6.8",
       "id": "web-utils",
-      "version": "^0.6.8"
+    },
+    {
+      "version": "^0.4.9",
+      "id": "bsml",
+    },
+    {
+      "version": "^0.18.4",
+      "id": "custom-types",
     }
   ],
   "source": "https://github.com/RainzDev/BSQ_DiscordRichPresence/",
