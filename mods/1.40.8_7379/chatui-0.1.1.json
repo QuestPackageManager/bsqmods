@@ -1,0 +1,32 @@
+{
+  "name": "ChatUI",
+  "description": "Shows your Twitch Chat Ingame",
+  "id": "chatui",
+  "version": "0.1.1",
+  "author": "laynia_x",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/U-ChatUI/releases/download/v0.1.1/ChatUI.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/vcmikuu/U-ChatUI/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/U-ChatUI/main/cover.jpg",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/U-ChatUI/"
+}
