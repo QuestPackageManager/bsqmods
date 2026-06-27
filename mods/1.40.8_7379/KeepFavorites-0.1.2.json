@@ -1,0 +1,36 @@
+{
+  "name": "Keep Favorites",
+  "description": "Scans custom songs on Quest Beat Saber and deletes non-favorite song folders from an in-game UI.",
+  "id": "KeepFavorites",
+  "version": "0.1.2",
+  "author": "TigerYoo",
+  "authorIcon": "https://avatars.githubusercontent.com/u/6271133?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/MTGVim/beatsaber-keep-favorites/releases/download/v0.1.2/KeepFavorites.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.25"
+    }
+  ],
+  "source": "https://github.com/MTGVim/beatsaber-keep-favorites/",
+  "cover": "https://raw.githubusercontent.com/MTGVim/beatsaber-keep-favorites/main/assets/readme-cover.png",
+  "funding": [],
+  "website": "https://github.com/MTGVim/beatsaber-keep-favorites/"
+}
