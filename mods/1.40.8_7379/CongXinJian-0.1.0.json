@@ -1,0 +1,15 @@
+{
+  "name": "CongXinJian",
+  "description": "help you to tweaking saber offset easier inside quest",
+  "id": "CongXinJian",
+  "version": "0.1.0",
+  "author": "lxtend",
+  "authorIcon": "https://avatars.githubusercontent.com/u/16081973?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/lixiangwuxian/CongXinJian/releases/download/v0.1.0/CongXinJian.qmod",
+  "dependencies": [],
+  "source": "https://github.com/lixiangwuxian/CongXinJian/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/lixiangwuxian/CongXinJian/"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Qustom Menu",
+  "description": "Customize the Beat Saber menu, add custom banners and quotes",
+  "id": "qustommenu",
+  "version": "1.0.3",
+  "author": "jxnxsdev",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/QustomMenu/releases/download/v1.0.3/QustomMenu.qmod",
+  "dependencies": [],
+  "source": "https://github.com/FrozenAlex/QustomMenu/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/QustomMenu/main/cover.png",
+  "funding": [],
+  "website": null
+}

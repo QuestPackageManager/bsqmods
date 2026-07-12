@@ -1,0 +1,32 @@
+{
+  "name": "MetaCore",
+  "description": "Generic utilities for mod developers",
+  "id": "metacore",
+  "version": "2.0.1",
+  "author": "Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/48568911?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Metalit/MetaCore/releases/download/v2.0.1/MetaCore.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^8.0.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.20.0"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.7.0"
+    }
+  ],
+  "source": "https://github.com/Metalit/MetaCore/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Metalit/MetaCore/"
+}
