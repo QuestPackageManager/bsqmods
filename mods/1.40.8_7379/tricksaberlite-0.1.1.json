@@ -1,0 +1,36 @@
+{
+  "name": "TrickSaber Lite",
+  "description": "Perform spins and throws with your sabers!",
+  "id": "tricksaberlite",
+  "version": "0.1.1",
+  "author": "laynia",
+  "authorIcon": "https://avatars.githubusercontent.com/u/170962081?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/vcmikuu/TrickSaber-Lite/releases/download/v0.1.1/TrickSaber.Lite.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.6.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/vcmikuu/TrickSaber-Lite/",
+  "cover": "https://raw.githubusercontent.com/vcmikuu/TrickSaber-Lite/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/vcmikuu/TrickSaber-Lite/"
+}
