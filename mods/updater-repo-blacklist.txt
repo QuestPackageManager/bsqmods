@@ -1,8 +1,3 @@
 # This file contains a list of repositories that shouldn't
 # be scanned by the auto-updater. One repository per line.
 
-DanTheMan827-BeatSaber/Quest.BtsYeeter
-DanTheMan827-BeatSaber/Quest.DlcSorter
-DanTheMan827-BeatSaber/Quest.FakeID
-DanTheMan827-BeatSaber/Quest.NoPromo
-DanTheMan827-BeatSaber/Quest.ModList
