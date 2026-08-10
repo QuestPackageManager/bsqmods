@@ -1,0 +1,36 @@
+{
+  "name": "QBeatSaberPlus-MenuMusic",
+  "description": "Feel good!",
+  "id": "qbeatsaberplus-menumusic",
+  "version": "6.4.5",
+  "author": "HardCPP",
+  "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/releases/download/v6.4.5/QBeatSaberPlus-MenuMusic.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "chatplex-sdk-bs",
+      "version": "^6.4.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.26"
+    }
+  ],
+  "source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
+  "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/"
+}
