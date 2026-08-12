@@ -27,6 +27,6 @@
   ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-GameTweaker/master/cover.png",
-  "funding": [],
+  "funding": ["https://patreon.com/BeatSaberPlus"],
   "website": "https://github.com/hardcpp/QBeatSaberPlus-GameTweaker/"
 }
