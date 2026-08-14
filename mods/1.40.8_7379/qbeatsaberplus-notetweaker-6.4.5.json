@@ -6,7 +6,7 @@
   "author": "HardCPP",
   "authorIcon": "https://avatars.githubusercontent.com/u/2964819?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/releases/download/v6.4.5/QBeatSaberPlus-NoteTweaker.qmod",
+  "download": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/releases/download/v6.4.5/QBeatSaberPlus-NoteTweaker.qmod?20260814",
   "dependencies": [
     {
       "id": "beatsaber-hook",
