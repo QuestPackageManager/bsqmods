@@ -31,6 +31,8 @@
   ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-MenuMusic/master/cover.png",
-  "funding": ["https://patreon.com/BeatSaberPlus"],
+  "funding": [
+    "https://patreon.com/BeatSaberPlus"
+  ],
   "website": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/"
 }

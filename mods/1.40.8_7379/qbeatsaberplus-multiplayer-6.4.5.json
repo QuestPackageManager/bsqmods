@@ -35,6 +35,8 @@
   ],
   "source": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/",
   "cover": "https://raw.githubusercontent.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/main/cover.png",
-  "funding": ["https://patreon.com/BeatSaberPlus"],
+  "funding": [
+    "https://patreon.com/BeatSaberPlus"
+  ],
   "website": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/"
 }
