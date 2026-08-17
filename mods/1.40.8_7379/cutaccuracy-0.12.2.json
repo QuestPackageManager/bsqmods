@@ -1,0 +1,15 @@
+{
+  "name": "Cut Accuracy",
+  "description": "Replaces standard Beat Saber scoring wth a more rigorous cut-accuracy calculation and adds adjustable weighting between swing angle and note accuracy.",
+  "id": "cutaccuracy",
+  "version": "0.12.2",
+  "author": "Justinator1000",
+  "authorIcon": "https://avatars.githubusercontent.com/u/1715763?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/drosengarten/BeatSaberGradingMod/releases/download/Cut_Accuracy_0.12.2/CutAccuracy.qmod",
+  "dependencies": [],
+  "source": "https://github.com/drosengarten/BeatSaberGradingMod/",
+  "cover": "https://raw.githubusercontent.com/drosengarten/BeatSaberGradingMod/main/docs/cover_image.png",
+  "funding": [],
+  "website": "https://github.com/drosengarten/BeatSaberGradingMod/"
+}
