@@ -1,6 +1,6 @@
 {
   "name": "Cut Accuracy",
-  "description": "Replaces standard Beat Saber scoring wth a more rigorous cut-accuracy calculation and adds adjustable weighting between swing angle and note accuracy.",
+  "description": "Replaces standard Beat Saber scoring with a more rigorous cut-accuracy calculation and adds adjustable weighting between swing angle and note accuracy.",
   "id": "cutaccuracy",
   "version": "0.12.2",
   "author": "Justinator1000",
