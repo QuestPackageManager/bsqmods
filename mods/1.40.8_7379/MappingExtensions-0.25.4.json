@@ -1,0 +1,28 @@
+{
+  "name": "Mapping Extensions",
+  "description": "This adds a host of new things you can do with your maps as a mapper, and allows you to play said maps as a player. An update of the port of the PC original mod by Kyle 1413. Previously maintained by zoller27osu.",
+  "id": "MappingExtensions",
+  "version": "0.25.4",
+  "author": "StackDoubleFlow, rxzz0, & rcelyte",
+  "authorIcon": "https://avatars.githubusercontent.com/u/25163630?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/rcelyte/MappingExtensions/releases/download/0.25.4/MappingExtensions.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.1.24"
+    }
+  ],
+  "source": "https://github.com/rcelyte/MappingExtensions/",
+  "cover": "https://raw.githubusercontent.com/rcelyte/MappingExtensions/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/rcelyte/MappingExtensions/"
+}
