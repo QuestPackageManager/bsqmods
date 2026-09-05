@@ -1,0 +1,15 @@
+{
+  "name": "SnipeFeed",
+  "description": "See your BeatLeader following feed in-game: your friends' latest scores in one list so you know exactly which maps to snipe.",
+  "id": "snipefeed",
+  "version": "2.0.1",
+  "author": "NotNic",
+  "authorIcon": "https://avatars.githubusercontent.com/u/106909022?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/NotNic182/SnipeFeed/releases/download/v2.0.1/SnipeFeed.Quest-2.0.1_BS-1.40.8.qmod",
+  "dependencies": [],
+  "source": "https://github.com/NotNic182/SnipeFeed/",
+  "cover": "https://i.imgur.com/i1YVynU.png",
+  "funding": [],
+  "website": "https://github.com/NotNic182/SnipeFeed/"
+}
