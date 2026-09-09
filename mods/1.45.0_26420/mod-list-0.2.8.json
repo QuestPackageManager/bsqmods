@@ -7,8 +7,6 @@
   "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/releases/download/v0.2.8%2B1.45.0_26420/ModList.qmod",
-  "source": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/",
-  "cover": null,
   "dependencies": [
     {
       "id": "beatsaber-hook",
@@ -35,6 +33,8 @@
       "version": "^0.25.0"
     }
   ],
+  "source": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/",
+  "cover": null,
   "funding": [],
   "website": "https://github.com/DanTheMan827-BeatSaber/Quest.ModList/"
 }
