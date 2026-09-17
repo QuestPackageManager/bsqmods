@@ -43,6 +43,8 @@
   ],
   "source": "https://github.com/RainzDev/BSQ_DiscordRichPresence/",
   "cover": "https://raw.githubusercontent.com/RainzDev/BSQ_DiscordRichPresence/main/cover.jpg",
-  "funding": ["https://ko-fi.com/jesscdv"],
+  "funding": [
+    "https://ko-fi.com/jesscdv"
+  ],
   "website": "https://github.com/RainzDev/BSQ_DiscordRichPresence/"
 }
