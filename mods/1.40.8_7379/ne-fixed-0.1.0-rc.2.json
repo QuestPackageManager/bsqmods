@@ -1,0 +1,15 @@
+{
+  "name": "NE Fixed Add-on",
+  "description": "Compatibility add-on for NoodleExtensions 1.6.3 that improves note prefab compatibility and cutout precision. Works alongside the official NoodleExtensions and does not replace it.",
+  "id": "ne-fixed",
+  "version": "0.1.0-rc.2",
+  "author": "Liam Sitbon and Quest port contributors",
+  "authorIcon": "https://avatars.githubusercontent.com/u/181689811?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Liamsitbon/star-trash-tries-/releases/download/ne-fixed-addon-0.1.0-rc.2/NE-Fixed-Addon-Quest-0.1.0-rc.2.qmod",
+  "dependencies": [],
+  "source": "https://github.com/Liamsitbon/star-trash-tries-/",
+  "cover": "https://raw.githubusercontent.com/Liamsitbon/star-trash-tries-/refs/heads/main/.github/NE-Add-On/NE-Add-On_Banner.png",
+  "funding": [],
+  "website": "https://github.com/Liamsitbon/star-trash-tries-/"
+}
