@@ -1,0 +1,15 @@
+{
+  "name": "Nexora",
+  "description": "Nexora uses 360° video to bring complex pre-rendered worlds to Beat Saber on Quest without rendering the full environment in real time. Nexora - Giving Depth to 360 Video.",
+  "id": "nexora",
+  "version": "2.0.0-rc.2",
+  "author": "Liam Sitbon",
+  "authorIcon": "https://avatars.githubusercontent.com/u/181689811?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Liamsitbon/star-trash-tries-/releases/download/nexora-quest-2.0.0-rc.2-custom-video/Nexora-Quest-2.0.0-rc.2.qmod",
+  "dependencies": [],
+  "source": "https://github.com/Liamsitbon/star-trash-tries-/",
+  "cover": "https://raw.githubusercontent.com/Liamsitbon/star-trash-tries-/main/.github/Nexora/Nexora_Banner.png",
+  "funding": [],
+  "website": null
+}
