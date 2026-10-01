@@ -1,0 +1,36 @@
+{
+  "name": "Squore Customiser",
+  "description": "Configurable Beat Saber scoring with Simple and per-note Advanced profiles, four-mini-note precise accuracy, center accuracy, swing weighting, and safe leaderboard submission blocking while custom scoring is enabled.",
+  "id": "cutaccuracy",
+  "version": "0.14.17",
+  "author": "Daniel Rosengarten",
+  "authorIcon": "https://avatars.githubusercontent.com/u/1715763?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/drosengarten/BeatSaberGradingMod/releases/download/SquoreCustomiser_0.14.17/SquoreCustomiser-0.14.17.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.6.3"
+    }
+  ],
+  "source": "https://github.com/drosengarten/BeatSaberGradingMod/",
+  "cover": "https://raw.githubusercontent.com/drosengarten/BeatSaberGradingMod/codex/squore-customiser-release/docs/cover_image.png",
+  "funding": [],
+  "website": "https://github.com/drosengarten/BeatSaberGradingMod/"
+}
