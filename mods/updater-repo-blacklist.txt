@@ -2,3 +2,4 @@
 # be scanned by the auto-updater. One repository per line.
 DanTheMan827-BeatSaber/Quest.ModList
 DanTheMan827-BeatSaber/Quest.DlcSorter
+DanTheMan827-BeatSaber/Quest.FakeID
