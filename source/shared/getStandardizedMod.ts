@@ -1,5 +1,6 @@
 import { Mod, modKeys } from "./types/Mod";
 import { ModLoader } from "./types/ModLoader";
+import { aiUsageValues } from "./types/AiUsage";
 
 /**
  * Returns the mod with empty values set to nulls and keys presented in a specific order.
@@ -32,6 +33,11 @@ export function getStandardizedMod(mod: Mod, keys: (keyof Mod)[] = modKeys): Mod
 
       case "isLibrary":
         uniformMod[key] = mod[key] === true;
+        break;
+
+      case "ai":
+        // Leave the key out entirely (undefined is dropped by JSON.stringify) when no AI was used
+        uniformMod[key] = mod[key] && mod[key] != "none" && aiUsageValues.includes(mod[key]) ? mod[key] : undefined;
         break;
 
       default:

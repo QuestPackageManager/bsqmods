@@ -74,6 +74,10 @@
       "format": "uri",
       "pattern": "^(http|https)://.*$",
       "flags": "i"
+    },
+    "ai": {
+      "type": "string",
+      "enum": ["none", "assisted", "fully-vibed"]
     }
   },
   "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "dependencies", "source", "cover", "funding", "website"]

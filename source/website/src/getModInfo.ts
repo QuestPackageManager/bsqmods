@@ -1,4 +1,5 @@
 import type { CoreMod } from "../../shared/CoreMods";
+import type { AiUsage } from "../../shared/types/AiUsage";
 
 let mods: ModObject[] | null = null;
 
@@ -12,6 +13,7 @@ export interface ModObject {
   coreModInfo?: CoreMod;
   source: string | null;
   funding: string[];
+  ai: AiUsage;
 
   /**
    * Optionally sets the marked state and returns the current state.
@@ -45,6 +47,7 @@ export function getModInfo(): ModObject[] {
       coreModInfo: card.querySelector<HTMLElement>("core-mod-info")?.dataset as unknown as CoreMod | undefined,
       source: card.querySelector<HTMLAnchorElement>("a.mod-source")?.href || null,
       funding: [...card.querySelectorAll<HTMLAnchorElement>("a.funding-link")].map((link) => link.href),
+      ai: (card.dataset.modAi as AiUsage | undefined) || "none",
       isMarked: (value) => {
         var mark = card.querySelector<HTMLInputElement>("input.mod-checkbox")!;
 

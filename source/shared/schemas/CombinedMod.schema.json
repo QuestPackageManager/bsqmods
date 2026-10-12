@@ -21,6 +21,7 @@
         "cover": {},
         "funding": {},
         "website": {},
+        "ai": {},
         "hash": {
           "type": "string",
           "pattern": "^[a-fA-F0-9]{40}$"
