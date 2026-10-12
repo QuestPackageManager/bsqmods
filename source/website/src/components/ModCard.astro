@@ -35,6 +35,7 @@ const { mods, core = false } = Astro.props as Props;
     return (
       <mod-card
         data-mod-id={mod.id}
+        data-mod-ai={mod.ai && mod.ai != "none" ? mod.ai : undefined}
         class={`
           before:absolute
           before:backdrop-blur
@@ -141,6 +142,19 @@ const { mods, core = false } = Astro.props as Props;
               >
                 {mod.author}
               </mod-author>
+              {mod.ai && mod.ai != "none" ? (
+                <mod-ai
+                  class={`
+                    badge
+                    badge-sm
+                    my-1
+                    ${mod.ai == "fully-vibed" ? "badge-warning" : "badge-info"}
+                  `}
+                  title={mod.ai == "fully-vibed" ? "This mod was largely written by AI" : "This mod was made with AI assistance"}
+                >
+                  {mod.ai == "fully-vibed" ? "Vibe Coded" : "AI Assisted"}
+                </mod-ai>
+              ) : null}
               {mod.description ? (
                 <mod-description
                   class={`

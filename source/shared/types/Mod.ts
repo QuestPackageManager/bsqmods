@@ -1,4 +1,5 @@
 import { ModId, ModVersion, Sha1Hash, Url } from "./Aliases";
+import { AiUsage } from "./AiUsage";
 import { Dependency } from "./Dependency";
 import { ModLoader } from "./ModLoader";
 
@@ -122,6 +123,11 @@ export interface Mod {
    * If the mod is a library.
    */
   isLibrary?: boolean;
+
+  /**
+   * How much AI was used to create the mod. Treated as "none" if not present.
+   */
+  ai?: AiUsage;
 }
 
 /**
@@ -143,6 +149,7 @@ export const modKeys: (keyof Mod)[] = [
   "ogCover",
   "funding",
   "website",
+  "ai",
   "hash"
 ];
 
