@@ -1,0 +1,16 @@
+{
+  "name": "Easy Offset Quest",
+  "description": "Native Quest offset adjustments with EasyOffset profiles",
+  "id": "EasyOffsetQuest",
+  "version": "0.1.7",
+  "author": "great-hb, based on Reezonate and lxtend's work",
+  "authorIcon": "https://avatars.githubusercontent.com/u/51179907?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/great-hb/EasyOffsetQuest/releases/download/v0.1.7/EasyOffsetQuest-0.1.7.qmod",
+  "dependencies": [],
+  "source": "https://github.com/great-hb/EasyOffsetQuest/",
+  "cover": "https://raw.githubusercontent.com/great-hb/EasyOffsetQuest/main/cover.png",
+  "funding": [],
+  "website": null,
+  "ai": "fully-vibed"
+}
