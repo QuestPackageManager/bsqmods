@@ -1,0 +1,32 @@
+{
+  "name": "Lapiz",
+  "description": "Lapiz makes modders' lives easier by exposing utilities to them cleanly. This mod does nothing on its own.",
+  "id": "lapiz",
+  "version": "0.3.7",
+  "author": "Raine",
+  "authorIcon": "https://avatars.githubusercontent.com/u/64136899?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/raineaeternal/Lapiz/releases/download/v0.3.7/Lapiz.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.1.1"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.1"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    }
+  ],
+  "source": "https://github.com/raineaeternal/Lapiz/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/raineaeternal/Lapiz/"
+}
