@@ -57,7 +57,7 @@
     "cover": {
       "type": ["string", "null"],
       "format": "uri",
-      "pattern": "^(http|https)://.*\\.(gif|jpg|jpeg|png)$",
+      "pattern": "^(http|https)://.*\\.(gif|jpg|jpeg|png|webp)$",
       "flags": "i"
     },
     "funding": {
