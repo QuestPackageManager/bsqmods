@@ -1,0 +1,15 @@
+{
+  "name": "SkillIssueCrasher",
+  "description": "Crashes your game if you miss, do a bad cut, or hit a bomb",
+  "id": "skillissuecrasher",
+  "version": "0.1.0",
+  "author": "Jess",
+  "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RainzDev/SkillIssueCrasher/releases/download/v0.1.0/SkillIssueCrasher.qmod",
+  "dependencies": [],
+  "source": "https://github.com/RainzDev/SkillIssueCrasher/",
+  "cover": "https://raw.githubusercontent.com/RainzDev/SkillIssueCrasher/main/cover.webp",
+  "funding": [],
+  "website": "https://github.com/RainzDev/SkillIssueCrasher/"
+}
