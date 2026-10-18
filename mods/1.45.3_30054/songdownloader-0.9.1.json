@@ -1,0 +1,32 @@
+{
+  "name": "SongDownloader",
+  "description": "Download Custom Songs at Runtime",
+  "id": "songdownloader",
+  "version": "0.9.1",
+  "author": "darknight1050, EnderdracheLP, Metalit",
+  "authorIcon": "https://avatars.githubusercontent.com/u/18632205?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/darknight1050/SongDownloader/releases/download/v0.9.1/SongDownloader.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    }
+  ],
+  "source": "https://github.com/darknight1050/SongDownloader/",
+  "cover": "https://raw.githubusercontent.com/darknight1050/SongDownloader/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/darknight1050/SongDownloader/"
+}
