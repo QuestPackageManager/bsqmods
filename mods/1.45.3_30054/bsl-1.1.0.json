@@ -1,0 +1,40 @@
+{
+  "name": "Better Song List",
+  "description": "Improvement upon SongBrowser with similiar functionality",
+  "id": "bsl",
+  "version": "1.1.0",
+  "author": "RedBrumbler, Pink, Kinsi55",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/BetterSongList/releases/download/v1.1.0-bs-1.45.3/BetterSongList.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "song-details",
+      "version": "^1.0.5"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/BetterSongList/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongList/main/cover.jpg",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/BetterSongList/"
+}
