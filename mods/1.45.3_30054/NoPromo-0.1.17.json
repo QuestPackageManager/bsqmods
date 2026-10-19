@@ -1,0 +1,28 @@
+{
+  "name": "NoPromo",
+  "description": "Hides the promo banner on the main screen.",
+  "id": "NoPromo",
+  "version": "0.1.17",
+  "author": "DanTheMan827",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/Quest.NoPromo/releases/download/v0.1.17%2B1.45.3_30054/NoPromo.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/Quest.NoPromo/",
+  "cover": null,
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    }
+  ],
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/Quest.NoPromo/"
+}
