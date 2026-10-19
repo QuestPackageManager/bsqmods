@@ -1,0 +1,40 @@
+{
+  "name": "GraphicsTweaks",
+  "description": "Mod to unlock pc graphics settings on quest beat saber",
+  "id": "graphicstweaks",
+  "version": "0.2.0",
+  "author": "FrozenAlex, Futuremappermydud",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/GraphicsTweaks/releases/download/v0.2.0/GraphicsTweaks.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.2.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.3"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.1"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    }
+  ],
+  "source": "https://github.com/FrozenAlex/GraphicsTweaks/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/GraphicsTweaks/main/image.png",
+  "funding": [],
+  "website": "https://github.com/FrozenAlex/GraphicsTweaks/"
+}
