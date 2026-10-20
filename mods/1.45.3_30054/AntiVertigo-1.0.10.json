@@ -1,0 +1,44 @@
+{
+  "name": "AntiVertigo",
+  "description": "Spawn a bigger base platform for people with vertigo so they can play comfortably, AntiVertigo v1.0.10",
+  "id": "AntiVertigo",
+  "version": "1.0.10",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/FrozenAlex/AntiVertigo/releases/download/v1.0.10/AntiVertigo.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "lapiz",
+      "version": "^0.3.7"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    }
+  ],
+  "source": "https://github.com/FrozenAlex/AntiVertigo/",
+  "cover": "https://raw.githubusercontent.com/FrozenAlex/AntiVertigo/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/FrozenAlex/AntiVertigo/"
+}
