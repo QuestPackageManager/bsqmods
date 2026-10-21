@@ -1,0 +1,24 @@
+{
+  "name": "CyrillicFix",
+  "description": "Fixes Cyrillic text (song names, artists, mappers) showing up as '?' and '.' by rendering Cyrillic with a real font (Android system Roboto or your own font.ttf). Works alongside Unicode.",
+  "id": "cyrillic-fix",
+  "version": "1.0.0",
+  "author": "muxira",
+  "authorIcon": "https://avatars.githubusercontent.com/u/74909168?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/muxira/CyrillicFix/releases/download/v1.0.0/CyrillicFix.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/muxira/CyrillicFix/",
+  "cover": "https://raw.githubusercontent.com/muxira/CyrillicFix/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/muxira/CyrillicFix/"
+}
