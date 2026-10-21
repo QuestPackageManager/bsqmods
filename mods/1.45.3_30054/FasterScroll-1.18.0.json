@@ -1,0 +1,40 @@
+{
+  "name": "Faster Scroll",
+  "description": "Find your song faster with this mod.",
+  "id": "FasterScroll",
+  "version": "1.18.0",
+  "author": "Christoffyw",
+  "authorIcon": "https://avatars.githubusercontent.com/u/176073241?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/DanTheMan827-BeatSaber/Quest.FasterScrollQuest/releases/download/v1.18.0/Faster.Scroll.qmod",
+  "source": "https://github.com/DanTheMan827-BeatSaber/Quest.FasterScrollQuest/",
+  "cover": null,
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    }
+  ],
+  "funding": [],
+  "website": "https://github.com/DanTheMan827-BeatSaber/Quest.FasterScrollQuest/"
+}
