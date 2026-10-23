@@ -50,6 +50,13 @@ export async function importRemoteQmod(
       try {
         const json = JSON.parse(await infoFile.async("text"));
         const coverResult = await getQmodCoverUrl(url);
+        const dependencies = json.dependencies?.length
+          ? json.dependencies.map(({ id, version, versionRange }) => ({
+              id,
+              version: version || versionRange
+            }))
+          : [];
+
         const modInfo: Mod = {
           name: json.name || null,
           description: json.description || null,
@@ -59,6 +66,7 @@ export async function importRemoteQmod(
           authorIcon: (await getGithubIconUrl(url)).data,
           modloader: json.modloader || "QuestLoader",
           download: url,
+          dependencies,
           source: null,
           cover: coverResult.data,
           funding: [],
