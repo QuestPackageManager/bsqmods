@@ -59,7 +59,7 @@ export async function importRemoteQmod(
 
         const modInfo: Mod = {
           name: json.name || null,
-          description: json.description || null,
+          description: (Array.isArray(json.description) ? json.description.join("\n") || null : json.description) || null,
           id: json.id || null,
           version: json.version || null,
           author: (!json.porter ? "" : json.porter + (isNullOrWhitespace(json.author) ? "" : ", ")) + json.author,

@@ -39,6 +39,10 @@ export function getStandardizedMod(mod: Mod, keys: (keyof Mod)[] = modKeys): Mod
         case "ai":
           // Leave the key out entirely (undefined is dropped by JSON.stringify) when no AI was used
           uniformMod[key] = mod[key] && mod[key] != "none" && aiUsageValues.includes(mod[key]) ? mod[key] : undefined;
+          if (uniformMod[key] === undefined) {
+            delete uniformMod[key];
+          }
+
           break;
 
         default:
