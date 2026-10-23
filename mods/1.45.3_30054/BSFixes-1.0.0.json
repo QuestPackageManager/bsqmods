@@ -1,0 +1,28 @@
+{
+  "name": "BS Fixes",
+  "description": "Fixes for bugs in the base game",
+  "id": "BSFixes",
+  "version": "1.0.0",
+  "author": "FrozenAlex",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/BSFixes/releases/download/v1.0.0/BSFixes.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/BSFixes/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/bsq-ports/BSFixes/"
+}
