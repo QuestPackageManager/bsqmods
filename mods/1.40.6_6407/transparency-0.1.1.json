@@ -1,0 +1,37 @@
+{
+  "name": "Transparency",
+  "description": "See EVERYTHING (When playing Beat Saber) - Allows you to use the passthrough camera feed as the environment.",
+  "id": "transparency",
+  "version": "0.1.1",
+  "author": "LazyCoder744",
+  "authorIcon": "https://avatars.githubusercontent.com/u/131523828?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Lazycoder744/Transparency/releases/download/release/Transparency_1.40.6.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.53"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.4"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "tinyxml2",
+      "version": "^10.0.0"
+    }
+  ],
+  "ai": "fully-vibed",
+  "source": "https://github.com/Lazycoder744/Transparency/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Lazycoder744/Transparency/"
+}
