@@ -1,0 +1,40 @@
+{
+  "name": "ExpCounter",
+  "description": "Qounters counter for BeatLeader experience system",
+  "id": "ExpCounter",
+  "version": "0.1.0",
+  "author": "NSGolova",
+  "authorIcon": "https://avatars.githubusercontent.com/u/98843512?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/BeatLeader/BeatSaber_ExpCounter/releases/download/v0.1.0/ExpCounter.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.55"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.3"
+    },
+    {
+      "id": "metacore",
+      "version": "^1.6.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    },
+    {
+      "id": "qounters++",
+      "version": "^1.1.2"
+    }
+  ],
+  "source": "https://github.com/BeatLeader/BeatSaber_ExpCounter/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/BeatLeader/BeatSaber_ExpCounter/"
+}
