@@ -1,10 +1,9 @@
-
 {
   "name": "Halloween",
-  "description": "Happy Halloween!",
+  "description": "Happy Halloween! Transform your Beat Saber menu into a spooky graveyard with falling autumn leaves.",
   "id": "halloween",
   "version": "1.0.0",
-  "author": "Halloween Mod contributors",
+  "author": "Abomination2169",
   "authorIcon": "https://avatars.githubusercontent.com/u/173635826?v=4",
   "modloader": "Scotland2",
   "download": "https://github.com/Abomination2169/Halloween-Theme/releases/download/v1.0.0/Halloween-Theme.qmod",
