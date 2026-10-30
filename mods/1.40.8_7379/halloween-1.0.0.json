@@ -1,4 +1,3 @@
-
 {
   "name": "Halloween",
   "description": "Happy Halloween!",
@@ -10,10 +9,6 @@
   "download": "https://github.com/Abomination2169/Halloween-Theme/releases/download/v1.0.0/Halloween-Theme.qmod",
   "dependencies": [
     {
-      "id": "paper2_scotland2",
-      "version": "^4.6.4"
-    },
-    {
       "id": "beatsaber-hook",
       "version": "^6.4.2"
     },
@@ -24,6 +19,10 @@
     {
       "id": "custom-types",
       "version": "^0.18.3"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
     }
   ],
   "source": "https://github.com/Abomination2169/Halloween-Theme",
