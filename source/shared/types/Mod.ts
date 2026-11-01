@@ -125,7 +125,7 @@ export interface Mod {
   isLibrary?: boolean;
 
   /**
-   * How much AI was used to create the mod. Treated as "none" if not present.
+   * How much AI was used to create the mod. Required; must be set explicitly (use "none" if no AI was used).
    */
   ai?: AiUsage;
 }
