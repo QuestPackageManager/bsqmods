@@ -1,0 +1,33 @@
+{
+  "name": "CategoryTabs",
+  "description": "Adds tabs to the solo category bar and pages them when they do not fit, CategoryTabs v0.1.1",
+  "id": "CategoryTabs",
+  "version": "0.1.1",
+  "author": "S4lezardv",
+  "authorIcon": "https://avatars.githubusercontent.com/u/47873379?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/ThiagoAnd/Quest.CategoryTabs/releases/download/v0.1.1/CategoryTabs.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^6.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.4.22"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.18.2"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.6.4"
+    }
+  ],
+  "source": "https://github.com/ThiagoAnd/Quest.CategoryTabs/",
+  "cover": "https://raw.githubusercontent.com/ThiagoAnd/Quest.CategoryTabs/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/ThiagoAnd/Quest.CategoryTabs/",
+  "ai": "assisted"
+}
