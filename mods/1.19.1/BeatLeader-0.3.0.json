@@ -24,5 +24,6 @@
   "source": "https://github.com/BeatLeader/beatleader-qmod/",
   "cover": "https://raw.githubusercontent.com/BeatLeader/beatleader-qmod/master/cover.png",
   "funding": [],
-  "website": null
+  "website": null,
+  "ai": "none"
 }

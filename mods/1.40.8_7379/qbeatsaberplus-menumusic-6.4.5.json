@@ -34,5 +34,6 @@
   "funding": [
     "https://patreon.com/BeatSaberPlus"
   ],
-  "website": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/"
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-MenuMusic/",
+  "ai": "none"
 }

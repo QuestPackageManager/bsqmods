@@ -24,5 +24,6 @@
   "source": "https://github.com/darknight1050/SongDownloader",
   "cover": "https://raw.githubusercontent.com/darknight1050/SongLoader/main/cover.png",
   "funding": [],
-  "website": "https://github.com/darknight1050/SongLoader"
+  "website": "https://github.com/darknight1050/SongLoader",
+  "ai": "none"
 }

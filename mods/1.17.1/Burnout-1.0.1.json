@@ -11,5 +11,6 @@
   "source": "https://github.com/Raemien/BurnoutQuest/",
   "cover": "https://raw.githubusercontent.com/Raemien/BurnoutQuest/master/cover.png",
   "funding": [],
-  "website": null
+  "website": null,
+  "ai": "none"
 }

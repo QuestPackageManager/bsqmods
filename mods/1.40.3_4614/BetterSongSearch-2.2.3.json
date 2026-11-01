@@ -44,5 +44,6 @@
   "source": "https://github.com/bsq-ports/BetterSongSearchQuest/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongSearchQuest/main/cover.png",
   "funding": [],
-  "website": "https://github.com/bsq-ports/BetterSongSearchQuest/"
+  "website": "https://github.com/bsq-ports/BetterSongSearchQuest/",
+  "ai": "none"
 }

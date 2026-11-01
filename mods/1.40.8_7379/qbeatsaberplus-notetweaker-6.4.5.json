@@ -30,5 +30,6 @@
   "funding": [
     "https://patreon.com/BeatSaberPlus"
   ],
-  "website": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/"
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-NoteTweaker/",
+  "ai": "none"
 }

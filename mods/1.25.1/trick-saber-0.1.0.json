@@ -36,5 +36,6 @@
   "source": "https://github.com/RedBrumbler/TrickSaber/",
   "cover": "https://raw.githubusercontent.com/RedBrumbler/TrickSaber/master/cover.png",
   "funding": [],
-  "website": null
+  "website": null,
+  "ai": "none"
 }

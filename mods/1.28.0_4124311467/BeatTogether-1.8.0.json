@@ -20,5 +20,6 @@
   "source": "https://github.com/BeatTogether/BeatTogether.Quest/",
   "cover": "https://raw.githubusercontent.com/BeatTogether/BeatTogether.Quest/master/Cover.png",
   "funding": [],
-  "website": null
+  "website": null,
+  "ai": "none"
 }

@@ -38,5 +38,6 @@
   "funding": [
     "https://patreon.com/BeatSaberPlus"
   ],
-  "website": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/"
+  "website": "https://github.com/hardcpp/QBeatSaberPlus-Multiplayer-Download/",
+  "ai": "none"
 }

@@ -16,5 +16,6 @@
   "source": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/",
   "cover": "https://raw.githubusercontent.com/QuestPackageManager/Il2CppQuestTypePatching/master/cover.png",
   "funding": [],
-  "website": null
+  "website": null,
+  "ai": "none"
 }

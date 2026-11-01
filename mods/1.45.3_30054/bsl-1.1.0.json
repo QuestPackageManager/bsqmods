@@ -36,5 +36,6 @@
   "source": "https://github.com/bsq-ports/BetterSongList/",
   "cover": "https://raw.githubusercontent.com/bsq-ports/BetterSongList/main/cover.jpg",
   "funding": [],
-  "website": "https://github.com/bsq-ports/BetterSongList/"
+  "website": "https://github.com/bsq-ports/BetterSongList/",
+  "ai": "none"
 }
