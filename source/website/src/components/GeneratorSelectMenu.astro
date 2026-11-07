@@ -10,37 +10,43 @@ const { id, values } = Astro.props as Props;
 <div
   class={`
     block
-    text-center
+    min-w-0
+    text-left
   `}
 >
-  <span
+  <label
+    for={id}
     class={`
       block
       font-bold
-      leading-normal
-      py-1
-      text-shadow
+      pb-1
+      text-xs
+      leading-snug
+      text-shadow-sm
       text-white
     `}
   >
     <slot />
-  </span>
+  </label>
   <select
     class={`
       backdrop-blur
       bg-input-bg
       border
       border-white-alpha-20
-      h-[42px]
-      max-w
-      my-1
-      p-2
+      h-10
+      min-w-0
+      px-2.5
+      py-1.5
+      text-sm
+      leading-normal
       placeholder-input-placeholder
       rounded-md
       text-input-text
       w-full
     `}
     id={id}
+    aria-describedby={Astro.slots.has("description") ? `${id}Description` : undefined}
   >
     {
       values?.map((value) => (
@@ -53,9 +59,5 @@ const { id, values } = Astro.props as Props;
       ))
     }
   </select>
+  <slot name="description" />
 </div>
-<style>
-  span {
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
-  }
-</style>

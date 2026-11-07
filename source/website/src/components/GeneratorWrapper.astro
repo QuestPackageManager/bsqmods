@@ -4,12 +4,12 @@
 
 <div
   class={`
-    generator-form
     bg-black/40
     rounded-xl
     lg:p-2
     flex
     flex-wrap
+    gap-y-3
     max-w-screen-xxl
     mx-auto
     py-4
@@ -19,32 +19,3 @@
 >
   <slot />
 </div>
-
-<style>
-  .generator-form :global(input),
-  .generator-form :global(select),
-  .generator-form :global(textarea) {
-    margin-block: 0;
-    padding: 0.375rem 0.625rem;
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-
-  .generator-form :global(input),
-  .generator-form :global(select) {
-    height: 2.375rem;
-  }
-
-  .generator-form :global(span) {
-    padding-block: 0 0.25rem;
-    font-size: 0.8125rem;
-    line-height: 1.4;
-    text-align: left;
-  }
-
-  .generator-form :global(#loadQmod) {
-    margin-block: 0;
-    padding: 0.625rem;
-    font-size: 0.875rem;
-  }
-</style>

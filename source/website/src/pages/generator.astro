@@ -27,137 +27,131 @@ export interface GeneratorScriptData {
   }}
 >
   <GeneratorWrapper>
-    <div class="w-full lg:px-2 mb-3">
+    <GeneratorColumn fullWidth>
       <GeneratorDropZone id="loadQmod">Drop a .qmod to fill in details, or click to browse.</GeneratorDropZone>
-    </div>
-    <GeneratorColumn>
-      <div class="space-y-3">
-        <section class="space-y-2">
-          <h2 class="text-base font-bold text-white">Mod details</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <GeneratorTextInput
-              id="modName"
-              placeholder="The name of the mod"
-            >
-              Mod Name
-            </GeneratorTextInput>
-            <GeneratorTextInput
-              id="modId"
-              placeholder="The ID of the mod"
-            >
-              Mod ID
-            </GeneratorTextInput>
-          </div>
-          <GeneratorTextArea
-            id="modDescription"
-            placeholder="A description of what the mod does"
-            rows={2}
-          >
-            Mod Description
-          </GeneratorTextArea>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <GeneratorTextInput
-              id="modCreators"
-              placeholder="Who made this mod?"
-            >
-              Mod Creator(s)
-            </GeneratorTextInput>
-            <div>
-              <GeneratorSelectMenu
-                id="modAi"
-                values={[
-                  ["", "Select AI usage", true],
-                  ["none", "No AI used", false],
-                  ["assisted", "AI Assisted", false],
-                  ["fully-vibed", "Vibe Coded", false]
-                ]}
-              >
-                AI Usage
-              </GeneratorSelectMenu>
-              <p id="modAiDescription" class="mt-1 text-xs leading-snug text-white/80" aria-live="polite">
-                Select an option to see what it means.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="space-y-2">
-          <h2 class="text-base font-bold text-white">Compatibility</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <GeneratorTextInput
-              id="modVersion"
-              placeholder="The mod version"
-            >
-              Mod Version
-            </GeneratorTextInput>
-            <GeneratorTextInput
-              id="targetGameVersion"
-              placeholder="Target game version"
-            >
-              Game Version
-            </GeneratorTextInput>
-            <GeneratorSelectMenu
-              id="modLoader"
-              values={Object.keys(ModLoader)
-                .sort(compareAlphabeticallyAscInsensitive)
-                .map((k) => [k, k, k == ModLoader.Scotland2])}
-            >
-              Mod Loader
-            </GeneratorSelectMenu>
-          </div>
-        </section>
-      </div>
     </GeneratorColumn>
     <GeneratorColumn>
-      <div class="space-y-3 mt-3 lg:mt-0">
-        <section class="space-y-2">
-          <h2 class="text-base font-bold text-white">Links</h2>
+      <section class="space-y-2">
+        <h2 class="text-base font-bold text-white">Mod details</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <GeneratorTextInput
-            id="modDownloadLink"
-            placeholder="A direct link to the .qmod file"
+            id="modName"
+            placeholder="The name of the mod"
           >
-            Download Link
+            Mod Name
           </GeneratorTextInput>
           <GeneratorTextInput
-            id="modSourceLink"
-            placeholder="A link to the source code for the mod"
+            id="modId"
+            placeholder="The ID of the mod"
           >
-            Source Code
+            Mod ID
           </GeneratorTextInput>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <GeneratorTextInput
-              id="modWebsiteLink"
-              placeholder="A link to a website for the mod."
-            >
-              Website
-            </GeneratorTextInput>
-            <GeneratorTextInput
-              id="modFundingLink"
-              placeholder="Donation page URL"
-            >
-              Funding
-            </GeneratorTextInput>
-          </div>
-        </section>
-        <section class="space-y-2">
-          <h2 class="text-base font-bold text-white">Images</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <GeneratorTextInput
-              id="authorIcon"
-              placeholder="URL to a square image file."
-            >
-              Author Icon URL
-            </GeneratorTextInput>
-            <GeneratorTextInput
-              id="modCover"
-              placeholder="A direct link to a cover image."
-            >
-              Cover link
-            </GeneratorTextInput>
-          </div>
-        </section>
-      </div>
+        </div>
+        <GeneratorTextArea
+          id="modDescription"
+          placeholder="A description of what the mod does"
+          rows={2}
+        >
+          Mod Description
+        </GeneratorTextArea>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <GeneratorTextInput
+            id="modCreators"
+            placeholder="Who made this mod?"
+          >
+            Mod Creator(s)
+          </GeneratorTextInput>
+          <GeneratorSelectMenu
+            id="modAi"
+            values={[
+              ["", "Select AI usage", true],
+              ["none", "No AI used", false],
+              ["assisted", "AI Assisted", false],
+              ["fully-vibed", "Vibe Coded", false]
+            ]}
+          >
+            AI Usage
+            <p slot="description" id="modAiDescription" class="mt-1 text-xs leading-snug text-white/80" aria-live="polite">
+              Select an option to see what it means.
+            </p>
+          </GeneratorSelectMenu>
+        </div>
+      </section>
+      <section class="space-y-2">
+        <h2 class="text-base font-bold text-white">Compatibility</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <GeneratorTextInput
+            id="modVersion"
+            placeholder="The mod version"
+          >
+            Mod Version
+          </GeneratorTextInput>
+          <GeneratorTextInput
+            id="targetGameVersion"
+            placeholder="Target game version"
+          >
+            Game Version
+          </GeneratorTextInput>
+          <GeneratorSelectMenu
+            id="modLoader"
+            values={Object.keys(ModLoader)
+              .sort(compareAlphabeticallyAscInsensitive)
+              .map((k) => [k, k, k == ModLoader.Scotland2])}
+          >
+            Mod Loader
+          </GeneratorSelectMenu>
+        </div>
+      </section>
     </GeneratorColumn>
-    <div class="w-full lg:px-2 mt-3 flex justify-end">
+    <GeneratorColumn>
+      <section class="space-y-2">
+        <h2 class="text-base font-bold text-white">Links</h2>
+        <GeneratorTextInput
+          id="modDownloadLink"
+          placeholder="A direct link to the .qmod file"
+        >
+          Download Link
+        </GeneratorTextInput>
+        <GeneratorTextInput
+          id="modSourceLink"
+          placeholder="A link to the source code for the mod"
+        >
+          Source Code
+        </GeneratorTextInput>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <GeneratorTextInput
+            id="modWebsiteLink"
+            placeholder="A link to a website for the mod."
+          >
+            Website
+          </GeneratorTextInput>
+          <GeneratorTextInput
+            id="modFundingLink"
+            placeholder="Donation page URL"
+          >
+            Funding
+          </GeneratorTextInput>
+        </div>
+      </section>
+      <section class="space-y-2">
+        <h2 class="text-base font-bold text-white">Images</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <GeneratorTextInput
+            id="authorIcon"
+            placeholder="URL to a square image file."
+          >
+            Author Icon URL
+          </GeneratorTextInput>
+          <GeneratorTextInput
+            id="modCover"
+            placeholder="A direct link to a cover image."
+          >
+            Cover link
+          </GeneratorTextInput>
+        </div>
+      </section>
+    </GeneratorColumn>
+    <GeneratorColumn fullWidth class="flex justify-end">
       <button
         class="btn btn-primary rounded-lg text-white w-full sm:w-auto"
         id="generateJson"
@@ -165,7 +159,7 @@ export interface GeneratorScriptData {
       >
         Create JSON on GitHub
       </button>
-    </div>
+    </GeneratorColumn>
   </GeneratorWrapper>
 </Layout>
 <script>
@@ -245,7 +239,6 @@ export interface GeneratorScriptData {
         || "Select an option to see what it means.";
     }
 
-    modAiElement.setAttribute("aria-describedby", "modAiDescription");
     modAiElement.addEventListener("change", updateAiDescription);
     updateAiDescription();
 
