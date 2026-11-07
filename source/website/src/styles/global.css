@@ -81,7 +81,7 @@ body {
 @layer components {
   /* Shared look for the generator's text inputs, text areas and select menus. */
   .generator-field {
-    @apply block w-full min-w-0 rounded-lg border border-input-border bg-input-bg px-3 text-sm leading-normal text-input-text shadow-inner backdrop-blur transition-[border-color,box-shadow] duration-150 placeholder:text-input-placeholder hover:border-highlight/60 focus:border-highlight focus:ring-3 focus:ring-highlight/30 focus:outline-none;
+    @apply block w-full min-w-0 rounded-lg border border-input-border bg-input-bg px-3 text-sm leading-normal text-input-text shadow-inner backdrop-blur transition-[border-color,box-shadow] duration-150 placeholder:text-input-placeholder hover:border-highlight/60 focus:border-highlight focus:ring-3 focus:ring-highlight/30 focus:outline-none data-prefilled:border-highlight/70;
   }
 
   .generator-label {

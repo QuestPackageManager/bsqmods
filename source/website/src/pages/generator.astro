@@ -35,7 +35,7 @@ export interface GeneratorScriptData {
       </p>
       <GeneratorDropZone id="loadQmod">
         Drop a .qmod here, or click to browse
-        <Fragment slot="status">Fills in the name, ID, version, author, game version and mod loader.</Fragment>
+        <Fragment slot="status">Fills in the details from its mod.json, plus anything missing from the mod's latest listed version.</Fragment>
       </GeneratorDropZone>
     </GeneratorColumn>
     <GeneratorColumn>
@@ -62,6 +62,7 @@ export interface GeneratorScriptData {
             required
           >
             Mod ID
+            <Fragment slot="hint">A listed mod's ID fills empty fields from its latest version.</Fragment>
           </GeneratorTextInput>
         </div>
         <GeneratorTextArea
@@ -274,6 +275,7 @@ export interface GeneratorScriptData {
   import { ModLoader } from "../../../shared/types/ModLoader";
   import { aiUsageValues, type AiUsage } from "../../../shared/types/AiUsage";
   import { getPageScriptData } from "../../../shared/getPageScriptData";
+  import { compareVersionDescending } from "../../../shared/comparisonFunctions";
   import type { GeneratorScriptData } from "./generator.astro";
 
   (async () => {
@@ -304,6 +306,7 @@ export interface GeneratorScriptData {
       authorIconPlaceholderElement = getElementById("authorIconPlaceholder") as HTMLElement,
       modCoverPreviewElement = getElementById("modCoverPreview") as HTMLImageElement,
       modCoverPlaceholderElement = getElementById("modCoverPlaceholder") as HTMLElement,
+      modIdHintElement = getElementById("modIdHint") as HTMLParagraphElement,
       generateButtonElement = getElementById("generateJson");
 
     if (
@@ -329,6 +332,7 @@ export interface GeneratorScriptData {
       !authorIconPlaceholderElement ||
       !modCoverPreviewElement ||
       !modCoverPlaceholderElement ||
+      !modIdHintElement ||
       !generateButtonElement
     ) {
       throw new Error();
@@ -351,7 +355,7 @@ export interface GeneratorScriptData {
     let modJson: ModsCollection = {};
 
     // Load the mod.json file
-    (async function loadModJson() {
+    const modJsonLoaded = (async function loadModJson() {
       try {
         const result = await fetchJson<ModsCollection>(`mods.json?${Math.floor(Date.now() / 1000)}`);
 
@@ -360,6 +364,166 @@ export interface GeneratorScriptData {
         }
       } catch (error) {}
     })();
+
+    /** Where previously submitted mod files are read from. Pages built outside CI have no repo set, so use the main list. */
+    const lookupRepo = repo || "QuestPackageManager/bsqmods";
+    const lookupBranch = branch || "main";
+
+    interface KnownMod {
+      mod: Mod;
+      gameVersion: string;
+    }
+
+    type FillableElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+    /** Values filled in from a previous version, so they can be taken back out if the mod changes. */
+    const prefilledValues = new Map<FillableElement, string>();
+    let knownModLookup = 0;
+    const defaultModIdHint = modIdHintElement.textContent || "";
+
+    modIdHintElement.setAttribute("aria-live", "polite");
+
+    /**
+     * Sets a field's value as if the user typed it, so it is no longer treated as filled from a previous version.
+     */
+    function setFieldValue(element: FillableElement, value: string) {
+      element.value = value;
+      prefilledValues.delete(element);
+      delete element.dataset.prefilled;
+    }
+
+    /**
+     * Empties the fields that still hold a value filled from a previous version.
+     */
+    function clearPrefilledValues() {
+      for (const [element, value] of prefilledValues) {
+        if (element.value == value) {
+          element.value = "";
+        }
+
+        delete element.dataset.prefilled;
+      }
+
+      prefilledValues.clear();
+      updateAiDescription();
+    }
+
+    /**
+     * Finds the newest listed version of a mod, preferring the newest game version when a mod version is listed for several.
+     * @param id The mod ID, matched case-insensitively.
+     */
+    function findLatestKnownMod(id: string): KnownMod | null {
+      const wantedId = id.trim().toLowerCase();
+
+      if (!wantedId) {
+        return null;
+      }
+
+      const matches: KnownMod[] = [];
+
+      for (const [gameVersion, mods] of Object.entries(modJson)) {
+        for (const mod of mods) {
+          if (mod.id?.toLowerCase() == wantedId) {
+            matches.push({ mod, gameVersion });
+          }
+        }
+      }
+
+      matches.sort(
+        (a, b) => compareVersionDescending(a.mod.version, b.mod.version) || compareVersionDescending(a.gameVersion, b.gameVersion)
+      );
+
+      return matches[0] ?? null;
+    }
+
+    /**
+     * Gets the mod as it was submitted. The combined mods.json points covers and downloads at the mirror, while the
+     * repo's own file keeps the original links.
+     */
+    async function getSubmittedMod(known: KnownMod): Promise<Mod> {
+      try {
+        const path = getFilename(known.mod.id || "", known.mod.version || "", known.gameVersion);
+        const result = await fetchJson<Mod>(`https://raw.githubusercontent.com/${lookupRepo}/${lookupBranch}/${encodeURI(path)}`);
+
+        if (result.data?.id?.toLowerCase() == known.mod.id?.toLowerCase()) {
+          return result.data!;
+        }
+      } catch (error) {
+        console.warn("Couldn't load the submitted mod file, using mods.json instead:", error);
+      }
+
+      return { ...known.mod, cover: known.mod.ogCover || known.mod.cover };
+    }
+
+    /**
+     * Fills empty fields from the latest listed version of the mod in the Mod ID field.
+     * @returns A short summary for the drop zone, or null when nothing was found.
+     */
+    async function fillFromKnownMod(): Promise<string | null> {
+      const lookup = ++knownModLookup;
+
+      clearPrefilledValues();
+      updateImagePreviews();
+
+      if (isNullOrWhitespace(modIdElement.value)) {
+        modIdHintElement.textContent = defaultModIdHint;
+        return null;
+      }
+
+      modIdHintElement.textContent = "Looking for earlier versions…";
+      await modJsonLoaded;
+
+      const known = findLatestKnownMod(modIdElement.value);
+      const previous = known && (await getSubmittedMod(known));
+
+      if (lookup != knownModLookup) {
+        return null;
+      }
+
+      if (!known || !previous) {
+        modIdHintElement.textContent = "No listed versions of this mod yet.";
+        return null;
+      }
+
+      let filledCount = 0;
+
+      function fill(element: FillableElement, value: string | null | undefined) {
+        value = value?.trim();
+
+        if (!value || !isNullOrWhitespace(element.value)) {
+          return;
+        }
+
+        if (element instanceof HTMLSelectElement && ![...element.options].some((option) => option.value == value)) {
+          return;
+        }
+
+        element.value = value;
+        element.dataset.prefilled = "";
+        prefilledValues.set(element, element.value);
+        filledCount++;
+      }
+
+      fill(modDescriptionElement, previous.description);
+      fill(modCreatorsElement, previous.author);
+      fill(modAiElement, previous.ai);
+      fill(modSourceLinkElement, previous.source);
+      fill(modWebsiteLinkElement, previous.website);
+      fill(modFundingLinkElement, previous.funding?.[0]);
+      fill(authorIconElement, previous.authorIcon);
+      fill(modCoverElement, previous.cover);
+      updateAiDescription();
+      updateImagePreviews();
+
+      const from = `v${known.mod.version} (${known.gameVersion})`;
+
+      modIdHintElement.textContent =
+        filledCount > 0
+          ? `Filled ${filledCount} empty ${filledCount == 1 ? "field" : "fields"} from ${from}, outlined in blue.`
+          : `Latest listed version is ${from}.`;
+
+      return filledCount > 0 ? `filled ${filledCount} empty ${filledCount == 1 ? "field" : "fields"} from ${from}` : null;
+    }
 
     /**
      * Gets the intended filename for the given mod values.
@@ -589,6 +753,8 @@ export interface GeneratorScriptData {
 
           const modInfo: QmodInfo = JSON.parse(await modFile.async("string"));
 
+          // Take out values filled from the previous mod's listing before this mod's own values go in.
+          clearPrefilledValues();
           modNameElement.value = modInfo.name || "";
           modDescriptionElement.value = modInfo.description || "";
           modIdElement.value = modInfo.id || "";
@@ -600,7 +766,16 @@ export interface GeneratorScriptData {
           updateAiDescription();
           modFundingLinkElement.value = "";
           modWebsiteLinkElement.value = "";
-          setQmodStatus("loaded", `Loaded ${fileName}. Check the details below, then add the links.`);
+          setQmodStatus("loaded", `Loaded ${fileName}. Looking for earlier versions…`);
+
+          const filledSummary = await fillFromKnownMod();
+
+          setQmodStatus(
+            "loaded",
+            filledSummary
+              ? `Loaded ${fileName} and ${filledSummary}. Check the details, then add the download link.`
+              : `Loaded ${fileName}. Check the details below, then add the links.`
+          );
         } catch (error) {
           console.error("Error loading QMOD file:", error);
           setQmodStatus("error", `Couldn't read ${fileName}. Is it a .qmod file?`);
@@ -667,11 +842,50 @@ export interface GeneratorScriptData {
       const match = ghRegex.exec(modDownloadLinkElement.value.trim());
 
       if (match) {
-        modSourceLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
-        modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
-        authorIconElement.value = (await getGithubIconUrl(match[0])).data || "";
-        modCoverElement.value = (await getQmodCoverUrl(match[0])).data || "";
+        setFieldValue(modSourceLinkElement, `https://github.com/${match[1]}/${match[2]}/`);
+        setFieldValue(modWebsiteLinkElement, `https://github.com/${match[1]}/${match[2]}/`);
+
+        // Keep the current icon and cover (possibly from an earlier version) when the repo doesn't provide one.
+        const [authorIcon, cover] = await Promise.all([
+          getGithubIconUrl(match[0]).then((result) => result.data, () => null),
+          getQmodCoverUrl(match[0]).then((result) => result.data, () => null)
+        ]);
+
+        if (authorIcon) {
+          setFieldValue(authorIconElement, authorIcon);
+        }
+
+        if (cover) {
+          setFieldValue(modCoverElement, cover);
+        }
+
         updateImagePreviews();
+      }
+    }
+
+    // Look up earlier versions when the mod ID is typed in by hand.
+    modIdElement.addEventListener("change", () => {
+      fillFromKnownMod();
+    });
+
+    // A field the user changes is no longer marked as filled from an earlier version.
+    for (const element of [
+      modDescriptionElement,
+      modCreatorsElement,
+      modAiElement,
+      modSourceLinkElement,
+      modWebsiteLinkElement,
+      modFundingLinkElement,
+      authorIconElement,
+      modCoverElement
+    ] as FillableElement[]) {
+      for (const eventName of ["input", "change"]) {
+        element.addEventListener(eventName, () => {
+          if (prefilledValues.has(element) && prefilledValues.get(element) != element.value) {
+            prefilledValues.delete(element);
+            delete element.dataset.prefilled;
+          }
+        });
       }
     }
 
