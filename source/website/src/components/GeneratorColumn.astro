@@ -7,6 +7,6 @@ export interface Props {
 const { fullWidth = false, class: className } = Astro.props;
 ---
 
-<div class:list={["w-full min-w-0 space-y-3 lg:px-2", { "lg:w-1/2": !fullWidth }, className]}>
+<div class:list={["min-w-0 space-y-4", { "lg:col-span-2": fullWidth }, className]}>
   <slot />
 </div>

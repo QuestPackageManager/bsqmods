@@ -1,63 +1,45 @@
 ---
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
+
 export interface Props {
   id: string;
   values: [string, string, boolean][];
+  required?: boolean;
 }
 
-const { id, values } = Astro.props as Props;
+const { id, values, required = false } = Astro.props as Props;
 ---
 
-<div
-  class={`
-    block
-    min-w-0
-    text-left
-  `}
->
+<div class="block min-w-0 text-left">
   <label
     for={id}
-    class={`
-      block
-      font-bold
-      pb-1
-      text-xs
-      leading-snug
-      text-shadow-[0_0_4px_rgba(0,0,0,1)]
-      text-white
-    `}
+    class="generator-label"
   >
     <slot />
+    {required && <span class="text-error" aria-hidden="true">*</span>}
   </label>
-  <select
-    class={`
-      backdrop-blur
-      bg-input-bg
-      border
-      border-white-alpha-20
-      h-10
-      min-w-0
-      px-2.5
-      py-1.5
-      text-sm
-      leading-normal
-      placeholder-input-placeholder
-      rounded-md
-      text-input-text
-      w-full
-    `}
-    id={id}
-    aria-describedby={Astro.slots.has("description") ? `${id}Description` : undefined}
-  >
-    {
-      values?.map((value) => (
-        <option
-          value={value[0]}
-          selected={value[2] ? "selected" : null}
-        >
-          {value[1]}
-        </option>
-      ))
-    }
-  </select>
+  <div class="relative">
+    <select
+      class="generator-field h-10 cursor-pointer appearance-none pr-9 [&>option]:bg-base-200 [&>option]:text-base-content"
+      id={id}
+      aria-required={required ? "true" : undefined}
+      aria-describedby={Astro.slots.has("description") ? `${id}Description` : undefined}
+    >
+      {
+        values?.map((value) => (
+          <option
+            value={value[0]}
+            selected={value[2] ? "selected" : null}
+          >
+            {value[1]}
+          </option>
+        ))
+      }
+    </select>
+    <ChevronUpDownIcon
+      className="pointer-events-none absolute top-1/2 right-2.5 size-5 -translate-y-1/2 text-input-text/60"
+      aria-hidden="true"
+    />
+  </div>
   <slot name="description" />
 </div>

@@ -1,0 +1,29 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { title, description, class: className } = Astro.props as Props;
+---
+
+<section
+  class:list={[
+    "rounded-xl border border-card-border bg-card-body-bg p-4 text-card-body-text shadow-lg backdrop-blur-md sm:p-5",
+    className
+  ]}
+>
+  <header class="mb-4 flex items-start gap-3">
+    <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-highlight/15 text-highlight ring-1 ring-highlight/30">
+      <slot name="icon" />
+    </span>
+    <div class="min-w-0">
+      <h2 class="text-base leading-tight font-semibold">{title}</h2>
+      {description && <p class="mt-0.5 text-xs leading-snug text-card-body-text/70">{description}</p>}
+    </div>
+  </header>
+  <div class="space-y-3">
+    <slot />
+  </div>
+</section>

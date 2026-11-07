@@ -6,6 +6,8 @@ import GeneratorWrapper from "../components/GeneratorWrapper.astro";
 import GeneratorDropZone from "../components/GeneratorDropZone.astro";
 import GeneratorTextArea from "../components/GeneratorTextArea.astro";
 import GeneratorSelectMenu from "../components/GeneratorSelectMenu.astro";
+import GeneratorSection from "../components/GeneratorSection.astro";
+import { ArrowTopRightOnSquareIcon, CubeIcon, LinkIcon, PhotoIcon, PuzzlePieceIcon, UserIcon } from "@heroicons/react/20/solid";
 import { ModLoader } from "../../../shared/types/ModLoader";
 import { compareAlphabeticallyAscInsensitive } from "../../../shared/comparisonFunctions";
 
@@ -28,21 +30,36 @@ export interface GeneratorScriptData {
 >
   <GeneratorWrapper>
     <GeneratorColumn fullWidth>
-      <GeneratorDropZone id="loadQmod">Drop a .qmod to fill in details, or click to browse.</GeneratorDropZone>
+      <p class="text-center text-sm text-white/85 text-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+        Fill in your mod's details, then open a pre-filled file on GitHub to add it to the mod list.
+      </p>
+      <GeneratorDropZone id="loadQmod">
+        Drop a .qmod here, or click to browse
+        <Fragment slot="status">Fills in the name, ID, version, author, game version and mod loader.</Fragment>
+      </GeneratorDropZone>
     </GeneratorColumn>
     <GeneratorColumn>
-      <section class="space-y-2">
-        <h2 class="text-base font-bold text-white">Mod details</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <GeneratorSection
+        title="Mod details"
+        description="What players see on the mod card."
+      >
+        <CubeIcon
+          slot="icon"
+          className="size-5"
+          aria-hidden="true"
+        />
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <GeneratorTextInput
             id="modName"
             placeholder="The name of the mod"
+            required
           >
             Mod Name
           </GeneratorTextInput>
           <GeneratorTextInput
             id="modId"
             placeholder="The ID of the mod"
+            required
           >
             Mod ID
           </GeneratorTextInput>
@@ -50,16 +67,17 @@ export interface GeneratorScriptData {
         <GeneratorTextArea
           id="modDescription"
           placeholder="A description of what the mod does"
-          rows={2}
+          rows={3}
         >
           Mod Description
         </GeneratorTextArea>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <GeneratorTextInput
             id="modCreators"
             placeholder="Who made this mod?"
           >
             Mod Creator(s)
+            <Fragment slot="hint">Separate multiple names with commas.</Fragment>
           </GeneratorTextInput>
           <GeneratorSelectMenu
             id="modAi"
@@ -69,26 +87,41 @@ export interface GeneratorScriptData {
               ["assisted", "AI Assisted", false],
               ["fully-vibed", "Vibe Coded", false]
             ]}
+            required
           >
             AI Usage
-            <p slot="description" id="modAiDescription" class="mt-1 text-xs leading-snug text-white/80" aria-live="polite">
+            <p
+              slot="description"
+              id="modAiDescription"
+              class="generator-hint"
+              aria-live="polite"
+            >
               Select an option to see what it means.
             </p>
           </GeneratorSelectMenu>
         </div>
-      </section>
-      <section class="space-y-2">
-        <h2 class="text-base font-bold text-white">Compatibility</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+      </GeneratorSection>
+      <GeneratorSection
+        title="Compatibility"
+        description="The game version and mod loader this build is for."
+      >
+        <PuzzlePieceIcon
+          slot="icon"
+          className="size-5"
+          aria-hidden="true"
+        />
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <GeneratorTextInput
             id="modVersion"
-            placeholder="The mod version"
+            placeholder="e.g. 1.0.0"
+            required
           >
             Mod Version
           </GeneratorTextInput>
           <GeneratorTextInput
             id="targetGameVersion"
-            placeholder="Target game version"
+            placeholder="e.g. 1.40.8_7379"
+            required
           >
             Game Version
           </GeneratorTextInput>
@@ -97,68 +130,131 @@ export interface GeneratorScriptData {
             values={Object.keys(ModLoader)
               .sort(compareAlphabeticallyAscInsensitive)
               .map((k) => [k, k, k == ModLoader.Scotland2])}
+            required
           >
             Mod Loader
           </GeneratorSelectMenu>
         </div>
-      </section>
+      </GeneratorSection>
     </GeneratorColumn>
     <GeneratorColumn>
-      <section class="space-y-2">
-        <h2 class="text-base font-bold text-white">Links</h2>
+      <GeneratorSection
+        title="Links"
+        description="Paste or drag links in. A GitHub release link fills in the rest."
+      >
+        <LinkIcon
+          slot="icon"
+          className="size-5"
+          aria-hidden="true"
+        />
         <GeneratorTextInput
           id="modDownloadLink"
-          placeholder="A direct link to the .qmod file"
+          placeholder="https://github.com/user/repo/releases/download/v1.0.0/Mod.qmod"
+          type="url"
+          required
         >
           Download Link
+          <Fragment slot="hint">A direct link to the .qmod file.</Fragment>
         </GeneratorTextInput>
         <GeneratorTextInput
           id="modSourceLink"
           placeholder="A link to the source code for the mod"
+          type="url"
         >
           Source Code
         </GeneratorTextInput>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <GeneratorTextInput
             id="modWebsiteLink"
-            placeholder="A link to a website for the mod."
+            placeholder="A website for the mod"
+            type="url"
           >
             Website
           </GeneratorTextInput>
           <GeneratorTextInput
             id="modFundingLink"
             placeholder="Donation page URL"
+            type="url"
           >
             Funding
           </GeneratorTextInput>
         </div>
-      </section>
-      <section class="space-y-2">
-        <h2 class="text-base font-bold text-white">Images</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      </GeneratorSection>
+      <GeneratorSection
+        title="Images"
+        description="Shown on the mod card. The previews update as you type."
+      >
+        <PhotoIcon
+          slot="icon"
+          className="size-5"
+          aria-hidden="true"
+        />
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <GeneratorTextInput
             id="authorIcon"
-            placeholder="URL to a square image file."
+            placeholder="URL to a square image"
+            type="url"
           >
             Author Icon URL
           </GeneratorTextInput>
           <GeneratorTextInput
             id="modCover"
-            placeholder="A direct link to a cover image."
+            placeholder="URL to a cover image"
+            type="url"
           >
-            Cover link
+            Cover Link
           </GeneratorTextInput>
         </div>
-      </section>
+        <div class="grid grid-cols-2 items-center gap-3">
+          <div class="flex size-16 items-center justify-center overflow-hidden rounded-full bg-black/25 ring-1 ring-card-border">
+            <img
+              id="authorIconPreview"
+              alt="Author icon preview"
+              class="hidden size-full object-cover"
+            />
+            <span id="authorIconPlaceholder">
+              <UserIcon
+                className="size-7 text-card-body-text/40"
+                aria-hidden="true"
+              />
+            </span>
+          </div>
+          <div class="flex aspect-[178/100] w-full min-w-0 items-center justify-center overflow-hidden rounded-lg bg-card-header-bg ring-1 ring-card-border">
+            <img
+              id="modCoverPreview"
+              alt="Cover image preview"
+              class="hidden size-full object-contain"
+            />
+            <span
+              id="modCoverPlaceholder"
+              class="text-xs text-card-body-text/50"
+            >
+              No cover image
+            </span>
+          </div>
+        </div>
+      </GeneratorSection>
     </GeneratorColumn>
-    <GeneratorColumn fullWidth class="flex justify-end">
-      <button
-        class="btn btn-primary rounded-lg text-white w-full sm:w-auto"
-        id="generateJson"
-        type="button"
-      >
-        Create JSON on GitHub
-      </button>
+    <GeneratorColumn
+      fullWidth
+      class="sticky bottom-3 z-10"
+    >
+      <div class="flex flex-col gap-3 rounded-xl border border-card-border bg-card-body-bg p-3 text-card-body-text shadow-2xl backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:pl-5">
+        <p class="hidden text-sm leading-snug text-card-body-text/70 sm:block">
+          <span class="text-error">*</span> Required. The button opens GitHub with the JSON file filled in, ready to propose as a pull request.
+        </p>
+        <button
+          class="btn btn-primary w-full shrink-0 gap-2 rounded-lg text-white sm:w-auto"
+          id="generateJson"
+          type="button"
+        >
+          Create JSON on GitHub
+          <ArrowTopRightOnSquareIcon
+            className="size-4"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
     </GeneratorColumn>
   </GeneratorWrapper>
 </Layout>
@@ -203,6 +299,11 @@ export interface GeneratorScriptData {
       modAiElement = getElementById("modAi") as HTMLSelectElement,
       modAiDescriptionElement = getElementById("modAiDescription") as HTMLParagraphElement,
       qmodDropZoneElement = document.body,
+      loadQmodStatusElement = getElementById("loadQmodStatus") as HTMLElement,
+      authorIconPreviewElement = getElementById("authorIconPreview") as HTMLImageElement,
+      authorIconPlaceholderElement = getElementById("authorIconPlaceholder") as HTMLElement,
+      modCoverPreviewElement = getElementById("modCoverPreview") as HTMLImageElement,
+      modCoverPlaceholderElement = getElementById("modCoverPlaceholder") as HTMLElement,
       generateButtonElement = getElementById("generateJson");
 
     if (
@@ -223,6 +324,11 @@ export interface GeneratorScriptData {
       !modAiElement ||
       !modAiDescriptionElement ||
       !qmodDropZoneElement ||
+      !loadQmodStatusElement ||
+      !authorIconPreviewElement ||
+      !authorIconPlaceholderElement ||
+      !modCoverPreviewElement ||
+      !modCoverPlaceholderElement ||
       !generateButtonElement
     ) {
       throw new Error();
@@ -296,11 +402,68 @@ export interface GeneratorScriptData {
       return false;
     }
 
-    function readQmodFile(file) {
+    /**
+     * Shows the result of loading a .qmod in the drop zone.
+     * @param state The drop zone state, used for its colors.
+     * @param message The status text.
+     */
+    function setQmodStatus(state: "loaded" | "error", message: string) {
+      loadQmodElement.dataset.state = state;
+      loadQmodStatusElement.textContent = message;
+    }
+
+    function readQmodFile(file: File) {
       const reader = new FileReader();
 
-      reader.onloadend = qmodLoadHandler;
+      reader.onloadend = function (ev) {
+        qmodLoadHandler.call(this, ev, file.name);
+      };
       reader.readAsArrayBuffer(file);
+    }
+
+    /**
+     * Shows a preview of an image URL, or the placeholder when the URL is empty or fails to load.
+     */
+    function bindImagePreview(input: HTMLInputElement, image: HTMLImageElement, placeholder: HTMLElement) {
+      function showPlaceholder() {
+        image.classList.add("hidden");
+        placeholder.classList.remove("hidden");
+      }
+
+      image.addEventListener("load", () => {
+        image.classList.remove("hidden");
+        placeholder.classList.add("hidden");
+      });
+      image.addEventListener("error", showPlaceholder);
+
+      return function update() {
+        const url = input.value.trim();
+
+        if (/^https?:\/\//i.test(url)) {
+          if (image.getAttribute("src") !== url) {
+            image.src = url;
+          }
+        } else {
+          image.removeAttribute("src");
+          showPlaceholder();
+        }
+      };
+    }
+
+    const imagePreviewUpdaters = [
+      bindImagePreview(authorIconElement, authorIconPreviewElement, authorIconPlaceholderElement),
+      bindImagePreview(modCoverElement, modCoverPreviewElement, modCoverPlaceholderElement)
+    ];
+
+    function updateImagePreviews() {
+      for (const update of imagePreviewUpdaters) {
+        update();
+      }
+    }
+
+    for (const element of [authorIconElement, modCoverElement]) {
+      element.addEventListener("input", updateImagePreviews);
+      element.addEventListener("change", updateImagePreviews);
     }
 
     /**
@@ -410,7 +573,7 @@ export interface GeneratorScriptData {
      * Function to handle loading of QMOD files.
      * @param ev - The event object.
      */
-    async function qmodLoadHandler(this: FileReader, ev: ProgressEvent<FileReader>) {
+    async function qmodLoadHandler(this: FileReader, ev: ProgressEvent<FileReader>, fileName: string) {
       const reader = this;
 
       if (reader.result) {
@@ -420,6 +583,7 @@ export interface GeneratorScriptData {
 
           if (!modFile) {
             console.error("No mod.json");
+            setQmodStatus("error", `${fileName} has no mod.json. Is it a .qmod file?`);
             return;
           }
 
@@ -436,9 +600,13 @@ export interface GeneratorScriptData {
           updateAiDescription();
           modFundingLinkElement.value = "";
           modWebsiteLinkElement.value = "";
+          setQmodStatus("loaded", `Loaded ${fileName}. Check the details below, then add the links.`);
         } catch (error) {
           console.error("Error loading QMOD file:", error);
+          setQmodStatus("error", `Couldn't read ${fileName}. Is it a .qmod file?`);
         }
+      } else {
+        setQmodStatus("error", `Couldn't read ${fileName}.`);
       }
     }
 
@@ -459,9 +627,37 @@ export interface GeneratorScriptData {
         : [...e.dataTransfer.files];
 
       for (const file of files) {
-        readQmodFile(file);
+        if (file) {
+          readQmodFile(file);
+        }
       }
     }
+
+    // Highlight the drop zone while a file is dragged anywhere over the page.
+    let dragDepth = 0;
+
+    function setDragging(dragging: boolean) {
+      if (dragging) {
+        loadQmodElement.dataset.dragging = "";
+      } else {
+        dragDepth = 0;
+        delete loadQmodElement.dataset.dragging;
+      }
+    }
+
+    document.addEventListener("dragenter", (e) => {
+      if (e.dataTransfer?.types.includes("Files")) {
+        dragDepth++;
+        setDragging(true);
+      }
+    });
+    document.addEventListener("dragleave", () => {
+      if (dragDepth > 0 && --dragDepth == 0) {
+        setDragging(false);
+      }
+    });
+    window.addEventListener("drop", () => setDragging(false), true);
+    window.addEventListener("dragend", () => setDragging(false), true);
 
     /**
      * Fills in the source code text input if the link is from GitHub.
@@ -475,6 +671,7 @@ export interface GeneratorScriptData {
         modWebsiteLinkElement.value = `https://github.com/${match[1]}/${match[2]}/`;
         authorIconElement.value = (await getGithubIconUrl(match[0])).data || "";
         modCoverElement.value = (await getQmodCoverUrl(match[0])).data || "";
+        updateImagePreviews();
       }
     }
 

@@ -3,50 +3,25 @@ export interface Props {
   id: string;
   placeholder: string;
   rows?: number;
+  required?: boolean;
 }
 
-const { id, placeholder, rows } = Astro.props as Props;
+const { id, placeholder, rows, required = false } = Astro.props as Props;
 ---
 
-<div
-  class={`
-    block
-    min-w-0
-    text-left
-  `}
->
+<div class="block min-w-0 text-left">
   <label
     for={id}
-    class={`
-      block
-      font-bold
-      pb-1
-      text-xs
-      leading-snug
-      text-shadow-[0_0_4px_rgba(0,0,0,1)]
-      text-white
-    `}
+    class="generator-label"
   >
     <slot />
+    {required && <span class="text-error" aria-hidden="true">*</span>}
   </label>
   <textarea
-    class={`
-      backdrop-blur
-      bg-input-bg
-      border
-      border-white-alpha-20
-      min-w-0
-      px-2.5
-      py-1.5
-      text-sm
-      leading-normal
-      placeholder-input-placeholder
-      rounded-md
-      text-input-text
-      w-full
-    `}
+    class="generator-field resize-y py-2"
     id={id}
     placeholder={placeholder}
     rows={rows}
+    aria-required={required ? "true" : undefined}
   ></textarea>
 </div>
