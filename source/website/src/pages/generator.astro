@@ -27,113 +27,145 @@ export interface GeneratorScriptData {
   }}
 >
   <GeneratorWrapper>
+    <div class="w-full lg:px-2 mb-3">
+      <GeneratorDropZone id="loadQmod">Drop a .qmod to fill in details, or click to browse.</GeneratorDropZone>
+    </div>
     <GeneratorColumn>
-      <GeneratorTextInput
-        id="modName"
-        placeholder="The name of the mod"
-      >
-        Mod Name
-      </GeneratorTextInput>
-      <GeneratorTextInput
-        id="modId"
-        placeholder="The ID of the mod"
-      >
-        Mod ID
-      </GeneratorTextInput>
-      <GeneratorTextInput
-        id="modCreators"
-        placeholder="Who made this mod?"
-      >
-        Mod Creator(s)
-      </GeneratorTextInput>
-      <GeneratorTextInput
-        id="modVersion"
-        placeholder="The mod version"
-      >
-        Mod Version
-      </GeneratorTextInput>
-      <GeneratorTextArea
-        id="modDescription"
-        placeholder="A description of what the mod does"
-        rows={10}
-      >
-        Mod Description
-      </GeneratorTextArea>
-      <GeneratorTextInput
-        id="targetGameVersion"
-        placeholder="The version of the game the mod is made for"
-      >
-        Game Version
-      </GeneratorTextInput>
-      <GeneratorSelectMenu
-        id="modLoader"
-        values={Object.keys(ModLoader)
-          .sort(compareAlphabeticallyAscInsensitive)
-          .map((k) => [k, k, k == ModLoader.Scotland2])}
-      >
-        Mod Loader
-      </GeneratorSelectMenu>
-      <GeneratorDropZone id="loadQmod">Drag/drop .qmod file here, or click to select file.</GeneratorDropZone>
+      <div class="space-y-3">
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">Mod details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <GeneratorTextInput
+              id="modName"
+              placeholder="The name of the mod"
+            >
+              Mod Name
+            </GeneratorTextInput>
+            <GeneratorTextInput
+              id="modId"
+              placeholder="The ID of the mod"
+            >
+              Mod ID
+            </GeneratorTextInput>
+          </div>
+          <GeneratorTextArea
+            id="modDescription"
+            placeholder="A description of what the mod does"
+            rows={2}
+          >
+            Mod Description
+          </GeneratorTextArea>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <GeneratorTextInput
+              id="modCreators"
+              placeholder="Who made this mod?"
+            >
+              Mod Creator(s)
+            </GeneratorTextInput>
+            <div>
+              <GeneratorSelectMenu
+                id="modAi"
+                values={[
+                  ["", "Select AI usage", true],
+                  ["none", "No AI used", false],
+                  ["assisted", "AI Assisted", false],
+                  ["fully-vibed", "Vibe Coded", false]
+                ]}
+              >
+                AI Usage
+              </GeneratorSelectMenu>
+              <p id="modAiDescription" class="mt-1 text-xs leading-snug text-white/80" aria-live="polite">
+                Select an option to see what it means.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">Compatibility</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <GeneratorTextInput
+              id="modVersion"
+              placeholder="The mod version"
+            >
+              Mod Version
+            </GeneratorTextInput>
+            <GeneratorTextInput
+              id="targetGameVersion"
+              placeholder="Target game version"
+            >
+              Game Version
+            </GeneratorTextInput>
+            <GeneratorSelectMenu
+              id="modLoader"
+              values={Object.keys(ModLoader)
+                .sort(compareAlphabeticallyAscInsensitive)
+                .map((k) => [k, k, k == ModLoader.Scotland2])}
+            >
+              Mod Loader
+            </GeneratorSelectMenu>
+          </div>
+        </section>
+      </div>
     </GeneratorColumn>
     <GeneratorColumn>
-      <GeneratorTextInput
-        id="modDownloadLink"
-        placeholder="A direct link to the .qmod file"
-      >
-        Download Link
-      </GeneratorTextInput>
-
-      <GeneratorTextInput
-        id="modSourceLink"
-        placeholder="A link to the source code for the mod"
-      >
-        Source Code
-      </GeneratorTextInput>
-
-      <GeneratorTextInput
-        id="authorIcon"
-        placeholder="URL to a square image file."
-      >
-        Author Icon URL
-      </GeneratorTextInput>
-
-      <GeneratorTextInput
-        id="modWebsiteLink"
-        placeholder="A link to a website for the mod."
-      >
-        Website
-      </GeneratorTextInput>
-
-      <GeneratorTextInput
-        id="modFundingLink"
-        placeholder="A link to a page where people can donate some money."
-      >
-        Funding
-      </GeneratorTextInput>
-
-      <GeneratorTextInput
-        id="modCover"
-        placeholder="A direct link to a cover image."
-      >
-        Cover link
-      </GeneratorTextInput>
-
+      <div class="space-y-3 mt-3 lg:mt-0">
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">Links</h2>
+          <GeneratorTextInput
+            id="modDownloadLink"
+            placeholder="A direct link to the .qmod file"
+          >
+            Download Link
+          </GeneratorTextInput>
+          <GeneratorTextInput
+            id="modSourceLink"
+            placeholder="A link to the source code for the mod"
+          >
+            Source Code
+          </GeneratorTextInput>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <GeneratorTextInput
+              id="modWebsiteLink"
+              placeholder="A link to a website for the mod."
+            >
+              Website
+            </GeneratorTextInput>
+            <GeneratorTextInput
+              id="modFundingLink"
+              placeholder="Donation page URL"
+            >
+              Funding
+            </GeneratorTextInput>
+          </div>
+        </section>
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">Images</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <GeneratorTextInput
+              id="authorIcon"
+              placeholder="URL to a square image file."
+            >
+              Author Icon URL
+            </GeneratorTextInput>
+            <GeneratorTextInput
+              id="modCover"
+              placeholder="A direct link to a cover image."
+            >
+              Cover link
+            </GeneratorTextInput>
+          </div>
+        </section>
+      </div>
+    </GeneratorColumn>
+    <div class="w-full lg:px-2 mt-3 flex justify-end">
       <button
-        class={`
-          btn
-          btn-primary
-          btn
-          rounded-lg
-          text-white
-          mt-4
-          w-full
-        `}
+        class="btn btn-primary rounded-lg text-white w-full sm:w-auto"
         id="generateJson"
         type="button"
       >
         Create JSON on GitHub
       </button>
-    </GeneratorColumn>
+    </div>
   </GeneratorWrapper>
 </Layout>
 <script>
@@ -150,6 +182,7 @@ export interface GeneratorScriptData {
   import { isNullOrWhitespace } from "../../../shared/isNullOrWhitespace";
   import { validateMod } from "../../../shared/validateMod";
   import { ModLoader } from "../../../shared/types/ModLoader";
+  import { aiUsageValues, type AiUsage } from "../../../shared/types/AiUsage";
   import { getPageScriptData } from "../../../shared/getPageScriptData";
   import type { GeneratorScriptData } from "./generator.astro";
 
@@ -173,6 +206,8 @@ export interface GeneratorScriptData {
       modVersionElement = getElementById("modVersion") as HTMLInputElement,
       targetGameVersionElement = getElementById("targetGameVersion") as HTMLInputElement,
       modLoaderElement = getElementById("modLoader") as HTMLSelectElement,
+      modAiElement = getElementById("modAi") as HTMLSelectElement,
+      modAiDescriptionElement = getElementById("modAiDescription") as HTMLParagraphElement,
       qmodDropZoneElement = document.body,
       generateButtonElement = getElementById("generateJson");
 
@@ -191,11 +226,28 @@ export interface GeneratorScriptData {
       !modVersionElement ||
       !targetGameVersionElement ||
       !modLoaderElement ||
+      !modAiElement ||
+      !modAiDescriptionElement ||
       !qmodDropZoneElement ||
       !generateButtonElement
     ) {
       throw new Error();
     }
+
+    const aiDescriptions: Record<AiUsage, string> = {
+      none: "No AI was used to create this mod.",
+      assisted: "AI helped write the code, and you understand what it does and how it works.",
+      "fully-vibed": "AI wrote the code, and you don't understand what it does or how it works."
+    };
+
+    function updateAiDescription() {
+      modAiDescriptionElement.textContent = aiDescriptions[modAiElement.value as AiUsage]
+        || "Select an option to see what it means.";
+    }
+
+    modAiElement.setAttribute("aria-describedby", "modAiDescription");
+    modAiElement.addEventListener("change", updateAiDescription);
+    updateAiDescription();
 
     let modJson: ModsCollection = {};
 
@@ -292,6 +344,12 @@ export interface GeneratorScriptData {
           modJson[targetGameVersionElement.value] = [];
         }
 
+        if (!aiUsageValues.includes(modAiElement.value as AiUsage)) {
+          modAiElement.focus();
+          alert("Please select if AI was used to create this mod.");
+          return;
+        }
+
         const funding = modFundingLinkElement.value.trim();
 
         let mod: Mod = getStandardizedMod(
@@ -301,6 +359,7 @@ export interface GeneratorScriptData {
             id: modIdElement.value.trim(),
             version: modVersionElement.value.trim(),
             author: modCreatorsElement.value.trim(),
+            ai: modAiElement.value as AiUsage,
             authorIcon: authorIconElement.value.trim(),
             modloader: Object.keys(ModLoader).includes(modLoaderElement.value.trim())
               ? (modLoaderElement.value.trim() as ModLoader)
@@ -380,6 +439,8 @@ export interface GeneratorScriptData {
           modCreatorsElement.value = (!modInfo.porter ? "" : modInfo.porter + ",") + modInfo.author;
           targetGameVersionElement.value = modInfo.packageVersion || "";
           modLoaderElement.value = modInfo.modloader ?? "QuestLoader";
+          modAiElement.value = aiUsageValues.includes(modInfo.ai as AiUsage) ? modInfo.ai! : "";
+          updateAiDescription();
           modFundingLinkElement.value = "";
           modWebsiteLinkElement.value = "";
         } catch (error) {
