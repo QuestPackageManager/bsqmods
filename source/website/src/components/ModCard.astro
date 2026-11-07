@@ -274,7 +274,7 @@ const { mods, core = false } = Astro.props as Props;
                     <AddCheckbox
                       title={core ? "Core mods are always included" : "Mark mods to batch download them"}
                       class={`
-                        checkbox-lg
+                        checkbox-xl
                         checkbox-primary
                         checked:checkbox-success
                         mod-checkbox
@@ -286,7 +286,6 @@ const { mods, core = false } = Astro.props as Props;
                       `}
                       outerClass={`
                         align-middle
-                        h-8
                         hidden
                         inline-block
                         mr-2
