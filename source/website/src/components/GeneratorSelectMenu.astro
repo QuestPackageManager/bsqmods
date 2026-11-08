@@ -1,61 +1,45 @@
 ---
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
+
 export interface Props {
   id: string;
   values: [string, string, boolean][];
+  required?: boolean;
 }
 
-const { id, values } = Astro.props as Props;
+const { id, values, required = false } = Astro.props as Props;
 ---
 
-<div
-  class={`
-    block
-    text-center
-  `}
->
-  <span
-    class={`
-      block
-      font-bold
-      leading-normal
-      py-1
-      text-shadow
-      text-white
-    `}
+<div class="block min-w-0 text-left">
+  <label
+    for={id}
+    class="generator-label"
   >
     <slot />
-  </span>
-  <select
-    class={`
-      backdrop-blur
-      bg-input-bg
-      border
-      border-white-alpha-20
-      h-[42px]
-      max-w
-      my-1
-      p-2
-      placeholder-input-placeholder
-      rounded-md
-      text-input-text
-      w-full
-    `}
-    id={id}
-  >
-    {
-      values?.map((value) => (
-        <option
-          value={value[0]}
-          selected={value[2] ? "selected" : null}
-        >
-          {value[1]}
-        </option>
-      ))
-    }
-  </select>
+    {required && <span class="text-error" aria-hidden="true">*</span>}
+  </label>
+  <div class="relative">
+    <select
+      class="generator-field h-10 cursor-pointer appearance-none pr-9 [&>option]:bg-base-200 [&>option]:text-base-content"
+      id={id}
+      aria-required={required ? "true" : undefined}
+      aria-describedby={Astro.slots.has("description") ? `${id}Description` : undefined}
+    >
+      {
+        values?.map((value) => (
+          <option
+            value={value[0]}
+            selected={value[2] ? "selected" : null}
+          >
+            {value[1]}
+          </option>
+        ))
+      }
+    </select>
+    <ChevronUpDownIcon
+      className="pointer-events-none absolute top-1/2 right-2.5 size-5 -translate-y-1/2 text-input-text/60"
+      aria-hidden="true"
+    />
+  </div>
+  <slot name="description" />
 </div>
-<style>
-  span {
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
-  }
-</style>

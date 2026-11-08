@@ -3,51 +3,38 @@ export interface Props {
   id: string;
   placeholder: string;
   value?: string;
+  required?: boolean;
+  type?: "text" | "url";
 }
 
-const { id, placeholder, value } = Astro.props as Props;
+const { id, placeholder, value, required = false, type = "text" } = Astro.props as Props;
+const hasHint = Astro.slots.has("hint");
 ---
 
-<div
-  class={`
-    block
-    text-center
-  `}
->
-  <span
-    class={`
-      block
-      font-bold
-      leading-normal
-      py-1
-      text-shadow
-      text-white
-    `}
+<div class="block min-w-0 text-left">
+  <label
+    for={id}
+    class="generator-label"
   >
     <slot />
-  </span>
+    {required && <span class="text-error" aria-hidden="true">*</span>}
+  </label>
   <input
-    class={`
-      backdrop-blur
-      bg-input-bg
-      border
-      border-white-alpha-20
-      max-w
-      my-1
-      p-2
-      placeholder-input-placeholder
-      rounded-md
-      text-input-text
-      w-full
-    `}
+    class="generator-field h-10"
     id={id}
     placeholder={placeholder}
     value={value}
-    type="text"
+    type={type}
+    autocomplete="off"
+    spellcheck="false"
+    aria-required={required ? "true" : undefined}
+    aria-describedby={hasHint ? `${id}Hint` : undefined}
   />
-</div>
-<style>
-  span {
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  {
+    hasHint && (
+      <p id={`${id}Hint`} class="generator-hint">
+        <slot name="hint" />
+      </p>
+    )
   }
-</style>
+</div>

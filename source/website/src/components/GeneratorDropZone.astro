@@ -1,4 +1,6 @@
 ---
+import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+
 export interface Props {
   id: string;
 }
@@ -6,31 +8,75 @@ export interface Props {
 const { id } = Astro.props as Props;
 ---
 
-<div
+<button
+  type="button"
   class={`
-    lg:mb-0
-    backdrop-blur
-    bg-gray-700
-    bg-opacity-80
-    bg-dropzone-bg
-    border-2
-    border-dropzone-border
-    border-dashed
-    cursor-pointer
+    group
     flex
-    font-semibold
-    h-[150px]
+    w-full
+    cursor-pointer
+    flex-col
     items-center
     justify-center
-    mb-1
-    mt-4
-    p-4
-    rounded-lg
-    text-dropzone-text
+    gap-2
+    rounded-xl
+    border-2
+    border-dashed
+    border-dropzone-border
+    bg-dropzone-bg
+    px-4
+    py-6
     text-center
-    w-full
+    text-dropzone-text
+    shadow-lg
+    backdrop-blur-md
+    transition-colors
+    duration-150
+    hover:border-highlight
+    hover:bg-highlight/10
+    focus-visible:border-highlight
+    focus-visible:outline-none
+    focus-visible:ring-3
+    focus-visible:ring-highlight/30
+    data-[dragging]:border-highlight
+    data-[dragging]:bg-highlight/15
+    data-[state=error]:border-error
+    data-[state=loaded]:border-success
+    data-[state=loaded]:border-solid
   `}
   id={id}
+  aria-describedby={`${id}Status`}
 >
-  <slot />
-</div>
+  <span
+    class={`
+      flex
+      size-11
+      items-center
+      justify-center
+      rounded-full
+      bg-highlight/15
+      text-highlight
+      ring-1
+      ring-highlight/30
+      transition-transform
+      duration-150
+      group-hover:-translate-y-0.5
+      group-data-[dragging]:-translate-y-0.5
+    `}
+  >
+    <ArrowUpTrayIcon
+      className="size-6"
+      aria-hidden="true"
+    />
+  </span>
+  <span class="text-sm font-semibold sm:text-base">
+    <slot />
+  </span>
+  <span
+    id={`${id}Status`}
+    class="text-xs text-dropzone-text/70 group-data-[state=error]:text-error group-data-[state=loaded]:text-success"
+    aria-live="polite"
+  >
+    <slot name="status" />
+  </span>
+</button>
