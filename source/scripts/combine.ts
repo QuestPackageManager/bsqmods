@@ -110,6 +110,17 @@ async function processQmod(mod: Mod, gameVersion: string): Promise<QmodResult> {
   mod.authorIcon = mod.authorIcon || (await getGithubIconUrl(mod.download)).data;
   output.hash = metadata.hash;
 
+  // Explicitly refresh selected covers without invalidating cached QMOD hashes.
+  // The listing's cover URL is authoritative when refreshing; do not reuse
+  // a previously extracted QMOD cover or a stale optimized image.
+  const refreshCoverIds = process.argv
+    .find((arg) => arg.startsWith("--refreshCovers="))
+    ?.substring("--refreshCovers=".length)
+    .split(",") || [];
+  if (refreshCoverIds.includes(mod.id || "") && mod.cover) {
+    metadata.image = null;
+  }
+
   const coverFilename = getOptimizedCoverFilePath(metadata.image);
   if (coverFilename && existsSync(coverFilename)) {
     mod.cover = `${urlBase}/covers/${basename(coverFilename)}`;
