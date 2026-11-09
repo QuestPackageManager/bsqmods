@@ -1,0 +1,33 @@
+{
+  "name": "CameraUtils",
+  "description": "Modding library that standardizes the use of GameObject layers and provides tools for easier rendering pipeline modifications",
+  "id": "camera-utils",
+  "version": "1.2.0",
+  "author": "Reezonate",
+  "authorIcon": "https://avatars.githubusercontent.com/u/91229110?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Reezonate/CameraUtils-Quest/releases/download/v1.2.0/CameraUtils.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.4.3"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    }
+  ],
+  "source": "https://github.com/Reezonate/CameraUtils-Quest/",
+  "cover": "https://raw.githubusercontent.com/Reezonate/CameraUtils-Quest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/Reezonate/CameraUtils-Quest/",
+  "ai": "none"
+}
