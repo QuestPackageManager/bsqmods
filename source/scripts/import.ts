@@ -16,6 +16,8 @@ import { validateMod } from "../shared/validateMod";
 import { fetchBuffer } from "../shared/fetch";
 import { writeIndentedLogMessage } from "../shared/writeIndentedLogMessage";
 import { CachableResult } from "../shared/cachedFetch";
+import { AiUsage, aiUsageValues } from "../shared/types/AiUsage";
+import { findPreviousAiUsage } from "./shared/findPreviousAiUsage";
 
 /**
  * Creates the json file for the given qmod url.
@@ -72,6 +74,15 @@ export async function importRemoteQmod(
           funding: [],
           website: json.website || null
         };
+
+        // AI usage is required. Use the qmod's own value if it has one, otherwise the newest listed version that has one.
+        const ai: AiUsage | null = aiUsageValues.includes(json.ai) ? json.ai : findPreviousAiUsage(modInfo.id);
+
+        if (ai) {
+          modInfo.ai = ai;
+        } else {
+          logger.warn(`No AI usage found for ${modInfo.id || "this mod"} in the qmod or any listed version. Set "ai" by hand.`);
+        }
 
         if (json.funding != null) {
           if (typeof json.funding == "string" && !isNullOrWhitespace(json.funding)) {

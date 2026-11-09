@@ -349,7 +349,10 @@ export interface GeneratorScriptData {
         || "Select an option to see what it means.";
     }
 
-    modAiElement.addEventListener("change", updateAiDescription);
+    modAiElement.addEventListener("change", () => {
+      delete modAiElement.dataset.needsInput;
+      updateAiDescription();
+    });
     updateAiDescription();
 
     let modJson: ModsCollection = {};
@@ -409,14 +412,14 @@ export interface GeneratorScriptData {
     }
 
     /**
-     * Finds the newest listed version of a mod, preferring the newest game version when a mod version is listed for several.
+     * Finds every listed version of a mod, newest first, preferring the newest game version when a mod version is listed for several.
      * @param id The mod ID, matched case-insensitively.
      */
-    function findLatestKnownMod(id: string): KnownMod | null {
+    function findKnownMods(id: string): KnownMod[] {
       const wantedId = id.trim().toLowerCase();
 
       if (!wantedId) {
-        return null;
+        return [];
       }
 
       const matches: KnownMod[] = [];
@@ -433,7 +436,30 @@ export interface GeneratorScriptData {
         (a, b) => compareVersionDescending(a.mod.version, b.mod.version) || compareVersionDescending(a.gameVersion, b.gameVersion)
       );
 
-      return matches[0] ?? null;
+      return matches;
+    }
+
+    /**
+     * Finds the newest listed version of a mod.
+     * @param id The mod ID, matched case-insensitively.
+     */
+    function findLatestKnownMod(id: string): KnownMod | null {
+      return findKnownMods(id)[0] ?? null;
+    }
+
+    /**
+     * Finds the AI usage of the newest listed version of a mod that has one. Versions listed before the AI field
+     * existed have none, so older versions are checked too.
+     * @param id The mod ID, matched case-insensitively.
+     */
+    function findKnownAiUsage(id: string): { ai: AiUsage; known: KnownMod } | null {
+      for (const known of findKnownMods(id)) {
+        if (aiUsageValues.includes(known.mod.ai as AiUsage)) {
+          return { ai: known.mod.ai as AiUsage, known };
+        }
+      }
+
+      return null;
     }
 
     /**
@@ -507,6 +533,13 @@ export interface GeneratorScriptData {
       fill(modDescriptionElement, previous.description);
       fill(modCreatorsElement, previous.author);
       fill(modAiElement, previous.ai);
+
+      // The latest version may predate the AI field, so fall back to the newest version that has it.
+      const knownAi = isNullOrWhitespace(modAiElement.value) ? findKnownAiUsage(modIdElement.value) : null;
+
+      if (knownAi) {
+        fill(modAiElement, knownAi.ai);
+      }
       fill(modSourceLinkElement, previous.source);
       fill(modWebsiteLinkElement, previous.website);
       fill(modFundingLinkElement, previous.funding?.[0]);
@@ -769,13 +802,22 @@ export interface GeneratorScriptData {
           setQmodStatus("loaded", `Loaded ${fileName}. Looking for earlier versions…`);
 
           const filledSummary = await fillFromKnownMod();
+          const needsAi = !aiUsageValues.includes(modAiElement.value as AiUsage);
 
           setQmodStatus(
             "loaded",
-            filledSummary
+            (filledSummary
               ? `Loaded ${fileName} and ${filledSummary}. Check the details, then add the download link.`
-              : `Loaded ${fileName}. Check the details below, then add the links.`
+              : `Loaded ${fileName}. Check the details below, then add the links.`) +
+              (needsAi ? " No earlier version lists AI usage, so please select it." : "")
           );
+
+          // AI usage is required and can't be read from most .qmod files, so flag it when it's still missing.
+          if (needsAi) {
+            modAiElement.dataset.needsInput = "";
+          } else {
+            delete modAiElement.dataset.needsInput;
+          }
         } catch (error) {
           console.error("Error loading QMOD file:", error);
           setQmodStatus("error", `Couldn't read ${fileName}. Is it a .qmod file?`);
