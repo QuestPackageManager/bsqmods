@@ -80,5 +80,5 @@
       "enum": ["none", "assisted", "fully-vibed"]
     }
   },
-  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "dependencies", "source", "cover", "funding", "website", "ai"]
+  "required": ["name", "description", "id", "version", "author", "authorIcon", "modloader", "download", "dependencies", "source", "cover", "funding", "website"]
 }
