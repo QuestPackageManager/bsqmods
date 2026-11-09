@@ -5,6 +5,15 @@ import { FetchType } from "./types/FetchType";
 const githubMinimumDelay = 1000;
 let lastGithubRelease = 0;
 
+/** How many times each fetch is tried before giving up. */
+const fetchAttempts = 10;
+
+/** The delay before the first retry. It doubles for each retry after that (2s, 4s, 8s). */
+const retryBaseDelayMs = 2000;
+
+/** Status codes that usually mean a temporary failure: timeouts, rate limits and server errors. */
+const retryableStatusCodes = [408, 429, 500, 502, 503, 504];
+
 export interface FetchedData<T> {
   data: T | null;
   response: Response;
@@ -22,57 +31,86 @@ export async function fetchAsType<T>(url: string, type: FetchType = FetchType.Js
   const isGithub = url.toLocaleLowerCase().startsWith("https://api.github.com/");
   const useToken = token && isGithub;
 
-  if (isGithub) {
-    const delaySinceLast = new Date().getTime() - lastGithubRelease;
+  for (let attempt = 1; ; attempt++) {
+    if (isGithub) {
+      const delaySinceLast = new Date().getTime() - lastGithubRelease;
 
-    if (delaySinceLast < githubMinimumDelay) {
-      const delayMs = githubMinimumDelay - delaySinceLast;
+      if (delaySinceLast < githubMinimumDelay) {
+        const delayMs = githubMinimumDelay - delaySinceLast;
 
-      await delay(delayMs);
+        await delay(delayMs);
+      }
     }
-  }
-  const response = await fetch(
-    url,
-    useToken
-      ? {
-          headers: {
-            Accept: "application/vnd.github.v3+json",
-            Authorization: `Bearer ${token}`
-          }
-        }
-      : undefined
-  );
 
-  if (isGithub) {
-    lastGithubRelease = new Date().getTime();
-  }
+    let response: Response;
 
-  if (response.ok) {
-    switch (type) {
-      case FetchType.Json:
-        return {
-          data: (await response.json()) as T,
-          response
-        };
+    try {
+      response = await fetch(
+        url,
+        useToken
+          ? {
+              headers: {
+                Accept: "application/vnd.github.v3+json",
+                Authorization: `Bearer ${token}`
+              }
+            }
+          : undefined
+      );
+    } catch (error: any) {
+      // Network error: retry, and throw it once out of attempts.
+      if (attempt >= fetchAttempts) {
+        throw error;
+      }
 
-      case FetchType.Text:
-        return {
-          data: (await response.text()) as T,
-          response
-        };
+      const waitMs = retryBaseDelayMs * 2 ** (attempt - 1);
 
-      case FetchType.Buffer:
-        return {
-          data: (await response.arrayBuffer()) as T,
-          response
-        };
+      console.warn(
+        `Fetch failed (${error?.cause?.message || error?.message || error}): ${url}. Retrying in ${waitMs / 1000}s (attempt ${attempt + 1} of ${fetchAttempts}).`
+      );
+      await delay(waitMs);
+      continue;
+    } finally {
+      if (isGithub) {
+        lastGithubRelease = new Date().getTime();
+      }
     }
-  }
 
-  return {
-    data: null,
-    response
-  };
+    if (response.ok) {
+      switch (type) {
+        case FetchType.Json:
+          return {
+            data: (await response.json()) as T,
+            response
+          };
+
+        case FetchType.Text:
+          return {
+            data: (await response.text()) as T,
+            response
+          };
+
+        case FetchType.Buffer:
+          return {
+            data: (await response.arrayBuffer()) as T,
+            response
+          };
+      }
+    }
+
+    // Temporary failure: retry. Anything else, like a 404, is returned straight away.
+    if (retryableStatusCodes.includes(response.status) && attempt < fetchAttempts) {
+      const waitMs = retryBaseDelayMs * 2 ** (attempt - 1);
+
+      console.warn(`Fetch failed (HTTP ${response.status}): ${url}. Retrying in ${waitMs / 1000}s (attempt ${attempt + 1} of ${fetchAttempts}).`);
+      await delay(waitMs);
+      continue;
+    }
+
+    return {
+      data: null,
+      response
+    };
+  }
 }
 
 /**
@@ -105,12 +143,29 @@ export const fetchBuffer = async (url: string): Promise<FetchedData<ArrayBuffer>
  * @returns
  */
 export async function fetchHead(url: string): Promise<boolean> {
-  try {
-    const response = await fetch(url, { method: "HEAD" });
+  for (let attempt = 1; ; attempt++) {
+    let failure: string;
 
-    return response.ok;
-  } catch (err) {
-    return false;
+    try {
+      const response = await fetch(url, { method: "HEAD" });
+
+      if (response.ok || !retryableStatusCodes.includes(response.status) || attempt >= fetchAttempts) {
+        return response.ok;
+      }
+
+      failure = `HTTP ${response.status}`;
+    } catch (error: any) {
+      if (attempt >= fetchAttempts) {
+        return false;
+      }
+
+      failure = `${error?.cause?.message || error?.message || error}`;
+    }
+
+    const waitMs = retryBaseDelayMs * 2 ** (attempt - 1);
+
+    console.warn(`HEAD request failed (${failure}): ${url}. Retrying in ${waitMs / 1000}s (attempt ${attempt + 1} of ${fetchAttempts}).`);
+    await delay(waitMs);
   }
 }
 
@@ -121,19 +176,36 @@ export async function fetchHead(url: string): Promise<boolean> {
  * @returns A promise that resolves to the redirected location URL, or the original URL if no redirection occurs.
  */
 export async function fetchRedirectedLocation(url: string): Promise<string> {
-  try {
-    const response = await fetch(url, {
-      method: "HEAD",
-      redirect: "manual"
-    });
+  for (let attempt = 1; ; attempt++) {
+    let failure: string;
 
-    if (response.status >= 300 && response.status < 400 && response.headers.get("location")) {
-      const redirectedUrl = new URL(response.headers.get("location") as string, url).href;
-      return redirectedUrl;
-    } else {
-      return url;
+    try {
+      const response = await fetch(url, {
+        method: "HEAD",
+        redirect: "manual"
+      });
+
+      if (response.status >= 300 && response.status < 400 && response.headers.get("location")) {
+        const redirectedUrl = new URL(response.headers.get("location") as string, url).href;
+        return redirectedUrl;
+      }
+
+      if (!retryableStatusCodes.includes(response.status) || attempt >= fetchAttempts) {
+        return url;
+      }
+
+      failure = `HTTP ${response.status}`;
+    } catch (error: any) {
+      if (attempt >= fetchAttempts) {
+        throw new Error(`Error fetching redirected URL: ${error.message}`);
+      }
+
+      failure = `${error?.cause?.message || error?.message || error}`;
     }
-  } catch (error: any) {
-    throw new Error(`Error fetching redirected URL: ${error.message}`);
+
+    const waitMs = retryBaseDelayMs * 2 ** (attempt - 1);
+
+    console.warn(`Redirect lookup failed (${failure}): ${url}. Retrying in ${waitMs / 1000}s (attempt ${attempt + 1} of ${fetchAttempts}).`);
+    await delay(waitMs);
   }
 }
