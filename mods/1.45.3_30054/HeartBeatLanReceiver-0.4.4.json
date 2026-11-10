@@ -1,0 +1,45 @@
+{
+  "name": "HeartBeatQuest",
+  "description": "This mod displays and records your heart rate in the quest game. Supports multiple data sources including Bluetooth, HypeRate, Pulsoid and OSC. Bluetooth permition patch required if you use it.",
+  "id": "HeartBeatLanReceiver",
+  "version": "0.4.4",
+  "author": "frto027",
+  "authorIcon": "https://avatars.githubusercontent.com/u/20887940?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/frto027/HeartBeatQuest/releases/download/v0.4.4/HeartBeatQuest.1_45_3.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.4.3"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "sslocalization",
+      "version": "^0.16.0"
+    }
+  ],
+  "source": "https://github.com/frto027/HeartBeatQuest/",
+  "cover": "https://raw.githubusercontent.com/frto027/HeartBeatQuest/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/frto027/HeartBeatQuest/",
+  "ai": "none"
+}
