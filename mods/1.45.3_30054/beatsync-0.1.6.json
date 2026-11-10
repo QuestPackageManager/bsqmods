@@ -1,0 +1,16 @@
+{
+  "name": "BeatSync",
+  "description": "Syncs beatmaps from PC over to Quest",
+  "id": "beatsync",
+  "version": "0.1.6",
+  "author": "Jess",
+  "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RainzDev/BeatSync/releases/download/v0.1.6/BeatSync.qmod",
+  "dependencies": [],
+  "source": "https://github.com/RainzDev/BeatSync/",
+  "cover": "https://raw.githubusercontent.com/RainzDev/BeatSync/refs/heads/main/src/assets/logo.png",
+  "funding": [],
+  "website": "https://github.com/RainzDev/BeatSync/",
+  "ai": "assisted"
+}
