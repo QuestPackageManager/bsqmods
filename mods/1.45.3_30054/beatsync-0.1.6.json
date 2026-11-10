@@ -1,0 +1,53 @@
+{
+  "name": "BeatSync",
+  "description": "Syncs beatmaps from PC over to Quest",
+  "id": "beatsync",
+  "version": "0.1.6",
+  "author": "Jess",
+  "authorIcon": "https://avatars.githubusercontent.com/u/62964686?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/RainzDev/BeatSync/releases/download/v0.1.6/BeatSync.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.4.2"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.3.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "playlistcore",
+      "version": "^1.7.3"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.3.5"
+    },
+    {
+      "id": "web-utils",
+      "version": "^0.6.10"
+    }
+  ],
+  "source": "https://github.com/RainzDev/BeatSync/",
+  "cover": "https://raw.githubusercontent.com/RainzDev/BeatSync/main/src/assets/logo.png",
+  "funding": [],
+  "website": "https://github.com/RainzDev/BeatSync/",
+  "ai": "assisted"
+}
