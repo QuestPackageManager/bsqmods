@@ -1,0 +1,41 @@
+{
+  "name": "BetterHaptics",
+  "description": "Full control over haptics for UI, note types, and more",
+  "id": "BetterHaptics",
+  "version": "0.2.1",
+  "author": "Crunkle, CatsaCode",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/BetterHaptics/releases/download/v0.2.1/BetterHaptics.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.4.3"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.6"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.3.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/BetterHaptics/",
+  "cover": "https://raw.githubusercontent.com/bsq-ports/BetterHaptics/master/cover.png",
+  "funding": [],
+  "website": "https://github.com/bsq-ports/BetterHaptics/",
+  "ai": "none"
+}
