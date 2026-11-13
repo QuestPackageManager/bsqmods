@@ -6,7 +6,7 @@
   "author": "Crunkle",
   "authorIcon": "https://avatars.githubusercontent.com/u/8300099?v=4",
   "modloader": "Scotland2",
-  "download": "https://github.com/FrozenAlex/BetterHaptics/releases/download/v0.1.2/BetterHaptics.qmod",
+  "download": "https://github.com/bsq-ports/BetterHaptics/releases/download/v0.1.2/BetterHaptics.qmod",
   "dependencies": [
     {
       "id": "beatsaber-hook",
@@ -29,9 +29,9 @@
       "version": "^4.7.0"
     }
   ],
-  "source": "https://github.com/FrozenAlex/BetterHaptics/",
+  "source": "https://github.com/bsq-ports/BetterHaptics/",
   "cover": null,
   "funding": [],
-  "website": "https://github.com/FrozenAlex/BetterHaptics/",
+  "website": "https://github.com/bsq-ports/BetterHaptics/",
   "ai": "none"
 }
