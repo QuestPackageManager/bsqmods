@@ -1,0 +1,49 @@
+{
+  "name": "RecentlyPlayed",
+  "description": "Adds a history tab that displays the most recently played maps",
+  "id": "RecentlyPlayed",
+  "version": "1.0.0",
+  "author": "Tatenshi",
+  "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Tatenshi/RecentlyPlayed/releases/download/v1.0.0/RecentlyPlayed_1_45_3.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "metacore",
+      "version": "^2.0.6"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "songcore",
+      "version": "^1.3.5"
+    }
+  ],
+  "source": "https://github.com/Tatenshi/RecentlyPlayed/",
+  "cover": "https://raw.githubusercontent.com/Tatenshi/RecentlyPlayed/main/cover.png",
+  "funding": [],
+  "website": "https://github.com/Tatenshi/RecentlyPlayed/",
+  "ai": "none"
+}
