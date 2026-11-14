@@ -1,0 +1,37 @@
+{
+  "name": "BSNightcoreQuest",
+  "description": "Removes pitch compensation to make songs go nightcore on different speed",
+  "id": "BSNightcoreQuest",
+  "version": "0.2.0",
+  "author": "Tatenshi",
+  "authorIcon": "https://avatars.githubusercontent.com/u/55283269?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Tatenshi/BSNightcoreQuest/releases/download/v0.2.0/BSNightcoreQuest_1_45_3.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.5"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    }
+  ],
+  "source": "https://github.com/Tatenshi/BSNightcoreQuest/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/Tatenshi/BSNightcoreQuest/",
+  "ai": "none"
+}
