@@ -1,0 +1,21 @@
+{
+  "name": "WebUtils",
+  "description": "library to provide easier ways of downloading things from the web",
+  "id": "web-utils",
+  "version": "1.0.0",
+  "author": "RedBrumbler",
+  "authorIcon": "https://avatars.githubusercontent.com/u/80212088?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/bsq-ports/WebUtils/releases/download/v1.0.0/WebUtils.qmod",
+  "dependencies": [
+    {
+      "id": "libcurl",
+      "version": "^8.23.0"
+    }
+  ],
+  "source": "https://github.com/bsq-ports/WebUtils/",
+  "cover": null,
+  "funding": [],
+  "website": "https://github.com/bsq-ports/WebUtils/",
+  "ai": "none"
+}
