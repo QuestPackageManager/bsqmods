@@ -1,0 +1,44 @@
+{
+  "name": "Loqolizer",
+  "description": "Translate your game and mods",
+  "id": "Loqolizer",
+  "version": "0.7.2",
+  "author": "frto027, qe201020335",
+  "authorIcon": "https://avatars.githubusercontent.com/u/247983851?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/BeatSaberCN/Loqolizer/releases/download/v0.7.2/Loqolizer-0.7.2-bs1.45.3_30054-20261114T173539Z.qmod",
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "version": "^9.3.0"
+    },
+    {
+      "id": "bsml",
+      "version": "^0.6.7"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.21.2"
+    },
+    {
+      "id": "flamingo",
+      "version": "^1.2.1"
+    },
+    {
+      "id": "paper2_scotland2",
+      "version": "^4.8.0"
+    },
+    {
+      "id": "reflectcpp",
+      "version": "^0.25.0"
+    },
+    {
+      "id": "sslocalization",
+      "version": "^0.16.0"
+    }
+  ],
+  "source": "https://github.com/BeatSaberCN/Loqolizer/",
+  "cover": "https://raw.githubusercontent.com/BeatSaberCN/Loqolizer/master/Loqolizer.png",
+  "funding": [],
+  "website": "https://github.com/BeatSaberCN/Loqolizer/"
+}
