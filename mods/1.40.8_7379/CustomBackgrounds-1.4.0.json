@@ -1,0 +1,16 @@
+{
+  "name": "Custom Backgrounds",
+  "description": "Custom 3D wraparound backgrounds supporting PNG and JPEG images.",
+  "id": "CustomBackgrounds",
+  "version": "1.4.0",
+  "author": "Raemien, Dingo150",
+  "authorIcon": "https://avatars.githubusercontent.com/u/217195561?v=4",
+  "modloader": "Scotland2",
+  "download": "https://github.com/Dingo150/CustomBackgrounds-Quest/releases/download/v1.4.0/CustomBackgrounds.v1.40.8.qmod",
+  "dependencies": [],
+  "source": "https://github.com/Dingo150/CustomBackgrounds-Quest",
+  "cover": "https://raw.githubusercontent.com/Dingo150/CustomBackgrounds-Quest/main/vlcsnap-2026-11-19-20h54m21s736.png",
+  "funding": [],
+  "website": "https://github.com/Dingo150/CustomBackgrounds-Quest/",
+  "ai": "fully-vibed"
+}
